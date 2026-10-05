@@ -1,0 +1,536 @@
+/* Friday AI-Desk — Microsoft Teams inspired hotel PMS calendar */
+.teams-calendar-page{
+  width:100%;
+  height:100%;
+  min-width:0;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  color:#172b4d;
+  font-family:"Poppins",sans-serif!important;
+}
+
+/* =========================================================
+   Calendar — viewport fit
+   Keeps the calendar inside the application viewport.
+   Internal calendar areas handle their own scrolling.
+   ========================================================= */
+
+.teams-calendar-page{
+  height:100%;
+  min-height:0;
+  overflow:hidden;
+}
+
+.teams-calendar-page *,.teams-calendar-page *::before,.teams-calendar-page *::after{
+  font-family:"Poppins",sans-serif!important;box-sizing:border-box;
+}
+.teams-calendar-toolbar{
+  min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:0 2px 10px;border-bottom:1px solid #e7edf5;
+}
+.teams-calendar-title h1{margin:2px 0 0;font-size:22px;line-height:1.2;font-weight:700;color:#13253e}
+.teams-calendar-title .eyebrow{font-size:9px;letter-spacing:.12em;font-weight:700;color:#2877dc}
+.teams-calendar-actions{display:flex;align-items:center;gap:9px}
+.teams-search{
+  width:280px;height:36px;display:flex;align-items:center;gap:8px;padding:0 11px;
+  border:1px solid #dfe7f1;border-radius:8px;background:#f8fafc;color:#8190a3;
+}
+.teams-search input{width:100%;border:0;outline:0;background:transparent;color:#22344c;font-size:11px;font-weight:500}
+.teams-search input::placeholder{color:#94a1b2}
+.teams-new-button{
+  height:36px;border:0;border-radius:8px;padding:0 11px;background:#1769e0;color:#fff;
+  font-size:11px;font-weight:600;display:flex;align-items:center;gap:7px;cursor:pointer;
+  box-shadow:0 4px 12px rgba(23,105,224,.18);white-space:nowrap;
+}
+.teams-new-button b{font-size:17px;font-weight:500;line-height:1}.teams-new-button span{opacity:.8;margin-left:2px}
+
+.teams-calendar-commandbar{
+  min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  border-bottom:1px solid #e1e8f1;background:#fff;
+}
+.teams-command-left,.teams-command-right{display:flex;align-items:center;gap:6px;min-width:0}
+.teams-command-left strong{font-size:12px;font-weight:600;color:#293c56;margin-left:7px;white-space:nowrap}
+.teams-today-button,.teams-nav-button{
+  height:32px;border:1px solid #dce5ef;background:#fff;border-radius:7px;color:#38506e;
+  font-size:10px;font-weight:600;cursor:pointer;
+}
+.teams-today-button{padding:0 12px}.teams-nav-button{width:30px;font-size:18px;line-height:1}
+.teams-today-button:hover,.teams-nav-button:hover{background:#f5f8fc}
+.teams-view-switch{display:flex;border:1px solid #dce5ef;border-radius:8px;padding:2px;background:#f7f9fc}
+.teams-view-switch button{
+  height:27px;padding:0 11px;border:0;border-radius:6px;background:transparent;color:#63738a;
+  font-size:10px;font-weight:600;cursor:pointer;
+}
+.teams-view-switch button.active{background:#1769e0;color:#fff;box-shadow:0 2px 7px rgba(23,105,224,.18)}
+.calendar-filters{display:flex;gap:6px}
+.calendar-filters select{
+  height:32px;min-width:104px;border:1px solid #dce5ef;border-radius:7px;background:#fff;
+  padding:0 9px;color:#51637a;font-size:10px;font-weight:500;outline:0;
+}
+
+.teams-calendar-workspace{
+  display:grid;
+  grid-template-columns:218px minmax(0,1fr);
+  flex:1 1 auto;
+  min-width:0;
+  min-height:0;
+  height:auto;
+  background:#fff;
+  border:1px solid #e1e8f1;
+  border-top:0;
+  border-radius:0 0 10px 10px;
+  overflow:hidden;
+}
+.teams-calendar-sidebar{
+  min-width:0;border-right:1px solid #e2e8f0;background:#fbfcfe;padding:15px 13px;overflow:auto;
+}
+.teams-mini-calendar{padding-bottom:15px;border-bottom:1px solid #e5ebf3}
+.teams-mini-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.teams-mini-title strong{font-size:11px;color:#243750}
+.teams-mini-title button{width:23px;height:23px;border:0;background:transparent;color:#66778d;font-size:17px;cursor:pointer}
+.teams-mini-weekdays,.teams-mini-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center}
+.teams-mini-weekdays span{
+  font-size:11px;
+  font-weight:500;
+  color:#7f8da0;
+  text-transform:uppercase;
+  padding-bottom:5px;
+}
+.teams-mini-grid button,.teams-mini-grid span{
+  width:21px;
+  height:21px;
+  margin:auto;
+  border:0;
+  background:transparent;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:8.5px;
+  color:#53657a;
+  cursor:pointer;
+  position:relative;
+}
+.teams-mini-grid button:hover{background:#edf4fd}
+.teams-mini-grid button.today{color:#1769e0;font-size:8.5px !important;font-weight:700}
+.teams-mini-grid button.selected{width:21px;height:21px;background:#1769e0;color:#fff;font-size:8.5px !important;font-weight:700;border-radius:50%}
+.teams-mini-grid button.has-events:not(.selected)::after{
+  content:"";position:absolute;bottom:2px;width:3px;height:3px;border-radius:50%;background:#36a269;
+}
+.mini-today{
+  margin-top:10px;height:27px;width:100%;border:1px solid #dce5ef;border-radius:7px;background:#fff;
+  color:#1769e0;font-size:9px;font-weight:600;cursor:pointer;
+}
+.teams-sidebar-section{padding:14px 2px;border-bottom:1px solid #e5ebf3}
+.teams-sidebar-section-title{font-size:9px;font-weight:700;color:#7b899a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.teams-sidebar-section label{display:flex;align-items:center;gap:8px;padding:7px 3px;color:#4d6078;font-size:10px;font-weight:500}
+.calendar-check{width:8px;height:8px;border-radius:50%;display:inline-block}.calendar-check.blue{background:#1769e0}.calendar-check.green{background:#2aa36b}.calendar-check.orange{background:#e49525}.calendar-check.purple{background:#7b61d9}
+.teams-sidebar-summary{margin-top:14px;padding:12px;border:1px solid #e0e8f1;border-radius:9px;background:#fff}
+.teams-sidebar-summary span,.teams-sidebar-summary small{display:block;color:#8492a3;font-size:9px}
+.teams-sidebar-summary strong{display:block;margin:2px 0;font-size:21px;color:#1769e0}
+
+.teams-calendar-main{
+  min-width:0;
+  min-height:0;
+  height:100%;
+  background:#fff;
+  overflow:hidden;
+}
+.teams-schedule-layout{display:grid;grid-template-columns:minmax(0,1fr) 220px;height:100%;min-width:0}
+.teams-schedule-layout.day-layout{grid-template-columns:minmax(0,1fr) 230px}
+.teams-grid-main{min-width:0;min-height:0;overflow:hidden}
+.teams-timeline-scroll{width:100%;height:100%;overflow:auto;position:relative}
+.teams-time-header{
+  display:grid;grid-auto-flow:column;min-width:0;position:sticky;top:0;z-index:12;
+  background:#fff;border-bottom:1px solid #dfe6ef;
+}
+.teams-time-spacer{height:51px;border-right:1px solid #e4eaf2;background:#fbfcfe}
+.teams-time-header:not(:has(+ *)){}
+.teams-time-body{display:grid;grid-template-columns:58px minmax(0,1fr);min-width:0}
+.teams-hour-axis{background:#fbfcfe;border-right:1px solid #e4eaf2}
+.teams-hour-axis div{height:64px;padding:5px 8px 0 0;text-align:right;color:#8a98a9;font-size:8px;font-weight:500}
+.teams-day-columns{display:grid;min-width:0}
+.teams-day-head{
+  min-width:0;height:51px;border-right:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;gap:5px;
+  color:#6e7f94;background:#fff;font-size:9px;font-weight:600;position:relative;
+}
+.teams-day-head b{font-size:14px;color:#334963}.teams-day-head small{font-size:8px;color:#94a1b1}
+.teams-day-head.today{color:#1769e0;background:#f6f9fe}.teams-day-head.today b{color:#1769e0}
+.teams-day-head.today::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#1769e0}
+.teams-time-body .teams-day-columns{grid-column:2}
+.teams-day-column{position:relative;min-width:0;height:1536px;border-right:1px solid #e3e9f1;background:#fff}
+.teams-day-column.today{background:#fcfdff}
+.teams-hour-row{height:64px;border-bottom:1px solid #edf1f5;position:relative}
+.teams-hour-row::after{content:"";position:absolute;left:0;right:0;top:31px;border-top:1px dashed #f0f3f7}
+.teams-event{
+  position:absolute;left:4px;right:4px;z-index:4;border:0;border-left:3px solid #1769e0;border-radius:5px;
+  padding:5px 6px;text-align:left;overflow:hidden;cursor:pointer;box-shadow:0 1px 3px rgba(33,57,87,.08);
+}
+.teams-event strong,.teams-event span,.teams-event small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.teams-event strong{font-size:9px;font-weight:700;color:#24405e}.teams-event span{font-size:8px;font-weight:500;color:#63758b;margin-top:2px}.teams-event small{font-size:8px;color:#73859a;margin-top:2px}
+.teams-event--confirmed{background:#eaf3ff;border-left-color:#287be0}.teams-event--checked{background:#e9f8f0;border-left-color:#2ca66e}.teams-event--departure{background:#fff3e4;border-left-color:#e39123}.teams-event--reserved{background:#f0edff;border-left-color:#7b61d9}.teams-event--cancelled{background:#f3f4f6;border-left-color:#9aa4b1}
+.teams-now-line{position:absolute;left:0;right:0;height:2px;background:#ef4b56;z-index:7;pointer-events:none}
+.teams-now-line span{position:absolute;left:-1px;top:-7px;background:#ef4b56;color:#fff;border-radius:5px;padding:2px 4px;font-size:7px;font-weight:700}
+
+.teams-agenda{min-width:0;border-left:1px solid #e2e8f0;background:#fbfcfe;padding:13px;overflow:auto}
+.agenda-title{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:11px;border-bottom:1px solid #e4eaf1}
+.agenda-title .eyebrow{font-size:8px;color:#7f8ea1;font-weight:700;letter-spacing:.08em}.agenda-title h3{margin:2px 0 0;font-size:13px;color:#253a54}
+.agenda-count{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#e8f1fd;color:#1769e0;font-size:9px;font-weight:700}
+.agenda-row{width:100%;display:flex;gap:8px;align-items:flex-start;padding:10px 4px;border:0;border-bottom:1px solid #e8edf3;background:transparent;text-align:left;cursor:pointer}
+.agenda-row:hover{background:#f3f7fc}.agenda-time{width:43px;color:#8493a5;font-size:8px;font-weight:600;padding-top:1px;flex:0 0 auto}
+.agenda-main strong,.agenda-main small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.agenda-main strong{font-size:9px;color:#29415e}.agenda-main small{margin-top:2px;color:#78899d;font-size:8px}
+.agenda-row--checked .agenda-time{color:#2a9d69}.agenda-row--departure .agenda-time{color:#d27f18}.agenda-row--confirmed .agenda-time{color:#1769e0}
+.agenda-empty{padding:30px 5px;color:#93a0af;font-size:9px;text-align:center}
+
+.teams-month{height:100%;min-height:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));grid-template-rows:32px repeat(5,minmax(0,1fr));overflow:hidden;background:#fff}
+.teams-month-head{display:flex;align-items:center;padding:0 9px;border-right:1px solid #e3e9f1;border-bottom:1px solid #dfe6ef;background:#fbfcfe;color:#718196;font-size:9px;font-weight:600}
+.teams-month-cell{position:relative;min-width:0;padding:7px;border:0;border-right:1px solid #e4eaf1;border-bottom:1px solid #e4eaf1;background:#fff;text-align:left;cursor:pointer;overflow:hidden}
+.teams-month-cell:hover{background:#fafcff}.teams-month-cell.outside{background:#fbfcfe}.teams-month-cell.today{background:#f5f9ff}
+.teams-month-number{
+  display:flex;
+  width:24px;
+  height:24px;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:9px !important;
+  line-height:1 !important;
+  font-weight:600;
+  color:#52657c;
+}
+.teams-month-cell.today .teams-month-number{background:#1769e0;color:#fff}
+.teams-month-events{display:flex;flex-direction:column;gap:3px;margin-top:3px}
+.month-event{display:block;min-width:0;padding:4px 5px;border-radius:4px;border-left:3px solid #1769e0;background:#edf5ff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#42556c;font-size:8px}
+.month-event b{font-weight:600}.month-event em{font-style:normal;color:#78889b}.month-event--checked{border-left-color:#2ca66e;background:#edf9f3}.month-event--departure{border-left-color:#e39123;background:#fff7eb}.month-event--reserved{border-left-color:#7b61d9;background:#f4f1ff}.month-more{font-size:8px;color:#1769e0;font-weight:600;padding:2px 4px}
+
+.teams-year{height:100%;min-height:0;overflow:hidden;padding:10px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:8px;background:#fbfcfe}
+.teams-year-card{border:1px solid #e0e7f0;border-radius:9px;background:#fff;padding:10px;text-align:left;cursor:pointer;min-width:0;min-height:0;overflow:hidden}
+.teams-year-card:hover{border-color:#bcd4f2;box-shadow:0 5px 15px rgba(38,73,111,.07)}
+.year-card-head{display:flex;justify-content:space-between;gap:8px}.year-card-head strong{font-size:11px;color:#2b4059}.year-card-head span{font-size:8px;color:#8593a4}
+.year-bars{height:28px;display:flex;align-items:flex-end;gap:2px;margin:7px 0 5px;overflow:hidden}
+.year-bars i{display:block;flex:1;min-width:2px;border-radius:2px 2px 0 0;background:#8eb8ed}
+.year-bars i:nth-child(3n){background:#b9d4f4}
+.year-card-foot{display:flex;justify-content:space-between;color:#8896a6;font-size:8px}.year-card-foot b{color:#1769e0;font-weight:600}
+
+.teams-calendar-legend{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  height:28px;
+  min-height:28px;
+  color:#758499;
+  font-size:8px;
+}
+.teams-calendar-legend span{display:flex;align-items:center;gap:5px}.legend-dot{width:7px;height:7px;border-radius:50%;display:inline-block}.legend-dot.blue{background:#287be0}.legend-dot.green{background:#2ca66e}.legend-dot.orange{background:#e39123}.legend-dot.purple{background:#7b61d9}.legend-note{margin-left:auto;color:#9aa6b5}
+
+@media(max-width:1100px){
+  .teams-calendar-workspace{grid-template-columns:190px minmax(0,1fr)}
+  .teams-schedule-layout{grid-template-columns:minmax(0,1fr)}
+  .teams-agenda{display:none}
+  .teams-search{width:220px}
+}
+/* =========================================================
+   MONTH / YEAR — FIT ALL CONTENT INSIDE THE AVAILABLE VIEWPORT
+   ========================================================= */
+
+.teams-month-scroll,
+.teams-year-scroll{
+  height:100%;
+  min-height:0;
+  overflow:hidden;
+}
+
+.teams-month{
+  height:100%;
+  min-height:0;
+  grid-template-rows:32px repeat(5,minmax(0,1fr));
+  overflow:hidden;
+}
+
+.teams-month-cell{
+  min-height:0;
+}
+
+.teams-year{
+  height:100%;
+  min-height:0;
+  padding:10px;
+  grid-template-rows:repeat(3,minmax(0,1fr));
+  gap:8px;
+  overflow:hidden;
+}
+
+.teams-year-card{
+  min-height:0;
+  padding:10px;
+  overflow:hidden;
+}
+
+.year-bars{
+  height:28px;
+  margin:7px 0 5px;
+}
+
+@media(max-width:800px){
+  .teams-calendar-toolbar,.teams-calendar-commandbar{align-items:flex-start;flex-direction:column;padding:8px 0}
+  .teams-calendar-actions,.teams-command-left,.teams-command-right{width:100%;flex-wrap:wrap}
+  .teams-search{flex:1;width:auto}.teams-calendar-workspace{grid-template-columns:1fr;height:calc(100vh - 315px)}
+  .teams-calendar-sidebar{display:none}.teams-year{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* =========================================================
+   FRIDAY AI - DESK — FINAL CALENDAR TYPOGRAPHY
+   Actual Calendar root: .teams-calendar-page
+   ========================================================= */
+
+.teams-calendar-page,
+.teams-calendar-page button,
+.teams-calendar-page input,
+.teams-calendar-page select {
+  font-family:"Poppins",sans-serif !important;
+}
+
+/* Toolbar */
+.teams-calendar-page button,
+.teams-calendar-page select {
+  font-size:13px;
+}
+
+/* LEFT MINI CALENDAR — weekday labels */
+.teams-calendar-page .teams-mini-weekdays span {
+  font-size:10px !important;
+  font-weight:500 !important;
+}
+
+/* LEFT MINI CALENDAR — date numbers */
+.teams-calendar-page .teams-mini-grid button,
+.teams-calendar-page .teams-mini-grid span {
+  width:21px !important;
+  height:21px !important;
+  font-size:8.5px !important;
+  line-height:1 !important;
+}
+
+/* LEFT MINI CALENDAR — selected date */
+.teams-calendar-page .teams-mini-grid button.selected {
+  width:21px !important;
+  height:21px !important;
+  font-size:8.5px !important;
+  line-height:1 !important;
+  font-weight:700 !important;
+}
+
+/* LEFT MINI CALENDAR — today */
+.teams-calendar-page .teams-mini-grid button.today {
+  font-size:8.5px !important;
+}
+
+/* MAIN MONTH VIEW — date numbers */
+.teams-calendar-page .teams-month .teams-month-number {
+  width:24px !important;
+  height:24px !important;
+  font-size:9px !important;
+  line-height:1 !important;
+  font-weight:600 !important;
+}
+
+/* MAIN MONTH VIEW — weekday headers */
+.teams-calendar-page .teams-month .teams-month-head {
+  font-size:9px !important;
+}
+
+/* MAIN MONTH VIEW — reservation text */
+.teams-calendar-page .teams-month .month-event {
+  font-size:8px !important;
+}
+
+.teams-calendar-page .teams-month .month-more {
+  font-size:8px !important;
+}
+
+/* =========================================================
+   Calendar page — lock application viewport
+   ========================================================= */
+
+.main-shell:has(.teams-calendar-page){
+  height:100vh;
+  height:100dvh;
+  overflow:hidden;
+}
+
+.main-shell:has(.teams-calendar-page) main{
+  height:calc(100vh - 68px);
+  height:calc(100dvh - 68px);
+  min-height:0;
+  overflow:hidden;
+}
+
+
+/* =========================================================
+   CALENDAR — FINAL VIEWPORT FIT
+   Keep the calendar inside the application viewport.
+   Only the calendar's internal areas may scroll.
+   ========================================================= */
+
+.teams-calendar-page{
+  width:100%;
+  height:100%;
+  min-width:0;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  box-sizing:border-box;
+}
+
+.teams-calendar-toolbar{
+  flex:0 0 auto;
+}
+
+.teams-calendar-commandbar{
+  flex:0 0 auto;
+}
+
+.teams-calendar-workspace{
+  flex:1 1 auto;
+  width:100%;
+  min-width:0;
+  min-height:0;
+  height:auto;
+  overflow:hidden;
+}
+
+.teams-calendar-main{
+  min-width:0;
+  min-height:0;
+  height:100%;
+  overflow:hidden;
+}
+
+.teams-calendar-legend{
+  flex:0 0 28px;
+  height:28px;
+  min-height:28px;
+  overflow:hidden;
+}
+
+/* Keep the actual calendar data scrollable without scrolling the page. */
+.teams-timeline-scroll,
+.teams-month-scroll,
+.teams-year-scroll{
+  min-height:0;
+  overflow:auto;
+}
+
+/* =========================================================
+   MONTH / YEAR — FIT ALL CONTENT INSIDE THE AVAILABLE VIEWPORT
+   ========================================================= */
+
+.teams-month-scroll,
+.teams-year-scroll{
+  height:100%;
+  min-height:0;
+  overflow:hidden;
+}
+
+.teams-month{
+  height:100%;
+  min-height:0;
+  grid-template-rows:32px repeat(5,minmax(0,1fr));
+  overflow:hidden;
+}
+
+.teams-month-cell{
+  min-height:0;
+}
+
+.teams-year{
+  height:100%;
+  min-height:0;
+  padding:10px;
+  grid-template-rows:repeat(3,minmax(0,1fr));
+  gap:8px;
+  overflow:hidden;
+}
+
+.teams-year-card{
+  min-height:0;
+  padding:10px;
+  overflow:hidden;
+}
+
+.year-bars{
+  height:28px;
+  margin:7px 0 5px;
+}
+
+@media(max-width:800px){
+  .teams-calendar-workspace{
+    height:auto;
+    min-height:0;
+    flex:1 1 auto;
+  }
+}
+
+/* =========================================================
+   CALENDAR V2 — FORCE MONTH/YEAR TO USE THE ACTUAL GRID HEIGHT
+   ========================================================= */
+
+.teams-calendar-workspace{
+  min-height:0 !important;
+  height:auto !important;
+  overflow:hidden !important;
+}
+
+.teams-calendar-main{
+  min-width:0 !important;
+  min-height:0 !important;
+  height:auto !important;
+  display:flex !important;
+  flex-direction:column !important;
+  overflow:hidden !important;
+}
+
+.teams-calendar-main > .teams-month,
+.teams-calendar-main > .teams-year,
+.teams-calendar-main > .teams-schedule-layout{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  max-height:100% !important;
+}
+
+.teams-calendar-main > .teams-month{
+  height:auto !important;
+  grid-template-rows:30px repeat(5,minmax(0,1fr)) !important;
+}
+
+.teams-calendar-main > .teams-year{
+  height:auto !important;
+  padding:8px !important;
+  grid-template-rows:repeat(3,minmax(0,1fr)) !important;
+  gap:7px !important;
+}
+
+.teams-calendar-main > .teams-year .teams-year-card{
+  padding:8px !important;
+}
+
+.teams-calendar-main > .teams-year .year-bars{
+  height:24px !important;
+  margin:5px 0 4px !important;
+}
+
+.teams-calendar-main > .teams-month .teams-month-cell{
+  min-height:0 !important;
+  padding:5px !important;
+}
+
+.teams-calendar-main > .teams-month .teams-month-events{
+  gap:2px !important;
+  margin-top:2px !important;
+}
+
+.teams-calendar-main > .teams-month .month-event{
+  padding:3px 4px !important;
+}
