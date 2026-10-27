@@ -1,0 +1,50 @@
+[
+  {
+    "code": "TAJ-MUM-001",
+    "url": "/demo-hotels/TAJ-MUM-001-1280.webp",
+    "smallUrl": "/demo-hotels/TAJ-MUM-001-640.webp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taj_Mahal_Palace_Hotel.jpg",
+    "author": "Joe Ravi",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "licenseStatus": "Verified Commons licence",
+    "changes": "Resized and converted to WebP; displayed in a 16:9 card with object-fit cover.",
+    "alt": "Taj Mahal Palace Hotel.jpg"
+  },
+  {
+    "code": "TAJ-BLR-002",
+    "url": "/demo-hotels/TAJ-BLR-002-1280.webp",
+    "smallUrl": "/demo-hotels/TAJ-BLR-002-640.webp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heritage_Block%2C_the_Taj_West_End%2C_Bangalore.jpg",
+    "author": "Taj Hotels, Resorts and Palaces",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "licenseStatus": "Verified Commons licence",
+    "changes": "Resized and converted to WebP; displayed in a 16:9 card with object-fit cover.",
+    "alt": "Heritage Block, the Taj West End, Bangalore.jpg"
+  },
+  {
+    "code": "TAJ-UDR-003",
+    "url": "/demo-hotels/TAJ-UDR-003-1280.webp",
+    "smallUrl": "/demo-hotels/TAJ-UDR-003-640.webp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taj_Lake_Palace_Udaipur_from_City_Palace.jpg",
+    "author": "Navneet Sharma",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "licenseStatus": "Verified Commons licence",
+    "changes": "Resized and converted to WebP; displayed in a 16:9 card with object-fit cover.",
+    "alt": "Taj Lake Palace Udaipur from City Palace.jpg"
+  },
+  {
+    "code": "TAJ-GOA-004",
+    "status": "Pending: no suitable exterior photograph with verified reuse permission found.",
+    "sourceUrl": "https://www.tajhotels.com/en-in/hotels/taj-exotica-goa/gallery",
+    "licenseStatus": "Permission required; not downloaded"
+  },
+  {
+    "code": "TAJ-MAA-005",
+    "status": "Pending: no suitable exterior photograph with verified reuse permission found.",
+    "sourceUrl": "https://www.tajhotels.com/en-in/hotels/taj-coromandel-chennai/gallery",
+    "licenseStatus": "Permission required; not downloaded"
+  }
+]

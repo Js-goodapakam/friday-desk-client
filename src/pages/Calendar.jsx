@@ -163,9 +163,10 @@ function ReservationBlock({data,reservation,day,compact=false}){
       className={`teams-event teams-event--${tone}${compact?" compact":""}`}
       style={{top,height}}
       title={`${guestName(data,reservation)} · Room ${getRoomName(data,reservation)}`}
+      onClick={()=>window.dispatchEvent(new CustomEvent("friday:open-reservation",{detail:{id:reservation.id,propertyId:data.property.id}}))}
     >
       <strong>{guestName(data,reservation)}</strong>
-      <span>Room {getRoomName(data,reservation)}</span>
+      <span>Room {getRoomName(data,reservation)}{reservation.groupId?" · Group":""}</span>
       {!compact && <small>{first?timeText(checkInMinutes(reservation)):"00:00"} – {last?timeText(checkOutMinutes(reservation)):"24:00"}</small>}
     </button>
   );
@@ -328,7 +329,7 @@ function Agenda({data,day,query,roomFilter,statusFilter,onOpenGuest}){
 }
 
 export default function CalendarPage({data,onOpenGuest,onNewReservation}){
-  const today=new Date();
+  const today=data.demo?.referenceDate?parseISO(data.demo.referenceDate):new Date();
   const [view,setView]=useState("week");
   const [cursor,setCursor]=useState(today);
   const [query,setQuery]=useState("");

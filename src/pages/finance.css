@@ -1,7 +1,7 @@
 .finance-page,
 .finance-page * {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--fr-font, "Inter", Arial, sans-serif);
 }
 
 .finance-page {
@@ -18,8 +18,8 @@
 
 .finance-eyebrow {
   color:#6f829a;
-  font-size:9px;
-  font-weight:700;
+  font-size:11px;
+  font-weight:600;
   letter-spacing:.07em;
 }
 
@@ -27,20 +27,20 @@
   margin:3px 0 3px;
   color:#173d72;
   font-size:22px;
-  font-weight:700;
+  font-weight:600;
 }
 
 .finance-heading p {
   margin:0;
   color:#8290a3;
-  font-size:10.5px;
+  font-size:11px;
 }
 
 .finance-primary,
 .finance-secondary,
 .finance-action,
 .finance-close {
-  font-family:"Poppins",sans-serif;
+  font-family:var(--fr-font, "Inter", Arial, sans-serif);
   cursor:pointer;
 }
 
@@ -50,8 +50,8 @@
   background:linear-gradient(135deg,#18558f,#3186c7);
   color:#fff;
   padding:9px 13px;
-  font-size:10px;
-  font-weight:700;
+  font-size:11px;
+  font-weight:600;
 }
 
 .finance-secondary {
@@ -60,7 +60,7 @@
   background:#fff;
   color:#5e7088;
   padding:9px 13px;
-  font-size:10px;
+  font-size:11px;
   font-weight:600;
 }
 
@@ -82,8 +82,8 @@
 .finance-kpi span {
   display:block;
   color:#7e8da2;
-  font-size:8.5px;
-  font-weight:700;
+  font-size:11px;
+  font-weight:600;
   text-transform:uppercase;
   letter-spacing:.05em;
   margin-bottom:7px;
@@ -111,8 +111,8 @@
   background:transparent;
   color:#718198;
   padding:7px 13px;
-  font-family:"Poppins",sans-serif;
-  font-size:9.5px;
+  font-family:var(--fr-font, "Inter", Arial, sans-serif);
+  font-size:11px;
   font-weight:600;
   cursor:pointer;
 }
@@ -159,7 +159,7 @@
   display:block;
   margin-top:2px;
   color:#8794a6;
-  font-size:8.5px;
+  font-size:11px;
 }
 
 .finance-progress {
@@ -181,7 +181,7 @@
   justify-content:space-between;
   padding:0 15px 15px;
   color:#7a8a9e;
-  font-size:9px;
+  font-size:11px;
 }
 
 .finance-progress-meta strong {
@@ -198,7 +198,7 @@
   align-items:center;
   padding:9px 0;
   border-bottom:1px solid #edf1f5;
-  font-size:9.5px;
+  font-size:11px;
 }
 
 .finance-status-row:last-child {
@@ -241,8 +241,8 @@
   border-radius:7px;
   background:#edf6ff;
   color:#1763a0!important;
-  font-size:9px!important;
-  font-weight:700;
+  font-size:11px!important;
+  font-weight:600;
 }
 
 .finance-filters {
@@ -274,8 +274,8 @@
   outline:0;
   background:transparent;
   color:#405671;
-  font-family:"Poppins",sans-serif;
-  font-size:9.5px;
+  font-family:var(--fr-font, "Inter", Arial, sans-serif);
+  font-size:11px;
 }
 
 .finance-search input {
@@ -304,8 +304,8 @@
   background:#fafcff;
   border-bottom:1px solid #e9eef5;
   color:#7d8b9e;
-  font-size:8px;
-  font-weight:700;
+  font-size:11px;
+  font-weight:600;
   text-align:left;
   text-transform:uppercase;
   letter-spacing:.04em;
@@ -316,14 +316,14 @@
   padding:10px 11px;
   border-bottom:1px solid #edf1f5;
   color:#405773;
-  font-size:9.5px;
+  font-size:11px;
   vertical-align:middle;
 }
 
 .finance-table td strong {
   display:block;
   color:#2b4563;
-  font-size:9.5px;
+  font-size:11px;
   font-weight:600;
 }
 
@@ -331,18 +331,18 @@
   display:block;
   margin-top:3px;
   color:#8996a8;
-  font-size:7.8px;
+  font-size:11px;
 }
 
 .finance-paid { color:#19744d!important; font-weight:600; }
-.finance-balance { color:#a36b18!important; font-weight:700; }
+.finance-balance { color:#a36b18!important; font-weight:600; }
 
 .finance-status {
   display:inline-flex;
   padding:4px 7px;
   border-radius:999px;
-  font-size:7.5px;
-  font-weight:700;
+  font-size:11px;
+  font-weight:600;
 }
 
 .finance-status.paid { background:#e9f8f0; color:#19744d; }
@@ -355,8 +355,8 @@
   border-radius:6px;
   background:#f2f8fd;
   color:#1763a0;
-  font-size:8px;
-  font-weight:700;
+  font-size:11px;
+  font-weight:600;
 }
 
 .finance-action.muted-action {
@@ -406,7 +406,7 @@
 .finance-modal-head p {
   margin:0;
   color:#8794a6;
-  font-size:9px;
+  font-size:11px;
 }
 
 .finance-close {
@@ -438,7 +438,7 @@
 .finance-payment-summary span {
   display:block;
   color:#8492a5;
-  font-size:8px;
+  font-size:11px;
 }
 
 .finance-payment-summary strong {
@@ -467,7 +467,7 @@
 
 .finance-form-grid label span {
   color:#61738b;
-  font-size:8.5px;
+  font-size:11px;
   font-weight:600;
 }
 
@@ -481,8 +481,8 @@
   padding:8px;
   background:#fbfdff;
   color:#304862;
-  font-family:"Poppins",sans-serif;
-  font-size:9.5px;
+  font-family:var(--fr-font, "Inter", Arial, sans-serif);
+  font-size:11px;
 }
 
 .finance-modal-actions {

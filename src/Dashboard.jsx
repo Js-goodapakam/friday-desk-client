@@ -150,7 +150,8 @@ export default function Dashboard({
     document.getElementById("fd-moves-title")?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
-  const { offset, money, balance } = utils;
+  const { money, balance } = utils;
+  const offset = n => data.demo?.referenceDate ? new Date(Date.parse(data.demo.referenceDate+'T12:00:00Z')+n*86400000).toISOString().slice(0,10) : utils.offset(n);
   const today = offset(0);
   const totalRooms = hotel.rooms.length;
   const guestOf = (id) => data.guests.find((g) => g.id === id);
@@ -158,8 +159,9 @@ export default function Dashboard({
   const arrivals = data.reservations.filter((r) => r.arrival === today && r.status === "Confirmed");
   const inhouse = data.reservations.filter((r) => r.status === "Checked In");
   const departures = data.reservations.filter((r) => r.departure === today && r.status === "Checked In");
-  const occupied = new Set(inhouse.map((r) => r.room));
-  const occupancy = totalRooms ? Math.round((occupied.size / totalRooms) * 100) : 0;
+  const occupied = new Set(data.reservations.filter(r=>["Confirmed","Checked In","Modified"].includes(r.status)&&r.arrival<=today&&today<r.departure).map(r=>r.room));
+  const closedRooms=new Set((data.roomBlocks||[]).filter(b=>b.arrival<=today&&today<b.departure).map(b=>b.room));
+  const occupancy = data.metrics?.occupancy ?? (totalRooms ? Math.round((occupied.size / totalRooms) * 100) : 0);
 
   const withBalance = data.reservations
     .map((r) => ({ r, due: balance(r) }))
@@ -167,14 +169,14 @@ export default function Dashboard({
     .sort((a, b) => b.due - a.due);
   const totalDue = withBalance.reduce((sum, x) => sum + x.due, 0);
   const openRequests = data.requests.filter((q) => q.status === "Open");
-  const upcoming = data.reservations.filter((r) => ["Confirmed", "Upcoming"].includes(r.status)).length;
+  const upcoming = data.reservations.filter((r) => ["Confirmed", "Upcoming", "Modified"].includes(r.status)).length;
 
   /* 7-day outlook: check-out day is not an occupied night */
   const outlook = Array.from({ length: 7 }, (_, i) => {
     const day = offset(i);
     const rooms = new Set(
       data.reservations
-        .filter((r) => ["Confirmed", "Checked In"].includes(r.status) && r.arrival <= day && day < r.departure)
+        .filter((r) => ["Confirmed", "Checked In", "Modified"].includes(r.status) && r.arrival <= day && day < r.departure)
         .map((r) => r.room),
     );
     if (i === 0) occupied.forEach((room) => rooms.add(room));
@@ -218,7 +220,7 @@ export default function Dashboard({
       {/* ---------- Header ---------- */}
       <header className="fd-head">
         <div>
-          <div className="fd-eyebrow">{todayLabel}</div>
+          <div className="fd-eyebrow">{todayLabel}{data.demo?' · Sample data reference date':''}</div>
           <h1 className="fd-title">{greeting()}</h1>
           <p className="fd-sub">Here is what is happening at {hotel.name}, {hotel.location} today.</p>
         </div>
@@ -288,7 +290,7 @@ export default function Dashboard({
 
       <section className="fd-strip" aria-label="More numbers">
         <button type="button" onClick={() => showTab("inhouse")}><b>{inhouse.length}</b><span>In-house guests</span></button>
-        <button type="button" onClick={() => setPage("rooms")}><b>{totalRooms - occupied.size}</b><span>Rooms available</span></button>
+        <button type="button" onClick={() => setPage("rooms")}><b>{data.metrics?.availableRooms ?? Math.max(0,totalRooms - occupied.size - closedRooms.size)}</b><span>Rooms available</span></button>
         <button type="button" onClick={() => setPage("reservations")}><b>{upcoming}</b><span>Upcoming reservations</span></button>
         <button type="button" onClick={() => setPage("requests")}><b>{openRequests.length}</b><span>Open guest requests</span></button>
         <button type="button" onClick={() => setPage("guests")}><b>{data.guests.length}</b><span>Guest profiles</span></button>
@@ -362,7 +364,7 @@ export default function Dashboard({
               </button>
             </div>
             <div className="fd-rooms">
-              {hotel.rooms.map((room) => {
+              {hotel.rooms.slice(0,12).map((room) => {
                 const s = roomState(room);
                 return (
                   <div key={room} className={`fd-room fd-room--${s.key}`}
@@ -374,6 +376,7 @@ export default function Dashboard({
                 );
               })}
             </div>
+            {hotel.rooms.length>12&&<p className="fd-room-preview-note">Showing 12 of {hotel.rooms.length} rooms. Open All rooms for the complete inventory.</p>}
             <div className="fd-legend">
               <span><i className="fd-dot fd-dot--occupied" />Occupied</span>
               <span><i className="fd-dot fd-dot--arriving" />Arriving</span>

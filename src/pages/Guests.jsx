@@ -84,8 +84,8 @@ export default function Guests({ data, setSelected, setData, onCall }) {
   const [roomSaveMessage, setRoomSaveMessage] = useState("");
 
   const checkedInReservations = useMemo(
-    () => data.reservations.filter((r) => r.status === "Checked In"),
-    [data.reservations]
+    () => data.demo ? data.guests.map(g=>data.reservations.find(r=>r.guestId===g.id&&r.status==="Checked In")||data.reservations.find(r=>r.guestId===g.id)).filter(Boolean) : data.reservations.filter((r) => r.status === "Checked In"),
+    [data.reservations,data.guests,data.demo]
   );
 
   const rows = useMemo(() => {
@@ -122,7 +122,7 @@ export default function Guests({ data, setSelected, setData, onCall }) {
 
     const conflicting = data.reservations.find((r) => {
       if (r.id === currentReservationId) return false;
-      if (!["Confirmed", "Checked In"].includes(r.status)) return false;
+      if (!["Confirmed", "Checked In", "Modified"].includes(r.status)) return false;
       if (String(r.room || "") !== room) return false;
       if (!current?.arrival || !current?.departure) return true;
       return current.arrival < r.departure && current.departure > r.arrival;
@@ -193,7 +193,7 @@ export default function Guests({ data, setSelected, setData, onCall }) {
 
     const conflict = data.reservations.some((r) => {
       if (r.id === reservationId) return false;
-      if (!["Confirmed", "Checked In"].includes(r.status)) return false;
+      if (!["Confirmed", "Checked In", "Modified"].includes(r.status)) return false;
       if (String(r.room || "") !== roomNumber) return false;
       if (!currentReservation.arrival || !currentReservation.departure) return true;
       return (
@@ -913,11 +913,11 @@ export default function Guests({ data, setSelected, setData, onCall }) {
             and stay history.
           </p>
         </div>
-        <span className="pill">{rows.length} in-house</span>
+        <span className="pill">{rows.length} {data.demo?"profiles":"in-house"}</span>
       </div>
 
       <div className="guest-kpis">
-        <Kpi label="In-house guests" value={rows.length} />
+        <Kpi label={data.demo?"Guest profiles":"In-house guests"} value={rows.length} />
         <Kpi label="KYC pending" value={kycPending} />
         <Kpi
           label="Arrivals today"
@@ -954,7 +954,7 @@ export default function Guests({ data, setSelected, setData, onCall }) {
       <section className="card table-card guests-table-card">
         <div className="guest-table-title">
           <div>
-            <strong>In-house guests</strong>
+            <strong>{data.demo?"Guest directory":"In-house guests"}</strong>
             <span>Guests who have completed the reservation-to-check-in flow.</span>
           </div>
           <span className="guest-table-count">{rows.length}</span>

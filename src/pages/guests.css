@@ -3,7 +3,7 @@
 
 .guests-page,
 .guest-profile-page {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--fr-font, "Inter", Arial, sans-serif);
   color: #172b4d;
   min-width: 0;
 }
@@ -11,7 +11,7 @@
 .guests-page *,
 .guest-profile-page * {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--fr-font, "Inter", Arial, sans-serif);
 }
 
 .guests-heading {
@@ -36,7 +36,7 @@
 
 .guest-kpi span {
   display: block;
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 600;
   color: #72829a;
   text-transform: uppercase;
@@ -49,7 +49,7 @@
   font-size: 21px;
   line-height: 1;
   color: #163d73;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .guest-toolbar {
@@ -112,14 +112,14 @@
   display: block;
   color: #173d72;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .guest-table-title span:not(.guest-table-count) {
   display: block;
   margin-top: 3px;
   color: #7b8aa0;
-  font-size: 10.5px;
+  font-size: 11px;
 }
 
 .guest-table-count {
@@ -133,7 +133,7 @@
   background: #edf6ff;
   color: #1764aa;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .guests-table-card table {
@@ -146,8 +146,8 @@
   background: #fafcff;
   border-bottom: 1px solid #e9eef5;
   color: #7b8aa0;
-  font-size: 9.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   text-align: left;
   text-transform: uppercase;
   letter-spacing: .045em;
@@ -191,13 +191,13 @@
   border-radius: 50%;
   background: linear-gradient(135deg, #eaf5ff, #dbeaff);
   color: #17528d;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .avatar {
   width: 32px;
   height: 32px;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .guest-cell strong,
@@ -213,7 +213,7 @@
   display: block;
   margin-top: 3px;
   color: #8794a7;
-  font-size: 9.5px;
+  font-size: 11px;
 }
 
 .guest-live-pill,
@@ -224,8 +224,8 @@
   min-height: 22px;
   padding: 0 8px;
   border-radius: 999px;
-  font-size: 8.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: .045em;
   white-space: nowrap;
 }
@@ -310,13 +310,13 @@
   color: #173d72;
   font-size: 20px;
   line-height: 1.25;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .guest-profile-title p {
   margin: 0;
   color: #7d8da2;
-  font-size: 10.5px;
+  font-size: 11px;
 }
 
 .guest-status-stack {
@@ -355,7 +355,7 @@
   border-radius: 8px;
   background: transparent;
   color: #657791;
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 500;
   text-align: left;
   cursor: pointer;
@@ -369,7 +369,7 @@
 .guest-profile-nav button.active {
   background: linear-gradient(90deg, #eaf5ff, #f3f9ff);
   color: #17548e;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .guest-profile-content {
@@ -400,7 +400,7 @@
   color: #1d416f;
   font-size: 14px;
   line-height: 1.25;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .guest-info-grid {
@@ -423,7 +423,7 @@
   display: block;
   margin-bottom: 5px;
   color: #8290a3;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .04em;
@@ -444,7 +444,7 @@
   border-radius: 8px;
   background: #f5faff;
   color: #68809a;
-  font-size: 9.5px;
+  font-size: 11px;
   line-height: 1.5;
 }
 
@@ -467,7 +467,7 @@
 
 .guest-field > span {
   color: #657791;
-  font-size: 9.5px;
+  font-size: 11px;
   font-weight: 600;
 }
 
@@ -481,7 +481,7 @@
   outline: 0;
   background: #fbfdff;
   color: #293f5b;
-  font-size: 10.5px;
+  font-size: 11px;
 }
 
 .guest-field input:focus,
@@ -519,7 +519,7 @@
   max-width: 540px;
   margin: 4px 0 0;
   color: #8190a3;
-  font-size: 9.5px;
+  font-size: 11px;
   line-height: 1.5;
 }
 
@@ -543,8 +543,8 @@
   border-radius: 8px;
   background: #edf7ff;
   color: #1d629d;
-  font-size: 9.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -568,7 +568,7 @@
 .document-name {
   max-width: 180px;
   color: #687b93;
-  font-size: 9px;
+  font-size: 11px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -581,7 +581,7 @@
   border-radius: 6px;
   background: #f5faff;
   color: #71839a;
-  font-size: 9.5px;
+  font-size: 11px;
   line-height: 1.55;
 }
 
@@ -606,14 +606,14 @@
 .guest-payment-panel span {
   display: block;
   color: #8592a4;
-  font-size: 9px;
+  font-size: 11px;
   margin-bottom: 5px;
 }
 
 .guest-payment-panel strong {
   color: #1f416b;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .guest-history-table {
@@ -634,8 +634,8 @@
   padding: 9px 11px;
   background: #f8fafd;
   color: #7c8a9d;
-  font-size: 8.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .04em;
 }
@@ -644,7 +644,7 @@
   padding: 10px 11px;
   border-top: 1px solid #edf1f5;
   color: #435875;
-  font-size: 9.5px;
+  font-size: 11px;
 }
 
 .guest-history-row span {
@@ -663,7 +663,7 @@
    usable on its own. */
 .guests-page button,
 .guest-profile-page button {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--fr-font, "Inter", Arial, sans-serif);
 }
 
 @media (max-width: 1100px) {
@@ -766,8 +766,8 @@
   display: block;
   margin-bottom: 5px;
   color: #7c8da4;
-  font-size: 9px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .055em;
 }
@@ -784,7 +784,7 @@
   max-width: 560px;
   margin-top: 5px;
   color: #7b8ca2;
-  font-size: 9.5px;
+  font-size: 11px;
   line-height: 1.45;
 }
 
@@ -805,7 +805,7 @@
   border-radius: 8px;
   background: #fff;
   color: #274663;
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -851,13 +851,13 @@
 
 .room-picker-menu-head strong {
   color: #274767;
-  font-size: 10.5px;
+  font-size: 11px;
 }
 
 .room-picker-menu-head span {
   color: #178255;
-  font-size: 8.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .room-picker-list {
@@ -900,15 +900,15 @@
 .room-option-main strong {
   display: block;
   color: #294563;
-  font-size: 10.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .room-option-main small {
   display: block;
   margin-top: 2px;
   color: #8a97a8;
-  font-size: 8.5px;
+  font-size: 11px;
 }
 
 .room-availability {
@@ -918,8 +918,8 @@
   align-items: center;
   padding: 0 7px;
   border-radius: 999px;
-  font-size: 8px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .room-availability.available {
@@ -936,7 +936,7 @@
   margin-top: 8px;
   padding: 8px 10px;
   border-radius: 7px;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 600;
 }
 
@@ -1007,7 +1007,7 @@
   background: #eef8ff;
   color: #1763a0;
 
-  font-family: "Poppins", sans-serif;
+  font-family: var(--fr-font, "Inter", Arial, sans-serif);
   cursor: pointer;
   transition: all 0.16s ease;
 }

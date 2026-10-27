@@ -136,6 +136,7 @@ export default function Reservations({ data, setPage, onCheckIn, onEdit, onCall 
             <option value="Confirmed">Confirmed</option>
             <option value="Checked In">Checked In</option>
             <option value="Checked Out">Checked Out</option>
+            <option>Cancelled</option><option>No Show</option><option>Pending</option><option>Modified</option>
           </select>
 
           <select

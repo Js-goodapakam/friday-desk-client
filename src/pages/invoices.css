@@ -3,7 +3,7 @@
 .invoices-page *,
 .invoice-paper,
 .invoice-paper * {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--fr-font, "Inter", Arial, sans-serif);
   box-sizing: border-box;
 }
 
@@ -35,8 +35,8 @@
 .invoice-kpi span {
   display: block;
   color: #7d8ca1;
-  font-size: 9px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
   margin-bottom: 7px;
@@ -45,7 +45,7 @@
 .invoice-kpi strong {
   color: #173d72;
   font-size: 19px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .invoice-module-card {
@@ -73,7 +73,7 @@
 .invoice-list-head p {
   margin: 0;
   color: #8290a3;
-  font-size: 9.5px;
+  font-size: 11px;
 }
 
 .invoice-count-pill {
@@ -86,8 +86,8 @@
   border-radius: 8px;
   background: #edf6ff;
   color: #1763a0;
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .invoice-register-table {
@@ -100,8 +100,8 @@
   background: #fafcff;
   border-bottom: 1px solid #e9eef5;
   color: #7c8ba0;
-  font-size: 8.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   text-align: left;
   text-transform: uppercase;
   letter-spacing: .04em;
@@ -112,7 +112,7 @@
   padding: 11px 12px;
   border-bottom: 1px solid #edf1f5;
   color: #435975;
-  font-size: 10.5px;
+  font-size: 11px;
   vertical-align: middle;
 }
 
@@ -122,14 +122,14 @@
 
 .invoice-register-table td strong {
   color: #263e5c;
-  font-size: 10.5px;
+  font-size: 11px;
 }
 
 .invoice-register-table td small {
   display: block;
   margin-top: 3px;
   color: #8995a6;
-  font-size: 8.5px;
+  font-size: 11px;
 }
 
 .invoice-status {
@@ -138,8 +138,8 @@
   border-radius: 999px;
   background: #eef5fc;
   color: #3c6388;
-  font-size: 8px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .invoice-status--paid {
@@ -198,8 +198,8 @@
   overflow: hidden;
   background: #fff;
   color: #6f8196;
-  font-size: 9px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .invoice-settings-logo img {
@@ -221,7 +221,7 @@
 
 .invoice-settings-preview span {
   color: #7f8ea2;
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .invoice-settings-grid {
@@ -243,7 +243,7 @@
 
 .invoice-field > span {
   color: #61738b;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 600;
 }
 
@@ -258,7 +258,7 @@
   outline: none;
   background: #fbfdff;
   color: #2e435e;
-  font-size: 10.5px;
+  font-size: 11px;
 }
 
 .invoice-field textarea {
@@ -275,7 +275,7 @@
 
 .invoice-field small {
   color: #8794a6;
-  font-size: 8.5px;
+  font-size: 11px;
 }
 
 .invoice-editor-layout {
@@ -308,8 +308,8 @@
   border-radius: 7px;
   background: #edf6ff;
   color: #1763a0;
-  font-size: 8.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .invoice-section-title strong {
@@ -322,7 +322,7 @@
   display: block;
   margin-top: 2px;
   color: #8794a6;
-  font-size: 8.5px;
+  font-size: 11px;
 }
 
 .invoice-guest-summary {
@@ -346,13 +346,13 @@
   display: block;
   margin-bottom: 4px;
   color: #8592a5;
-  font-size: 8px;
+  font-size: 11px;
   text-transform: uppercase;
 }
 
 .invoice-guest-summary strong {
   color: #304862;
-  font-size: 9.5px;
+  font-size: 11px;
 }
 
 .invoice-fields-grid {
@@ -379,8 +379,8 @@
   padding: 8px 9px;
   background: #f8fafd;
   color: #7d8b9d;
-  font-size: 8px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -397,12 +397,12 @@
   border-radius: 7px;
   outline: 0;
   color: #304862;
-  font-size: 9.5px;
+  font-size: 11px;
 }
 
 .invoice-line-row strong {
   color: #2c4766;
-  font-size: 9.5px;
+  font-size: 11px;
   text-align: right;
 }
 
@@ -448,13 +448,13 @@
   justify-content: center;
   color: #1763a0;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .invoice-mini-banner strong {
   display: block;
   color: #1b3554;
-  font-size: 9.5px;
+  font-size: 11px;
 }
 
 .invoice-mini-banner small {
@@ -462,7 +462,7 @@
   max-width: 180px;
   margin-top: 2px;
   color: #718198;
-  font-size: 7.5px;
+  font-size: 11px;
 }
 
 .invoice-mini-body {
@@ -472,7 +472,7 @@
 .invoice-mini-body > span {
   display: block;
   color: #7b8798;
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: .04em;
 }
 
@@ -495,7 +495,7 @@
   gap: 10px;
   padding: 4px 0;
   color: #697b91;
-  font-size: 8.5px;
+  font-size: 11px;
 }
 
 .invoice-mini-body > div b {
@@ -507,7 +507,7 @@
   padding-top: 8px;
   border-top: 1px solid #e7edf4;
   color: #1f416b;
-  font-size: 9.5px;
+  font-size: 11px;
 }
 
 .invoice-total-card {
@@ -521,7 +521,7 @@
 .invoice-total-card span {
   display: block;
   color: #67819c;
-  font-size: 8.5px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: .04em;
 }
@@ -535,7 +535,7 @@
 
 .invoice-total-card small {
   color: #8293a7;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .invoice-error {
@@ -544,7 +544,7 @@
   border-radius: 7px;
   background: #fff0f0;
   color: #a14c4c;
-  font-size: 9px;
+  font-size: 11px;
 }
 
 /* Invoice paper — follows the supplied reference structure */
@@ -585,7 +585,7 @@
 .invoice-paper-logo span {
   color: #176fd1;
   font-size: 31px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .invoice-hotel-block {
@@ -604,7 +604,7 @@
 
 .invoice-hotel-block span {
   color: #333;
-  font-size: 10.5px;
+  font-size: 11px;
   line-height: 1.25;
 }
 
@@ -626,7 +626,7 @@
 .invoice-balance-banner strong {
   color: #151515;
   font-size: 21px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .invoice-paper-meta {
@@ -640,7 +640,7 @@
   display: block;
   margin-bottom: 8px;
   color: #7f7f7f;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: .03em;
 }
 
@@ -656,7 +656,7 @@
 
 .invoice-bill-to span:not(.invoice-label) {
   color: #6e6e6e;
-  font-size: 10.5px;
+  font-size: 11px;
 }
 
 .invoice-meta-grid {
@@ -675,12 +675,12 @@
 
 .invoice-meta-grid span {
   color: #8b8b8b;
-  font-size: 9.5px;
+  font-size: 11px;
 }
 
 .invoice-meta-grid strong {
   color: #222;
-  font-size: 9.5px;
+  font-size: 11px;
   text-align: right;
 }
 
@@ -697,7 +697,7 @@
   padding: 10px 8px;
   border-bottom: 1px solid #dcdcdc;
   color: #737373;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 500;
   text-align: left;
 }
@@ -706,13 +706,13 @@
   padding: 14px 8px;
   border-bottom: 1px solid #dedede;
   color: #333;
-  font-size: 10px;
+  font-size: 11px;
   vertical-align: top;
 }
 
 .invoice-paper-table td strong {
   color: #202020;
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 500;
 }
 
@@ -738,14 +738,14 @@
 
 .invoice-paper-thanks strong {
   color: #292929;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
 }
 
 .invoice-paper-thanks p {
   margin: 0;
   color: #737373;
-  font-size: 9px;
+  font-size: 11px;
   line-height: 1.45;
 }
 
@@ -760,7 +760,7 @@
   justify-content: space-between;
   gap: 15px;
   color: #282828;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .invoice-paper-totals strong {
@@ -772,12 +772,12 @@
   padding-top: 12px;
   border-top: 1px solid #d6d7da;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .invoice-paper-totals .balance strong {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .invoice-paper-terms {
@@ -789,13 +789,13 @@
 
 .invoice-paper-terms strong {
   color: #222;
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 500;
 }
 
 .invoice-paper-terms span {
   color: #8a8a8a;
-  font-size: 9px;
+  font-size: 11px;
 }
 
 @media (max-width: 1000px) {

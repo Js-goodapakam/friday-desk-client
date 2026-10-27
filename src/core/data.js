@@ -8,13 +8,13 @@ export const PEOPLE = [
   {id:"G-1005",name:"Sasidhar",email:"sasidhar@example.com",phone:"+91 90000 00005",nationality:"Indian",idType:"Aadhaar",idNumber:"",address:"Tirupati, Andhra Pradesh"}
 ];
 export const iso = d => new Date(d).toISOString().slice(0,10);
-export const offset = n => { const d=new Date(); d.setDate(d.getDate()+n); return iso(d); };
+export const offset = n => { const d=new Date(); d.setDate(d.getDate()+n); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; };
 export const stamp = (d=new Date()) => d.toISOString();
 export const fmt = s => s ? new Date(s).toLocaleString("en-IN",{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"}) : "—";
 export const date = s => new Date(`${s}T12:00:00`).toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"});
 export const money = n => new Intl.NumberFormat("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:0}).format(n);
 export const nights = s => Math.max(1,Math.round((Date.parse(`${s.departure}T12:00:00`)-Date.parse(`${s.arrival}T12:00:00`))/86400000));
-export const total = s => nights(s)*Number(s.rate);
+export const total = s => Number.isFinite(s.folioTotal)?s.folioTotal:nights(s)*Number(s.rate);
 export const balance = s => Math.max(0,total(s)-Number(s.paid));
 export const initials = n => n.split(" ").map(x=>x[0]).slice(0,2).join("");
 export const uid = p => `${p}-${crypto.randomUUID().slice(0,7).toUpperCase()}`;
@@ -54,7 +54,10 @@ export function seed(){
     whatsapp:{connected:false,phoneId:"",wabaId:"",userMappings:{"admin-001":""}},
     meta:{connected:false,pageId:"",igId:"",userMappings:{"admin-001":""}},
     rcs:{connected:false,agentId:"",brandId:"",userMappings:{"admin-001":""}},
+    channelManager:{channels:[],syncEvents:[]},
+    inventoryOverrides:{},
+    inventoryAudit:[],
     callActivities:[]
   };
 }
-export function load(){try{const x=JSON.parse(localStorage.getItem(KEY));if(x?.guests&&x?.reservations)return {...seed(),...x,property:{...seed().property,...(x.property||{})},properties:x.properties&&x.properties.length?x.properties:seed().properties,rooms:x.rooms&&x.rooms.length?x.rooms:seed().rooms,users:x.users&&x.users.length?x.users:seed().users,invoiceSettings:{...seed().invoiceSettings,...(x.invoiceSettings||{})},invoices:x.invoices||[],telecmi:{...seed().telecmi,...(x.telecmi||{})},whatsapp:{...seed().whatsapp,...(x.whatsapp||{})},meta:{...seed().meta,...(x.meta||{})},rcs:{...seed().rcs,...(x.rcs||{})},callActivities:x.callActivities||[]}}catch{}return seed()}
+export function load(){try{const x=JSON.parse(localStorage.getItem(KEY));if(x?.guests&&x?.reservations)return {...seed(),...x,property:{...seed().property,...(x.property||{})},properties:x.properties&&x.properties.length?x.properties:seed().properties,rooms:x.rooms&&x.rooms.length?x.rooms:seed().rooms,users:x.users&&x.users.length?x.users:seed().users,invoiceSettings:{...seed().invoiceSettings,...(x.invoiceSettings||{})},invoices:x.invoices||[],telecmi:{...seed().telecmi,...(x.telecmi||{})},whatsapp:{...seed().whatsapp,...(x.whatsapp||{})},meta:{...seed().meta,...(x.meta||{})},rcs:{...seed().rcs,...(x.rcs||{})},channelManager:{...seed().channelManager,...(x.channelManager||{}),channels:x.channelManager?.channels||[],syncEvents:x.channelManager?.syncEvents||[]},inventoryOverrides:x.inventoryOverrides||{},inventoryAudit:x.inventoryAudit||[],callActivities:x.callActivities||[]}}catch{}return seed()}

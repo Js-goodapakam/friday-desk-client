@@ -3,7 +3,7 @@
 .fd-provider-backdrop,
 .fd-provider-backdrop * {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--fr-font, "Inter", Arial, sans-serif);
 }
 
 .fd-settings-page {
@@ -57,7 +57,7 @@
 .fd-settings-sidebar-title small {
   margin-top: 2px;
   color: #8b98a9;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .fd-settings-menu {
@@ -110,14 +110,14 @@
 }
 
 .fd-menu-copy b {
-  font-size: 9.5px;
+  font-size: 11px;
   font-weight: 650;
 }
 
 .fd-menu-copy small {
   margin-top: 2px;
   color: #99a5b4;
-  font-size: 7.3px;
+  font-size: 11px;
   line-height: 1.25;
 }
 
@@ -150,8 +150,8 @@
   border-radius: 50%;
   background: #e2f1fc;
   color: #2275aa;
-  font-size: 9px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .fd-settings-help b,
@@ -161,13 +161,13 @@
 
 .fd-settings-help b {
   color: #41617f;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .fd-settings-help span {
   margin-top: 2px;
   color: #8998a9;
-  font-size: 7px;
+  font-size: 11px;
   line-height: 1.4;
 }
 
@@ -187,8 +187,8 @@
 
 .fd-settings-eyebrow {
   color: #597a9d;
-  font-size: 8px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: .1em;
 }
 
@@ -202,7 +202,7 @@
 .fd-settings-header p {
   margin: 0;
   color: #8190a3;
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .fd-save-button,
@@ -225,8 +225,8 @@
   border-radius: 8px;
   background: linear-gradient(135deg, #175caf, #1d94dc);
   color: #fff;
-  font-size: 9px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   box-shadow: 0 4px 12px rgba(30, 114, 183, .15);
 }
 
@@ -270,7 +270,7 @@
 .fd-card-title span {
   margin-top: 2px;
   color: #8997a8;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .fd-form-grid {
@@ -296,7 +296,7 @@
   background: #fbfdff;
   color: #38516d;
   font-family: inherit;
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .fd-settings-card textarea {
@@ -323,8 +323,8 @@
   border-radius: 7px;
   background: #fff;
   color: #1765a3;
-  font-size: 8.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .fd-outline-button:hover {
@@ -335,8 +335,8 @@
   border: 0;
   background: transparent;
   color: #1b72ae;
-  font-size: 8.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .fd-active-property {
@@ -357,13 +357,13 @@
 
 .fd-active-property strong {
   color: #294b6e;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .fd-active-property div:nth-child(2) span {
   margin-top: 2px;
   color: #8997a8;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .fd-active-dot {
@@ -383,8 +383,8 @@
   border-radius: 999px;
   background: #f2f4f6;
   color: #7b8897;
-  font-size: 7.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -428,13 +428,13 @@
 
 .fd-list-row b {
   color: #385471;
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .fd-list-row div span {
   margin-top: 2px;
   color: #8d99a9;
-  font-size: 7.5px;
+  font-size: 11px;
 }
 
 .fd-room-grid {
@@ -463,8 +463,8 @@
   border-radius: 8px;
   background: #edf6ff;
   color: #1767a4;
-  font-size: 9px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .fd-room-info b,
@@ -474,13 +474,13 @@
 
 .fd-room-info b {
   color: #3a5672;
-  font-size: 8.5px;
+  font-size: 11px;
 }
 
 .fd-room-info span {
   margin-top: 2px;
   color: #8997a7;
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .fd-room-state {
@@ -488,8 +488,8 @@
   border-radius: 999px;
   background: #eaf8f0;
   color: #24805b;
-  font-size: 6.8px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .fd-room-state.busy {
@@ -546,13 +546,13 @@
 
 .fd-setting-toggle b {
   color: #3b5571;
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .fd-setting-toggle small {
   margin-top: 3px;
   color: #8a98a8;
-  font-size: 7.5px;
+  font-size: 11px;
   line-height: 1.4;
 }
 
@@ -614,8 +614,8 @@
   border-radius: 8px;
   background: #eaf4ff;
   color: #246da4;
-  font-size: 7.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .fd-staff-main b,
@@ -625,21 +625,21 @@
 
 .fd-staff-main b {
   color: #3a5570;
-  font-size: 8.5px;
+  font-size: 11px;
 }
 
 .fd-staff-main span {
   margin-top: 2px;
   color: #8b98a8;
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .fd-role-pill,
 .fd-extension {
   padding: 4px 6px;
   border-radius: 6px;
-  font-size: 7px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .fd-role-pill {
@@ -666,7 +666,7 @@
 .fd-role-guide span,
 .fd-info-strip b,
 .fd-info-strip span {
-  font-size: 7.5px;
+  font-size: 11px;
 }
 
 .fd-role-guide strong,
@@ -685,7 +685,7 @@
 
 .fd-info-strip span {
   color: #1766a3;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .fd-password-row {
@@ -704,13 +704,13 @@
 
 .fd-password-row b {
   color: #3a5570;
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .fd-password-row span {
   margin-top: 3px;
   color: #8997a8;
-  font-size: 7.5px;
+  font-size: 11px;
 }
 
 /* Integrations */
@@ -748,18 +748,18 @@
   background: #f1f5f8;
   color: #6e8299;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .fd-channel-tabs button b {
-  font-size: 9px;
+  font-size: 11px;
   color: #49627c;
 }
 
 .fd-channel-tabs button small {
   margin-top: 2px;
   color: #9aa6b3;
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .fd-channel-tabs button.active {
@@ -811,7 +811,7 @@
   background: #eef5fb;
   color: #1765a3;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .fd-service-logo img {
@@ -845,7 +845,7 @@
 .fd-integration-channel span:not(.fd-service-logo) {
   margin-top: 2px;
   color: #8a98a8;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .fd-integration-body {
@@ -881,13 +881,13 @@
 
 .fd-integration-explain b {
   color: #49647e;
-  font-size: 8.5px;
+  font-size: 11px;
 }
 
 .fd-integration-explain span {
   margin-top: 2px;
   color: #8b98a8;
-  font-size: 7.5px;
+  font-size: 11px;
   line-height: 1.4;
 }
 
@@ -903,8 +903,8 @@
   border-radius: 7px;
   background: #fff;
   color: #1765a3;
-  font-size: 8px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .fd-configure-button svg {
@@ -936,8 +936,8 @@
   border-radius: 50%;
   background: #e5f3fc;
   color: #2373a7;
-  font-size: 8px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .fd-integration-tip b,
@@ -947,13 +947,13 @@
 
 .fd-integration-tip b {
   color: #4d6882;
-  font-size: 7.8px;
+  font-size: 11px;
 }
 
 .fd-integration-tip small {
   margin-top: 2px;
   color: #8796a7;
-  font-size: 7px;
+  font-size: 11px;
 }
 
 /* Provider dialogs */
@@ -1003,8 +1003,8 @@
 
 .fd-provider-title > div small {
   color: #67809a;
-  font-size: 7px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: .08em;
 }
 
@@ -1016,7 +1016,7 @@
 
 .fd-provider-title > div span {
   color: #8997a7;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .fd-provider-modal .fd-form-grid {
@@ -1047,13 +1047,13 @@
 
 .fd-connection-banner b {
   color: #3e5873;
-  font-size: 8.5px;
+  font-size: 11px;
 }
 
 .fd-connection-banner span {
   margin-top: 2px;
   color: #8796a6;
-  font-size: 7.5px;
+  font-size: 11px;
 }
 
 .fd-provider-actions {
@@ -1070,8 +1070,8 @@
   border-radius: 7px;
   background: linear-gradient(135deg, #155eb3, #168fda);
   color: #fff;
-  font-size: 8.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .fd-primary-button:disabled {
@@ -1094,13 +1094,13 @@
 
 .fd-error-box b {
   color: #9b5656;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .fd-error-box span {
   margin-top: 2px;
   color: #a16c6c;
-  font-size: 7.5px;
+  font-size: 11px;
 }
 
 .fd-secret-field {
@@ -1127,8 +1127,8 @@
   background: #fff;
   color: #54708c;
   font-family: inherit;
-  font-size: 7.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -1151,7 +1151,7 @@
 .fd-simple-info b,
 .fd-technical-note b {
   color: #4a6580;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .fd-simple-info span,
@@ -1159,7 +1159,7 @@
 .fd-technical-note small {
   margin-top: 2px;
   color: #8795a5;
-  font-size: 7px;
+  font-size: 11px;
   line-height: 1.45;
 }
 
@@ -1187,8 +1187,8 @@
 .fd-agent-head {
   background: #f7fafc;
   color: #8593a3;
-  font-size: 7px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -1203,20 +1203,20 @@
 
 .fd-agent-row b {
   color: #405a74;
-  font-size: 7.5px;
+  font-size: 11px;
 }
 
 .fd-agent-row small {
   margin-top: 2px;
   color: #909cab;
-  font-size: 6.5px;
+  font-size: 11px;
 }
 
 .fd-agent-row strong,
 .fd-agent-row code,
 .fd-agent-row > span {
   color: #5d738b;
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .fd-agent-row > span {
@@ -1283,14 +1283,14 @@
 
 /* Main page hierarchy */
 .fd-settings-eyebrow {
-  font-size: 10px !important;
+  font-size: 11px !important;
   line-height: 1.2;
 }
 
 .fd-settings-header h2 {
   font-size: 26px !important;
   line-height: 1.2;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .fd-settings-header p {
@@ -1305,7 +1305,7 @@
 }
 
 .fd-settings-sidebar-title small {
-  font-size: 10px !important;
+  font-size: 11px !important;
   line-height: 1.3;
 }
 
@@ -1315,7 +1315,7 @@
 }
 
 .fd-menu-copy small {
-  font-size: 10px !important;
+  font-size: 11px !important;
   line-height: 1.3;
 }
 
@@ -1324,12 +1324,12 @@
 }
 
 .fd-settings-help b {
-  font-size: 10px !important;
+  font-size: 11px !important;
   line-height: 1.3;
 }
 
 .fd-settings-help span {
-  font-size: 9.5px !important;
+  font-size: 11px !important;
   line-height: 1.4;
 }
 
@@ -1365,11 +1365,11 @@
 }
 
 .fd-active-property div:nth-child(2) span {
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 .fd-status-pill {
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 .fd-list-row b {
@@ -1377,7 +1377,7 @@
 }
 
 .fd-list-row div span {
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 .fd-room-number {
@@ -1389,11 +1389,11 @@
 }
 
 .fd-room-info span {
-  font-size: 9.5px !important;
+  font-size: 11px !important;
 }
 
 .fd-room-state {
-  font-size: 9px !important;
+  font-size: 11px !important;
 }
 
 .fd-setting-toggle b {
@@ -1401,7 +1401,7 @@
 }
 
 .fd-setting-toggle small {
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 .fd-staff-main b {
@@ -1409,22 +1409,22 @@
 }
 
 .fd-staff-main span {
-  font-size: 9.5px !important;
+  font-size: 11px !important;
 }
 
 .fd-role-pill,
 .fd-extension {
-  font-size: 9px !important;
+  font-size: 11px !important;
 }
 
 .fd-role-guide strong,
 .fd-info-strip b {
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 .fd-role-guide span,
 .fd-info-strip span {
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 .fd-password-row b {
@@ -1432,7 +1432,7 @@
 }
 
 .fd-password-row span {
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 /* Buttons */
@@ -1450,7 +1450,7 @@
 }
 
 .fd-channel-tabs button small {
-  font-size: 10px !important;
+  font-size: 11px !important;
   line-height: 1.3;
 }
 
@@ -1461,7 +1461,7 @@
 }
 
 .fd-integration-channel span:not(.fd-service-logo) {
-  font-size: 10.5px !important;
+  font-size: 11px !important;
   line-height: 1.35;
 }
 
@@ -1470,7 +1470,7 @@
 }
 
 .fd-integration-explain span {
-  font-size: 10px !important;
+  font-size: 11px !important;
   line-height: 1.45;
 }
 
@@ -1511,7 +1511,7 @@
 
 /* Provider connection modal */
 .fd-provider-title > div small {
-  font-size: 9px !important;
+  font-size: 11px !important;
 }
 
 .fd-provider-title > div h3 {
@@ -1520,7 +1520,7 @@
 }
 
 .fd-provider-title > div span {
-  font-size: 10.5px !important;
+  font-size: 11px !important;
 }
 
 .fd-connection-banner b {
@@ -1528,49 +1528,49 @@
 }
 
 .fd-connection-banner span {
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 .fd-secret-field button {
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 .fd-simple-info b,
 .fd-technical-note b {
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 .fd-simple-info span,
 .fd-technical-note span,
 .fd-technical-note small {
-  font-size: 9.5px !important;
+  font-size: 11px !important;
   line-height: 1.45;
 }
 
 .fd-agent-head {
-  font-size: 9px !important;
+  font-size: 11px !important;
 }
 
 .fd-agent-row b {
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 .fd-agent-row small {
-  font-size: 9px !important;
+  font-size: 11px !important;
 }
 
 .fd-agent-row strong,
 .fd-agent-row code,
 .fd-agent-row > span {
-  font-size: 9px !important;
+  font-size: 11px !important;
 }
 
 .fd-error-box b {
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 .fd-error-box span {
-  font-size: 9.5px !important;
+  font-size: 11px !important;
 }
 
 /* Keep the compact overall layout on smaller screens */
@@ -1601,7 +1601,7 @@
 .fd-settings-header h2 {
   font-size: 30px !important;
   line-height: 1.18 !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   margin: 4px 0 5px !important;
 }
 
@@ -1627,7 +1627,7 @@
 }
 
 .fd-menu-copy small {
-  font-size: 10.5px !important;
+  font-size: 11px !important;
   line-height: 1.3 !important;
 }
 
@@ -1637,7 +1637,7 @@
 }
 
 .fd-settings-help span {
-  font-size: 10px !important;
+  font-size: 11px !important;
   line-height: 1.4 !important;
 }
 
@@ -1679,7 +1679,7 @@
 }
 
 .fd-channel-tabs button small {
-  font-size: 10.5px !important;
+  font-size: 11px !important;
   line-height: 1.3 !important;
 }
 
@@ -1716,7 +1716,7 @@
 }
 
 .fd-integration-tip small {
-  font-size: 10px !important;
+  font-size: 11px !important;
   line-height: 1.4 !important;
 }
 
@@ -1744,7 +1744,7 @@
 
 /* TeleCMI configuration modal */
 .fd-provider-title > div small {
-  font-size: 10px !important;
+  font-size: 11px !important;
   line-height: 1.2 !important;
   letter-spacing: .08em !important;
 }
@@ -1752,7 +1752,7 @@
 .fd-provider-title > div h3 {
   font-size: 24px !important;
   line-height: 1.2 !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   margin: 4px 0 4px !important;
 }
 
@@ -1797,7 +1797,7 @@
 .fd-simple-info span,
 .fd-technical-note span,
 .fd-technical-note small {
-  font-size: 10px !important;
+  font-size: 11px !important;
   line-height: 1.45 !important;
 }
 
@@ -1810,7 +1810,7 @@
 }
 
 .fd-error-box span {
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 /* Responsive: keep hierarchy readable */

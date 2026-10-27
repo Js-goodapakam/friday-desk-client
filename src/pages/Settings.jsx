@@ -5,6 +5,8 @@ import { Field } from "../components/Common.jsx";
 import RoomEditor from "../components/settings/RoomEditor.jsx";
 import UserEditor from "../components/settings/UserEditor.jsx";
 import PropertyEditor from "../components/settings/PropertyEditor.jsx";
+import CoverPhoto from "../components/settings/CoverPhoto.jsx";
+import OwnerAdmin from "./OwnerAdmin.jsx";
 import { useTeleCMISDKStatus } from "../services/telecmi.js";
 import "./settings.css";
 
@@ -68,18 +70,21 @@ function MessageIcon() {
   );
 }
 
-function SettingsToggle({ title, text, checked = true }) {
-  const [enabled, setEnabled] = useState(checked);
+function SettingsToggle({ title, text, checked = true, data, setData }) {
+  const enforced=/Prevent overlapping|Require room assignment|Review balance|Show balance/.test(title);
+  const unavailable=/Send reservation|Send check-in|session timeout|Login activity|Two-step/.test(title);
+  const enabled=enforced?true:unavailable?false:(data.operationalSettings?.[title]??checked);
   return (
     <label className="fd-setting-toggle">
       <span>
         <b>{title}</b>
-        <small>{text}</small>
+        <small>{enforced?"Enforced by the server.":unavailable?"Provider or authentication service setup required.":text}</small>
       </span>
       <input
         type="checkbox"
         checked={enabled}
-        onChange={(e) => setEnabled(e.target.checked)}
+        disabled={enforced||unavailable}
+        onChange={(e) => setData(d=>({...d,operationalSettings:{...d.operationalSettings,[title]:e.target.checked}}))}
       />
       <i />
     </label>
@@ -112,7 +117,7 @@ function StatusPill({ connected }) {
   );
 }
 
-export default function Settings({ data, setData }) {
+export default function Settings({ data, setData, session, onManageProperties }) {
   const [tab, setTab] = useState("Property");
   const [saved, setSaved] = useState(false);
   const [addingRoom, setAddingRoom] = useState(false);
@@ -162,7 +167,9 @@ export default function Settings({ data, setData }) {
       .catch(() => {});
   }, [tab, setData]);
 
-  const save = () => {
+  const save = async () => {
+    const result=await setData(d=>d);
+    if(result===false)return;
     setSaved(true);
     window.setTimeout(() => setSaved(false), 1800);
   };
@@ -233,14 +240,14 @@ export default function Settings({ data, setData }) {
       setWaError("Enter the Phone Number ID and Access Token.");
       return;
     }
-    setWaError("");
+    setWaError("Setup saved. Provider verification is required before messaging is available.");
     setData((d) => ({
       ...d,
       whatsapp: {
         ...d.whatsapp,
         phoneId: waForm.phoneId,
         wabaId: waForm.wabaId,
-        connected: true,
+        connected: false,
       },
     }));
   };
@@ -253,14 +260,14 @@ export default function Settings({ data, setData }) {
       setRcsError("Enter the RCS Agent ID and Access Token.");
       return;
     }
-    setRcsError("");
+    setRcsError("Setup saved. Provider verification is required before messaging is available.");
     setData((d) => ({
       ...d,
       rcs: {
         ...d.rcs,
         agentId: rcsForm.agentId,
         brandId: rcsForm.brandId,
-        connected: true,
+        connected: false,
       },
     }));
   };
@@ -349,6 +356,7 @@ export default function Settings({ data, setData }) {
       <main className="fd-settings-main">
         {tab === "Property" && (
           <>
+            <CoverPhoto data={data} setData={setData}/>
             <SectionHeader title="Hotel Profile" description="Basic details shown across your hotel workspace." onSave={save} saved={saved} />
 
             <section className="fd-settings-card">
@@ -389,7 +397,7 @@ export default function Settings({ data, setData }) {
             <section className="fd-settings-card">
               <div className="fd-card-title">
                 <div><strong>Your properties</strong><span>Switch between hotel locations managed from this workspace.</span></div>
-                <button type="button" className="fd-outline-button" onClick={() => setAddingProperty(true)}>+ Add property</button>
+                <button type="button" className="fd-outline-button" onClick={onManageProperties}>Manage properties</button>
               </div>
               <div className="fd-simple-list">
                 {data.properties.map((property) => {
@@ -439,17 +447,17 @@ export default function Settings({ data, setData }) {
             <section className="fd-settings-card">
               <div className="fd-card-title"><div><strong>Standard timings</strong><span>These times are used as the default for new reservations.</span></div></div>
               <div className="fd-form-grid">
-                <Field label="Standard check-in"><input type="time" defaultValue="14:00" /></Field>
-                <Field label="Standard check-out"><input type="time" defaultValue="12:00" /></Field>
+                <Field label="Standard check-in"><input type="time" value={data.property.checkIn||"14:00"} onChange={e=>setData(d=>({...d,property:{...d.property,checkIn:e.target.value}}))} /></Field>
+                <Field label="Standard check-out"><input type="time" value={data.property.checkOut||"12:00"} onChange={e=>setData(d=>({...d,property:{...d.property,checkOut:e.target.value}}))} /></Field>
                 <Field label="Early check-in"><select defaultValue="Subject to availability"><option>Subject to availability</option><option>Always allowed</option><option>Not allowed</option></select></Field>
                 <Field label="Late check-out"><select defaultValue="Subject to availability"><option>Subject to availability</option><option>Always allowed</option><option>Not allowed</option></select></Field>
               </div>
             </section>
             <section className="fd-settings-card">
               <div className="fd-card-title"><div><strong>Reservation rules</strong><span>Controls that help prevent front desk mistakes.</span></div></div>
-              <SettingsToggle title="Prevent overlapping room reservations" text="Stop staff from confirming the same room for overlapping dates." />
-              <SettingsToggle title="Require room assignment before confirmation" text="Use this only if your hotel assigns rooms at booking time." checked={false} />
-              <SettingsToggle title="Allow reservation cancellation" text="Let staff cancel reservations when the hotel's cancellation policy allows it." />
+              <SettingsToggle data={data} setData={setData} title="Prevent overlapping room reservations" text="Stop staff from confirming the same room for overlapping dates." />
+              <SettingsToggle data={data} setData={setData} title="Require room assignment before confirmation" text="Use this only if your hotel assigns rooms at booking time." checked={false} />
+              <SettingsToggle data={data} setData={setData} title="Allow reservation cancellation" text="Let staff cancel reservations when the hotel's cancellation policy allows it." />
             </section>
           </>
         )}
@@ -462,14 +470,14 @@ export default function Settings({ data, setData }) {
               <div className="fd-form-grid">
                 <Field label="Currency"><select defaultValue="INR — Indian Rupee"><option>INR — Indian Rupee</option></select></Field>
                 <Field label="GST number"><input value={data.property?.gstNumber || ""} onChange={(e) => setData((d) => ({ ...d, property: { ...d.property, gstNumber: e.target.value } }))} placeholder="Optional" /></Field>
-                <Field label="Tax display"><select defaultValue="Included in room rate"><option>Included in room rate</option><option>Added separately</option></select></Field>
+                <Field label="Tax display"><select value="Added separately" disabled><option>Added separately</option></select></Field>
                 <Field label="Default advance"><input type="number" min="0" defaultValue="0" /></Field>
                 <Field label="Accepted payment methods"><select defaultValue="Cash, UPI & Card"><option>Cash, UPI & Card</option><option>Cash & UPI</option><option>Card & UPI</option></select></Field>
               </div>
             </section>
             <section className="fd-settings-card">
-              <SettingsToggle title="Show balance due on the front desk" text="Keep outstanding guest balances visible during the stay." />
-              <SettingsToggle title="Review balance before checkout" text="Ask staff to confirm the outstanding balance before checkout." checked={false} />
+              <SettingsToggle data={data} setData={setData} title="Show balance due on the front desk" text="Keep outstanding guest balances visible during the stay." />
+              <SettingsToggle data={data} setData={setData} title="Review balance before checkout" text="Ask staff to confirm the outstanding balance before checkout." checked={false} />
             </section>
           </>
         )}
@@ -480,16 +488,16 @@ export default function Settings({ data, setData }) {
             <section className="fd-settings-card">
               <div className="fd-card-title"><div><strong>Contact details</strong><span>These details can be shown to guests.</span></div></div>
               <div className="fd-form-grid">
-                <Field label="Front desk phone"><input defaultValue="+91 87777 00000" /></Field>
-                <Field label="Guest support email"><input type="email" defaultValue="frontdesk@tajtirupati.local" /></Field>
-                <Field label="WhatsApp number"><input defaultValue="+91 87777 00000" /></Field>
+                <Field label="Front desk phone"><input value={data.property.phone||""} onChange={e=>setData(d=>({...d,property:{...d.property,phone:e.target.value}}))} /></Field>
+                <Field label="Guest support email"><input type="email" value={data.property.email||""} onChange={e=>setData(d=>({...d,property:{...d.property,email:e.target.value}}))} /></Field>
+                <Field label="WhatsApp number"><input value={data.property.whatsappNumber||""} onChange={e=>setData(d=>({...d,property:{...d.property,whatsappNumber:e.target.value}}))} /></Field>
                 <Field label="Preferred channel"><select defaultValue="WhatsApp"><option>WhatsApp</option><option>SMS</option><option>Email</option></select></Field>
               </div>
-              <Field label="Welcome message"><textarea rows="3" defaultValue="Welcome to Taj Tirupati. We are pleased to have you with us." /></Field>
+              <Field label="Welcome message"><textarea rows="3" value={data.property.welcomeMessage||`Welcome to ${data.property.name}. We are pleased to have you with us.`} onChange={e=>setData(d=>({...d,property:{...d.property,welcomeMessage:e.target.value}}))} /></Field>
             </section>
             <section className="fd-settings-card">
-              <SettingsToggle title="Send reservation confirmation" text="Send booking details after a reservation is confirmed." />
-              <SettingsToggle title="Send check-in message" text="Send a welcome message after the guest is checked in." />
+              <SettingsToggle data={data} setData={setData} title="Send reservation confirmation" text="Send booking details after a reservation is confirmed." />
+              <SettingsToggle data={data} setData={setData} title="Send check-in message" text="Send a welcome message after the guest is checked in." />
             </section>
           </>
         )}
@@ -499,40 +507,15 @@ export default function Settings({ data, setData }) {
             <SectionHeader title="Notifications & Alerts" description="Choose which events should be highlighted for the front desk." onSave={save} saved={saved} />
             <section className="fd-settings-card">
               <div className="fd-card-title"><div><strong>Front desk alerts</strong><span>Keep staff informed without overwhelming them.</span></div></div>
-              <SettingsToggle title="New reservation" text="Alert staff when a new reservation is created." />
-              <SettingsToggle title="Guest request" text="Alert staff when an in-house guest sends a request." />
-              <SettingsToggle title="Payment due" text="Alert staff when a stay has an outstanding balance." />
-              <SettingsToggle title="Today's arrivals and departures" text="Show reminders for today's expected check-ins and check-outs." />
+              <SettingsToggle data={data} setData={setData} title="New reservation" text="Alert staff when a new reservation is created." />
+              <SettingsToggle data={data} setData={setData} title="Guest request" text="Alert staff when an in-house guest sends a request." />
+              <SettingsToggle data={data} setData={setData} title="Payment due" text="Alert staff when a stay has an outstanding balance." />
+              <SettingsToggle data={data} setData={setData} title="Today's arrivals and departures" text="Show reminders for today's expected check-ins and check-outs." />
             </section>
           </>
         )}
 
-        {tab === "Users & Roles" && (
-          <>
-            <SectionHeader title="Staff & Roles" description="Add your hotel staff and control what each person can access." onSave={save} saved={saved} />
-            <section className="fd-settings-card">
-              <div className="fd-card-title">
-                <div><strong>Staff accounts</strong><span>Give each team member only the access they need.</span></div>
-                <button type="button" className="fd-outline-button" onClick={() => setStaffModal("new")}>+ Add staff</button>
-              </div>
-              <div className="fd-staff-list">
-                {data.users.map((user, index) => (
-                  <div className="fd-staff-row" key={user.id}>
-                    <span className="fd-avatar">{(user.name || "U").split(" ").map((x) => x[0]).join("").slice(0, 2).toUpperCase()}</span>
-                    <div className="fd-staff-main"><b>{user.name}</b><span>{user.email}</span></div>
-                    <span className="fd-role-pill">{user.role}</span>
-                    {user.extension && <span className="fd-extension">Ext {user.extension}</span>}
-                    <button type="button" className="fd-text-button" onClick={() => setStaffModal({ index, user })}>Edit</button>
-                  </div>
-                ))}
-              </div>
-              <div className="fd-role-guide">
-                <strong>Role guide</strong>
-                <span><b>Admin</b> — everything. <b>Manager</b> — reservations, guests, rooms, reports and invoices. <b>Front Desk</b> — reservations, guests and check-in/out.</span>
-              </div>
-            </section>
-          </>
-        )}
+        {tab === "Users & Roles" && <OwnerAdmin view="team" session={session}/>}
 
         {tab === "Invoice" && (
           <>
@@ -602,9 +585,9 @@ export default function Settings({ data, setData }) {
           <>
             <SectionHeader title="Security" description="Controls for protecting the hotel admin workspace." onSave={save} saved={saved} />
             <section className="fd-settings-card">
-              <SettingsToggle title="Automatic session timeout" text="Sign out inactive admin sessions automatically." />
-              <SettingsToggle title="Login activity alerts" text="Notify the admin when a new device signs in." />
-              <SettingsToggle title="Two-step verification" text="Require an additional verification step for admin login." checked={false} />
+              <SettingsToggle data={data} setData={setData} title="Automatic session timeout" text="Sign out inactive admin sessions automatically." />
+              <SettingsToggle data={data} setData={setData} title="Login activity alerts" text="Notify the admin when a new device signs in." />
+              <SettingsToggle data={data} setData={setData} title="Two-step verification" text="Require an additional verification step for admin login." checked={false} />
               <div className="fd-password-row"><div><b>Change admin password</b><span>Update the password used for the admin workspace.</span></div><button type="button" className="fd-outline-button">Change password</button></div>
             </section>
           </>

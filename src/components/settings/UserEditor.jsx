@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { uid } from "../../core/data.js";
+const STAFF_ROLES=["Admin","Manager","Front Desk"];
 import { Field } from "../Common.jsx";
 
 export default function UserEditor({initial,onClose,onSave}){

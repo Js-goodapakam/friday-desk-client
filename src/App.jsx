@@ -2,10 +2,25 @@ import FridayOnboarding from "./Onboarding.jsx";
 
 console.log("%cFriday AI - Desk build: call-widget-v5-incoming (2026-09-26)", "background:#1557D6;color:#fff;padding:4px 10px;border-radius:6px;font-weight:700");
 import Dashboard from "./Dashboard.jsx";
-import { Component, useEffect, useMemo, useState } from "react";
+import { Component, useEffect, useMemo, useState, useRef, useCallback } from "react";
 import PIOPIY from "@telecmi/piopiyjs";
 import "./index.css";
 import FridayLogin from "./Friday.jsx";
+import { authRequest } from "./services/auth.js";
+import Properties from "./pages/PortfolioWorkspace.jsx";
+import {workspaceRequest} from "./services/workspace.js";
+import DemoOperations from "./pages/DemoOperations.jsx";
+import BusinessOperations from "./pages/BusinessOperations.jsx";
+import ReservationActions from "./pages/ReservationActions.jsx";
+import RatePlans from "./pages/RatePlans.jsx";
+import ChannelMappings from "./pages/ChannelMappings.jsx";
+import RoomManagement from "./pages/RoomManagement.jsx";
+import FolioActions from "./pages/FolioActions.jsx";
+import CreateReservation from "./pages/CreateReservation.jsx";
+import OwnerAdmin from "./pages/OwnerAdmin.jsx";
+import "./pages/demo.css";
+import "./pages/demo-extra.css";
+import {loadPropertyWorkspace,propertyStorageKey} from "./core/propertyWorkspace.js";
 import { KEY,HOTEL,offset,stamp,fmt,date,money,nights,total,balance,initials,uid,load,seed } from "./core/data.js";
 import { Badge,Field } from "./components/Common.jsx";
 import Reservations from "./pages/Reservations.jsx";
@@ -18,6 +33,10 @@ import InvoicesPage from "./pages/Invoices.jsx";
 import Rooms from "./pages/Rooms.jsx";
 import Finance from "./pages/Finance.jsx";
 import Help from "./pages/Help.jsx";
+import ChannelManager from "./pages/ChannelManager.jsx";
+import { reservationError } from "./core/reservationRules.js";
+import RatesInventory from "./pages/RatesInventory.jsx";
+import "./design-system.css";
 
 
 const piopiy = new PIOPIY({
@@ -1006,8 +1025,10 @@ function NavIcon({ name }) {
   );
 }
 
-function Admin({data,setData,onLogout}){
- const [page,setPage]=useState("dashboard"),[editor,setEditor]=useState(false),[selected,setSelected]=useState(null),[callGuest,setCallGuest]=useState(null),[incomingCall,setIncomingCall]=useState(currentIncomingTeleCMICall);
+function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspace,initialPage='dashboard'}){
+ const [mobileNav,setMobileNav]=useState(false),[page,setPage]=useState(initialPage),[editingReservation,setEditingReservation]=useState(null),[editor,setEditor]=useState(false),[selected,setSelected]=useState(null),[callGuest,setCallGuest]=useState(null),[incomingCall,setIncomingCall]=useState(currentIncomingTeleCMICall);
+ useEffect(()=>{if(!mobileNav||!window.matchMedia("(max-width:900px)").matches)return;const panel=document.getElementById("property-navigation"),trigger=document.querySelector(".mobile-menu-toggle");const items=()=>[...panel.querySelectorAll("button,a[href]")].filter(el=>!el.disabled&&el.getClientRects().length);items()[0]?.focus();const keys=e=>{if(e.key==="Escape"){e.preventDefault();setMobileNav(false);}if(e.key==="Tab"){const list=items(),first=list[0],last=list.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}};panel.addEventListener("keydown",keys);return()=>{panel.removeEventListener("keydown",keys);trigger?.focus();};},[mobileNav]);
+ useEffect(()=>{const open=e=>{if(Number(e.detail?.propertyId)===Number(data.property.id)){const record=data.reservations.find(r=>r.id===e.detail.id);if(record)setEditingReservation(record);}};window.addEventListener("friday:open-reservation",open);return()=>window.removeEventListener("friday:open-reservation",open);},[data.property.id,data.reservations]);
  useEffect(()=>subscribeIncomingTeleCMI(setIncomingCall),[]);
  useEffect(()=>{
    if(!incomingCall) return;
@@ -1015,6 +1036,7 @@ function Admin({data,setData,onLogout}){
  },[incomingCall]);
  const normalizePhone=value=>String(value||"").replace(/\D/g,"").slice(-10);
  const startOutgoingCall=(g)=>{
+   if(data.demo){alert("Calling is disabled for fictional Sample data contacts.");return;}
    if(incomingCall){
      alert("You still have an active/unacknowledged incoming call. Please finish or close it before starting a new call — TeleCMI only supports one call at a time per agent.");
      return;
@@ -1029,26 +1051,36 @@ function Admin({data,setData,onLogout}){
  // Always open a selected module at its top; avoids the dashboard appearing clipped
  // when the browser preserves the previous page's scroll position.
  useEffect(()=>{window.scrollTo({top:0,left:0,behavior:"auto"});},[page]);
- const saveReservation=f=>{const overlap=data.reservations.some(r=>r.room===f.room&&["Confirmed","Checked In"].includes(r.status)&&f.arrival<r.departure&&f.departure>r.arrival);if(overlap){alert(`Room ${f.room} has an overlapping stay.`);return}setData(d=>{let guestId=f.guestId;let guests=d.guests;if(f.guestMode==="new"||!guestId){guestId=uid("G");guests=[...guests,{id:guestId,name:`${f.firstName.trim()} ${f.lastName.trim()}`,email:f.email.trim(),phone:f.phone.trim(),nationality:f.nationality,idType:f.idType,idNumber:f.idNumber,address:f.address,idAttachment:f.idAttachment||null}]}else if(f.idAttachment){guests=guests.map(g=>g.id===guestId?{...g,nationality:f.nationality,idType:f.idType,idNumber:f.idNumber,address:f.address,idAttachment:f.idAttachment}:g)}return {...d,guests,reservations:[...d.reservations,{id:uid("R"),guestId,room:f.room,arrival:f.arrival,departure:f.departure,expectedIn:f.expectedIn,expectedOut:f.expectedOut,status:"Confirmed",rate:Number(f.rate),paid:Number(f.paid),bookingDate:offset(0),source:f.source,adults:Number(f.adults),children:Number(f.children),actualCheckIn:null,actualCheckOut:null}]}});setEditor(false)};
- const checkIn=r=>{const now=stamp();setData(d=>({...d,reservations:d.reservations.map(x=>x.id===r.id?{...x,status:"Checked In",actualCheckIn:now}:x)}));setPage("guests")};
- const checkOut=r=>{const now=stamp();setData(d=>({...d,reservations:d.reservations.map(x=>x.id===r.id?{...x,status:"Checked Out",actualCheckOut:now}:x)}));setPage("guests")};
+ const saveReservation=f=>{const validation=reservationError(data,f);if(validation){alert(validation);return}const overlap=data.reservations.some(r=>r.room===f.room&&["Confirmed","Checked In","Modified"].includes(r.status)&&f.arrival<r.departure&&f.departure>r.arrival);if(overlap){alert(`Room ${f.room} has an overlapping stay.`);return}setData(d=>{let guestId=f.guestId;let guests=d.guests;if(f.guestMode==="new"||!guestId){guestId=uid("G");guests=[...guests,{id:guestId,name:`${f.firstName.trim()} ${f.lastName.trim()}`,email:f.email.trim(),phone:f.phone.trim(),nationality:f.nationality,idType:f.idType,idNumber:f.idNumber,address:f.address,idAttachment:f.idAttachment||null}]}else if(f.idAttachment){guests=guests.map(g=>g.id===guestId?{...g,nationality:f.nationality,idType:f.idType,idNumber:f.idNumber,address:f.address,idAttachment:f.idAttachment}:g)}return {...d,guests,reservations:[...d.reservations,{id:uid("R"),guestId,room:f.room,arrival:f.arrival,departure:f.departure,expectedIn:f.expectedIn,expectedOut:f.expectedOut,status:"Confirmed",rate:Number(f.rate),paid:Number(f.paid),bookingDate:offset(0),source:f.source,adults:Number(f.adults),children:Number(f.children),actualCheckIn:null,actualCheckOut:null}]}});setEditor(false)};
+ const checkIn=r=>{if(r.status!=="Confirmed"||r.arrival>offset(0)||r.departure<=offset(0)){alert("Only a confirmed reservation within its stay dates can check in.");return}if(data.reservations.some(x=>x.id!==r.id&&x.room===r.room&&x.status==="Checked In")){alert("This room already has an in-house guest.");return}const now=stamp();setData(d=>({...d,reservations:d.reservations.map(x=>x.id===r.id?{...x,status:"Checked In",actualCheckIn:now}:x)}));setPage("guests")};
+ const checkOut=r=>{if(r.status!=="Checked In"){alert("Only an in-house reservation can check out.");return}if(balance(r)>0){alert("Settle the outstanding balance before check-out.");return}if(!window.confirm("Check out this guest?"))return;const now=stamp();setData(d=>({...d,reservations:d.reservations.map(x=>x.id===r.id?{...x,status:"Checked Out",actualCheckOut:now}:x)}));setPage("guests")};
  const requests=data.requests;
  const navGroups=[
   [["dashboard","Dashboard","dashboard"],["calendar","Calendar","calendar"],["reservations","Reservations","reservations"],["guests","Guests","guests"]],
-  [["invoices","Invoices","invoices"],["payments","Finance","finance"],["reports","Reports","reports"]],
+  [["invoices","Invoices","invoices"],["payments","Finance","finance"],["rates-inventory","Rates & Inventory","reservations"],["channel-manager","Channel Manager","reports"],["reports","Reports","reports"]],
+  ...(data.demo?[[["frontdesk","Front Desk","reservations"],["housekeeping","Housekeeping","reservations"],["folios","Guest folios","invoices"],["rateplans","Rate plans","finance"],["room-types","Room types & inventory","reservations"]]]:[]),
+  [["enquiries","Enquiries","reservations"],["groups","Group Bookings","guests"],["communications","Communications","guests"],["worktasks","Tasks & follow-ups","reports"],["activity","Audit history","reports"],["team","Users & Roles","settings"]],
   [["help","Help","help"],["settings","Settings","settings"]],
  ];
  const currentLabel=navGroups.flat().find(n=>n[0]===page)?.[1]||({rooms:"Rooms",requests:"Guest Requests"}[page]||"Dashboard");
- return <div className="app"><aside className="sidebar"><Brand/><TajLogo compact/><div className="workspace-label">ADMIN WORKSPACE</div><div className="property-chip"><span className="status-dot"/><div><b>Hello {(data.property?.name||"Taj").split(" ")[0]}</b><small>{(data.property?.address||"Tirupati").split(",")[0]}</small></div></div><nav className="sidebar-nav">{navGroups.map((group,gi)=><div className={`nav-group nav-group-${gi+1}`} key={gi}>{group.map(([k,l,ic])=><button key={k} className={page===k?"active":""} onClick={()=>setPage(k)}><NavIcon name={ic}/><span className="nav-label">{l}</span></button>)}</div>)}</nav><div className="sidebar-bottom"><div className="owner-profile"><span className="avatar">RT</span><div><b>Property Admin</b><small>Hotel administrator</small></div></div></div></aside><div className="main-shell"><header className="topbar"><span className="breadcrumb">{data.property?.name||"Taj Tirupati"} / {currentLabel}</span><div className="profile-menu"><button className="avatar-button" aria-label="Open profile menu">RT</button><div className="profile-dropdown"><div className="profile-dropdown-head"><span className="avatar large-avatar">RT</span><div><b>Property Admin</b><small>admin@tajtirupati.local</small></div></div><button onClick={()=>setPage("settings")}>⚙ <span>Settings</span></button><button onClick={onLogout}>↪ <span>Sign out</span></button></div></div></header><main>
+ return <div className={`app ${mobileNav?"mobile-nav-open":""}`}>{mobileNav&&<button className="mobile-nav-backdrop" aria-label="Close navigation" onClick={()=>setMobileNav(false)}/>}<aside className="sidebar" id="property-navigation" aria-label="Property navigation"><Brand/><button type="button" className="property-return" onClick={onBackToProperties}>← All properties</button><div className="workspace-label">ADMIN WORKSPACE</div><div className="property-chip"><span className="status-dot"/><div><b>Hello {(data.property?.name||"Taj").split(" ")[0]}</b><small>{(data.property?.address||"Tirupati").split(",")[0]}</small></div></div><nav className="sidebar-nav">{navGroups.map((group,gi)=><div className={`nav-group nav-group-${gi+1}`} key={gi}>{group.map(([k,l,ic])=><button key={k} className={page===k?"active":""} onClick={()=>{setPage(k);setMobileNav(false)}}><NavIcon name={ic}/><span className="nav-label">{l}</span></button>)}</div>)}</nav><div className="sidebar-bottom"><div className="owner-profile"><span className="avatar">{initials(session.name)}</span><div><b>{session.name}</b><small>{session.role.replaceAll("_"," ")}</small></div></div></div></aside><div className="main-shell"><header className="topbar"><button type="button" className="mobile-menu-toggle" aria-label="Toggle property navigation" aria-expanded={mobileNav} aria-controls="property-navigation" onClick={()=>setMobileNav(value=>!value)}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><span className="breadcrumb">{data.property?.name||"Taj Tirupati"} / {currentLabel}</span><div className="profile-menu"><button className="avatar-button" aria-label="Open profile menu">{initials(session.name)}</button><div className="profile-dropdown"><div className="profile-dropdown-head"><span className="avatar large-avatar">{initials(session.name)}</span><div><b>{session.name}</b><small>{session.email}</small></div></div><button onClick={()=>setPage("settings")}>⚙ <span>Settings</span></button><button onClick={onLogout}>↪ <span>Sign out</span></button></div></div></header><main>{data.demo&&<div className="demo-inline-disclaimer" role="note">{data.demo.disclaimer}</div>}
  {page==="dashboard"&&<Dashboard data={data} hotel={{...HOTEL,name:data.property?.name||HOTEL.name,location:data.property?.address||HOTEL.location,rooms:data.rooms.map(r=>r.number)}} utils={{offset,money,balance,initials,nights}} setPage={setPage} onNew={()=>setEditor(true)} onCheckIn={checkIn} onCheckOut={checkOut} onOpenGuest={setSelected}/>}
- {page==="reservations"&&<Reservations data={data} onCheckIn={checkIn} onCall={startOutgoingCall}/>} 
+ {page==="reservations"&&<Reservations data={data} onCheckIn={checkIn} onEdit={setEditingReservation} onCall={startOutgoingCall}/>} 
  {page==="guests"&&<Guests data={data} setSelected={setSelected} setData={setData} onCall={startOutgoingCall}/>} 
- {page==="calendar"&&<CalendarPage data={data} onOpenGuest={setSelected}/>}
- {page==="invoices"&&<InvoicesPage data={data} setData={setData}/>} {page==="help"&&<Help setPage={setPage}/>} {page==="rooms"&&<Rooms data={data}/>} {page==="payments"&&<Finance data={data}/>}
+ {page==="calendar"&&<CalendarPage data={data} onOpenGuest={setSelected} onNewReservation={()=>setEditor(true)}/>}
+ {page==="invoices"&&<InvoicesPage data={data} setData={setData}/>} {page==="help"&&<Help setPage={setPage}/>} {page==="rooms"&&<Rooms data={data}/>} {page==="payments"&&<Finance data={data} setData={setData}/>} {page==="rates-inventory"&&<RatesInventory data={data} setData={setData}/>} {page==="channel-manager"&&<ChannelManager data={data} setData={setData} onReload={onReloadWorkspace}/>}
+ {["enquiries","groups","communications","worktasks","activity"].includes(page)&&<BusinessOperations key={page} view={page} data={data} setData={setData}/>}
+ 
+ {page==="rateplans"&&<RatePlans data={data} setData={setData}/>}
+ {page==="channel-manager"&&<ChannelMappings data={data} setData={setData}/>}
+ {page==="team"&&<><div className="page-heading"><div><div className="eyebrow">ADMINISTRATION</div><h1>Users &amp; Roles</h1><p className="muted">Staff accounts and property access.</p></div></div><OwnerAdmin view="team" session={session}/></>}
+ {page==="room-types"&&<RoomManagement data={data} setData={setData}/>}
  {page==="requests"&&<RequestsPage data={data} setData={setData}/>}
  {page==="reports"&&<ReportsPage data={data} requests={requests}/>}
- {page==="settings"&&<Settings data={data} setData={setData}/>}
- </main><footer>Friday AI - Desk · {data.property?.name} · Hospitality CRM</footer></div>{editor&&<ReservationEditor data={data} onClose={()=>setEditor(false)} onSave={saveReservation}/>} {selected&&<GuestProfile g={selected} data={data} onClose={()=>setSelected(null)} onCall={startOutgoingCall}/>} {incomingCall&&<CallErrorBoundary onClose={()=>{setIncomingCall(null);currentIncomingTeleCMICall=null;window.teleCMIIncomingCall=null}}><IncomingCallPopup call={incomingCall} guest={incomingGuest} onClose={()=>{setIncomingCall(null);currentIncomingTeleCMICall=null;window.teleCMIIncomingCall=null}} onSave={call=>setData(d=>({...d,callActivities:[...(d.callActivities||[]),call]}))}/></CallErrorBoundary>} {callGuest&&<CallErrorBoundary onClose={()=>setCallGuest(null)}><CallPopup guest={callGuest} telecmi={data.telecmi} onClose={()=>setCallGuest(null)} onSave={call=>setData(d=>({...d,callActivities:[...(d.callActivities||[]),call]}))}/></CallErrorBoundary>}</div>
+ {["frontdesk","housekeeping","folios","tasks"].includes(page)&&<DemoOperations key={page} view={page} data={data} setData={setData} onCheckIn={checkIn} onCheckOut={checkOut}/>}
+ {page==="folios"&&<FolioActions data={data} setData={setData}/>}
+ {page==="settings"&&<><div className="page-heading"><div><div className="eyebrow">ADMINISTRATION</div><h1>Property settings</h1><p className="muted">Property details, operational policies and integrations.</p></div></div><Settings data={data} setData={setData} session={session} onManageProperties={onBackToProperties}/></>}
+ </main><footer>Friday AI - Desk · {data.property?.name} · Hospitality CRM</footer></div>{editingReservation&&<ReservationActions reservation={editingReservation} data={data} setData={setData} onClose={()=>setEditingReservation(null)}/>}{editor&&(data.demo?<CreateReservation data={data} setData={setData} onClose={()=>setEditor(false)}/>:<ReservationEditor data={data} onClose={()=>setEditor(false)} onSave={saveReservation}/>)} {selected&&<GuestProfile g={selected} data={data} onClose={()=>setSelected(null)} onCall={startOutgoingCall}/>} {incomingCall&&<CallErrorBoundary onClose={()=>{setIncomingCall(null);currentIncomingTeleCMICall=null;window.teleCMIIncomingCall=null}}><IncomingCallPopup call={incomingCall} guest={incomingGuest} onClose={()=>{setIncomingCall(null);currentIncomingTeleCMICall=null;window.teleCMIIncomingCall=null}} onSave={call=>setData(d=>({...d,callActivities:[...(d.callActivities||[]),call]}))}/></CallErrorBoundary>} {callGuest&&<CallErrorBoundary onClose={()=>setCallGuest(null)}><CallPopup guest={callGuest} telecmi={data.telecmi} onClose={()=>setCallGuest(null)} onSave={call=>setData(d=>({...d,callActivities:[...(d.callActivities||[]),call]}))}/></CallErrorBoundary>}</div>
 }
 
 
@@ -1061,10 +1093,39 @@ function GuestPortal({data,onRequest,onLogout}){
  return <div className="guest-app"><header className="guest-top"><Brand/><div><span className="guest-property">{data.property?.name}</span><button className="ghost" onClick={onLogout}>Sign out</button></div></header><main className="guest-main"><div className="guest-welcome"><div className="eyebrow">{(data.property?.name||"").toUpperCase()} · {(data.property?.address||"").split(",")[0].toUpperCase()}</div><h1>Welcome, {g.name.split(" ")[0]}.</h1><p className="muted">Your stay, payment and requests in one place.</p></div><div className="guest-grid"><section className="card stay-card"><div className="stay-banner"><span>YOUR STAY · {r.status}</span><Badge>{r.status}</Badge></div><h2>Room {r.room}</h2><div className="stay-dates"><div><span>Expected check-in</span><strong>{date(r.arrival)}</strong><small>{r.expectedIn}</small>{r.actualCheckIn&&<small>Actual: {fmt(r.actualCheckIn)}</small>}</div><div><span>Expected check-out</span><strong>{date(r.departure)}</strong><small>{r.expectedOut}</small>{r.actualCheckOut&&<small>Actual: {fmt(r.actualCheckOut)}</small>}</div></div></section><section className="card"><div className="eyebrow">PAYMENT</div><h2>{money(balance(r))}</h2><p className="muted">Outstanding balance</p><div className="payment-line"><span>Total stay</span><b>{money(total(r))}</b></div><div className="payment-line"><span>Paid</span><b>{money(r.paid)}</b></div></section></div><div className="guest-grid"><section className="card"><div className="eyebrow">REQUESTS</div><h2>Need anything?</h2><form className="request-form" onSubmit={e=>{e.preventDefault();if(text.trim()){onRequest(text);setText("")}}}><textarea rows="3" placeholder="Tell the hotel what you need…" value={text} onChange={e=>setText(e.target.value)}/><button className="primary">Send request</button></form>{data.requests.filter(q=>q.guestId===g.id).map(q=><div className="request-item" key={q.id}><b>{q.text}</b><Badge>{q.status}</Badge></div>)}</section><section className="card"><div className="eyebrow">PROPERTY INFORMATION</div><h2>{data.property?.name}</h2><p className="muted">{data.property?.address||HOTEL.location}</p><div className="info-list"><div><span>Wi-Fi</span><b>{HOTEL.wifi}</b></div><div><span>Check-in</span><b>{HOTEL.checkIn}</b></div><div><span>Check-out</span><b>{HOTEL.checkOut}</b></div></div><button className="subtle wide">Contact Host</button></section></div></main></div>
 }
 
+function PropertyWorkspace({property,session,onLogout,onBack}) {
+ const [data,updateData]=useState(()=>loadPropertyWorkspace(property,session));
+ const [loading,setLoading]=useState(true),[storageError,setStorageError]=useState(""),[saving,setSaving]=useState(false);
+ const current=useRef(data),remote=useRef(false),version=useRef(0),queue=useRef(Promise.resolve()),mounted=useRef(true),failed=useRef(false);
+ const loadRemote=async()=>{const result=await workspaceRequest(property.id);if(result.state){remote.current=true;version.current=result.version;current.current=result.state;updateData(result.state);}return result;};
+ useEffect(()=>{mounted.current=true;loadRemote().catch(error=>{if(property.demo&&mounted.current)setStorageError(error.message);}).finally(()=>{if(mounted.current)setLoading(false);});return()=>{mounted.current=false;};},[property.id]);
+ const setData=useCallback(change=>{
+  const next=typeof change==="function"?change(current.current):change;current.current=next;updateData(next);setStorageError("");
+  if(!remote.current){try{localStorage.setItem(propertyStorageKey(session.id,property.id),JSON.stringify(next));return Promise.resolve(true);}catch{setStorageError("Unable to save browser workspace.");return Promise.resolve(false);}}
+  setSaving(true);failed.current=false;
+  queue.current=queue.current.then(async()=>{
+   const result=await workspaceRequest(property.id,"PUT",{state:next,version:version.current});version.current=result.version;
+   if(current.current===next){current.current=result.state;if(mounted.current)updateData(result.state);}
+  }).catch(error=>{failed.current=true;if(mounted.current)setStorageError(error.message+" Your changes remain on screen. Reload to resolve conflicting updates.");}).finally(()=>{if(mounted.current)setSaving(false);});
+  return queue.current.then(()=>!failed.current);
+ },[session.id,property.id]);
+ const back=async()=>{await queue.current;if(!failed.current)onBack();};
+ const reload=async()=>{await queue.current;await loadRemote();failed.current=false;setStorageError("");};
+ if(loading)return <div role="status" style={{padding:32}}>Loading property records…</div>;
+ if(property.demo&&!remote.current)return <div role="alert" style={{padding:32}}>{storageError||"Sample data workspace unavailable."}<button onClick={onBack}>Back to properties</button></div>;
+ return <>{data.demo&&<div className="demo-notice" role="note">{data.demo.disclaimer} · Reference date: {data.demo.referenceDate} · {saving?"Saving to local database…":remote.current?"Database-backed Sample data":"Local workspace"}</div>}{storageError&&<div className="demo-error" role="alert">{storageError}<button type="button" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Reload saved records</button></div>}<Admin initialPage={property.initialPage} data={data} setData={setData} session={{...session,propertyId:property.id}} onLogout={onLogout} onBackToProperties={back} onReloadWorkspace={reload}/></>;
+}
+
 export default function App(){
- const [data,setData]=useState(load),[session,setSession]=useState(null),[kind,setKind]=useState("admin");
- useEffect(()=>localStorage.setItem(KEY,JSON.stringify(data)),[data]);
- const request=text=>setData(d=>({...d,requests:[...d.requests,{id:uid("Q"),guestId:"G-1001",reservationId:"R-1001",text,status:"Open",created:stamp()}]}));
- if(!session)return <FridayLogin onLogin={setSession}/>;
- return session==="admin"?<Admin data={data} setData={setData} onLogout={()=>setSession(null)}/>:<GuestPortal data={data} onRequest={request} onLogout={()=>setSession(null)}/>;
+ const [session,setSession]=useState(null),[checkingSession,setCheckingSession]=useState(true),[selectedProperty,setSelectedProperty]=useState(null);
+ useEffect(()=>{let active=true;authRequest("session").then(result=>{if(active)setSession(result.user)}).catch(()=>{}).finally(()=>{if(active)setCheckingSession(false)});return()=>{active=false};},[]);
+ useEffect(()=>{if(!session)return;let active=true;const verify=()=>authRequest("session").catch(()=>{if(active)setSession(null);});const timer=setInterval(verify,300000);window.addEventListener("focus",verify);return()=>{active=false;clearInterval(timer);window.removeEventListener("focus",verify);};},[session]);
+ const login=async credentials=>{const result=await authRequest("login",credentials);setSelectedProperty(null);setSession(result.user);};
+ const logout=async()=>{try{await authRequest("logout",{});setSelectedProperty(null);setSession(null);}catch(error){alert(error.message);}};
+
+
+ if(checkingSession)return <div role="status" style={{padding:32}}>Checking your session…</div>;
+ if(!session)return <FridayLogin onLogin={login}/>;
+ if(!selectedProperty)return <Properties session={session} onSelect={setSelectedProperty} onLogout={logout}/>;
+ return <PropertyWorkspace key={selectedProperty.id} property={selectedProperty} session={session} onLogout={logout} onBack={()=>setSelectedProperty(null)}/>;
 }

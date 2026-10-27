@@ -1,0 +1,165 @@
+/* Friday's shared visual contract. ID scope intentionally supersedes legacy page overrides. */
+:root{
+ --fr-font:"Inter",Arial,sans-serif;
+ --fr-ink:#192e49;--fr-muted:#5e728a;--fr-primary:#155cda;--fr-primary-hover:#104fbc;--fr-cyan:#13b6d1;
+ --fr-background:#f5f8fc;--fr-surface:#fff;--fr-border:#dfe7f2;--fr-soft:#edf4ff;--fr-sidebar:228px;
+ --fr-control:38px;--fr-radius:6px;
+ --ink:var(--fr-ink);--muted:var(--fr-muted);--line:var(--fr-border);--surface:var(--fr-surface);
+ --brand:var(--fr-primary);--brand2:#2166c5;--brand-deep:#1238a8;--brand-soft:var(--fr-soft);--soft:var(--fr-soft);--accent:var(--fr-cyan);
+ --fs-2xs:11px;--fs-xs:12px;--fs-sm:13px;--fs-base:14px;--fs-md:16px;--fs-lg:18px;--fs-xl:28px;--fs-2xl:26px;
+}
+html{scrollbar-gutter:stable}body{font-family:var(--fr-font);background:var(--fr-background);color:var(--fr-ink);line-height:1.5}
+#root{min-width:0;font-family:var(--fr-font)}
+#root :is(button,input,select,textarea){font-family:var(--fr-font)}
+#root :is(.app,.pw-app,.guest-app){color:var(--fr-ink);font-size:14px;line-height:1.5;background:var(--fr-background);font-variant-numeric:tabular-nums}
+#root :is(h1,h2,h3,h4){font-weight:600!important;color:var(--fr-ink);line-height:1.3}
+#root .fl-hero h2{color:#fff}
+#root main h1{font-size:26px!important;letter-spacing:-.6px!important;margin:0 0 7px!important;line-height:1.3!important}
+#root :is(.fd-settings-header h2){font-size:18px!important;letter-spacing:-.2px;line-height:1.3}
+#root :is(.card h2,.pw-panel h2,.cm-card h2,.reports-panel h2,.finance-panel h2,.fd-card-head h2,.fd-block-head h3){font-size:17px!important;font-weight:600!important;letter-spacing:-.2px}
+#root :is(.pw-card h2){font-size:16px!important;letter-spacing:-.15px}
+#root :is(.pg-modal h2,.pw-dialog h2,.ri-modal h2,.cm-modal h2,.modal-head h2,.reports-modal-heading h2){font-size:22px!important;line-height:1.35;overflow-wrap:anywhere}
+#root :is(.page-heading p,.business-heading p,.pw-heading p,.finance-heading p,.reports-page-heading p,.cm-head p,.ri-head p,.fd-settings-header p,.fd-sub){font-size:13px!important;line-height:1.65;color:var(--fr-muted)!important;margin:4px 0 0!important}
+#root :is(.eyebrow,.workspace-label,.fd-eyebrow,.pg-eyebrow,.pw-eyebrow,.finance-eyebrow,.reports-eyebrow){font-size:11px!important;font-weight:600!important;letter-spacing:.1em!important}
+#root :is(.stat strong,.fd-kpi-value,.pw-stat strong,.guests-kpi-value,.finance-kpi-value,.reports-kpi-value,.cm-metric strong){font-size:28px!important;font-weight:600!important;line-height:1.2;letter-spacing:-.6px;overflow-wrap:anywhere}
+#root :is(.demo-report-metrics b){font-size:24px;font-weight:600;overflow-wrap:anywhere}
+#root :is(.pw-stat>span,.pw-stat small,.pw-card-stat span,.pw-panel-head p,.pw-shortcuts small,.pw-attention-item p,.pw-data-note,.pw-results,.pw-card p,.pw-account small,.pw-subscription button,.pw-photo-credit,.pw-footnote){font-size:12px!important;line-height:1.55;color:var(--fr-muted)}
+#root :is(.pw-table td,.business-table td,.demo-table-wrap td){font-size:13px!important;line-height:1.55}
+#root :is(th,.pw-table th,.business-table th){font-size:12px!important;font-weight:500!important;letter-spacing:.025em;line-height:1.5}
+#root :is(td small,.pw-table-property small,.pw-table td small,.business-table td small,.cm-card td small,.guest-cell small){font-size:12px!important;line-height:1.5;color:var(--fr-muted)}
+#root :is(.badge,.pill,.fn-badge,.pw-tag){font-size:11px!important;font-weight:500!important;line-height:1.5}
+#root :is(.pw-code,.pg-code){font-size:11px;letter-spacing:.06em;overflow-wrap:anywhere}
+#root :is(.pw-panel,.card,.cm-card,.ri-table,.finance-panel,.reports-panel){border-color:var(--fr-border);border-radius:8px;box-shadow:0 1px 3px #16365b04}
+#root :is(.primary,.pw-primary,.pg-primary,.cm-primary,.ri-primary,.fd-primary-button,.finance-primary-btn,.reports-primary-btn){background:var(--fr-primary)!important;color:#fff!important;border-color:var(--fr-primary)!important;border-radius:var(--fr-radius);box-shadow:none}
+#root :is(.primary,.pw-primary,.pg-primary,.cm-primary,.ri-primary,.fd-primary-button):hover:not(:disabled){background:var(--fr-primary-hover)!important;transform:none;box-shadow:none}
+#root :is(button,input,select,textarea):focus-visible{outline:2px solid #1879e0!important;outline-offset:2px!important}
+#root :is(button){font-weight:500!important;max-width:100%}
+#root :is(.primary,.subtle,.ghost,.pw-primary,.pw-secondary,.pg-primary,.pg-secondary,.cm-primary,.cm-secondary,.ri-primary,.ri-secondary,.fd-primary-button,.fd-outline-button){min-height:var(--fr-control);font-size:13px!important;display:inline-flex;align-items:center;justify-content:center;gap:7px;line-height:1.4}
+#root :is(.pw-text-button,.pw-open-property,.fd-text-button,.text-button,.link-button){font-size:12px!important;line-height:1.5}
+#root :is(.field,.pw-admin label,.business-form label,.pg-modal label){font-size:13px;color:#425d7c;line-height:1.5}
+#root :is(.field input,.field select,.pw-admin input:not([type=checkbox]),.pw-admin select,.business-form input:not([type=checkbox]),.business-form select,.pg-modal input,.pw-filter,.pw-search input,.business-toolbar input,.business-toolbar select,.demo-controls input,.demo-controls select){min-height:var(--fr-control);height:auto;font-size:13px!important;line-height:1.5;border-color:var(--fr-border);border-radius:5px;min-width:0;max-width:100%}
+#root :is(textarea){font-size:13px!important;line-height:1.65;max-width:100%}
+#root :is(input[type=checkbox],input[type=radio]){accent-color:var(--fr-primary);flex:none}
+#root :is(input,textarea)::placeholder{color:#65778e;opacity:1}
+#root :is(.field small,.fd-form-grid small,.pw-admin>p,.pw-admin form>p,.cm-empty p,.cm-checklist small,.finance-subtitle,.reports-description){color:var(--fr-muted);font-size:12px;line-height:1.65}
+#root :is(.pw-heading,.page-heading,.business-heading,.finance-heading,.reports-page-heading,.cm-head,.ri-head,.invoice-page-heading,.guests-heading){align-items:flex-start;gap:18px;margin-bottom:22px;min-width:0}
+#root :is(.page-heading,.business-heading,.pw-heading,.finance-heading,.reports-page-heading,.cm-head,.ri-head)>div{min-width:0}
+#root :is(.business-heading>div:last-child,.invoice-heading-actions,.reports-page-actions,.finance-heading-actions){display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+#root :is(.pw-toolbar,.business-toolbar,.table-toolbar,.guest-toolbar,.finance-toolbar,.demo-controls){gap:10px;align-items:center;flex-wrap:wrap}
+#root :is(.pw-toolbar,.business-toolbar)>input{flex:1 1 220px;max-width:360px}
+#root :is(.pw-app){--pw-ink:var(--fr-ink);--pw-muted:var(--fr-muted);--pw-line:var(--fr-border);--pw-blue:var(--fr-primary)}
+#root :is(.pw-top,.pw-main,.pw-body,.pw-panel,.pw-properties,.pw-properties>article,.pw-card,.pw-card-body,.pw-shortcuts>div,.pw-shortcuts button){min-width:0}
+#root .pw-main{padding:26px;max-width:1500px}
+#root .pw-top{padding:0 26px}
+#root .pw-table-property b{font-size:13px;font-weight:500;overflow-wrap:anywhere}
+#root .pw-summary{gap:12px}#root .pw-stat{padding:16px;min-width:0}
+#root .pw-card-stat{align-items:start}#root .pw-card-stat b{font-size:18px;font-weight:500}
+#root .pw-card-body{padding:17px}#root .pw-open-property{min-height:34px}
+#root .pw-brand{font-size:15px}#root .pw-organization small,#root .pw-organization>span{color:#d7e8ff}
+#root :is(.pw-sidebar .pw-nav-title,.pw-sidebar .pw-subscription>small){font-size:11px;letter-spacing:.08em;color:#d5e6ff}
+#root :is(.pw-sidebar .pw-nav-item){font-size:13px!important;line-height:1.45!important;padding:10px;gap:9px}
+#root :is(.pw-sidebar .pw-account small,.pw-sidebar .pw-subscription button){color:#d7ecff}
+#root .pw-top>span{min-width:0;overflow-wrap:anywhere;font-size:12px}
+#root .pw-date{font-size:12px}#root .pw-date small{font-size:11px}
+#root .pw-shortcuts>div{grid-template-columns:repeat(3,minmax(0,1fr))}
+#root .app .sidebar{position:fixed!important;inset:0 auto 0 0!important;width:var(--fr-sidebar)!important;height:100dvh!important;max-height:100dvh!important;padding:20px 14px 12px!important;background:linear-gradient(165deg,#1238aa,#0865d8 73%,#10b6ce)!important;z-index:80}
+#root .app .main-shell{margin-left:var(--fr-sidebar)!important;width:calc(100% - var(--fr-sidebar))!important;min-width:0!important;background:var(--fr-background)!important}
+#root .app .sidebar .brand{padding:0 5px 15px!important;gap:8px}#root .app .sidebar .brand b{font-size:17px!important;color:white;font-weight:600!important;white-space:nowrap}
+#root .app .sidebar .sidebar-nav{margin-top:12px!important;overflow-y:auto;overflow-x:hidden;min-height:0;flex:1;scrollbar-width:thin;padding-right:3px}
+#root .app .sidebar .sidebar-nav button{min-height:38px;padding:9px 10px!important;border-radius:5px;gap:9px;color:#e0eeff!important;align-items:center}
+#root .app .sidebar .sidebar-nav button span{font-size:13px!important;line-height:1.4!important;min-width:0;white-space:normal}
+#root .app .sidebar .sidebar-nav button.active{background:#ffffff24!important;color:#fff!important;font-weight:600!important}
+#root .app .sidebar .workspace-label{color:#d0e4ff!important;font-size:11px!important;margin:13px 4px 10px}
+#root .app .sidebar .property-chip{padding:10px;margin-bottom:0;background:#ffffff12!important;border:1px solid #ffffff30;border-radius:5px}
+#root .app .sidebar .property-chip small,#root .app .sidebar .owner-profile small{color:#d9edff!important;font-size:12px!important}
+#root .app .sidebar .property-chip b,#root .app .sidebar .owner-profile b{font-size:13px!important;color:white!important}
+#root .app .sidebar .sidebar-bottom{flex:none;display:block!important}#root .app .owner-profile{padding:12px 3px 3px}
+#root .app .topbar{height:64px!important;min-height:64px;gap:12px;padding:0 26px!important;background:white;border-color:var(--fr-border);backdrop-filter:none}
+#root .app .breadcrumb{min-width:0;flex:1;overflow-wrap:anywhere;color:var(--fr-muted);font-size:13px!important;line-height:1.5}
+#root .app .topbar .profile-menu{flex:none}#root .app .main-shell main{padding:26px 26px 60px!important;max-width:1500px;min-width:0}
+#root .app .main-shell main>*{min-width:0;max-width:100%}
+#root .app .main-shell:has(.teams-calendar-page) main{height:calc(100dvh - 64px);padding:16px 20px 42px!important;max-width:none;overflow:hidden!important}
+#root .app .main-shell:has(.teams-calendar-page) .demo-inline-disclaimer{flex:none;max-height:58px;overflow:auto}
+#root :is(.teams-calendar-page,.teams-calendar-page *){font-family:var(--fr-font)!important}
+#root .teams-calendar-page h1{font-size:26px!important;font-weight:600!important}
+#root :is(.fd-dash){--fd-ink:var(--fr-ink);--fd-muted:var(--fr-muted);--fd-line:var(--fr-border);--fd-blue:var(--fr-primary)}
+#root :is(.fd-kpi,.stat,.request-stat){border-radius:7px;min-width:0}
+#root .fd-kpis{gap:12px!important;align-items:stretch}
+#root .fd-kpis .fd-kpi-gradient{display:none!important}
+#root .fd-kpis .fd-kpi{grid-column:auto!important;grid-row:auto!important;display:flex;flex-direction:column;align-items:flex-start;min-height:132px!important;height:auto!important;padding:15px!important;background:#fff;gap:5px}
+#root .fd-kpis .fd-kpi.fd-kpi--active{background:var(--fr-primary)!important;border-color:var(--fr-primary)!important}
+#root .fd-kpis .fd-kpi-top{align-items:center;min-width:0;width:100%}
+#root .fd-kpis .fd-kpi-label{font-size:13px!important;line-height:1.4;white-space:normal}
+#root .fd-kpis .fd-kpi-value{margin:4px 0 0!important;font-size:28px!important;white-space:nowrap}
+#root .fd-kpis .fd-kpi-note{font-size:12px!important;line-height:1.5;margin-top:auto;padding-top:3px;white-space:normal}
+#root .fd-kpis .fd-kpi--active :is(.fd-kpi-label,.fd-kpi-value){color:white!important}
+#root .fd-kpis .fd-kpi--active .fd-kpi-note{color:#e4eeff!important}
+#root :is(.fd-room,.room-tile){min-width:0;border-radius:5px}
+#root .fd-room-preview-note{font-size:12px;color:var(--fr-muted);margin:12px 14px;line-height:1.6}
+#root :is(.badge.checked-in){background:#eaf2ff;color:#245faf}
+#root :is(.badge.cancelled,.demo-error,.pw-error){color:#a43734}
+#root :is(.table-scroll,.demo-table-wrap,.pw-table-scroll,.cm-table-wrap,.ri-table-wrap,.business-board){max-width:100%;min-width:0;overscroll-behavior-x:contain}
+#root .ri-grid th :is(b,small){font-size:12px!important;line-height:1.5}
+#root :is(td.num,th.num,.finance-paid,.finance-balance,.invoice-total,.pw-money-value){font-variant-numeric:tabular-nums}
+#root :is(td.num,th.num,.finance-paid,.finance-balance){text-align:right;white-space:nowrap}
+#root :is(.pg-modal,.modal,.ri-modal,.cm-modal,.pw-dialog,.reports-modal){border-radius:8px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 32px);overflow:auto;scrollbar-gutter:stable}
+#root :is(.pg-modal,.modal,.ri-modal,.cm-modal,.reports-modal){padding:24px}
+#root :is(.modal-actions,.pg-modal-actions,.cm-modal-actions){display:flex;gap:10px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+#root .pw-dialog{max-height:100dvh;max-width:100vw;border-radius:0}
+#root :is(.form-grid,.pw-form-grid,.fd-form-grid){align-items:start}
+#root :is(.form-grid,.pw-form-grid,.fd-form-grid)>*{min-width:0}
+#root :is(.demo-pagination){font-size:12px;gap:10px;align-items:center;flex-wrap:wrap}
+#root .business-table select{min-height:36px;padding:6px 9px;border:1px solid var(--fr-border);border-radius:5px;background:white;color:#355579;font-size:13px;max-width:190px}
+#root .business-board{grid-template-columns:repeat(7,minmax(200px,1fr))}
+#root .business-column h3{font-size:14px!important}#root .business-column article{font-size:13px}
+#root .business-form fieldset{border:1px solid var(--fr-border);border-radius:5px;padding:12px;min-width:0}
+#root .business-form fieldset .pw-check{flex-direction:row;align-items:flex-start;gap:8px}
+#root .business-form fieldset input[type=checkbox]{width:16px!important;height:16px!important;min-height:16px!important;margin-top:3px;padding:0}
+#root :is(.fd-settings-page){grid-template-columns:205px minmax(0,1fr);gap:20px;min-width:0}
+#root .fd-settings-content{min-width:0}#root .fd-settings-menu button{min-height:52px;padding:10px 9px;gap:8px}
+#root .fd-menu-copy b{font-size:13px;font-weight:500}#root .fd-menu-copy small{font-size:11px;color:var(--fr-muted);line-height:1.5}
+#root .fd-settings-sidebar{min-width:0;max-width:100%;border-radius:6px;top:80px}
+#root .fd-settings-card{padding:20px;border-radius:7px;border-color:var(--fr-border)}
+#root .fd-settings-header{gap:14px;align-items:flex-start;flex-wrap:wrap}
+#root .fd-staff-main{min-width:0;overflow-wrap:anywhere}
+#root .mobile-menu-toggle,#root .mobile-nav-backdrop{display:none}
+@media(max-width:1200px){:root{--fr-sidebar:210px}#root .pw-main{padding:23px}#root .app .main-shell main{padding:23px 22px 60px!important}#root .fd-settings-page{grid-template-columns:180px minmax(0,1fr);gap:15px}#root .pw-shortcuts>div{grid-template-columns:1fr}}
+@media(max-width:1000px){#root .fd-settings-page{grid-template-columns:minmax(0,1fr)}#root .fd-settings-sidebar{position:static;padding:10px;overflow:hidden}#root .fd-settings-sidebar-title,#root .fd-settings-help{display:none}#root .fd-settings-menu{display:flex;gap:6px;overflow-x:auto;padding:3px 2px 7px;scrollbar-width:thin}#root .fd-settings-menu button{flex:0 0 auto;min-height:38px;width:auto;gap:6px;padding:8px 10px;white-space:nowrap}#root .fd-settings-menu .fd-menu-icon,#root .fd-menu-copy small,#root .fd-settings-menu button>svg{display:none}#root .fd-menu-copy b{font-size:12px}#root .pw-date small{display:none}#root :is(.business-heading,.finance-heading,.reports-page-heading,.page-heading,.pw-heading){flex-wrap:wrap}}
+@media(max-width:900px){
+ #root .app .sidebar{width:240px!important;transform:translateX(-100%);visibility:hidden;pointer-events:none;transition:none!important;box-shadow:none;z-index:120}
+ #root .app.mobile-nav-open .sidebar{transform:translateX(0);visibility:visible;pointer-events:auto;box-shadow:8px 0 35px #152b4b22}
+ #root .app .sidebar .workspace-label,#root .app .sidebar .property-chip{display:flex!important}
+ #root .app .sidebar .property-chip{align-items:center;gap:10px}#root .app .sidebar .workspace-label{display:block!important}
+ #root .app .main-shell{margin-left:0!important;width:100%!important}
+ #root .mobile-menu-toggle{display:grid;place-items:center;flex:none;width:36px;height:36px;border:1px solid var(--fr-border);background:white;border-radius:5px;color:var(--fr-primary);padding:7px}
+ #root .mobile-menu-toggle svg{height:18px;width:18px}
+ #root .mobile-nav-backdrop{display:block;position:fixed;inset:0;z-index:110;border:0;padding:0;background:#122b4855;border-radius:0;max-width:none}
+ #root .app .topbar{padding:0 18px!important}#root .app .main-shell main{padding:22px 18px 60px!important}
+ #root :is(.dashboard-grid,.guest-grid,.finance-charts,.cm-grid){grid-template-columns:minmax(0,1fr)}
+ #root :is(.room-grid.large){grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:650px){
+ #root .pw-sidebar nav[aria-label="Organization administration"]{display:flex;overflow-x:auto;gap:4px}
+ #root main h1,#root .teams-calendar-page h1{font-size:24px!important}
+ #root .pw-main{padding:20px 15px}#root .pw-top{padding:10px 15px;gap:8px;align-items:center;flex-wrap:wrap;height:auto;min-height:58px}
+ #root :is(.page-heading,.business-heading,.finance-heading,.reports-page-heading,.cm-head,.ri-head,.pw-heading){flex-direction:column;gap:13px;margin-bottom:20px}
+ #root :is(.business-heading>div:last-child,.invoice-heading-actions,.reports-page-actions,.finance-heading-actions){width:100%}
+ #root :is(.business-toolbar,.pw-toolbar,.guest-toolbar,.finance-toolbar,.table-toolbar){align-items:stretch}
+ #root :is(.business-toolbar,.table-toolbar,.guest-toolbar,.finance-toolbar)>input{flex-basis:100%;max-width:none;min-width:0}
+ #root .pw-search{max-width:none;flex-basis:100%}#root .pw-filter{min-width:0;flex:1}
+ #root :is(.form-grid,.pw-form-grid,.fd-form-grid,.cm-grid,.finance-main-grid,.invoice-form-grid){grid-template-columns:minmax(0,1fr)}
+ #root :is(.fd-settings-card){padding:16px}#root :is(.fd-settings-header){gap:12px}
+ #root .app .main-shell main{padding:20px 14px 65px!important}#root .app .topbar{padding:0 14px!important;height:60px!important;min-height:60px}
+ #root .app .main-shell:has(.teams-calendar-page) main{height:calc(100dvh - 60px);padding:10px 12px 44px!important}
+ #root :is(.room-grid.large){grid-template-columns:repeat(2,minmax(0,1fr))}
+ #root :is(.stats,.guest-stats,.guests-kpis,.request-summary,.finance-kpis,.demo-report-metrics){grid-template-columns:repeat(2,minmax(0,1fr))}
+ #root :is(.business-form,.pg-modal){padding:19px}
+ #root .pw-stat strong{font-size:26px!important}#root .pw-date{display:none}
+ #root .fd-kpis .fd-kpi-value{font-size:24px!important}#root .fd-kpis .fd-kpi{min-height:138px!important;padding:13px!important}
+ #root :is(.pw-photo-credit,.pw-footnote){font-size:11px!important}
+ #root :is(.demo-notice){max-width:calc(100vw - 24px);font-size:11px;line-height:1.5;right:12px;bottom:7px;padding:6px 9px}
+}
+@media(max-width:420px){#root .pw-summary{grid-template-columns:1fr 1fr}#root .pw-stat:last-child{grid-column:1/-1}#root .pw-stat{padding:14px}#root .pw-card-stat{gap:7px}#root .pw-card-stat b{font-size:18px}#root .pw-card-stat span{font-size:11px!important}#root .pw-top-actions{gap:5px}#root .pw-subscription{display:none}#root .app .brand b{font-size:16px!important}#root :is(.modal-actions,.pg-modal-actions){gap:8px}#root .pw-admin{padding:16px}}
+@media(pointer:coarse){#root :is(.primary,.subtle,.ghost,.pw-primary,.pw-secondary,.pg-primary,.pg-secondary,.cm-primary,.cm-secondary,.ri-primary,.ri-secondary,.mobile-menu-toggle,.pw-icon-button){min-height:44px}#root :is(input:not([type=checkbox]):not([type=radio]),select,textarea){font-size:16px!important}#root .pw-table-scroll input{font-size:13px!important}}
+@media(prefers-reduced-motion:reduce){#root .app .sidebar{transition:none}}
+@media print{#root .app .sidebar,#root .app .topbar,#root .mobile-menu-toggle,#root .mobile-nav-backdrop{display:none!important}#root .app .main-shell{margin:0!important;width:100%!important}#root .app .main-shell main{padding:0!important}#root .invoice-paper{box-shadow:none;border:0;border-radius:0}html{scrollbar-gutter:auto}}

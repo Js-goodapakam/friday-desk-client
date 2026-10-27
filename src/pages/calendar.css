@@ -8,7 +8,7 @@
   flex-direction:column;
   overflow:hidden;
   color:#172b4d;
-  font-family:"Poppins",sans-serif!important;
+  font-family:var(--fr-font, "Inter", Arial, sans-serif)!important;
 }
 
 /* =========================================================
@@ -24,14 +24,14 @@
 }
 
 .teams-calendar-page *,.teams-calendar-page *::before,.teams-calendar-page *::after{
-  font-family:"Poppins",sans-serif!important;box-sizing:border-box;
+  font-family:var(--fr-font, "Inter", Arial, sans-serif)!important;box-sizing:border-box;
 }
 .teams-calendar-toolbar{
   min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:18px;
   padding:0 2px 10px;border-bottom:1px solid #e7edf5;
 }
-.teams-calendar-title h1{margin:2px 0 0;font-size:22px;line-height:1.2;font-weight:700;color:#13253e}
-.teams-calendar-title .eyebrow{font-size:9px;letter-spacing:.12em;font-weight:700;color:#2877dc}
+.teams-calendar-title h1{margin:2px 0 0;font-size:22px;line-height:1.2;font-weight:600;color:#13253e}
+.teams-calendar-title .eyebrow{font-size:11px;letter-spacing:.12em;font-weight:600;color:#2877dc}
 .teams-calendar-actions{display:flex;align-items:center;gap:9px}
 .teams-search{
   width:280px;height:36px;display:flex;align-items:center;gap:8px;padding:0 11px;
@@ -54,20 +54,20 @@
 .teams-command-left strong{font-size:12px;font-weight:600;color:#293c56;margin-left:7px;white-space:nowrap}
 .teams-today-button,.teams-nav-button{
   height:32px;border:1px solid #dce5ef;background:#fff;border-radius:7px;color:#38506e;
-  font-size:10px;font-weight:600;cursor:pointer;
+  font-size:11px;font-weight:600;cursor:pointer;
 }
 .teams-today-button{padding:0 12px}.teams-nav-button{width:30px;font-size:18px;line-height:1}
 .teams-today-button:hover,.teams-nav-button:hover{background:#f5f8fc}
 .teams-view-switch{display:flex;border:1px solid #dce5ef;border-radius:8px;padding:2px;background:#f7f9fc}
 .teams-view-switch button{
   height:27px;padding:0 11px;border:0;border-radius:6px;background:transparent;color:#63738a;
-  font-size:10px;font-weight:600;cursor:pointer;
+  font-size:11px;font-weight:600;cursor:pointer;
 }
 .teams-view-switch button.active{background:#1769e0;color:#fff;box-shadow:0 2px 7px rgba(23,105,224,.18)}
 .calendar-filters{display:flex;gap:6px}
 .calendar-filters select{
   height:32px;min-width:104px;border:1px solid #dce5ef;border-radius:7px;background:#fff;
-  padding:0 9px;color:#51637a;font-size:10px;font-weight:500;outline:0;
+  padding:0 9px;color:#51637a;font-size:11px;font-weight:500;outline:0;
 }
 
 .teams-calendar-workspace{
@@ -107,27 +107,27 @@
   border-radius:50%;
   display:grid;
   place-items:center;
-  font-size:8.5px;
+  font-size:11px;
   color:#53657a;
   cursor:pointer;
   position:relative;
 }
 .teams-mini-grid button:hover{background:#edf4fd}
-.teams-mini-grid button.today{color:#1769e0;font-size:8.5px !important;font-weight:700}
-.teams-mini-grid button.selected{width:21px;height:21px;background:#1769e0;color:#fff;font-size:8.5px !important;font-weight:700;border-radius:50%}
+.teams-mini-grid button.today{color:#1769e0;font-size:11px !important;font-weight:600}
+.teams-mini-grid button.selected{width:21px;height:21px;background:#1769e0;color:#fff;font-size:11px !important;font-weight:600;border-radius:50%}
 .teams-mini-grid button.has-events:not(.selected)::after{
   content:"";position:absolute;bottom:2px;width:3px;height:3px;border-radius:50%;background:#36a269;
 }
 .mini-today{
   margin-top:10px;height:27px;width:100%;border:1px solid #dce5ef;border-radius:7px;background:#fff;
-  color:#1769e0;font-size:9px;font-weight:600;cursor:pointer;
+  color:#1769e0;font-size:11px;font-weight:600;cursor:pointer;
 }
 .teams-sidebar-section{padding:14px 2px;border-bottom:1px solid #e5ebf3}
-.teams-sidebar-section-title{font-size:9px;font-weight:700;color:#7b899a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
-.teams-sidebar-section label{display:flex;align-items:center;gap:8px;padding:7px 3px;color:#4d6078;font-size:10px;font-weight:500}
+.teams-sidebar-section-title{font-size:11px;font-weight:600;color:#7b899a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.teams-sidebar-section label{display:flex;align-items:center;gap:8px;padding:7px 3px;color:#4d6078;font-size:11px;font-weight:500}
 .calendar-check{width:8px;height:8px;border-radius:50%;display:inline-block}.calendar-check.blue{background:#1769e0}.calendar-check.green{background:#2aa36b}.calendar-check.orange{background:#e49525}.calendar-check.purple{background:#7b61d9}
 .teams-sidebar-summary{margin-top:14px;padding:12px;border:1px solid #e0e8f1;border-radius:9px;background:#fff}
-.teams-sidebar-summary span,.teams-sidebar-summary small{display:block;color:#8492a3;font-size:9px}
+.teams-sidebar-summary span,.teams-sidebar-summary small{display:block;color:#8492a3;font-size:11px}
 .teams-sidebar-summary strong{display:block;margin:2px 0;font-size:21px;color:#1769e0}
 
 .teams-calendar-main{
@@ -149,13 +149,13 @@
 .teams-time-header:not(:has(+ *)){}
 .teams-time-body{display:grid;grid-template-columns:58px minmax(0,1fr);min-width:0}
 .teams-hour-axis{background:#fbfcfe;border-right:1px solid #e4eaf2}
-.teams-hour-axis div{height:64px;padding:5px 8px 0 0;text-align:right;color:#8a98a9;font-size:8px;font-weight:500}
+.teams-hour-axis div{height:64px;padding:5px 8px 0 0;text-align:right;color:#8a98a9;font-size:11px;font-weight:500}
 .teams-day-columns{display:grid;min-width:0}
 .teams-day-head{
   min-width:0;height:51px;border-right:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;gap:5px;
-  color:#6e7f94;background:#fff;font-size:9px;font-weight:600;position:relative;
+  color:#6e7f94;background:#fff;font-size:11px;font-weight:600;position:relative;
 }
-.teams-day-head b{font-size:14px;color:#334963}.teams-day-head small{font-size:8px;color:#94a1b1}
+.teams-day-head b{font-size:14px;color:#334963}.teams-day-head small{font-size:11px;color:#94a1b1}
 .teams-day-head.today{color:#1769e0;background:#f6f9fe}.teams-day-head.today b{color:#1769e0}
 .teams-day-head.today::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#1769e0}
 .teams-time-body .teams-day-columns{grid-column:2}
@@ -168,23 +168,23 @@
   padding:5px 6px;text-align:left;overflow:hidden;cursor:pointer;box-shadow:0 1px 3px rgba(33,57,87,.08);
 }
 .teams-event strong,.teams-event span,.teams-event small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.teams-event strong{font-size:9px;font-weight:700;color:#24405e}.teams-event span{font-size:8px;font-weight:500;color:#63758b;margin-top:2px}.teams-event small{font-size:8px;color:#73859a;margin-top:2px}
+.teams-event strong{font-size:11px;font-weight:600;color:#24405e}.teams-event span{font-size:11px;font-weight:500;color:#63758b;margin-top:2px}.teams-event small{font-size:11px;color:#73859a;margin-top:2px}
 .teams-event--confirmed{background:#eaf3ff;border-left-color:#287be0}.teams-event--checked{background:#e9f8f0;border-left-color:#2ca66e}.teams-event--departure{background:#fff3e4;border-left-color:#e39123}.teams-event--reserved{background:#f0edff;border-left-color:#7b61d9}.teams-event--cancelled{background:#f3f4f6;border-left-color:#9aa4b1}
 .teams-now-line{position:absolute;left:0;right:0;height:2px;background:#ef4b56;z-index:7;pointer-events:none}
-.teams-now-line span{position:absolute;left:-1px;top:-7px;background:#ef4b56;color:#fff;border-radius:5px;padding:2px 4px;font-size:7px;font-weight:700}
+.teams-now-line span{position:absolute;left:-1px;top:-7px;background:#ef4b56;color:#fff;border-radius:5px;padding:2px 4px;font-size:11px;font-weight:600}
 
 .teams-agenda{min-width:0;border-left:1px solid #e2e8f0;background:#fbfcfe;padding:13px;overflow:auto}
 .agenda-title{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:11px;border-bottom:1px solid #e4eaf1}
-.agenda-title .eyebrow{font-size:8px;color:#7f8ea1;font-weight:700;letter-spacing:.08em}.agenda-title h3{margin:2px 0 0;font-size:13px;color:#253a54}
-.agenda-count{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#e8f1fd;color:#1769e0;font-size:9px;font-weight:700}
+.agenda-title .eyebrow{font-size:11px;color:#7f8ea1;font-weight:600;letter-spacing:.08em}.agenda-title h3{margin:2px 0 0;font-size:13px;color:#253a54}
+.agenda-count{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#e8f1fd;color:#1769e0;font-size:11px;font-weight:600}
 .agenda-row{width:100%;display:flex;gap:8px;align-items:flex-start;padding:10px 4px;border:0;border-bottom:1px solid #e8edf3;background:transparent;text-align:left;cursor:pointer}
-.agenda-row:hover{background:#f3f7fc}.agenda-time{width:43px;color:#8493a5;font-size:8px;font-weight:600;padding-top:1px;flex:0 0 auto}
-.agenda-main strong,.agenda-main small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.agenda-main strong{font-size:9px;color:#29415e}.agenda-main small{margin-top:2px;color:#78899d;font-size:8px}
+.agenda-row:hover{background:#f3f7fc}.agenda-time{width:43px;color:#8493a5;font-size:11px;font-weight:600;padding-top:1px;flex:0 0 auto}
+.agenda-main strong,.agenda-main small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.agenda-main strong{font-size:11px;color:#29415e}.agenda-main small{margin-top:2px;color:#78899d;font-size:11px}
 .agenda-row--checked .agenda-time{color:#2a9d69}.agenda-row--departure .agenda-time{color:#d27f18}.agenda-row--confirmed .agenda-time{color:#1769e0}
-.agenda-empty{padding:30px 5px;color:#93a0af;font-size:9px;text-align:center}
+.agenda-empty{padding:30px 5px;color:#93a0af;font-size:11px;text-align:center}
 
 .teams-month{height:100%;min-height:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));grid-template-rows:32px repeat(5,minmax(0,1fr));overflow:hidden;background:#fff}
-.teams-month-head{display:flex;align-items:center;padding:0 9px;border-right:1px solid #e3e9f1;border-bottom:1px solid #dfe6ef;background:#fbfcfe;color:#718196;font-size:9px;font-weight:600}
+.teams-month-head{display:flex;align-items:center;padding:0 9px;border-right:1px solid #e3e9f1;border-bottom:1px solid #dfe6ef;background:#fbfcfe;color:#718196;font-size:11px;font-weight:600}
 .teams-month-cell{position:relative;min-width:0;padding:7px;border:0;border-right:1px solid #e4eaf1;border-bottom:1px solid #e4eaf1;background:#fff;text-align:left;cursor:pointer;overflow:hidden}
 .teams-month-cell:hover{background:#fafcff}.teams-month-cell.outside{background:#fbfcfe}.teams-month-cell.today{background:#f5f9ff}
 .teams-month-number{
@@ -194,24 +194,24 @@
   align-items:center;
   justify-content:center;
   border-radius:50%;
-  font-size:9px !important;
+  font-size:11px !important;
   line-height:1 !important;
   font-weight:600;
   color:#52657c;
 }
 .teams-month-cell.today .teams-month-number{background:#1769e0;color:#fff}
 .teams-month-events{display:flex;flex-direction:column;gap:3px;margin-top:3px}
-.month-event{display:block;min-width:0;padding:4px 5px;border-radius:4px;border-left:3px solid #1769e0;background:#edf5ff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#42556c;font-size:8px}
-.month-event b{font-weight:600}.month-event em{font-style:normal;color:#78889b}.month-event--checked{border-left-color:#2ca66e;background:#edf9f3}.month-event--departure{border-left-color:#e39123;background:#fff7eb}.month-event--reserved{border-left-color:#7b61d9;background:#f4f1ff}.month-more{font-size:8px;color:#1769e0;font-weight:600;padding:2px 4px}
+.month-event{display:block;min-width:0;padding:4px 5px;border-radius:4px;border-left:3px solid #1769e0;background:#edf5ff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#42556c;font-size:11px}
+.month-event b{font-weight:600}.month-event em{font-style:normal;color:#78889b}.month-event--checked{border-left-color:#2ca66e;background:#edf9f3}.month-event--departure{border-left-color:#e39123;background:#fff7eb}.month-event--reserved{border-left-color:#7b61d9;background:#f4f1ff}.month-more{font-size:11px;color:#1769e0;font-weight:600;padding:2px 4px}
 
 .teams-year{height:100%;min-height:0;overflow:hidden;padding:10px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:8px;background:#fbfcfe}
 .teams-year-card{border:1px solid #e0e7f0;border-radius:9px;background:#fff;padding:10px;text-align:left;cursor:pointer;min-width:0;min-height:0;overflow:hidden}
 .teams-year-card:hover{border-color:#bcd4f2;box-shadow:0 5px 15px rgba(38,73,111,.07)}
-.year-card-head{display:flex;justify-content:space-between;gap:8px}.year-card-head strong{font-size:11px;color:#2b4059}.year-card-head span{font-size:8px;color:#8593a4}
+.year-card-head{display:flex;justify-content:space-between;gap:8px}.year-card-head strong{font-size:11px;color:#2b4059}.year-card-head span{font-size:11px;color:#8593a4}
 .year-bars{height:28px;display:flex;align-items:flex-end;gap:2px;margin:7px 0 5px;overflow:hidden}
 .year-bars i{display:block;flex:1;min-width:2px;border-radius:2px 2px 0 0;background:#8eb8ed}
 .year-bars i:nth-child(3n){background:#b9d4f4}
-.year-card-foot{display:flex;justify-content:space-between;color:#8896a6;font-size:8px}.year-card-foot b{color:#1769e0;font-weight:600}
+.year-card-foot{display:flex;justify-content:space-between;color:#8896a6;font-size:11px}.year-card-foot b{color:#1769e0;font-weight:600}
 
 .teams-calendar-legend{
   display:flex;
@@ -220,7 +220,7 @@
   height:28px;
   min-height:28px;
   color:#758499;
-  font-size:8px;
+  font-size:11px;
 }
 .teams-calendar-legend span{display:flex;align-items:center;gap:5px}.legend-dot{width:7px;height:7px;border-radius:50%;display:inline-block}.legend-dot.blue{background:#287be0}.legend-dot.green{background:#2ca66e}.legend-dot.orange{background:#e39123}.legend-dot.purple{background:#7b61d9}.legend-note{margin-left:auto;color:#9aa6b5}
 
@@ -288,7 +288,7 @@
 .teams-calendar-page button,
 .teams-calendar-page input,
 .teams-calendar-page select {
-  font-family:"Poppins",sans-serif !important;
+  font-family:var(--fr-font, "Inter", Arial, sans-serif) !important;
 }
 
 /* Toolbar */
@@ -299,7 +299,7 @@
 
 /* LEFT MINI CALENDAR — weekday labels */
 .teams-calendar-page .teams-mini-weekdays span {
-  font-size:10px !important;
+  font-size:11px !important;
   font-weight:500 !important;
 }
 
@@ -308,7 +308,7 @@
 .teams-calendar-page .teams-mini-grid span {
   width:21px !important;
   height:21px !important;
-  font-size:8.5px !important;
+  font-size:11px !important;
   line-height:1 !important;
 }
 
@@ -316,37 +316,37 @@
 .teams-calendar-page .teams-mini-grid button.selected {
   width:21px !important;
   height:21px !important;
-  font-size:8.5px !important;
+  font-size:11px !important;
   line-height:1 !important;
-  font-weight:700 !important;
+  font-weight:600 !important;
 }
 
 /* LEFT MINI CALENDAR — today */
 .teams-calendar-page .teams-mini-grid button.today {
-  font-size:8.5px !important;
+  font-size:11px !important;
 }
 
 /* MAIN MONTH VIEW — date numbers */
 .teams-calendar-page .teams-month .teams-month-number {
   width:24px !important;
   height:24px !important;
-  font-size:9px !important;
+  font-size:11px !important;
   line-height:1 !important;
   font-weight:600 !important;
 }
 
 /* MAIN MONTH VIEW — weekday headers */
 .teams-calendar-page .teams-month .teams-month-head {
-  font-size:9px !important;
+  font-size:11px !important;
 }
 
 /* MAIN MONTH VIEW — reservation text */
 .teams-calendar-page .teams-month .month-event {
-  font-size:8px !important;
+  font-size:11px !important;
 }
 
 .teams-calendar-page .teams-month .month-more {
-  font-size:8px !important;
+  font-size:11px !important;
 }
 
 /* =========================================================

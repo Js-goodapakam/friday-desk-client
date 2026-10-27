@@ -1,0 +1,4 @@
+.demo-inline-disclaimer{padding:9px 13px;margin-bottom:15px;background:#fff7df;border:1px solid #ead7a0;border-radius:6px;color:#84631d;font-size:11px;line-height:1.5}
+.demo-notice{position:fixed;bottom:8px;right:12px;left:auto;max-width:650px;margin-left:0;border:1px solid #e6d7af;border-radius:6px;z-index:9900;box-shadow:0 2px 8px #283d5a0d;font-size:11px;padding:6px 10px}
+.sidebar .sidebar-nav{overflow-y:auto;min-height:0;flex:1;scrollbar-width:thin}
+.pg-photo-credit{font-size:11px;line-height:1.6}.pg-properties--list .pg-card-wrap{display:flex}.pg-properties--list .pg-cover{height:auto;min-height:160px}.pg-properties--list .pg-card-stat{max-width:400px}

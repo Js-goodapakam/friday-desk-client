@@ -26,7 +26,7 @@
   padding:0 24px 56px;
   background:var(--ob-page);
   color:var(--ob-ink);
-  font-family:"Poppins",sans-serif;
+  font-family:var(--fr-font, "Inter", Arial, sans-serif);
   font-size:var(--ob-text);
   -webkit-font-smoothing:antialiased;
 }
@@ -97,7 +97,7 @@
 .ob-title{
   font-size:var(--ob-title);
   line-height:34px;
-  font-weight:700;
+  font-weight:600;
   letter-spacing:-.8px;
   color:var(--ob-ink);
 }
@@ -165,7 +165,7 @@
   margin-top:20px;
   font-size:20px;
   line-height:26px;
-  font-weight:700;
+  font-weight:600;
   letter-spacing:-.3px;
 }
 .ob-industry-desc{
@@ -255,7 +255,7 @@
 .ob-plan-name{
   font-size:20px;
   line-height:26px;
-  font-weight:700;
+  font-weight:600;
   letter-spacing:-.3px;
 }
 .ob-plan-tagline{
@@ -272,7 +272,7 @@
   min-height:44px;
   margin:18px 0 20px;
 }
-.ob-price-amount{font-size:32px;line-height:38px;font-weight:700;letter-spacing:-1px}
+.ob-price-amount{font-size:32px;line-height:38px;font-weight:600;letter-spacing:-1px}
 .ob-price-period{font-size:13px;color:var(--ob-muted)}
 .ob-price-empty{font-size:17px;line-height:26px;font-weight:600;color:var(--ob-ink)}
 

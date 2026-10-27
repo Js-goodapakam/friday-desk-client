@@ -51,6 +51,7 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
   const [formError, setFormError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [sendingReset, setSendingReset] = useState(false);
+  const [signingIn, setSigningIn] = useState(false);
   const [countryDial, setCountryDial] = useState("+91");
   const [mobile, setMobile] = useState("");
 
@@ -116,7 +117,7 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
       return;
     }
 
-    // Details are valid - continue to mobile number verification.
+    if (!onSignupVerified) {setFormError("Self-service registration is not available. Ask your administrator to create your account.");return;}
     setMode("mobile");
     setFormError("");
     setSuccessMessage("");
@@ -152,10 +153,16 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
     });
   };
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
+    if (signingIn) return;
     setFormError("");
-    onLogin?.("admin", email);
+    setSigningIn(true);
+    try {
+      if (!onLogin) throw new Error("Authentication has not been configured.");
+      await onLogin({email:email.trim(), password, remember});
+    } catch(error) {setFormError(error.message || "Unable to sign in.");}
+    finally {setSigningIn(false);}
   };
 
   const handleForgotSubmit = async (e) => {
@@ -175,7 +182,7 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
       if (onForgotPassword) {
         await onForgotPassword(email.trim());
       } else {
-        console.warn("FridayLogin: no onForgotPassword handler supplied - no reset email was sent.");
+        throw new Error("Password reset is not configured. Contact your property administrator.");
       }
       // Same wording whether or not the account exists (doesn't reveal registered emails).
       setSuccessMessage("If this email is registered, a password reset link is on its way. Please check your inbox.");
@@ -247,7 +254,7 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 {formError && <div className="fl-form-error">{formError}</div>}
                 {successMessage && <div className="fl-form-success">{successMessage}</div>}
 
-                <button type="submit" className="fl-submit">Sign in <Arrow /></button>
+                <button type="submit" className="fl-submit" disabled={signingIn}>{signingIn ? "Signing in…" : <>Sign in <Arrow /></>}</button>
               </form>
 
               <div className="fl-divider">Or continue with</div>

@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { nights, total, balance, toCSV, downloadCSV } from "../core/data.js";
+import { nights, total, balance, toCSV, downloadCSV, money } from "../core/data.js";
 import "./reports.css";
 
 const REPORT_STATUSES = ["Confirmed", "Checked In", "Checked Out"];
@@ -251,7 +251,7 @@ export default function ReportsPage({ data, requests = [] }) {
       return {
         status,
         value,
-        percentage: Math.max(4, (value / count) * 100),
+        percentage: (value / count) * 100,
       };
     });
   }, [data.reservations]);
@@ -300,6 +300,7 @@ export default function ReportsPage({ data, requests = [] }) {
         </button>
       </header>
 
+      {data.metrics&&<><section className="demo-report-metrics">{[["Occupancy",data.metrics.occupancy+"%"],["ADR",money(data.metrics.adr)],["RevPAR",money(data.metrics.revpar)],["Room revenue",money(data.metrics.roomRevenue)],["Booking value",money(data.metrics.bookingValue)],["Cash collected",money(data.metrics.cashCollected)],["Cancellation rate",data.metrics.cancellationRate+"%"],["Average stay",data.metrics.averageStay+" nights"]].map(([label,value])=><article key={label}><span>{label}</span><b>{value}</b></article>)}</section><details className="card"><summary>Metric definitions · reference date {data.metrics.asOf}</summary>{Object.entries(data.metrics.definitions).map(([key,value])=><p key={key}><b>{key}</b>: {value}</p>)}{data.metrics.channelRevenue.map(row=><p key={row.source}>{row.source}: {row.bookings} bookings · {money(row.value)}</p>)}</details></>}
       <section className="reports-kpi-grid">
         <article className="reports-kpi-card">
           <div className="reports-kpi-label">Total stays</div>
