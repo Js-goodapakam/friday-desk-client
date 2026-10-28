@@ -8,6 +8,7 @@ import PropertyEditor from "../components/settings/PropertyEditor.jsx";
 import CoverPhoto from "../components/settings/CoverPhoto.jsx";
 import OwnerAdmin from "./OwnerAdmin.jsx";
 import { useTeleCMISDKStatus } from "../services/telecmi.js";
+import { API_BASE } from "../services/apiBase.js";
 import "./settings.css";
 
 const MENU = [
@@ -150,7 +151,7 @@ export default function Settings({ data, setData, session, onManageProperties })
   useEffect(() => {
     if (tab !== "Integrations") return;
 
-    fetch(`${import.meta.env.VITE_API_URL}/api/telecmi/config`)
+    fetch(`${API_BASE}/api/telecmi/config`)
       .then((r) => (r.ok ? r.json() : null))
       .then((result) => {
         if (!result?.success) return;
@@ -187,7 +188,7 @@ export default function Settings({ data, setData, session, onManageProperties })
       setTeleError("");
       setData((d) => ({ ...d, telecmi: { ...d.telecmi, status: "Connecting..." } }));
 
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/telecmi/test`, {
+      const response = await fetch(`${API_BASE}/api/telecmi/test`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({}),

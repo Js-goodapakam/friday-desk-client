@@ -1,4 +1,4 @@
-const base=(import.meta.env.VITE_API_URL || '').replace(/\/$/,'');
+import {API_BASE as base} from './apiBase.js';
 export async function propertyRequest(path='',body) {
  let response;
  try {response=await fetch(`${base}/api/properties${path}`,{credentials:'include',method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:undefined,body:body?JSON.stringify(body):undefined});}
