@@ -37,6 +37,10 @@ import ChannelManager from "./pages/ChannelManager.jsx";
 import { reservationError } from "./core/reservationRules.js";
 import RatesInventory from "./pages/RatesInventory.jsx";
 import "./design-system.css";
+import "./workspace-density.css";
+import "./workspace-spacing.css";
+import FridayLoader from "./components/FridayLoader.jsx";
+import {finishBrowserRefresh} from "./components/RefreshLoader.jsx";
 
 
 const piopiy = new PIOPIY({
@@ -1111,20 +1115,21 @@ function PropertyWorkspace({property,session,onLogout,onBack}) {
  },[session.id,property.id]);
  const back=async()=>{await queue.current;if(!failed.current)onBack();};
  const reload=async()=>{await queue.current;await loadRemote();failed.current=false;setStorageError("");};
- if(loading)return <div role="status" style={{padding:32}}>Loading property records…</div>;
+ if(loading)return <FridayLoader fullscreen/>;
  if(property.demo&&!remote.current)return <div role="alert" style={{padding:32}}>{storageError||"Sample data workspace unavailable."}<button onClick={onBack}>Back to properties</button></div>;
  return <>{data.demo&&<div className="demo-notice" role="note">{data.demo.disclaimer} · Reference date: {data.demo.referenceDate} · {saving?"Saving to local database…":remote.current?"Database-backed Sample data":"Local workspace"}</div>}{storageError&&<div className="demo-error" role="alert">{storageError}<button type="button" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Reload saved records</button></div>}<Admin initialPage={property.initialPage} data={data} setData={setData} session={{...session,propertyId:property.id}} onLogout={onLogout} onBackToProperties={back} onReloadWorkspace={reload}/></>;
 }
 
 export default function App(){
  const [session,setSession]=useState(null),[checkingSession,setCheckingSession]=useState(true),[selectedProperty,setSelectedProperty]=useState(null);
+ useEffect(()=>{if(!checkingSession&&!session)finishBrowserRefresh();},[checkingSession,session]);
  useEffect(()=>{let active=true;authRequest("session").then(result=>{if(active)setSession(result.user)}).catch(()=>{}).finally(()=>{if(active)setCheckingSession(false)});return()=>{active=false};},[]);
  useEffect(()=>{if(!session)return;let active=true;const verify=()=>authRequest("session").catch(()=>{if(active)setSession(null);});const timer=setInterval(verify,300000);window.addEventListener("focus",verify);return()=>{active=false;clearInterval(timer);window.removeEventListener("focus",verify);};},[session]);
  const login=async credentials=>{const result=await authRequest("login",credentials);setSelectedProperty(null);setSession(result.user);};
  const logout=async()=>{try{await authRequest("logout",{});setSelectedProperty(null);setSession(null);}catch(error){alert(error.message);}};
 
 
- if(checkingSession)return <div role="status" style={{padding:32}}>Checking your session…</div>;
+ if(checkingSession)return <FridayLoader fullscreen/>;
  if(!session)return <FridayLogin onLogin={login}/>;
  if(!selectedProperty)return <Properties session={session} onSelect={setSelectedProperty} onLogout={logout}/>;
  return <PropertyWorkspace key={selectedProperty.id} property={selectedProperty} session={session} onLogout={logout} onBack={()=>setSelectedProperty(null)}/>;

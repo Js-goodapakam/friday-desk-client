@@ -1,0 +1,49 @@
+/* Share the property workspace sidebar dimensions and brand treatment. */
+.owner-sidebar-toggle{display:flex;align-items:center;justify-content:center;align-self:flex-end;width:32px;height:32px;min-height:32px;padding:6px;margin-bottom:12px;border:0;border-radius:5px;background:transparent;color:white}
+.owner-sidebar-toggle span{display:none}
+.owner-sidebar-toggle:hover{background:#ffffff20}
+#root .pw-sidebar-collapsed .pw-sidebar{width:64px;padding:20px 8px 12px}
+#root .pw-sidebar-collapsed .pw-body{margin-left:64px}
+#root .pw-sidebar-collapsed .owner-sidebar-toggle{align-self:center;justify-content:center;padding:6px}
+#root .pw-sidebar-collapsed :is(.owner-sidebar-toggle span,.pw-brand b,.pw-organization,.pw-nav-title,.pw-subscription,.pw-account>div,.pw-nav-item>span){display:none}
+#root .pw-sidebar-collapsed .pw-brand{justify-content:center;margin-bottom:24px;padding:0}
+#root .pw-sidebar-collapsed .pw-sidebar nav{display:flex;flex-direction:column;gap:4px;width:100%;margin:0 0 18px;overflow:visible}
+#root .pw-sidebar-collapsed .pw-nav-item{display:flex;justify-content:center;width:100%;min-height:44px;padding:12px 0;gap:0}
+#root .pw-sidebar-collapsed .pw-nav-item svg{width:20px;height:20px;margin:0}
+#root .pw-sidebar-collapsed .pw-account{justify-content:center;padding-top:14px}
+#root .pw-sidebar-collapsed .pw-signout{text-align:center;font-size:10px!important}
+#root .pw-app{--pw-sidebar:var(--fr-sidebar,230px)}
+#root .pw-app .pw-sidebar{width:var(--fr-sidebar,230px);padding:20px 14px 12px;background:linear-gradient(165deg,#1238aa,#0865d8 73%,#10b6ce)}
+#root .pw-app .pw-nav-item.is-active{background:#ffffff22;box-shadow:inset 3px 0 white;color:white}
+@media(min-width:901px){#root .pw-app .pw-body{margin-left:var(--fr-sidebar,230px)}}
+/* Keep state rules after expanded rules so the compact rail wins the cascade. */
+#root .pw-app .pw-sidebar{position:fixed}
+#root .pw-app .owner-sidebar-toggle{position:absolute;top:22px;right:8px;margin:0;width:28px;height:28px;min-height:28px;padding:4px}
+#root .pw-app .pw-brand{min-height:32px;padding-right:26px;font-size:14px;gap:6px;letter-spacing:-.5px}
+#root .pw-app .pw-brand img{width:26px;height:32px}
+#root .pw-app.pw-sidebar-collapsed .owner-sidebar-toggle{position:static;align-self:center;margin-bottom:12px}
+#root .pw-app.pw-sidebar-collapsed .pw-brand{padding-right:0}
+#root .pw-app .pw-sidebar{transition:width 260ms cubic-bezier(.22,1,.36,1),padding 260ms cubic-bezier(.22,1,.36,1);overflow-x:hidden}
+#root .pw-app .pw-body{transition:margin-left 260ms cubic-bezier(.22,1,.36,1)}
+#root .pw-app.pw-sidebar-collapsed{--pw-sidebar:64px}
+#root .pw-app.pw-sidebar-collapsed .pw-sidebar{width:64px;min-width:64px;padding:20px 8px 12px}
+#root .pw-app.pw-sidebar-collapsed .pw-body{margin-left:64px}
+#root .pw-app.pw-sidebar-collapsed .pw-nav-item{width:44px;height:44px;min-height:44px;flex:none;margin:2px auto;padding:12px!important;gap:0;border-radius:7px}
+#root .pw-app.pw-sidebar-collapsed .pw-sidebar nav{align-items:center}
+#root .pw-app .pw-nav-item>span{white-space:nowrap}
+@media(prefers-reduced-motion:reduce){#root .pw-app .pw-sidebar,#root .pw-app .pw-body{transition:none}}
+/* Consistent navigation rhythm and a separate account footer. */
+#root .pw-app .pw-sidebar nav{display:flex;flex-direction:column;gap:5px;flex-shrink:0}
+#root .pw-app .pw-sidebar .pw-nav-item{display:flex;align-items:center;gap:12px;min-height:40px;margin:0;padding:10px 12px!important;border-radius:7px;font-size:12px!important;font-weight:500;line-height:20px!important}
+#root .pw-app .pw-nav-item>svg{width:18px;height:18px;flex:0 0 18px;opacity:.9}
+#root .pw-app .pw-nav-item>span{min-width:0;white-space:normal;overflow-wrap:normal}
+#root .pw-app .pw-nav-item.is-active{background:#ffffff20;font-weight:600;box-shadow:inset 3px 0 #fff}
+#root .pw-app .pw-nav-title{font-size:9px;letter-spacing:1.2px;margin:20px 12px 9px;color:#c3d8f5;line-height:1.4}
+#root .pw-app .pw-organization{margin:18px 0 2px;padding:11px 12px;border-radius:7px}
+#root .pw-app .pw-account{margin-top:auto;padding:14px 4px 0;flex-shrink:0}
+#root .pw-app .pw-signout{justify-content:flex-start;padding:8px 6px;margin-top:4px;min-height:32px}
+#root .pw-app.pw-sidebar-collapsed .pw-sidebar nav{gap:5px;align-items:center;margin-bottom:16px}
+#root .pw-app.pw-sidebar-collapsed .pw-nav-item{justify-content:center;width:40px;height:40px;min-height:40px;padding:10px!important;gap:0}
+#root .pw-app.pw-sidebar-collapsed .pw-nav-item>span{display:none}
+#root .pw-app.pw-sidebar-collapsed .pw-account,#root .pw-app.pw-sidebar-collapsed .pw-signout{justify-content:center}
+@media(min-width:901px) and (max-height:760px){#root .pw-app .pw-sidebar .pw-nav-item{min-height:35px;padding:7px 12px!important}#root .pw-app .pw-nav-title{margin-top:14px}#root .pw-app .pw-sidebar nav{gap:3px}}

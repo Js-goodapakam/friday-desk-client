@@ -1,0 +1,9 @@
+/* Match the requested 90% desktop density at 100% browser zoom. */
+@media screen and (min-width:901px){
+ #root:has(.pw-app),#root:has(.app){zoom:.9}
+ #root .pw-app,#root .app{min-height:calc(100dvh / .9)}
+ #root .pw-app .pw-sidebar{height:calc(100dvh / .9);max-height:calc(100dvh / .9);bottom:auto}
+ #root .app .sidebar{height:calc(100dvh / .9)!important;max-height:calc(100dvh / .9)!important;bottom:auto!important}
+ #root .pw-body,#root .app .main-shell{min-height:calc(100dvh / .9)!important}
+}
+@media print{#root{zoom:1}}
