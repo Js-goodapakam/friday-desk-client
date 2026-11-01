@@ -1,0 +1,57 @@
+/* Shared owner / branch dashboard typography and colour scale. */
+:root{--dash-title:26px;--dash-section:17px;--dash-card-title:16px;--dash-kpi:24px;--dash-body:13px;--dash-label:12px;--dash-note:11px}
+#root :is(.pw-app,.app){font-family:var(--fr-font);font-size:var(--dash-body);color:var(--fr-ink);background:var(--fr-background)}
+#root .app .fd-dashboard{--fd-ink:var(--fr-ink);--fd-muted:var(--fr-muted);--fd-blue:var(--fr-primary);--fd-soft:var(--fr-soft);--fd-line:var(--fr-border);font-size:var(--dash-body)}
+#root :is(.pw-app,.app) main h1,#root .app .fd-title{font-size:var(--dash-title)!important;font-weight:600!important;line-height:1.3!important;letter-spacing:-.6px!important;color:var(--fr-ink)}
+#root :is(.pw-app,.app) :is(.oi-panel-title h2,.pw-panel h2,.fd-card-head h2,.fd-block-head h3,.card h2){font-size:var(--dash-section)!important;line-height:1.4!important;font-weight:600!important;color:var(--fr-ink)}
+#root :is(.pw-app,.app) :is(.oi-branch-body h2,.pw-card h2){font-size:var(--dash-card-title)!important}
+#root :is(.pw-app,.app) :is(.oi-kpis strong,.pw-stat strong,.fd-kpi-value,.stat strong,.finance-kpi-value,.reports-kpi-value){font-size:var(--dash-kpi)!important;line-height:1.25!important;letter-spacing:-.5px!important;font-weight:600!important}
+#root :is(.pw-app,.app) :is(.oi-kpis span,.fd-kpi-label,.pw-stat>span,.field-label){font-size:var(--dash-label)!important;color:var(--fr-muted)}
+#root :is(.pw-app,.app) :is(.oi-kpis small,.fd-kpi-note,.pw-stat small,.oi-plot-note,.pw-data-note){font-size:var(--dash-note)!important;line-height:1.55!important;color:var(--fr-muted)}
+#root :is(.pw-app,.app) :is(.pw-heading p,.fd-sub,.page-heading p){font-size:var(--dash-body)!important;color:var(--fr-muted)!important}
+#root :is(.pw-app,.app) :is(.fd-btn,.pw-primary,.pw-secondary){font-size:var(--dash-body)!important;border-radius:6px}
+#root .app .fd-btn--primary{background:var(--fr-primary)!important;color:white!important;border-color:var(--fr-primary)!important;box-shadow:none!important}
+#root .app .fd-btn--primary:hover{background:var(--fr-primary-hover)!important}
+#root :is(.pw-app,.app) :is(.fd-card,.oi-panel,.oi-kpis section,.pw-panel,.card){background:var(--fr-surface);border-color:var(--fr-border);border-radius:10px}
+#root .app .fd-kpi:not(.fd-kpi--hero){background:var(--fr-surface);border-color:var(--fr-border);color:var(--fr-ink)}
+#root :is(.pw-app,.app) :is(.fd-link,.pw-text-button){color:var(--fr-primary);font-size:var(--dash-label)!important}
+#root .app .fd-kpi--hero :is(.fd-kpi-label,.fd-kpi-note){color:#ffffffcc!important}
+#root .app .fd-kpi--hero .fd-kpi-value{color:white!important}
+/* Match the actual branch dashboard and undo legacy 18px text-span widths. */
+#root .app .sidebar .sidebar-nav button .nav-label{width:auto!important;flex:1 1 auto!important;min-width:0!important;max-width:none!important;display:block!important;text-align:left!important;white-space:normal!important;font-size:12px!important;line-height:20px!important}
+#root .app .sidebar .sidebar-nav button{display:flex!important;width:100%!important;min-height:40px!important;padding:10px 12px!important;gap:12px!important;margin:0!important;border-radius:7px!important;box-sizing:border-box}
+#root .app .sidebar .sidebar-nav button>svg{width:18px!important;height:18px!important;flex:0 0 18px!important}
+#root .app .sidebar .sidebar-nav .nav-group{display:flex!important;flex-direction:column!important;gap:10px!important;padding:0!important;margin:0 0 18px!important}
+#root .app .sidebar .sidebar-nav{display:block!important;padding-right:4px!important;scrollbar-color:#ffffff55 transparent}
+#root .app .sidebar .brand b{font-size:14px!important}
+#root .app .sidebar .property-chip b{font-size:12px!important}
+#root .app .sidebar .property-chip small{font-size:11px!important}
+#root .app .sidebar .workspace-label{font-size:10px!important;letter-spacing:1px}
+#root .app .fd-dash{--fd-ink:var(--fr-ink);--fd-muted:var(--fr-muted);--fd-blue:var(--fr-primary);--fd-line:var(--fr-border);font-size:13px!important}
+#root .app .fd-dash .fd-kpi .fd-kpi-value{font-size:24px!important;line-height:1.25!important;font-weight:600!important}
+#root .app .fd-dash .fd-kpi .fd-kpi-label{font-size:12px!important;line-height:1.5!important}
+#root .app .fd-dash .fd-kpi .fd-kpi-note{font-size:11px!important;line-height:1.5!important}
+#root .app .fd-dash :is(.fd-card-head h2,.fd-block-head h3){font-size:17px!important}
+#root .app .fd-dash :is(.fd-name,.fd-room-name){font-size:13px!important}
+#root .app .fd-dash :is(.fd-meta,.fd-room-meta,.fd-card-head p){font-size:11px!important;color:var(--fr-muted)}
+#root .app .fd-dash .fd-btn{font-size:13px!important;height:38px;border-radius:6px}
+#root .app .fd-dash .fd-btn--sm{font-size:12px!important;height:32px}
+#root .app .fd-dash .fd-kpi--active :is(.fd-kpi-label,.fd-kpi-note){color:#fff!important}
+#root .app .fd-dash .fd-title{font-size:26px!important}
+@media(min-width:901px){#root .app .sidebar,#root .pw-app:not(.pw-sidebar-collapsed) .pw-sidebar{width:var(--fr-sidebar)!important;padding-left:14px!important;padding-right:14px!important}}
+/* Consistent fitment for operational modules without squeezing table columns. */
+#root .app main :is(.page-heading,.business-heading,.finance-heading,.reports-page-heading,.guests-heading,.invoice-page-heading){display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:16px}
+#root .app main :is(.business-toolbar,.request-filters,.invoice-toolbar,.guests-toolbar,.finance-filters,.reports-filters){display:flex;align-items:center;flex-wrap:wrap;gap:10px;min-width:0}
+#root :is(.app,.pw-app) :is(.table-scroll,.reservations-table-scroll,.finance-table-wrap,.business-table-wrap,.demo-table-wrap,.pw-table-scroll){max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+#root .app main :is(.business-table,.finance-table,.request-table,.invoice-table,.guests-table){width:100%;border-collapse:collapse}
+#root .app main :is(.business-table,.finance-table,.request-table,.invoice-table,.guests-table) :is(th,td){vertical-align:middle;line-height:1.5;padding:11px 13px;font-size:13px!important}
+#root .app main :is(.business-table,.finance-table,.request-table,.invoice-table,.guests-table) th{font-size:11px!important;white-space:nowrap;font-weight:500!important;color:var(--fr-muted)}
+#root .app main :is(.business-table,.finance-table,.request-table,.invoice-table,.guests-table) td small{font-size:11px!important;line-height:1.5;color:var(--fr-muted)}
+#root :is(.app,.pw-app) :is(.modal,.finance-modal,.reports-modal,.pg-modal,.ri-modal,.cm-modal,.pw-dialog){max-width:calc(100vw - 40px);max-height:calc(100dvh - 50px);overflow-y:auto;overscroll-behavior:contain}
+#root .app :is(.form-grid,.business-form-grid,.fd-form-grid)>*{min-width:0}
+#root .app :is(.field,.business-form) :is(input:not([type=checkbox]):not([type=radio]),select,textarea){width:100%;box-sizing:border-box;min-width:0;font-size:13px!important;color:var(--fr-ink);border-color:var(--fr-border)}
+#root .app :is(.finance-kpi-label,.reports-kpi-label,.guests-kpi-label){font-size:12px!important;color:var(--fr-muted)}
+#root .app :is(.finance-kpi-note,.reports-kpi-note,.guests-kpi-note){font-size:11px!important;color:var(--fr-muted)}
+#root .app .sidebar .property-chip b{white-space:normal;overflow-wrap:anywhere}
+#root .app .sidebar .owner-profile>div{min-width:0;overflow-wrap:anywhere}
+@media(max-width:650px){#root .app main :is(.page-heading,.business-heading,.finance-heading,.reports-page-heading){gap:10px}#root .app :is(.form-grid,.business-form-grid,.fd-form-grid){grid-template-columns:minmax(0,1fr)!important}}

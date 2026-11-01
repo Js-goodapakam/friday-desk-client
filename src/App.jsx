@@ -39,8 +39,10 @@ import RatesInventory from "./pages/RatesInventory.jsx";
 import "./design-system.css";
 import "./workspace-density.css";
 import "./workspace-spacing.css";
+import "./dashboard-theme.css";
 import FridayLoader from "./components/FridayLoader.jsx";
-import {finishBrowserRefresh} from "./components/RefreshLoader.jsx";
+import {finishBrowserRefresh} from "./core/refreshState.js";
+import SignInWelcome from "./components/SignInWelcome.jsx";
 
 
 const piopiy = new PIOPIY({
@@ -1067,7 +1069,7 @@ function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspa
   [["help","Help","help"],["settings","Settings","settings"]],
  ];
  const currentLabel=navGroups.flat().find(n=>n[0]===page)?.[1]||({rooms:"Rooms",requests:"Guest Requests"}[page]||"Dashboard");
- return <div className={`app ${mobileNav?"mobile-nav-open":""}`}>{mobileNav&&<button className="mobile-nav-backdrop" aria-label="Close navigation" onClick={()=>setMobileNav(false)}/>}<aside className="sidebar" id="property-navigation" aria-label="Property navigation"><Brand/><button type="button" className="property-return" onClick={onBackToProperties}>← All properties</button><div className="workspace-label">ADMIN WORKSPACE</div><div className="property-chip"><span className="status-dot"/><div><b>Hello {(data.property?.name||"Taj").split(" ")[0]}</b><small>{(data.property?.address||"Tirupati").split(",")[0]}</small></div></div><nav className="sidebar-nav">{navGroups.map((group,gi)=><div className={`nav-group nav-group-${gi+1}`} key={gi}>{group.map(([k,l,ic])=><button key={k} className={page===k?"active":""} onClick={()=>{setPage(k);setMobileNav(false)}}><NavIcon name={ic}/><span className="nav-label">{l}</span></button>)}</div>)}</nav><div className="sidebar-bottom"><div className="owner-profile"><span className="avatar">{initials(session.name)}</span><div><b>{session.name}</b><small>{session.role.replaceAll("_"," ")}</small></div></div></div></aside><div className="main-shell"><header className="topbar"><button type="button" className="mobile-menu-toggle" aria-label="Toggle property navigation" aria-expanded={mobileNav} aria-controls="property-navigation" onClick={()=>setMobileNav(value=>!value)}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><span className="breadcrumb">{data.property?.name||"Taj Tirupati"} / {currentLabel}</span><div className="profile-menu"><button className="avatar-button" aria-label="Open profile menu">{initials(session.name)}</button><div className="profile-dropdown"><div className="profile-dropdown-head"><span className="avatar large-avatar">{initials(session.name)}</span><div><b>{session.name}</b><small>{session.email}</small></div></div><button onClick={()=>setPage("settings")}>⚙ <span>Settings</span></button><button onClick={onLogout}>↪ <span>Sign out</span></button></div></div></header><main>{data.demo&&<div className="demo-inline-disclaimer" role="note">{data.demo.disclaimer}</div>}
+ return <div className={`app ${mobileNav?"mobile-nav-open":""}`}>{mobileNav&&<button className="mobile-nav-backdrop" aria-label="Close navigation" onClick={()=>setMobileNav(false)}/>}<aside className="sidebar" id="property-navigation" aria-label="Property navigation"><Brand/><button type="button" className="property-return" onClick={onBackToProperties}>← All properties</button><div className="workspace-label">ADMIN WORKSPACE</div><div className="property-chip"><span className="status-dot"/><div><b>{data.property?.name||"Hotel workspace"}</b><small>{(data.property?.address||"Tirupati").split(",")[0]}</small></div></div><nav className="sidebar-nav">{navGroups.map((group,gi)=><div className={`nav-group nav-group-${gi+1}`} key={gi}>{group.map(([k,l,ic])=><button key={k} className={page===k?"active":""} onClick={()=>{setPage(k);setMobileNav(false)}}><NavIcon name={ic}/><span className="nav-label">{l}</span></button>)}</div>)}</nav><div className="sidebar-bottom"><div className="owner-profile"><span className="avatar">{initials(session.name)}</span><div><b>{session.name}</b><small>{session.role.replaceAll("_"," ")}</small></div></div></div></aside><div className="main-shell"><header className="topbar"><button type="button" className="mobile-menu-toggle" aria-label="Toggle property navigation" aria-expanded={mobileNav} aria-controls="property-navigation" onClick={()=>setMobileNav(value=>!value)}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><span className="breadcrumb">{data.property?.name||"Taj Tirupati"} / {currentLabel}</span><div className="profile-menu"><button className="avatar-button" aria-label="Open profile menu">{initials(session.name)}</button><div className="profile-dropdown"><div className="profile-dropdown-head"><span className="avatar large-avatar">{initials(session.name)}</span><div><b>{session.name}</b><small>{session.email}</small></div></div><button onClick={()=>setPage("settings")}>⚙ <span>Settings</span></button><button onClick={onLogout}>↪ <span>Sign out</span></button></div></div></header><main>
  {page==="dashboard"&&<Dashboard data={data} hotel={{...HOTEL,name:data.property?.name||HOTEL.name,location:data.property?.address||HOTEL.location,rooms:data.rooms.map(r=>r.number)}} utils={{offset,money,balance,initials,nights}} setPage={setPage} onNew={()=>setEditor(true)} onCheckIn={checkIn} onCheckOut={checkOut} onOpenGuest={setSelected}/>}
  {page==="reservations"&&<Reservations data={data} onCheckIn={checkIn} onEdit={setEditingReservation} onCall={startOutgoingCall}/>} 
  {page==="guests"&&<Guests data={data} setSelected={setSelected} setData={setData} onCall={startOutgoingCall}/>} 
@@ -1117,20 +1119,23 @@ function PropertyWorkspace({property,session,onLogout,onBack}) {
  const reload=async()=>{await queue.current;await loadRemote();failed.current=false;setStorageError("");};
  if(loading)return <FridayLoader fullscreen/>;
  if(property.demo&&!remote.current)return <div role="alert" style={{padding:32}}>{storageError||"Sample data workspace unavailable."}<button onClick={onBack}>Back to properties</button></div>;
- return <>{data.demo&&<div className="demo-notice" role="note">{data.demo.disclaimer} · Reference date: {data.demo.referenceDate} · {saving?"Saving to local database…":remote.current?"Database-backed Sample data":"Local workspace"}</div>}{storageError&&<div className="demo-error" role="alert">{storageError}<button type="button" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Reload saved records</button></div>}<Admin initialPage={property.initialPage} data={data} setData={setData} session={{...session,propertyId:property.id}} onLogout={onLogout} onBackToProperties={back} onReloadWorkspace={reload}/></>;
+ return <>{storageError&&<div className="demo-error" role="alert">{storageError}<button type="button" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Reload saved records</button></div>}<Admin initialPage={property.initialPage} data={data} setData={setData} session={{...session,propertyId:property.id}} onLogout={onLogout} onBackToProperties={back} onReloadWorkspace={reload}/></>;
 }
 
 export default function App(){
+ const [welcome,setWelcome]=useState(false);
+ const finishWelcome=useCallback(()=>setWelcome(false),[]);
  const [session,setSession]=useState(null),[checkingSession,setCheckingSession]=useState(true),[selectedProperty,setSelectedProperty]=useState(null);
  useEffect(()=>{if(!checkingSession&&!session)finishBrowserRefresh();},[checkingSession,session]);
  useEffect(()=>{let active=true;authRequest("session").then(result=>{if(active)setSession(result.user)}).catch(()=>{}).finally(()=>{if(active)setCheckingSession(false)});return()=>{active=false};},[]);
  useEffect(()=>{if(!session)return;let active=true;const verify=()=>authRequest("session").catch(()=>{if(active)setSession(null);});const timer=setInterval(verify,300000);window.addEventListener("focus",verify);return()=>{active=false;clearInterval(timer);window.removeEventListener("focus",verify);};},[session]);
- const login=async credentials=>{const result=await authRequest("login",credentials);setSelectedProperty(null);setSession(result.user);};
+ const login=async credentials=>{const result=await authRequest("login",credentials);setSelectedProperty(null);setWelcome(true);setSession(result.user);};
  const logout=async()=>{try{await authRequest("logout",{});setSelectedProperty(null);setSession(null);}catch(error){alert(error.message);}};
 
 
  if(checkingSession)return <FridayLoader fullscreen/>;
  if(!session)return <FridayLogin onLogin={login}/>;
+ if(welcome)return <SignInWelcome name={session.name} onComplete={finishWelcome}/>;
  if(!selectedProperty)return <Properties session={session} onSelect={setSelectedProperty} onLogout={logout}/>;
  return <PropertyWorkspace key={selectedProperty.id} property={selectedProperty} session={session} onLogout={logout} onBack={()=>setSelectedProperty(null)}/>;
 }
