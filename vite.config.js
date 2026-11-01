@@ -10,5 +10,5 @@ export default defineConfig(({ mode }) => ({
     'import.meta.env.VITE_TELECMI_AGENT_PASSWORD': JSON.stringify(''),
     'import.meta.env.VITE_TELECMI_SBC': JSON.stringify(''),
   } : {},
-  server: { proxy: { "/api": mode === 'local-dev' ? 'http://127.0.0.1:3001' : 'http://localhost:3000' } },
+  server: { proxy: { "/api": mode === 'local-dev' ? `http://127.0.0.1:${process.env.FRIDAY_LOCAL_API_PORT||3001}` : 'http://localhost:3000' } },
 }))
