@@ -117,3 +117,9 @@
 #root .oi-staff-table :is(th,td):nth-child(7){width:8%}
 #root .oi-staff-table :is(th,td):nth-child(8){width:6%}
 #root .oi-staff-table :is(th,td):nth-child(9){width:7%}
+#root .oi-branches .oi-property-cover{display:block;width:100%;height:160px;object-fit:cover;flex-shrink:0}
+#root .oi-branches .oi-property-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px;background:linear-gradient(135deg,#e5eefb,#f2f6fc);color:#6a8ebc}
+.oi-property-placeholder span{font-size:12px;letter-spacing:.3px}
+#root .oi-branches .oi-branch-body h2{min-height:44px;margin:0 0 5px!important;line-height:1.4}
+#root .oi-branches .oi-branch-body>p{min-height:20px;margin:0!important}
+#root .oi-branches .oi-branch-metrics{padding:16px 0}
