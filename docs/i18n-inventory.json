@@ -1,0 +1,468 @@
+{
+  "note": "Heuristic static-text inventory; does not prove translation completeness. Attributes, dynamic labels, errors and business-data boundaries require manual review.",
+  "files": [
+    {
+      "file": "App.jsx",
+      "candidateCount": 91,
+      "examples": [
+        "TAJ",
+        "TIRUPATI",
+        "Friday AI - Desk",
+        "Remember me",
+        "Forgot password?",
+        "Sign in"
+      ]
+    },
+    {
+      "file": "components/FridayLoader.jsx",
+      "candidateCount": 1,
+      "examples": [
+        "Preparing your overview…"
+      ]
+    },
+    {
+      "file": "components/RefreshLoader.jsx",
+      "candidateCount": 1,
+      "examples": [
+        "Getting things ready…"
+      ]
+    },
+    {
+      "file": "components/settings/CoverPhoto.jsx",
+      "candidateCount": 6,
+      "examples": [
+        "Property cover photograph",
+        "Shown on the property directory. Upload only a correctly identified, licensed exterior photo.",
+        "Photo pending — no verified licensed exterior asset available.",
+        "Photo credit",
+        "I have the right to use this photograph.",
+        "Replace cover (JPG, PNG, WebP · up to 2 MB)"
+      ]
+    },
+    {
+      "file": "components/settings/LanguagePreferences.jsx",
+      "candidateCount": 1,
+      "examples": [
+        "English"
+      ]
+    },
+    {
+      "file": "components/settings/PropertyEditor.jsx",
+      "candidateCount": 9,
+      "examples": [
+        "NEW PROPERTY",
+        "Add property",
+        "Add another hotel location you manage.",
+        "Hotel",
+        "Resort",
+        "Homestay"
+      ]
+    },
+    {
+      "file": "components/settings/RoomEditor.jsx",
+      "candidateCount": 6,
+      "examples": [
+        "Deluxe Room",
+        "Premium Room",
+        "Executive Room",
+        "Suite",
+        "Check the details",
+        "Cancel"
+      ]
+    },
+    {
+      "file": "components/settings/UserEditor.jsx",
+      "candidateCount": 2,
+      "examples": [
+        "Check the details",
+        "Cancel"
+      ]
+    },
+    {
+      "file": "components/SignInWelcome.jsx",
+      "candidateCount": 3,
+      "examples": [
+        "FRIDAY AI – DESK",
+        "Your hospitality workspace awaits.",
+        "Continue to workspace"
+      ]
+    },
+    {
+      "file": "Dashboard.jsx",
+      "candidateCount": 24,
+      "examples": [
+        "Paid",
+        "b.arrival",
+        "FRIDAY AI · HOSPITALITY CRM",
+        "Make every stay exceptional",
+        "Manage reservations, guests, billing and hotel operations in one place.",
+        "Reservations"
+      ]
+    },
+    {
+      "file": "Friday.jsx",
+      "candidateCount": 69,
+      "examples": [
+        "CRM",
+        "Automation",
+        "Communication",
+        "Login to your account",
+        "Enter the details to access Friday AI workspace",
+        "Email"
+      ]
+    },
+    {
+      "file": "Onboarding.jsx",
+      "candidateCount": 8,
+      "examples": [
+        "What kind of business do you run?",
+        "We&apos;ll set up Friday with the tools that fit your business.",
+        "Continue",
+        "Choose your plan",
+        "Change industry",
+        "Recommended"
+      ]
+    },
+    {
+      "file": "pages/BusinessOperations.jsx",
+      "candidateCount": 17,
+      "examples": [
+        "Convert to reservation",
+        "Record locally",
+        "Details",
+        "b.room===room.number&&b.arrival",
+        "PROPERTY WORKSPACE",
+        "Export CSV"
+      ]
+    },
+    {
+      "file": "pages/Calendar.jsx",
+      "candidateCount": 25,
+      "examples": [
+        "Today",
+        "All Rooms",
+        "All Status",
+        "Confirmed",
+        "Checked In",
+        "Checked Out"
+      ]
+    },
+    {
+      "file": "pages/ChannelManager.jsx",
+      "candidateCount": 40,
+      "examples": [
+        "REVENUE & DISTRIBUTION",
+        "Channel Manager",
+        "Channel connections",
+        "Only verified integrations appear as connected.",
+        "Channel",
+        "Property mapping"
+      ]
+    },
+    {
+      "file": "pages/ChannelMappings.jsx",
+      "candidateCount": 5,
+      "examples": [
+        "Channel mapping configuration",
+        "Manage identifiers independently of provider connection and synchronization status.",
+        "Channel",
+        "Select channel",
+        "External property identifier"
+      ]
+    },
+    {
+      "file": "pages/CreateReservation.jsx",
+      "candidateCount": 15,
+      "examples": [
+        "b.room===room.number&&b.arrival",
+        "Guest",
+        "Create guest profile",
+        "Full name",
+        "Email",
+        "No identity documents or real phone numbers are required for sample records."
+      ]
+    },
+    {
+      "file": "pages/DemoOperations.jsx",
+      "candidateCount": 18,
+      "examples": [
+        "PROPERTY OPERATIONS · Sample data",
+        "Search",
+        "Status",
+        "Early check-in",
+        "Late check-out",
+        "Check out"
+      ]
+    },
+    {
+      "file": "pages/Finance.jsx",
+      "candidateCount": 37,
+      "examples": [
+        "r.balance",
+        "r.paid",
+        "FINANCE & COLLECTIONS",
+        "Finance",
+        "Track guest collections, outstanding balances and payment transactions.",
+        "Record Payment"
+      ]
+    },
+    {
+      "file": "pages/FolioActions.jsx",
+      "candidateCount": 6,
+      "examples": [
+        "Charges, payments & refunds",
+        "Reservation / guest",
+        "Select reservation",
+        "Operation",
+        "Quantity",
+        "Method"
+      ]
+    },
+    {
+      "file": "pages/Guests.jsx",
+      "candidateCount": 32,
+      "examples": [
+        "Edit details",
+        "Cancel",
+        "Save guest",
+        "GUEST REGISTRATION",
+        "IN-HOUSE",
+        "Mobile"
+      ]
+    },
+    {
+      "file": "pages/Help.jsx",
+      "candidateCount": 5,
+      "examples": [
+        "How can we help?",
+        "Find assistance with reservations, guest profiles, billing, and property settings.",
+        "Reservation help",
+        "Invoice & billing help",
+        "Property settings"
+      ]
+    },
+    {
+      "file": "pages/Invoices.jsx",
+      "candidateCount": 106,
+      "examples": [
+        "GUEST BILLING",
+        "Invoices",
+        "Create, review and issue hotel invoices from reservations and guest stays.",
+        "BILLING REGISTER",
+        "Hotel invoices",
+        "Every invoice keeps a snapshot of the hotel header used when it was generated."
+      ]
+    },
+    {
+      "file": "pages/OwnerAdmin.jsx",
+      "candidateCount": 41,
+      "examples": [
+        "Retry",
+        "People, responsibilities & branch access",
+        "Role guide",
+        "DRAFT · NOT AN ACTIVE SUBSCRIPTION",
+        "Friday Enterprise — proposed package",
+        "Subscription fee"
+      ]
+    },
+    {
+      "file": "pages/OwnerBookingOutlook.jsx",
+      "candidateCount": 16,
+      "examples": [
+        "Upcoming bookings",
+        "Confirmed / modified",
+        "Pending",
+        "All booking statuses",
+        "Retry",
+        "Loading bookings…"
+      ]
+    },
+    {
+      "file": "pages/OwnerComparisonViews.jsx",
+      "candidateCount": 1,
+      "examples": [
+        "Branch"
+      ]
+    },
+    {
+      "file": "pages/OwnerHeatmap.jsx",
+      "candidateCount": 5,
+      "examples": [
+        "Booking heatmap",
+        "Confirmed / modified arrivals · darker = more bookings",
+        "Select a complete reporting period.",
+        "Loading bookings…",
+        "Branch"
+      ]
+    },
+    {
+      "file": "pages/OwnerInsights.jsx",
+      "candidateCount": 61,
+      "examples": [
+        "Number(p[metric])||0));return",
+        "Loading properties…",
+        "Rooms",
+        "Available",
+        "Occupancy",
+        "No properties available."
+      ]
+    },
+    {
+      "file": "pages/OwnerPie.jsx",
+      "candidateCount": 3,
+      "examples": [
+        "cy+r*Math.sin(a);return valid.length===1?",
+        "No positive values",
+        "p.value"
+      ]
+    },
+    {
+      "file": "pages/OwnerStaff.jsx",
+      "candidateCount": 16,
+      "examples": [
+        "Search staff",
+        "Edit",
+        "No matching staff.",
+        "Delete user?",
+        "Remove access for",
+        "The account will be deactivated and signed out. Existing records are retained."
+      ]
+    },
+    {
+      "file": "pages/OwnerTimeline.jsx",
+      "candidateCount": 5,
+      "examples": [
+        "Preparing your overview…",
+        "Choose a complete reporting period (up to 366 days) to display the timeline.",
+        "Retry",
+        "Select branches with one currency for collections.",
+        "Branch"
+      ]
+    },
+    {
+      "file": "pages/PortfolioWorkspace.jsx",
+      "candidateCount": 30,
+      "examples": [
+        "Collapse sidebar",
+        "Friday AI – Desk",
+        "PORTFOLIO WORKSPACE",
+        "ADMINISTRATION",
+        "YOUR SUBSCRIPTION",
+        "Modules & usage"
+      ]
+    },
+    {
+      "file": "pages/Properties.jsx",
+      "candidateCount": 4,
+      "examples": [
+        "GROW YOUR PORTFOLIO",
+        "Add a property",
+        "Create a property and configure its rooms and operations.",
+        "Cancel"
+      ]
+    },
+    {
+      "file": "pages/RatePlans.jsx",
+      "candidateCount": 11,
+      "examples": [
+        "REVENUE MANAGEMENT",
+        "Rate plans",
+        "Room-type pricing and cancellation terms. Existing booked rates remain unchanged.",
+        "Code / plan",
+        "Room-type pricing",
+        "Cancellation policy"
+      ]
+    },
+    {
+      "file": "pages/RatesInventory.jsx",
+      "candidateCount": 13,
+      "examples": [
+        "REVENUE & DISTRIBUTION",
+        "Rates & inventory",
+        "Today",
+        "Select a day cell to change its sellable rooms or base rate.",
+        "Room type",
+        "Inventory activity"
+      ]
+    },
+    {
+      "file": "pages/Reports.jsx",
+      "candidateCount": 29,
+      "examples": [
+        "REPORT EXPORT",
+        "Download reservation report",
+        "Quick range",
+        "From month",
+        "To month",
+        "to && ("
+      ]
+    },
+    {
+      "file": "pages/Requests.jsx",
+      "candidateCount": 38,
+      "examples": [
+        "SERVICE DESK",
+        "Guest Requests",
+        "Manage and track guest requests from check-in to check-out",
+        "Open",
+        "Needs attention",
+        "In Progress"
+      ]
+    },
+    {
+      "file": "pages/ReservationActions.jsx",
+      "candidateCount": 9,
+      "examples": [
+        "Arrival",
+        "Departure",
+        "Room",
+        "Nightly rate",
+        "Booking status",
+        "Source"
+      ]
+    },
+    {
+      "file": "pages/Reservations.jsx",
+      "candidateCount": 28,
+      "examples": [
+        "BOOKING PIPELINE",
+        "Reservations",
+        "View and manage guest reservations, stay details, room allocation and payment status.",
+        "All Reservations",
+        "Upcoming",
+        "Confirmed"
+      ]
+    },
+    {
+      "file": "pages/RoomManagement.jsx",
+      "candidateCount": 14,
+      "examples": [
+        "PROPERTY SETUP",
+        "Room types & rooms",
+        "Edit category details",
+        "All categories",
+        "Room",
+        "Category"
+      ]
+    },
+    {
+      "file": "pages/Rooms.jsx",
+      "candidateCount": 1,
+      "examples": [
+        "r.room===rm.number&&r.status===\"Checked In\");return"
+      ]
+    },
+    {
+      "file": "pages/Settings.jsx",
+      "candidateCount": 86,
+      "examples": [
+        "SETTINGS",
+        "Saved",
+        "Settings",
+        "Manage your hotel",
+        "Need help?",
+        "Ask your hotel admin before changing system settings."
+      ]
+    }
+  ]
+}

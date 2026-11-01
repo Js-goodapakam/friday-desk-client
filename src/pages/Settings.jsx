@@ -1,3 +1,5 @@
+import LanguagePreferences from '../components/settings/LanguagePreferences.jsx';
+import {useTranslation} from 'react-i18next';
 import { useEffect, useState } from "react";
 import { uid } from "../core/data.js";
 import { TELECMI_LOGO, WHATSAPP_LOGO, RCS_LOGO } from "../core/assets.js";
@@ -12,6 +14,7 @@ import { API_BASE } from "../services/apiBase.js";
 import "./settings.css";
 
 const MENU = [
+  ["Application Preferences", "Language"],
   ["Property", "Hotel details"],
   ["Rooms & Units", "Rooms and inventory"],
   ["Booking Rules", "Check-in & booking"],
@@ -119,6 +122,7 @@ function StatusPill({ connected }) {
 }
 
 export default function Settings({ data, setData, session, onManageProperties }) {
+ const {t}=useTranslation('settings');
   const [tab, setTab] = useState("Property");
   const [saved, setSaved] = useState(false);
   const [addingRoom, setAddingRoom] = useState(false);
@@ -337,7 +341,7 @@ export default function Settings({ data, setData, session, onManageProperties })
                  name === "Integrations" ? "⌘" : "◈"}
               </span>
               <span className="fd-menu-copy">
-                <b>{name}</b>
+                <b>{name==='Application Preferences'?t('preferences'):name}</b>
                 <small>{description}</small>
               </span>
               <ChevronIcon />
@@ -355,6 +359,7 @@ export default function Settings({ data, setData, session, onManageProperties })
       </aside>
 
       <main className="fd-settings-main">
+        {tab === "Application Preferences" && <LanguagePreferences/>}
         {tab === "Property" && (
           <>
             <CoverPhoto data={data} setData={setData}/>

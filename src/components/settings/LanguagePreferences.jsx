@@ -1,0 +1,10 @@
+import {useEffect,useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {API_BASE} from '../../services/apiBase.js';
+export default function LanguagePreferences(){
+ const {t,i18n}=useTranslation(['settings','common']);
+ const [selected,setSelected]=useState(i18n.resolvedLanguage||'en'),[busy,setBusy]=useState(false),[loaded,setLoaded]=useState(false),[error,setError]=useState(''),[saved,setSaved]=useState(false);
+ useEffect(()=>{let active=true;fetch(API_BASE+'/api/me/preferences',{credentials:'include'}).then(async r=>{if(!r.ok)throw Error();const data=await r.json();if(!['en','kn'].includes(data.preferred_language))throw Error();if(active){setSelected(data.preferred_language);setLoaded(true);}}).catch(()=>{if(active)setError('loadError');});return()=>{active=false;};},[]);
+ async function save(e){e.preventDefault();if(busy)return;setBusy(true);setError('');setSaved(false);if(!['en','kn'].includes(selected)){setError('invalid');setBusy(false);return;}try{const r=await fetch(API_BASE+'/api/me/preferences',{method:'PUT',credentials:'include',headers:{'Content-Type':'application/json'},body:JSON.stringify({preferred_language:selected})});if(!r.ok)throw Error();const data=await r.json();if(data.preferred_language!==selected)throw Error();await i18n.changeLanguage(selected);setSaved(true);}catch{setError('saveError');}finally{setBusy(false);}}
+ return <section className="fd-settings-card language-preferences"><h2>{t('preferences')}</h2><form onSubmit={save}><label htmlFor="application-language">{t('language')}</label><select id="application-language" value={selected} onChange={e=>{setSelected(e.target.value);setSaved(false);}} disabled={busy||!loaded}><option value="en">English</option><option value="kn">ಕನ್ನಡ (Kannada)</option></select><p>{t('languageHelp')}</p>{error&&<p role="alert">{t(error)}</p>}{saved&&<p role="status">{t('common:saved')}</p>}<button className="pw-primary" disabled={busy||!loaded}>{t(busy?'common:saving':'common:save')}</button></form></section>;
+}

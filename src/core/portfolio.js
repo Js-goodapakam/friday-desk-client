@@ -1,3 +1,4 @@
+import {locale} from '../i18n/locale.js';
 // Missing metrics are not zero. Only complete snapshots contribute to room totals.
 export function portfolioTotals(properties) {
  const t={rooms:0,available:0,occupied:0,unavailable:0,occupancy:0,knownCount:0,bookingValue:{},outstanding:{},maintenanceRooms:0,openRequests:0,maintenanceKnown:false,requestsKnown:false,dates:[]};
@@ -14,6 +15,6 @@ export function portfolioTotals(properties) {
  t.occupancy=t.rooms?100*t.occupied/t.rooms:0;return t;
 }
 export function formatPortfolioMoney(value,currency='INR') {
- try{return new Intl.NumberFormat('en-IN',{style:'currency',currency,maximumFractionDigits:2,notation:'compact'}).format(value);}
- catch{return `${currency} ${new Intl.NumberFormat('en-IN',{maximumFractionDigits:0}).format(value)}`;}
+ try{return new Intl.NumberFormat(locale(),{style:'currency',currency,maximumFractionDigits:2,notation:'compact'}).format(value);}
+ catch{return `${currency} ${new Intl.NumberFormat(locale(),{maximumFractionDigits:0}).format(value)}`;}
 }

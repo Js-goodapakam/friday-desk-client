@@ -1,0 +1,4 @@
+html[lang=kn] body,html[lang=kn] #root{--fr-font:'Noto Sans Kannada','Nirmala UI','Tunga',Arial,sans-serif;font-family:var(--fr-font);line-height:1.65}
+html[lang=kn] #root :is(button,th,label,.nav-label){line-height:1.65!important;white-space:normal!important}
+html[lang=kn] #root :is(.pw-nav-item,.sidebar-nav button){height:auto!important;min-height:42px!important}
+.language-preferences{margin:16px 0;padding:20px;border:1px solid var(--fr-border);border-radius:8px;background:white}.language-preferences label{display:block;margin:16px 0 8px}.language-preferences select{min-height:40px;padding:8px 12px;border:1px solid var(--fr-border);border-radius:6px;width:min(100%,320px)}.language-preferences p{font-size:12px;color:var(--fr-muted)}

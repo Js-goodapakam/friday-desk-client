@@ -1,3 +1,4 @@
+import {locale} from '../i18n/locale.js';
 export const KEY = "staydesk-taj-v4";
 export const HOTEL = { id:"taj-tirupati", name:"Taj", location:"Tirupati, Andhra Pradesh", rooms:["101","102","103","104","105","201","202","203","204","205","301","302"], checkIn:"2:00 PM", checkOut:"12:00 PM", wifi:"Taj-Guest" };
 export const PEOPLE = [
@@ -10,9 +11,9 @@ export const PEOPLE = [
 export const iso = d => new Date(d).toISOString().slice(0,10);
 export const offset = n => { const d=new Date(); d.setDate(d.getDate()+n); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; };
 export const stamp = (d=new Date()) => d.toISOString();
-export const fmt = s => s ? new Date(s).toLocaleString("en-IN",{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"}) : "—";
-export const date = s => new Date(`${s}T12:00:00`).toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"});
-export const money = n => new Intl.NumberFormat("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:0}).format(n);
+export const fmt = s => s ? new Date(s).toLocaleString(locale(),{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"}) : "—";
+export const date = s => new Date(`${s}T12:00:00`).toLocaleDateString(locale(),{day:"2-digit",month:"short",year:"numeric"});
+export const money = n => new Intl.NumberFormat(locale(),{style:"currency",currency:"INR",maximumFractionDigits:0}).format(n);
 export const nights = s => Math.max(1,Math.round((Date.parse(`${s.departure}T12:00:00`)-Date.parse(`${s.arrival}T12:00:00`))/86400000));
 export const total = s => Number.isFinite(s.folioTotal)?s.folioTotal:nights(s)*Number(s.rate);
 export const balance = s => Math.max(0,total(s)-Number(s.paid));

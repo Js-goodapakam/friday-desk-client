@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "@telecmi/piopiyjs": "^0.26.4",
+    "i18next": "^26.6.0",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "react-i18next": "^17.1.9"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

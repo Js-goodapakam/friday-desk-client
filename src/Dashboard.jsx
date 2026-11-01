@@ -1,3 +1,5 @@
+import {useTranslation} from 'react-i18next';
+import {locale} from './i18n/locale.js';
 import { useState } from "react";
 import "./dashboard.css";
 
@@ -38,7 +40,7 @@ const since = (iso) => {
   if (!iso) return "—";
   const d = new Date(iso);
   if (istDay(d) === istDay(new Date())) return `Since ${clock(iso)}`;
-  const day = d.toLocaleDateString("en-IN", { day: "numeric", month: "short", timeZone: TZ });
+  const day = d.toLocaleDateString(locale(), { day: "numeric", month: "short", timeZone: TZ });
   return `Since ${day}, ${clock(iso)}`;
 };
 
@@ -71,6 +73,7 @@ function Kpi({ icon, label, value, note, active, onClick, onHover }) {
 }
 
 function MoveRow({ r, guest, tab, utils, onCheckIn, onCheckOut, onOpenGuest }) {
+ const {t}=useTranslation('dashboard');
   const due = utils.balance(r);
   const name = guest?.name || "Unknown guest";
   const timing =
@@ -91,8 +94,8 @@ function MoveRow({ r, guest, tab, utils, onCheckIn, onCheckOut, onOpenGuest }) {
           ? <span className="fd-badge fd-badge--due">{utils.money(due)} due</span>
           : <span className="fd-badge fd-badge--paid">Paid</span>}
         {tab === "arrivals"
-          ? <button type="button" className="fd-btn fd-btn--sm fd-btn--primary" onClick={() => onCheckIn?.(r)}>Check in</button>
-          : <button type="button" className="fd-btn fd-btn--sm" onClick={() => onCheckOut?.(r)}>Check out</button>}
+          ? <button type="button" className="fd-btn fd-btn--sm fd-btn--primary" onClick={() => onCheckIn?.(r)}>{t('checkin')}</button>
+          : <button type="button" className="fd-btn fd-btn--sm" onClick={() => onCheckOut?.(r)}>{t('checkout')}</button>}
       </div>
     </li>
   );
@@ -184,8 +187,8 @@ export default function Dashboard({
     const d = new Date(`${day}T12:00:00`);
     return {
       day, pct, rooms: rooms.size,
-      weekday: i === 0 ? "Today" : d.toLocaleDateString("en-IN", { weekday: "short" }),
-      label: d.toLocaleDateString("en-IN", { day: "numeric", month: "short" }),
+      weekday: i === 0 ? t('today') : d.toLocaleDateString(locale(), { weekday: "short" }),
+      label: d.toLocaleDateString(locale(), { day: "numeric", month: "short" }),
     };
   });
   const average = Math.round(outlook.reduce((sum, d) => sum + d.pct, 0) / outlook.length);
@@ -200,9 +203,9 @@ export default function Dashboard({
   };
 
   const tabs = [
-    { id: "arrivals", label: "Arrivals", rows: arrivals },
-    { id: "inhouse", label: "In-house", rows: inhouse },
-    { id: "departures", label: "Departures", rows: departures },
+    { id: "arrivals", label: t('arrivals'), rows: arrivals },
+    { id: "inhouse", label: t('inhouse'), rows: inhouse },
+    { id: "departures", label: t('departures'), rows: departures },
   ];
   const active = tabs.find((t) => t.id === tab);
   const emptyText = {
@@ -211,7 +214,7 @@ export default function Dashboard({
     departures: "No check-outs are due today.",
   };
 
-  const todayLabel = new Date(`${today}T12:00:00`).toLocaleDateString("en-IN", {
+  const todayLabel = new Date(`${today}T12:00:00`).toLocaleDateString(locale(), {
     weekday: "long", day: "numeric", month: "long", year: "numeric",
   });
 
@@ -227,7 +230,7 @@ export default function Dashboard({
         <div className="fd-head-actions">
           
           <button type="button" className="fd-btn fd-btn--primary" onClick={onNew}>
-            <Ico>{ICONS.plus}</Ico>New reservation
+            <Ico>{ICONS.plus}</Ico>{t('newReservation')}
           </button>
         </div>
       </header>
@@ -277,23 +280,23 @@ export default function Dashboard({
         onMouseLeave={() => setHoveredKpi(0)}
       >
         <span className="fd-kpi-gradient" aria-hidden="true" />
-        <Kpi active={hoveredKpi === 0} icon="bed" label="Occupancy tonight" value={`${occupancy}%`}
+        <Kpi active={hoveredKpi === 0} icon="bed" label={t('occupancy')} value={`${occupancy}%`}
           note={`${occupied.size} of ${plural(totalRooms, "room")} occupied`} onHover={() => setHoveredKpi(0)} onClick={() => setPage("rooms")} />
-        <Kpi active={hoveredKpi === 1} icon="login" label="Arrivals today" value={arrivals.length}
+        <Kpi active={hoveredKpi === 1} icon="login" label={t('arrivalsToday')} value={arrivals.length}
           note={arrivals.length ? "Waiting to check in" : "Nothing pending"} onHover={() => setHoveredKpi(1)} onClick={() => showTab("arrivals")} />
-        <Kpi active={hoveredKpi === 2} icon="logout" label="Departures today" value={departures.length}
+        <Kpi active={hoveredKpi === 2} icon="logout" label={t('departuresToday')} value={departures.length}
           note={departures.length ? "Waiting to check out" : "Nothing pending"} onHover={() => setHoveredKpi(2)} onClick={() => showTab("departures")} />
-        <Kpi active={hoveredKpi === 3} icon="rupee" label="Balance due" value={money(totalDue)}
+        <Kpi active={hoveredKpi === 3} icon="rupee" label={t('balanceDue')} value={money(totalDue)}
           note={withBalance.length ? `Across ${plural(withBalance.length, "reservation")}` : "Everything is settled"}
           onHover={() => setHoveredKpi(3)} onClick={() => setPage("payments")} />
       </section>
 
       <section className="fd-strip" aria-label="More numbers">
-        <button type="button" onClick={() => showTab("inhouse")}><b>{inhouse.length}</b><span>In-house guests</span></button>
-        <button type="button" onClick={() => setPage("rooms")}><b>{data.metrics?.availableRooms ?? Math.max(0,totalRooms - occupied.size - closedRooms.size)}</b><span>Rooms available</span></button>
-        <button type="button" onClick={() => setPage("reservations")}><b>{upcoming}</b><span>Upcoming reservations</span></button>
-        <button type="button" onClick={() => setPage("requests")}><b>{openRequests.length}</b><span>Open guest requests</span></button>
-        <button type="button" onClick={() => setPage("guests")}><b>{data.guests.length}</b><span>Guest profiles</span></button>
+        <button type="button" onClick={() => showTab("inhouse")}><b>{inhouse.length}</b><span>{t('inhouseGuests')}</span></button>
+        <button type="button" onClick={() => setPage("rooms")}><b>{data.metrics?.availableRooms ?? Math.max(0,totalRooms - occupied.size - closedRooms.size)}</b><span>{t('roomsAvailable')}</span></button>
+        <button type="button" onClick={() => setPage("reservations")}><b>{upcoming}</b><span>{t('upcoming')}</span></button>
+        <button type="button" onClick={() => setPage("requests")}><b>{openRequests.length}</b><span>{t('guestRequests')}</span></button>
+        <button type="button" onClick={() => setPage("guests")}><b>{data.guests.length}</b><span>{t('guestProfiles')}</span></button>
       </section>
 
       <div className="fd-grid">
@@ -302,7 +305,7 @@ export default function Dashboard({
           <section className="fd-card" aria-labelledby="fd-moves-title">
             <div className="fd-card-head">
               <div>
-                <h2 id="fd-moves-title">Today's guests</h2>
+                <h2 id="fd-moves-title">{t('todayGuests')}</h2>
                 <p>Act on the next guest, then move on.</p>
               </div>
               <div className="fd-tabs" role="tablist" aria-label="Guest lists">
@@ -324,7 +327,7 @@ export default function Dashboard({
             ) : (
               <Empty icon="check" title="All clear" text={emptyText[tab]}
                 action={tab === "arrivals"
-                  ? <button type="button" className="fd-btn fd-btn--sm" onClick={onNew}>New reservation</button>
+                  ? <button type="button" className="fd-btn fd-btn--sm" onClick={onNew}>{t('newReservation')}</button>
                   : null} />
             )}
           </section>
@@ -356,7 +359,7 @@ export default function Dashboard({
           <section className="fd-card" aria-labelledby="fd-rooms-title">
             <div className="fd-card-head">
               <div>
-                <h2 id="fd-rooms-title">Room status</h2>
+                <h2 id="fd-rooms-title">{t('roomStatus')}</h2>
                 <p>{plural(totalRooms, "room")} at {hotel.name}</p>
               </div>
               <button type="button" className="fd-link" onClick={() => setPage("rooms")}>

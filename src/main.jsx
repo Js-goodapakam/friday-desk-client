@@ -1,3 +1,5 @@
+import './i18n/index.js';
+import './i18n/language.css';
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
