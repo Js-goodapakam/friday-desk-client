@@ -34,7 +34,8 @@ export default function PortfolioWorkspace({session,onSelect,onLogout}) {
  const [page,setPage]=useState('overview'),[search,setSearch]=useState(''),[city,setCity]=useState(''),[view,setView]=useState('grid');
  const [adding,setAdding]=useState(false),[opening,setOpening]=useState(null),[drawer,setDrawer]=useState(null),[account,setAccount]=useState(false);
  const [ownerSettings,setOwnerSettings]=useState(null);
- const [sidebarCollapsed,setSidebarCollapsed]=useState(false);
+ const [sidebarCollapsed,setSidebarCollapsed]=useState(()=>window.matchMedia('(max-width: 900px)').matches);
+ useEffect(()=>{const query=window.matchMedia('(max-width: 900px)');const compact=()=>{if(query.matches)setSidebarCollapsed(true);};query.addEventListener('change',compact);return()=>query.removeEventListener('change',compact);},[]);
  useEffect(()=>{if(!loading)finishBrowserRefresh();},[loading]);
  useEffect(()=>{let active=true;ownerRequest().then(r=>{if(active)setOwnerSettings(r.settings);}).catch(()=>{});return()=>{active=false;};},[]);
  const mounted=useRef(true),opener=useRef(null),openingRef=useRef(false);
@@ -47,7 +48,7 @@ export default function PortfolioWorkspace({session,onSelect,onLogout}) {
  const initials=(session.name||'Friday Owner').split(' ').map(s=>s[0]).slice(0,2).join('');
  const amount=values=>Object.entries(values).map(([currency,value])=>money(value,currency)).join(' · ')||'—';
  async function open(property,destination='dashboard'){if(openingRef.current)return;openingRef.current=true;setOpening(property.id);setError('');try{const r=await propertyRequest(`/${property.id}`);onSelect({...r.property,initialPage:destination});}catch(e){setError(e.message);}finally{openingRef.current=false;setOpening(null);}}
- function navigate(key){setAccount(false);setPage(key);setSearch('');setCity('');}
+ function navigate(key){setAccount(false);setPage(key);setSearch('');setCity('');if(window.matchMedia('(max-width: 900px)').matches)setSidebarCollapsed(true);}
  function reveal(value,event){opener.current=event?.currentTarget;setDrawer(value);}
  function closeDrawer(){setDrawer(null);opener.current?.focus();}
  const actions=[{key:'balances',icon:'finance',title:'Payments to follow up',detail:Object.keys(totals.outstanding).length?`${amount(totals.outstanding)} in guest balances awaiting collection.`:'Guest balance data is unavailable.',button:'View balances',field:'outstanding',destination:'payments'},
