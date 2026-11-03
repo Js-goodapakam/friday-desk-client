@@ -43,6 +43,8 @@ import "./dashboard-theme.css";
 import FridayLoader from "./components/FridayLoader.jsx";
 import {finishBrowserRefresh} from "./core/refreshState.js";
 import SignInWelcome from "./components/SignInWelcome.jsx";
+import RevenueManager from "./pages/RevenueManager.jsx";
+import HospitalityHub from "./pages/HospitalityHub.jsx";
 
 
 const piopiy = new PIOPIY({
@@ -1063,10 +1065,10 @@ function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspa
  const requests=data.requests;
  const navGroups=[
   [["dashboard","Dashboard","dashboard"],["calendar","Calendar","calendar"],["reservations","Reservations","reservations"],["guests","Guests","guests"]],
-  [["invoices","Invoices","invoices"],["payments","Finance","finance"],["rates-inventory","Rates & Inventory","reservations"],["channel-manager","Channel Manager","reports"],["reports","Reports","reports"]],
+  [["invoices","Invoices","invoices"],["payments","Finance","finance"],["rates-inventory","Rates & Inventory","reservations"],["revenue-manager","Revenue manager","reports"],["channel-manager","Channel Manager","reports"],["reports","Reports","reports"]],
   ...(data.demo?[[["frontdesk","Front Desk","reservations"],["housekeeping","Housekeeping","reservations"],["folios","Guest folios","invoices"],["rateplans","Rate plans","finance"],["room-types","Room types & inventory","reservations"]]]:[]),
   [["enquiries","Enquiries","reservations"],["groups","Group Bookings","guests"],["communications","Communications","guests"],["worktasks","Tasks & follow-ups","reports"],["activity","Audit history","reports"],["team","Users & Roles","settings"]],
-  [["help","Help","help"],["settings","Settings","settings"]],
+  [["operations-hub","Operations hub","reports"],["help","Help","help"],["settings","Settings","settings"]],
  ];
  const currentLabel=navGroups.flat().find(n=>n[0]===page)?.[1]||({rooms:"Rooms",requests:"Guest Requests"}[page]||"Dashboard");
  return <div className={`app ${mobileNav?"mobile-nav-open":""}`}>{mobileNav&&<button className="mobile-nav-backdrop" aria-label="Close navigation" onClick={()=>setMobileNav(false)}/>}<aside className="sidebar" id="property-navigation" aria-label="Property navigation"><Brand/><button type="button" className="property-return" onClick={onBackToProperties}>← All properties</button><div className="workspace-label">ADMIN WORKSPACE</div><div className="property-chip"><span className="status-dot"/><div><b>{data.property?.name||"Hotel workspace"}</b><small>{(data.property?.address||"Tirupati").split(",")[0]}</small></div></div><nav className="sidebar-nav">{navGroups.map((group,gi)=><div className={`nav-group nav-group-${gi+1}`} key={gi}>{group.map(([k,l,ic])=><button key={k} className={page===k?"active":""} onClick={()=>{setPage(k);setMobileNav(false)}}><NavIcon name={ic}/><span className="nav-label">{l}</span></button>)}</div>)}</nav><div className="sidebar-bottom"><div className="owner-profile"><span className="avatar">{initials(session.name)}</span><div><b>{session.name}</b><small>{session.role.replaceAll("_"," ")}</small></div></div></div></aside><div className="main-shell"><header className="topbar"><button type="button" className="mobile-menu-toggle" aria-label="Toggle property navigation" aria-expanded={mobileNav} aria-controls="property-navigation" onClick={()=>setMobileNav(value=>!value)}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><span className="breadcrumb">{data.property?.name||"Taj Tirupati"} / {currentLabel}</span><div className="profile-menu"><button className="avatar-button" aria-label="Open profile menu">{initials(session.name)}</button><div className="profile-dropdown"><div className="profile-dropdown-head"><span className="avatar large-avatar">{initials(session.name)}</span><div><b>{session.name}</b><small>{session.email}</small></div></div><button onClick={()=>setPage("settings")}>⚙ <span>Settings</span></button><button onClick={onLogout}>↪ <span>Sign out</span></button></div></div></header><main>
@@ -1083,6 +1085,8 @@ function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspa
  {page==="room-types"&&<RoomManagement data={data} setData={setData}/>}
  {page==="requests"&&<RequestsPage data={data} setData={setData}/>}
  {page==="reports"&&<ReportsPage data={data} requests={requests}/>}
+ {page==="revenue-manager"&&<RevenueManager data={data} onReload={onReloadWorkspace} session={session}/>}
+ {page==="operations-hub"&&<HospitalityHub data={data} setData={setData} session={session}/>}
  {["frontdesk","housekeeping","folios","tasks"].includes(page)&&<DemoOperations key={page} view={page} data={data} setData={setData} onCheckIn={checkIn} onCheckOut={checkOut}/>}
  {page==="folios"&&<FolioActions data={data} setData={setData}/>}
  {page==="settings"&&<><div className="page-heading"><div><div className="eyebrow">ADMINISTRATION</div><h1>Property settings</h1><p className="muted">Property details, operational policies and integrations.</p></div></div><Settings data={data} setData={setData} session={session} onManageProperties={onBackToProperties}/></>}

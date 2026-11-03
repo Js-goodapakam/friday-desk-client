@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {uid,money} from '../core/data.js';
 import {useDialogFocus} from '../core/useDialogFocus.js';
+import {stayQuote} from '../core/stayQuote.js';
 export default function CreateReservation({data,setData,onClose}){
  const day=n=>new Date(Date.parse((data.demo?.referenceDate||new Date().toISOString().slice(0,10))+'T12:00:00Z')+n*86400000).toISOString().slice(0,10);
  const [step,setStep]=useState(0),[busy,setBusy]=useState(false),[error,setError]=useState('');
@@ -9,9 +10,9 @@ export default function CreateReservation({data,setData,onClose}){
  useDialogFocus(true,()=>{if(!busy)onClose();});
  const set=(key,value)=>setForm(f=>({...f,[key]:value}));
  const available=data.rooms.filter(room=>!data.reservations.some(r=>r.id!==ids.reservation&&r.room===room.number&&['Confirmed','Modified','Checked In'].includes(r.status)&&r.arrival<form.departure&&form.arrival<r.departure)&&!data.roomBlocks.some(b=>b.room===room.number&&b.arrival<form.departure&&form.arrival<b.departure));
- const room=data.rooms.find(r=>r.number===form.room),type=data.roomTypes.find(t=>t.id===room?.roomTypeId),plan=data.ratePlans.find(p=>p.id===form.ratePlanId),rate=plan?.rates.find(r=>r.roomTypeId===type?.id)?.rate??type?.baseRate??0;
+ const room=data.rooms.find(r=>r.number===form.room),type=data.roomTypes.find(t=>t.id===room?.roomTypeId),plan=data.ratePlans.find(p=>p.id===form.ratePlanId),quote=stayQuote(data,type,plan,form.arrival,form.departure),rate=quote.rate;
  const nights=Math.max(0,Math.round((Date.parse(form.departure)-Date.parse(form.arrival))/86400000)),subtotal=rate*nights,tax=subtotal*(data.invoiceSettings.taxRate||0)/100,total=Math.round((subtotal+tax)*100)/100;
- function validate(){if(step===0&&form.guestId==='new'&&(!form.name.trim()||!/^\S+@example\.(test|com|org|net)$/i.test(form.email)))return 'Enter a guest name and a reserved example email for this sample workspace.';if(step===1&&(!form.arrival||!form.departure||form.arrival>=form.departure||Number(form.adults)<1||Number(form.children)<0))return 'Choose valid stay dates and occupancy.';if(step>=2&&(!room||!available.some(r=>r.number===room.number)||!plan))return 'Choose an available room and rate plan.';if(step>=2&&type&&(Number(form.adults)>type.maxAdults||Number(form.children)>type.maxChildren))return 'Guest count exceeds the room category occupancy limits.';if(step===3&&(Number(form.deposit)<0||Number(form.deposit)>total))return 'Sample payment must be between zero and the booking total.';return '';}
+ function validate(){if(step>=2&&quote.error)return quote.error;if(step===0&&form.guestId==='new'&&(!form.name.trim()||!/^\S+@example\.(test|com|org|net)$/i.test(form.email)))return 'Enter a guest name and a reserved example email for this sample workspace.';if(step===1&&(!form.arrival||!form.departure||form.arrival>=form.departure||Number(form.adults)<1||Number(form.children)<0))return 'Choose valid stay dates and occupancy.';if(step>=2&&(!room||!available.some(r=>r.number===room.number)||!plan))return 'Choose an available room and rate plan.';if(step>=2&&type&&(Number(form.adults)>type.maxAdults||Number(form.children)>type.maxChildren))return 'Guest count exceeds the room category occupancy limits.';if(step===3&&(Number(form.deposit)<0||Number(form.deposit)>total))return 'Sample payment must be between zero and the booking total.';return '';}
  function next(e){e.preventDefault();const message=validate();if(message){setError(message);return;}setError('');setStep(step+1);}
  async function submit(e){e.preventDefault();if(busy)return;const message=validate();if(message){setError(message);return;}setBusy(true);setError('');try{
   const existing=form.guestId==='new'?data.guests.find(g=>g.email?.toLowerCase()===form.email.trim().toLowerCase()):data.guests.find(g=>g.id===form.guestId),guestId=existing?.id||ids.guest;

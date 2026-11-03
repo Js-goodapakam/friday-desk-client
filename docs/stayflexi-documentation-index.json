@@ -1,0 +1,2431 @@
+{
+  "auditedOn": "2026-11-03",
+  "readablePages": 302,
+  "unavailable": [
+    {
+      "url": "https://support.stayflexi.com/docs/documentation/dashboard/print-inhouse-arrivals/",
+      "error": "404"
+    }
+  ],
+  "imageReferences": 1038,
+  "uniqueImageUrls": 877,
+  "visuallyInspectedImages": 6,
+  "articles": [
+    {
+      "title": "Dashboard",
+      "url": "https://support.stayflexi.com/docs/documentation/dashboard/",
+      "area": "dashboard",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Viewing arrivals and departures",
+      "url": "https://support.stayflexi.com/docs/documentation/dashboard/view-arrivals-departures/",
+      "area": "dashboard",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to check new reservations?",
+      "url": "https://support.stayflexi.com/docs/documentation/dashboard/how-to-check-new-reservations/",
+      "area": "dashboard",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Rates and Inventory",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/",
+      "area": "rates-inventory",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Reservation Calendar",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/",
+      "area": "reservation-calendar",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Housekeeping",
+      "url": "https://support.stayflexi.com/docs/documentation/housekeeping/",
+      "area": "housekeeping",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Folio",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/",
+      "area": "folio",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Reports",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/",
+      "area": "reports",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Understanding performance section in dashboard",
+      "url": "https://support.stayflexi.com/docs/documentation/dashboard/understand-performance-section-dashboard/",
+      "area": "dashboard",
+      "imageReferences": 7,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What is city demand trends in Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/dashboard/what-is-city-demand-trends-in-stayflexi/",
+      "area": "dashboard",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Understanding the reservations section in dashboard.",
+      "url": "https://support.stayflexi.com/docs/documentation/dashboard/understanding-the-reservation-section-in-dashboard/",
+      "area": "dashboard",
+      "imageReferences": 8,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What is send magic link in dashboard?",
+      "url": "https://support.stayflexi.com/docs/documentation/dashboard/what-is-send-magic-link-in-dashboard/",
+      "area": "dashboard",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What is pending departure and pending arrival?",
+      "url": "https://support.stayflexi.com/docs/documentation/dashboard/what-is-pending-departure-and-pending-arrival/",
+      "area": "dashboard",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "I want to raise a concern or contact my relationship manager via chat, phone, or email. Where can I find the helpline contact information?",
+      "url": "https://support.stayflexi.com/docs/documentation/dashboard/i-want-to-raise-a-concern-or-contact-my-relationship-manager-via-chat-phone-or-email-where-can-i-find-the-helpline-contact-information/",
+      "area": "dashboard",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I view the number of available rooms in each category and the base price from the dashboard?",
+      "url": "https://support.stayflexi.com/docs/documentation/dashboard/how-can-i-view-how-many-rooms-are-available-in-each-category-and-what-the-base-price-is-from-the-dashboard/",
+      "area": "dashboard",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Stayflexi PMS password- How to reset your password",
+      "url": "https://support.stayflexi.com/docs/documentation/dashboard/stayflexi-pms-password-how-to-reset-your-password/",
+      "area": "dashboard",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to proceed if I can't find the email with reset link?",
+      "url": "https://support.stayflexi.com/docs/documentation/dashboard/how-to-proceed-if-i-cant-find-the-email-with-reset-link/",
+      "area": "dashboard",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Understanding Stayflexi reservation calendar layout",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/understanding-stayflexi-reservation-calendar-layout/",
+      "area": "reservation-calendar",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Understanding the filters in reservation calendar",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/understanding-the-filters-in-reservation-calendar/",
+      "area": "reservation-calendar",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to view reservations by room type?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-to-view-reservations-by-room-type/",
+      "area": "reservation-calendar",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to create a walk-in reservation?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-to-create-a-walk-in-reservation/",
+      "area": "reservation-calendar",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to create a group reservation?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-to-create-a-group-reservation/",
+      "area": "reservation-calendar",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I create an enquiry booking and collect payment using a payment link?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/creating-inquries/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to block or unblock rooms from reservation calendar?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-to-block-or-unblock-rooms-from-reservation-calendar/",
+      "area": "reservation-calendar",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What are unassigned reservations? how to assign room?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/what-are-unassigned-reservations-how-to-assign-them/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to Modify Check in and Check out date of reservations ?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/modifying-a-reservation-from-calendar/",
+      "area": "reservation-calendar",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I create a booking enquiry with an automatic expiration if payment is not received, and auto-confirm it upon payment?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/can-i-create-a-booking-inquiry-based-on-minutes-hours-or-days-and-have-it-expire-automatically-if-payment-is-not-received-if-payment-is-received-will-it-automatically-confirm-the-booking/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I capture and upload a guest’s photo directly from the device camera in the Stayflexi PMS?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/can-i-capture-and-upload-a-guests-photo-directly-from-the-camera-in-the-software/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What is the difference between \"Move\" and \"Swap\" rooms in the reservation calendar?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/what-is-the-difference-between-move-and-swap-rooms-in-the-reservation-calendar/",
+      "area": "reservation-calendar",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to upgrade or downgrade a reservation?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-to-upgrade-or-downgrade-a-reservation/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "When upgrading a reservation from a lower room category to a higher one, should I input the entire charge or only the additional amount?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/when-upgrading-a-reservation-from-a-lower-room-category-to-a-higher-one-should-i-input-the-entire-charge-or-only-the-additional-amount/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I upload guest ID proof in the PMS while creating or editing a reservation?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-can-i-upload-guest-id-proof-in-the-pms-while-creating-or-editing-a-reservation/",
+      "area": "reservation-calendar",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I import booking data from another PMS, and what steps are required for that?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/can-i-import-booking-data-from-another-pms-and-what-steps-are-required-for-that/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Where can I find the Guest details?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/where-can-i-view-the-guest-details/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I edit guest details in the Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-can-i-edit-guest-details-in-the-system/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to check a guest out early ?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-to-check-a-guest-out-early/",
+      "area": "reservation-calendar",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I edit guest details (name, phone number, ID proof) after check-in?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/can-i-edit-guest-details-name-phone-number-id-proof-after-check-in/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to add Sub Segment ?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-to-add-sub-segment/",
+      "area": "reservation-calendar",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to Modify Checkout time ?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-to-modify-checkout-time/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to move a reservation from one room to another?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-to-move-a-reservation-from-one-room-to-another/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I create a reservation for past dates?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-do-i-create-a-reservation-for-past-dates/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I cancel a reservation in the system?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-do-i-cancel-a-reservation-in-the-system/",
+      "area": "reservation-calendar",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I mark a same-day booking as checked-in while creating the reservation?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/can-i-mark-a-same-day-booking-as-checked-in-while-creating-the-reservation/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "I have different rate plans with varying room prices. How do I select a specific rate plan while creating a booking?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/i-have-different-rate-plans-with-varying-room-prices-how-do-i-select-a-specific-rate-plan-while-creating-a-booking/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to check-in a reservation?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-to-check-in-a-reservation/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to print registration card?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/print-registration-card/",
+      "area": "reservation-calendar",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I navigate the reservation calendar to view bookings for specific dates?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/calendar-navigation/",
+      "area": "reservation-calendar",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Understanding rates & inventory layout",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/understanding-rates-ezd_ampersand-inventory-layout/",
+      "area": "rates-inventory",
+      "imageReferences": 12,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to add booking notes?",
+      "url": "https://support.stayflexi.com/docs/documentation/reservation-calendar/how-to-add-booking-and-customer-notes/",
+      "area": "reservation-calendar",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Where can I view the sync status of my OTA channels?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/where-can-i-view-the-sync-status-of-my-ota-channels/",
+      "area": "rates-inventory",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Where can I view my OTA channels report and compare prices across all connected OTAs?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/where-can-i-view-my-ota-channels-report-and-compare-prices-across-all-connected-otas/",
+      "area": "rates-inventory",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I reassign an existing room number to a different room category?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-do-i-reassign-an-existing-room-number-to-a-different-room-category/",
+      "area": "rates-inventory",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I check the latest updates or history of changes made to my rates and inventory?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-can-i-check-the-latest-updates-or-history-of-changes-made-to-my-rates-and-inventory/",
+      "area": "rates-inventory",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I view detailed logs of rate and inventory changes across OTA channels?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-can-i-view-detailed-logs-of-rate-and-inventory-changes-across-ota-channels/",
+      "area": "rates-inventory",
+      "imageReferences": 9,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can OTA bookings be canceled directly from Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/can-ota-bookings-be-canceled-directly-from-stayflexi-2/",
+      "area": "rates-inventory",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I change rates for a specific day?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-can-i-change-rates-for-a-specific-day/",
+      "area": "rates-inventory",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can you manually sync rates and inventory from Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/is-it-possible-to-manually-sync-rates-and-inventory-from-stayflexi/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Where can I view close rate plan restrictions applied to specific OTAs?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/where-can-i-view-close-rate-plan-restrictions-applied-to-specific-otas/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I update rates and inventory on OTAs once the channel manager is connected?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/can-i-update-rates-and-inventory-on-otas-once-the-channel-manager-is-connected/",
+      "area": "rates-inventory",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Is it possible to change the category of a specific room number or reassign it to a new room type?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/is-it-possible-to-change-the-category-of-a-specific-room-number-or-reassign-it-to-a-new-room-type/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I restrict a specific rate plan on OTAs?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-do-i-restrict-a-specific-rate-plan-on-otas/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to change prices or inventory for specific channel / OTA?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-to-change-prices-or-inventory-for-specific-channel-ota/",
+      "area": "rates-inventory",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I set a cut-off time for a specific OTA?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-can-i-set-a-cut-off-time-for-a-specific-ota/",
+      "area": "rates-inventory",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I restrict a particular room category on OTAs?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-do-i-restrict-a-particular-room-category-on-otas/",
+      "area": "rates-inventory",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What is bulk update?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/what-is-bulk-update/",
+      "area": "rates-inventory",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to sync rates across all OTAs or Channels?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-to-sync-rates-across-all-otas-or-channels/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to check OTA specific rates?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-to-check-ota-specific-rates/",
+      "area": "rates-inventory",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I increase or decrease prices for a specific OTA?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-do-i-increase-or-decrease-prices-for-a-specific-ota/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Close / open room type and rate plan.",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/close-open-room-type-and-rate-plan/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I apply minimum and maximum length of stay restrictions?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/applying-min-length-and-max-length-of-stay-restrictions/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to find rate parities reported by OTAs?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-to-find-rate-parities-reported-by-otas/",
+      "area": "rates-inventory",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What is inventory capping, and how does it work ?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/what-is-inventory-capping/",
+      "area": "rates-inventory",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I set rooms to offline status?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-do-i-set-rooms-to-offline-status/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I adjust the inventory for a specific day?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-can-i-adjust-the-inventory-for-a-specific-day/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I check if the rates updated in Stayflexi have synced with the OTAs?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-to-check-if-the-rate-changes-are-synced-with-otas/",
+      "area": "rates-inventory",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I copy rates from one online channel and apply them to another channel or travel portal?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/can-i-copy-rates-from-one-online-channel-and-apply-them-to-another-channel-or-travel-portal/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to set sold out entire property ?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-to-set-sold-out/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I set rooms to online status?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-do-i-set-rooms-to-online-status/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What happens when a room is set offline?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/what-happens-when-a-room-is-set-offline/",
+      "area": "rates-inventory",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What happens when a room is set online?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/what-happens-when-a-room-is-set-online/",
+      "area": "rates-inventory",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Blocking and unblocking the rooms.",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/blocking-and-unblocking-the-rooms/",
+      "area": "rates-inventory",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What is the difference between setting room offline and blocking a room?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/what-is-the-difference-between-setting-room-offline-and-blocking-a-room/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I update prices for all or multiple room categories at once for both offline and online travel portals using the software?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-to-increase-decrease-rates/",
+      "area": "rates-inventory",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I change a room number or room ID within the software?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-to-change-the-room-numbers/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to check what room types and rate plans connected to what channels/OTAs?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-to-check-what-room-types-and-rate-plans-connected-to-what-channels-otas/",
+      "area": "rates-inventory",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to change prices for multiple date ranges and across multiple room types?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-to-change-prices-for-multiple-date-ranges-and-across-multiple-room-types/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to delete rooms ?",
+      "url": "https://support.stayflexi.com/docs/documentation/rates-inventory/how-to-delete-rooms-or-add-new-rooms/",
+      "area": "rates-inventory",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Is there a simple and efficient way to mark all dirty room as clean with just one click from the housekeeping interface? How user-friendly is this process?",
+      "url": "https://support.stayflexi.com/docs/documentation/housekeeping/is-there-a-simple-and-efficient-way-to-mark-a-room-as-clean-with-just-one-click-from-the-housekeeping-interface-how-user-friendly-is-this-process/",
+      "area": "housekeeping",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Understanding the housekeeping layout.",
+      "url": "https://support.stayflexi.com/docs/documentation/housekeeping/understanding-the-housekeeping-layout/",
+      "area": "housekeeping",
+      "imageReferences": 7,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Where can I find a comprehensive view of all rooms and their current statuses (dirty, clean, out of order, dirty occupied)?",
+      "url": "https://support.stayflexi.com/docs/documentation/housekeeping/here-can-i-find-a-comprehensive-view-of-all-rooms-and-their-current-statuses-dirty-clean-out-of-order-dirty-occupied/",
+      "area": "housekeeping",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I assign housekeeping staff to specific rooms for cleaning?",
+      "url": "https://support.stayflexi.com/docs/documentation/housekeeping/how-to-assign-housekeeping-staff-to-rooms/",
+      "area": "housekeeping",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How to bulk mark rooms dirty / clean?",
+      "url": "https://support.stayflexi.com/docs/documentation/housekeeping/how-to-bulk-mark-rooms-dirty-clean/",
+      "area": "housekeeping",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Is there a system to add specific remarks or instructions for staff on individual rooms, ensuring they have all the necessary information?",
+      "url": "https://support.stayflexi.com/docs/documentation/housekeeping/is-there-a-system-to-add-specific-remarks-or-instructions-for-staff-on-individual-rooms-ensuring-they-have-all-the-necessary-information/",
+      "area": "housekeeping",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How can I quickly identify and access information about all out-of-order rooms?",
+      "url": "https://support.stayflexi.com/docs/documentation/housekeeping/how-can-i-quickly-identify-and-access-information-about-all-out-of-order-rooms/",
+      "area": "housekeeping",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "What is the difference between dirty stayover and dirty?",
+      "url": "https://support.stayflexi.com/docs/documentation/housekeeping/what-is-the-difference-between-dirty-stayover-and-dirty/",
+      "area": "housekeeping",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How can I export housekeeping data?",
+      "url": "https://support.stayflexi.com/docs/documentation/housekeeping/how-to-export-housekeeping-charter/",
+      "area": "housekeeping",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "what is the conversation feature in Stayflexi and how can it help a property",
+      "url": "https://support.stayflexi.com/docs/documentation/conversations/what-is-the-conversation-feature-in-stayflexi-and-how-can-it-help-a-property/",
+      "area": "conversations",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Conversations",
+      "url": "https://support.stayflexi.com/docs/documentation/conversations/",
+      "area": "conversations",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I reply online travel portal / channel guest messages from Stayflexi and what are the steps to do so ?",
+      "url": "https://support.stayflexi.com/docs/documentation/conversations/can-guests-reply-directly-to-the-messages-sent-through-stayflexi-and-how-do-i-manage-responses/",
+      "area": "conversations",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can a property communicate on real time basis with OTA guest with the help of conversations",
+      "url": "https://support.stayflexi.com/docs/documentation/conversations/can-a-property-communicate-on-real-time-basis-with-ota-guest-with-the-help-of-conversations/",
+      "area": "conversations",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I track the history of messages sent to guests through Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/conversations/can-i-track-the-history-of-messages-sent-to-guests-through-stayflexi/",
+      "area": "conversations",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How does Stayflexi enable communication with guests before, during, and after their stay?",
+      "url": "https://support.stayflexi.com/docs/documentation/conversations/how-does-stayflexi-enable-communication-with-guests-before-during-and-after-their-stay/",
+      "area": "conversations",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Review management",
+      "url": "https://support.stayflexi.com/docs/documentation/review-management/",
+      "area": "review-management",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "What is Stayflexi’s AI-powered review management, and how can it help my property?",
+      "url": "https://support.stayflexi.com/docs/documentation/review-management/what-is-stayflexis-ai-powered-review-management-and-how-can-it-help-my-property/",
+      "area": "review-management",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Can I respond directly to guest reviews posted on online travel portals through Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/review-management/can-i-respond-directly-to-guest-reviews-posted-on-online-travel-portals-through-stayflexi/",
+      "area": "review-management",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Overview of Review Management",
+      "url": "https://support.stayflexi.com/docs/documentation/review-management/overview-of-review-management/",
+      "area": "review-management",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Shops/POS",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/",
+      "area": "shops-pos",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I set up the shop to start taking orders?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/how-do-i-set-up-the-shop-to-start-taking-orders/",
+      "area": "shops-pos",
+      "imageReferences": 16,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I bulk upload POS menu items? What should I check before uploading?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/how-do-i-bulk-upload-pos-menu-items-what-should-i-check-before-uploading-2/",
+      "area": "shops-pos",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "When settling a POS bill, if remarks (like “payment collected via net banking”) are added, where can I view these remarks in the reports?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/when-settling-a-pos-bill-if-remarks-like-payment-collected-via-net-banking-are-added-where-can-i-view-these-remarks-in-the-reports-2/",
+      "area": "shops-pos",
+      "imageReferences": 9,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How can I configure a service charge, and can it be automatically added to each order?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/how-can-i-configure-a-service-charge-and-can-it-be-automatically-added-to-each-order/",
+      "area": "shops-pos",
+      "imageReferences": 7,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I place an order for a specific table?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/how-do-i-place-an-order-for-a-specific-table/",
+      "area": "shops-pos",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How can I transfer a bill from one table to another in shop / POS?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/how-can-i-transfer-a-bill-from-one-table-to-another/",
+      "area": "shops-pos",
+      "imageReferences": 8,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I place an order for a guest staying in a specific room?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/how-do-i-place-an-order-for-a-guest-staying-in-a-specific-room/",
+      "area": "shops-pos",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How can I track orders coming from QR code in shops?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/how-can-i-track-orders-coming-from-qr-code-in-shops/",
+      "area": "shops-pos",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I apply a discount to an entire food category or a specific item?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/how-do-i-apply-a-discount-to-an-entire-food-category-or-a-specific-item/",
+      "area": "shops-pos",
+      "imageReferences": 9,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Can I print a KOT or an A4-sized bill for the guest?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/can-i-print-a-kot-or-an-a4-sized-bill-for-the-guest/",
+      "area": "shops-pos",
+      "imageReferences": 10,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Can I partially settle a POS bill? What steps are required to do so?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/can-i-partially-settle-a-pos-bill-what-steps-are-required-to-do-so/",
+      "area": "shops-pos",
+      "imageReferences": 9,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Does the shop support KOT (Kitchen Order Tickets), and how does it work?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/does-the-shop-support-kot-kitchen-order-tickets-and-how-does-it-work/",
+      "area": "shops-pos",
+      "imageReferences": 10,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I mark an item as out of stock in the shop?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/how-do-i-mark-an-item-as-out-of-stock-in-the-shop/",
+      "area": "shops-pos",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "If an order is settled, where can I find the payment method used?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/if-an-order-is-settled-where-can-i-find-the-payment-method-used/",
+      "area": "shops-pos",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "What types of reports are available in the shop?",
+      "url": "https://support.stayflexi.com/docs/documentation/shops-pos/what-types-of-reports-are-available-in-the-shop/",
+      "area": "shops-pos",
+      "imageReferences": 11,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Overview Of reports  and what are important reports to refer in Stayflexi ?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/overview-of-reports-and-what-are-important-reports-to-refer/",
+      "area": "reports",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Is there a way to generate a report for POS transactions (restaurant, spa, etc.) within the property?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/is-there-a-way-to-generate-a-report-for-pos-transactions-restaurant-spa-etc-within-the-property/",
+      "area": "reports",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I generate a tax report to track the taxes collected from bookings?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-can-i-generate-a-tax-report-to-track-the-taxes-collected-from-bookings/",
+      "area": "reports",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I generate an expense report to track operational costs?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-can-i-generate-an-expense-report-to-track-operational-costs/",
+      "area": "reports",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I generate a report of all the charged virtual cards from Expedia or Booking.com?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-can-i-generate-a-report-of-all-the-charged-virtual-cards-from-expedia-or-booking-com/",
+      "area": "reports",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I generate a booking source report to track where my reservations are coming from (e.g., OTA, direct bookings)?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-can-i-generate-a-booking-source-report-to-track-where-my-reservations-are-coming-from-e-g-ota-direct-bookings-2/",
+      "area": "reports",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I view a report of all reservations made during a specific period?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/can-i-view-a-report-of-all-reservations-made-during-a-specific-period/",
+      "area": "reports",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Is there a way to generate a report for discounts or promotions applied to bookings?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/is-there-a-way-to-generate-a-report-for-discounts-or-promotions-applied-to-bookings/",
+      "area": "reports",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I generate a report of room revenue by room type or category?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-can-i-generate-a-report-of-room-revenue-by-room-type-or-category/",
+      "area": "reports",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I download a guest history report?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-can-i-download-a-guest-history-report/",
+      "area": "reports",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I analyze my property’s monthly or yearly room booking performance report compared to the previous year?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-do-i-analyze-my-propertys-monthly-or-yearly-performance-report-compared-to-the-previous-year/",
+      "area": "reports",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Is there a report to track cancellations and no-shows?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/is-there-a-report-to-track-cancellations-and-no-shows/",
+      "area": "reports",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I view an overdue payments or pending balance report?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-do-i-view-an-overdue-payments-or-pending-balance-report/",
+      "area": "reports",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I view logs of any changes made to room pricing, inventory, or a specific reservation ID in the system?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-can-i-view-logs-of-any-changes-made-to-room-pricing-inventory-or-a-specific-reservation-id-in-the-system/",
+      "area": "reports",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I view the occupancy report for a specific date?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-can-i-view-the-occupancy-report-for-a-specific-date-range/",
+      "area": "reports",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I schedule a daily revenue report for my property?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-do-i-generate-a-daily-revenue-report-for-my-property/",
+      "area": "reports",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I generate a report to track the booking sources by OTA channel manager, such a Booking.com, Expedia, etc.?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-can-i-generate-a-booking-source-report-to-track-where-my-reservations-are-coming-from-e-g-ota-direct-bookings/",
+      "area": "reports",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I check a detailed room status report (occupied, available, out of service)?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-do-i-create-a-detailed-room-status-report-occupied-available-out-of-service/",
+      "area": "reports",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I check a report of payments made through different methods (e.g., cash, card, bank transfer)?",
+      "url": "https://support.stayflexi.com/docs/documentation/reports/how-do-i-create-a-report-for-payments-made-via-different-methods-cash-card-online-etc/",
+      "area": "reports",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Direct Billing",
+      "url": "https://support.stayflexi.com/docs/documentation/direct-billing/",
+      "area": "direct-billing",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I create a ”Direct Billing” account in Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/direct-billing/how-do-i-create-a-direct-billing-account-in-stayflexi/",
+      "area": "direct-billing",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I view all bookings for a specific Direct Billing account?",
+      "url": "https://support.stayflexi.com/docs/documentation/direct-billing/how-do-i-view-all-bookings-for-a-specific-direct-billing-account/",
+      "area": "direct-billing",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How can I see only unsettled folios or reservations for a given Direct Billing account?",
+      "url": "https://support.stayflexi.com/docs/documentation/direct-billing/how-can-i-see-only-unsettled-folios-or-reservations-for-a-given-direct-billing-account/",
+      "area": "direct-billing",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I settle a folio after receiving payment from a Direct Billing account?",
+      "url": "https://support.stayflexi.com/docs/documentation/direct-billing/how-do-i-settle-a-folio-after-receiving-payment-from-a-direct-billing-account/",
+      "area": "direct-billing",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How can I edit or update a Direct Billing account?",
+      "url": "https://support.stayflexi.com/docs/documentation/direct-billing/how-can-i-edit-or-update-a-direct-billing-account/",
+      "area": "direct-billing",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I download a report of all bookings under a Direct Billing account?",
+      "url": "https://support.stayflexi.com/docs/documentation/direct-billing/how-do-i-download-a-report-of-all-bookings-under-a-direct-billing-account/",
+      "area": "direct-billing",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I view the pending balance for a Direct Billing account?",
+      "url": "https://support.stayflexi.com/docs/documentation/direct-billing/how-do-i-view-the-pending-balance-for-a-direct-billing-account/",
+      "area": "direct-billing",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How can I make a walk-in booking under a Direct Billing account?",
+      "url": "https://support.stayflexi.com/docs/documentation/direct-billing/how-can-i-make-a-walk-in-booking-under-a-direct-billing-account/",
+      "area": "direct-billing",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Revenue Management",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/",
+      "area": "revenue-management",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "How do all Revenue Management features work and how do I set them up?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/how-do-all-revenue-management-features-work-and-how-do-i-set-them-up/",
+      "area": "revenue-management",
+      "imageReferences": 21,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "How do I add or remove competitors in the Competitor Setup section?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/how-do-i-add-edit-or-remove-competitors-in-the-competitor-setup-section/",
+      "area": "revenue-management",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "How do I configure Demand-Based Pricing?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/how-do-i-configure-demand-based-pricing/",
+      "area": "revenue-management",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "How do I create Rule-Based Pricing rules?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/how-do-i-create-rule-based-pricing-rules/",
+      "area": "revenue-management",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "What is Time-Based Pricing and how do I set Time Slots?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/what-is-time-based-pricing-and-how-do-i-set-time-slots/",
+      "area": "revenue-management",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "How do I manage (edit, run the rule immediately, disable or delete) dynamic pricing rules?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/how-do-i-manage-edit-disable-or-delete-dynamic-pricing-rules/",
+      "area": "revenue-management",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "How do Rate Templates work and how do I create one?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/how-do-rate-templates-work-and-how-do-i-create-one/",
+      "area": "revenue-management",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "Can the occupancy percentages in dynamic pricing overlap across different rules?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/can-the-occupancy-percentages-in-dynamic-pricing-overlap-across-different-rules/",
+      "area": "revenue-management",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "Can dynamic pricing be set to run at a specific time, regardless of occupancy changes?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/can-dynamic-pricing-be-set-to-run-at-a-specific-time-regardless-of-occupancy-changes/",
+      "area": "revenue-management",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "Can dynamic pricing be applied to only one specific room category?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/can-dynamic-pricing-be-applied-to-only-one-specific-room-category/",
+      "area": "revenue-management",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "Can dynamic pricing and rate templates function simultaneously?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/can-dynamic-pricing-and-rate-templates-function-simultaneously/",
+      "area": "revenue-management",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "How do I create predefined Coupon Code/ offers in the system?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/how-do-i-create-predefined-coupon-code-offers-in-the-system/",
+      "area": "revenue-management",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "How do I create predefined promotions in the system?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/how-do-i-create-predefined-promotions-in-the-system/",
+      "area": "revenue-management",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "Will the rates automatically revert to the base price if the dynamic pricing rule is disabled or deleted after it has been applied?",
+      "url": "https://support.stayflexi.com/docs/documentation/revenue-management/will-the-rates-automatically-revert-to-the-base-price-if-the-dynamic-pricing-rule-is-disabled-or-deleted-after-it-has-been-applied/",
+      "area": "revenue-management",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Approval-based internal release"
+    },
+    {
+      "title": "Expense manager",
+      "url": "https://support.stayflexi.com/docs/documentation/expense-manager/",
+      "area": "expense-manager",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "What is the Cash Tracker in Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/expense-manager/what-is-the-cash-tracker-in-stayflexi/",
+      "area": "expense-manager",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Can I Add Cash to the Tracker Manually?",
+      "url": "https://support.stayflexi.com/docs/documentation/expense-manager/can-i-add-cash-to-the-tracker-manually/",
+      "area": "expense-manager",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "What types of transactions can be recorded in the Cash Tracker?",
+      "url": "https://support.stayflexi.com/docs/documentation/expense-manager/what-types-of-transactions-can-be-recorded-in-the-cash-tracker/",
+      "area": "expense-manager",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How is Cash Collected from Guest Folios Tracked?",
+      "url": "https://support.stayflexi.com/docs/documentation/expense-manager/how-is-cash-collected-from-guest-folios-tracked/",
+      "area": "expense-manager",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "What if the owner or manager takes cash out for personal or business purposes?",
+      "url": "https://support.stayflexi.com/docs/documentation/expense-manager/what-if-the-owner-or-manager-takes-cash-out-for-personal-or-business-purposes/",
+      "area": "expense-manager",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "What is the Expense Manager feature in Stayflexi, and how does it benefit to a property?",
+      "url": "https://support.stayflexi.com/docs/documentation/expense-manager/what-is-the-expense-manager-feature-in-stayflexi-and-how-does-it-benefit-to-a-property/",
+      "area": "expense-manager",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Where can I see report for Expense Manager?",
+      "url": "https://support.stayflexi.com/docs/documentation/expense-manager/where-can-i-see-report-for-expense-manager/",
+      "area": "expense-manager",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How can I add daily expenses in Expense Manager?",
+      "url": "https://support.stayflexi.com/docs/documentation/expense-manager/how-can-i-add-daily-expenses-or-record-withdrawals-in-the-expense-manager/",
+      "area": "expense-manager",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I set up the Expense Manager in Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/expense-manager/how-do-i-set-up-the-expense-manager-in-stayflexi/",
+      "area": "expense-manager",
+      "imageReferences": 10,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "What is the 'Top-up' feature in the Expense Manager, and how is it used?",
+      "url": "https://support.stayflexi.com/docs/documentation/expense-manager/what-is-the-top-up-feature-in-the-expense-manager-and-how-is-it-used/",
+      "area": "expense-manager",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "FreedomPay Integration – Frontdesk guide",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/freedompay-integration/",
+      "area": "payments",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "Payments",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/",
+      "area": "payments",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "FreedomPay Integration – Device setup guide",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/freedompay-integration-device-setup-guide/",
+      "area": "payments",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "SHIFT4 UTG Troubleshooting Guide",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/shift4-utg-troubleshooting-guide/",
+      "area": "payments",
+      "imageReferences": 17,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "SHIFT4 Commerce Engine for Cloud Troubleshooting Guide",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/shift4-commerce-engine-for-cloud-troubleshooting-guide/",
+      "area": "payments",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "Collecting Payments in the Folio",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/collecting-payments-in-the-folio/",
+      "area": "payments",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "Card Payments: Terminal, Saved Cards and New Cards",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/card-payments-terminal-saved-cards-and-new-cards/",
+      "area": "payments",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "Card Authorizations (Pre-Authorizations)",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/card-authorizations-pre-authorizations/",
+      "area": "payments",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "Refunds and Voids",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/refunds-and-voids/",
+      "area": "payments",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "Payment Receipts",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/payment-receipts/",
+      "area": "payments",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "Gateway Settlement Report",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/gateway-settlement-report/",
+      "area": "payments",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "Payment Links",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/payment-links/",
+      "area": "payments",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "What is Payment Automation and how does it work in Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/what-is-payment-automation-and-how-does-it-work-in-stayflexi/",
+      "area": "payments",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "What is the Payment Automation Dashboard and what can I monitor there?",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/what-is-the-payment-automation-dashboard-and-what-can-i-monitor-there/",
+      "area": "payments",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "How do I configure Payment Automation in Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/how-do-i-configure-payment-automation-in-stayflexi/",
+      "area": "payments",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "What happens if the payment fails due to an invalid guest card?",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/what-happens-if-the-payment-fails-due-to-an-invalid-guest-card/",
+      "area": "payments",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "How is the guest’s card charged? Is it based on the cancellation policy set in Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/how-is-the-guests-card-charged-is-it-based-on-the-cancellation-policy-set-in-stayflexi/",
+      "area": "payments",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "Property Configuration",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/",
+      "area": "configuration",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Does Stayflexi offer the option to charge a booking partially or in full?",
+      "url": "https://support.stayflexi.com/docs/documentation/payments/does-stayflexi-offer-the-option-to-charge-a-booking-partially-or-in-full/",
+      "area": "payments",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing sample-ledger support; external dependencies"
+    },
+    {
+      "title": "Overview of Property Configuration",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/overview-of-property-configuration/",
+      "area": "configuration",
+      "imageReferences": 10,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I show actual check-in and check-out times on invoices?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/how-can-i-show-actual-check-in-and-check-out-times-on-invoices/",
+      "area": "configuration",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I configure room dependency pricing?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/how-do-i-configure-room-dependency-pricing/",
+      "area": "configuration",
+      "imageReferences": 7,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to Create Users ?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/how-to-create-users/",
+      "area": "configuration",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Where can I configure all notifications sent to guests?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/where-can-i-configure-all-notifications-sent-to-guests-2/",
+      "area": "configuration",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I bulk upload bookings from another PMS into Stayflexi? What are the requirements?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/can-i-bulk-upload-bookings-from-another-pms-into-stayflexi-what-are-the-requirements/",
+      "area": "configuration",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What are custom booking sources, how can I create them, and how are they useful?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/what-are-custom-booking-sources-how-can-i-create-them-and-how-are-they-useful/",
+      "area": "configuration",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Uploading Room/Hotel Images: How can a property upload images of rooms and hotel facilities for the website?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/uploading-room-hotel-images-how-do-i-upload-images-of-rooms-and-hotel-facilities-for-the-website/",
+      "area": "configuration",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I update hotel details like website URL, address, description, logo, or phone number?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/how-do-i-update-hotel-details-like-website-url-address-description-logo-or-phone-number/",
+      "area": "configuration",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to change the Room Type name ?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/how-to-change-the-room-type-name/",
+      "area": "configuration",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Setting Room Occupancy: How do I define maximum occupancy, including adults, children, and infants, along with age limits for rooms?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/setting-room-occupancy-how-do-i-define-maximum-occupancy-including-adults-children-and-infants-along-with-age-limits-for-rooms/",
+      "area": "configuration",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I set up property tax, custom tax, and fee categories?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/how-do-i-set-up-property-tax-custom-tax-and-fee-categories/",
+      "area": "configuration",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What is folio configuration, and what can I do with it?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/what-is-folio-configuration-and-what-can-i-do-with-it/",
+      "area": "configuration",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Managing Property and Room Amenities: How do I control amenities at both the property and room level?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/managing-property-and-room-amenities-how-do-i-control-amenities-at-both-the-property-and-room-level/",
+      "area": "configuration",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What is a fee category, and how can I use it?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/what-is-a-fee-category-and-how-can-i-use-it/",
+      "area": "configuration",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Creating Hotel Add-on Services: Where do I add extra services offered by my hotel?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/creating-hotel-add-on-services-where-do-i-add-extra-services-offered-by-my-hotel/",
+      "area": "configuration",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What is User and Access Control, and what is its purpose?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/what-is-user-and-access-control-and-what-is-its-purpose/",
+      "area": "configuration",
+      "imageReferences": 7,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Setting Minimum Room Price: How can I set a minimum price for a room category to avoid lower price updates?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/setting-minimum-room-price-how-can-i-set-a-minimum-price-for-a-room-category-to-avoid-lower-price-updates/",
+      "area": "configuration",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What are different type of policies I can configure in Stayflexi",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/what-are-different-type-of-policies-i-can-configured-in-stayflexi/",
+      "area": "configuration",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I send automatic emails to guests after checkout to collect reviews?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/how-can-i-send-automatic-emails-to-guests-after-checkout-to-collect-reviews/",
+      "area": "configuration",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What are hotelier notifications, and how do they help?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/what-are-hotelier-notifications-and-how-do-they-help/",
+      "area": "configuration",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What is shift setup, and how is it beneficial for my property?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/what-is-shift-setup-and-how-is-it-beneficial-for-my-property/",
+      "area": "configuration",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Single Slot vs. 3 Slots: What are single slot and 3 slots, and which option should I select for my property?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/single-slot-vs-3-slots-what-are-single-slot-and-3-slots-and-which-option-should-i-select-for-my-property/",
+      "area": "configuration",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I set hourly rates for my property?",
+      "url": "https://support.stayflexi.com/docs/documentation/configuration/how-can-i-set-hourly-rates-for-my-property/",
+      "area": "configuration",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Night Audit",
+      "url": "https://support.stayflexi.com/docs/documentation/night-audit/",
+      "area": "night-audit",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Review snapshots in this release"
+    },
+    {
+      "title": "Overview of Night Audit",
+      "url": "https://support.stayflexi.com/docs/documentation/night-audit/overview-of-night-audit/",
+      "area": "night-audit",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Review snapshots in this release"
+    },
+    {
+      "title": "Can I access Night Audit reports of previous days using Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/night-audit/can-i-access-night-audit-reports-from-previous-days-using-stayflexi/",
+      "area": "night-audit",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Review snapshots in this release"
+    },
+    {
+      "title": "Can Stayflexi automate the Night Audit for my property?",
+      "url": "https://support.stayflexi.com/docs/documentation/night-audit/can-stayflexi-automate-the-night-audit-for-my-property/",
+      "area": "night-audit",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Review snapshots in this release"
+    },
+    {
+      "title": "How does Stayflexi handle the Night Audit process?",
+      "url": "https://support.stayflexi.com/docs/documentation/night-audit/how-does-stayflexi-handle-the-night-audit-process/",
+      "area": "night-audit",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Review snapshots in this release"
+    },
+    {
+      "title": "What happens if a reservation or payment is missing during the Night Audit?",
+      "url": "https://support.stayflexi.com/docs/documentation/night-audit/what-happens-if-a-reservation-or-payment-is-missing-during-the-night-audit/",
+      "area": "night-audit",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Review snapshots in this release"
+    },
+    {
+      "title": "What reports does Stayflexi generate during the Night Audit?",
+      "url": "https://support.stayflexi.com/docs/documentation/night-audit/what-reports-does-stayflexi-generate-during-the-night-audit/",
+      "area": "night-audit",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Review snapshots in this release"
+    },
+    {
+      "title": "Stock Management",
+      "url": "https://support.stayflexi.com/docs/documentation/stock-management/",
+      "area": "stock-management",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Overview of Stock Management",
+      "url": "https://support.stayflexi.com/docs/documentation/stock-management/overview-of-stock-management/",
+      "area": "stock-management",
+      "imageReferences": 10,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I configure an outlet in stock management and map it with a restaurant? Why is mapping stock management outlets important with restaurant outlets?",
+      "url": "https://support.stayflexi.com/docs/documentation/stock-management/how-do-i-configure-an-outlet-in-stock-management-and-map-it-with-a-restaurant-why-is-mapping-stock-management-outlets-important-with-restaurant-outlets/",
+      "area": "stock-management",
+      "imageReferences": 7,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "What kinds of reports are available in stock management?",
+      "url": "https://support.stayflexi.com/docs/documentation/stock-management/what-kinds-of-reports-are-available-in-stock-management/",
+      "area": "stock-management",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "How do I place a purchase order to a vendor and receive it in Stayflexi once the vendor delivers it?",
+      "url": "https://support.stayflexi.com/docs/documentation/stock-management/how-do-i-place-a-purchase-order-to-a-vendor-and-receive-it-in-stayflexi-once-the-vendor-delivers-it/",
+      "area": "stock-management",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Can I track daily wastage due to any reason? How do I do that in Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/stock-management/can-i-track-daily-wastage-due-to-any-reason-how-do-i-do-that-in-stayflexi/",
+      "area": "stock-management",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "What is recipe management, and why is it important?",
+      "url": "https://support.stayflexi.com/docs/documentation/stock-management/what-is-recipe-management-and-why-is-it-important/",
+      "area": "stock-management",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Does Stayflexi provide a dashboard in stock management to view all important data?",
+      "url": "https://support.stayflexi.com/docs/documentation/stock-management/does-stayflexi-provide-a-dashboard-in-stock-management-to-view-all-important-data/",
+      "area": "stock-management",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Core extension in this release"
+    },
+    {
+      "title": "Difference between Summary, Detailed, and itemized folio versions",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/difference-between-summary-advanced-and-itemized-folio-versions/",
+      "area": "folio",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "AI Scanner best practices and troubleshooting guide",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/ai-scanner-best-practices-and-troubleshooting-guide/",
+      "area": "folio",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Understanding folio layout in Stayflexi",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/understanding-folio-layout-in-stayflexi/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to print folio to pdf",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-print-folio-to-pdf-2/",
+      "area": "folio",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I mark a booking as a no-show, and can I do this for all OTAs?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-do-i-mark-a-booking-as-a-no-show-and-can-i-do-this-for-all-otas/",
+      "area": "folio",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to capture guest signature with my payment terminal",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-capture-guest-signature-with-my-payment-terminal/",
+      "area": "folio",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to add GST number to folio",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-add-gst-number-to-folio/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I change the payment mode after settlement?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/can-i-change-the-payment-mode-after-settlement/",
+      "area": "folio",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "I am unable to charge or authorize the guest credit card or the virtual card provided by the OTA. What can or should I do next?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/i-am-unable-to-charge-the-guest-credit-card-or-the-virtual-card-provided-by-the-ota-what-can-or-should-i-do-next/",
+      "area": "folio",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Where can we get the invoice with per night breakup?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/where-can-we-get-the-invoice-with-per-night-breakup/",
+      "area": "folio",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to edit booking source in the folio",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-edit-booking-source-in-the-folio/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to settle dues in folio?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-settle-dues-in-folio/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to modify check in or check out date and time for a given booking.",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-modify-check-in-or-check-out-date-and-time-2/",
+      "area": "folio",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to edit folio amount?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-edit-folio-amount/",
+      "area": "folio",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can we modify the Booking price after the reservation is created?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-can-we-modify-the-booking-price-after-the-reservation-is-confirmed/",
+      "area": "folio",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to edit the rate plan on the folio",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-edit-the-rate-plan-on-the-folio/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to provide discounts on a Flat / Percentage basis for the existing reservations?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-provide-discounts-on-a-flat-percentage-basis-for-the-existing-reservations/",
+      "area": "folio",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to release a booking from Hold Bookings in Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-release-a-booking-inventory-by-putting-booking-on-hold-from-folio-or-reservation-calendar/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Where can we modify the Rate plan after the reservation is confirmed?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/where-can-we-modify-the-rate-plan-after-the-reservation-is-confirmed/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to unassign a booking from a room number from the reservation calendar or room folio ?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-assign-and-unassign-a-booking-to-a-room-number-from-reservation-calendar-or-room-folio/",
+      "area": "folio",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to release a booking inventory by putting booking on hold from folio or reservation calendar",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-release-a-booking-inventory-by-putting-booking-on-hold-from-folio-or-reservation-calendar-2/",
+      "area": "folio",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I delete a particular reservation from system",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/can-i-delete-a-particular-reservation-from-system/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to move a booking to a different room number or room category",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-modify-check-in-or-check-out-date-and-time/",
+      "area": "folio",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to add company details to a folio in Stayflexi and apply them during billing?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-add-company-details-to-a-folio/",
+      "area": "folio",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to split a group booking ?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-split-a-booking/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to set a booking to no show",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-set-a-booking-to-no-show/",
+      "area": "folio",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to view folio history or folio log ?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-view-folio-history-or-log/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to unlock a booking a specific room so that system can move it automatically",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-unlock-a-booking-a-specific-room-so-that-system-can-move-it-automatically/",
+      "area": "folio",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to lock a booking a specific room so that system does not move it automatically",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-lock-a-booking-a-specific-room-so-that-system-does-not-move-it-automatically/",
+      "area": "folio",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to add a new room to a group booking or remove a room from group booking",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-add-a-new-room-to-a-group-booking-or-remove-a-room-from-group-booking/",
+      "area": "folio",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to add Addons or any chargeable service in room folio ?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-add-addons-or-any-chargeable-service-in-room-folio/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to take different type of payments for a given booking",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-take-different-type-of-payments-for-a-given-booking/",
+      "area": "folio",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to add notes to a given booking ?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-add-notes-to-a-given-booking/",
+      "area": "folio",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to take cash deposit for a given booking",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-take-cash-deposit-for-a-given-booking/",
+      "area": "folio",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to refund a payment to guest from Stayflexi PMS ?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-refund-a-payment/",
+      "area": "folio",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to send a payment link to the guest from Stayflexi PMS?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-send-a-payment-link-to-the-guest/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to add guest card details to a particular booking and charge it?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-add-a-card-to-a-particular-booking-and-charge-it/",
+      "area": "folio",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to delete a saved card from given booking",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-delete-a-saved-card-from-given-booking/",
+      "area": "folio",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to Change the booking segment or source  ?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-change-the-booking-segment-or-source/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to edit the guest details in the folio",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-edit-the-guest-details-in-the-folio/",
+      "area": "folio",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to check-in a booking",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-check-in-a-booking/",
+      "area": "folio",
+      "imageReferences": 7,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to cancel a booking",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-cancel-a-booking/",
+      "area": "folio",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to checkout a booking",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-checkout-a-booking/",
+      "area": "folio",
+      "imageReferences": 7,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to email guest folio and confirmation voucher?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-email-guest-folio-and-confirmation-voucher/",
+      "area": "folio",
+      "imageReferences": 8,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to exempt taxes from a particular reservation?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-do-tax-exemption/",
+      "area": "folio",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What is Scanty Baggage Feature?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/what-is-scanty-baggage-feature/",
+      "area": "folio",
+      "imageReferences": 4,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Adding or removing guests from a reservation",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/adding-or-removing-guests-from-a-reservation/",
+      "area": "folio",
+      "imageReferences": 7,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How to add / remove room on existing reservation?",
+      "url": "https://support.stayflexi.com/docs/documentation/folio/how-to-add-remove-room-on-existing-reservation/",
+      "area": "folio",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Booking Engine",
+      "url": "https://support.stayflexi.com/docs/documentation/booking-engine/",
+      "area": "booking-engine",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Not implemented"
+    },
+    {
+      "title": "Stayflexi Booking Engine – Everything you need to know",
+      "url": "https://support.stayflexi.com/docs/documentation/booking-engine/stayflexi-booking-engine-everything-you-need-to-know/",
+      "area": "booking-engine",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Not implemented"
+    },
+    {
+      "title": "Stayflexi Booking Engine configurations which you should know.",
+      "url": "https://support.stayflexi.com/docs/documentation/booking-engine/stayflexi-booking-engine-settings/",
+      "area": "booking-engine",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Not implemented"
+    },
+    {
+      "title": "Stayflexi Booking Engine – How to Sell specific Rooms with Rate Plans on Booking Engine",
+      "url": "https://support.stayflexi.com/docs/documentation/booking-engine/stayflexi-booking-engine-how-to-sell-specific-rooms-with-rate-plans-on-booking-engine/",
+      "area": "booking-engine",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Not implemented"
+    },
+    {
+      "title": "Coupon code option on stayflexi Booking Engine and how it is useful",
+      "url": "https://support.stayflexi.com/docs/documentation/booking-engine/coupon-code-option-on-stayflexi-booking-engine-and-how-it-is-useful/",
+      "area": "booking-engine",
+      "imageReferences": 6,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Not implemented"
+    },
+    {
+      "title": "Magic link",
+      "url": "https://support.stayflexi.com/docs/documentation/magic-link/",
+      "area": "magic-link",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Not implemented"
+    },
+    {
+      "title": "How do I configure or control the settings for the Magic Link?",
+      "url": "https://support.stayflexi.com/docs/documentation/magic-link/how-do-i-configure-or-control-the-settings-for-the-magic-link/",
+      "area": "magic-link",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Not implemented"
+    },
+    {
+      "title": "What is the Magic Link feature in Stayflexi, and how can it benefit my property?",
+      "url": "https://support.stayflexi.com/docs/documentation/magic-link/what-is-the-magic-link-feature-in-stayflexi-and-how-can-it-benefit-my-property/",
+      "area": "magic-link",
+      "imageReferences": 3,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Not implemented"
+    },
+    {
+      "title": "If a guest selects a service through the Magic Link, where can I view it in Stayflexi?",
+      "url": "https://support.stayflexi.com/docs/documentation/magic-link/if-a-guest-selects-a-service-through-the-magic-link-where-can-i-view-it-in-stayflexi/",
+      "area": "magic-link",
+      "imageReferences": 1,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Not implemented"
+    },
+    {
+      "title": "How do I configure shop items or services to appear on the Magic Link?",
+      "url": "https://support.stayflexi.com/docs/documentation/magic-link/how-do-i-configure-shop-items-or-services-to-appear-on-the-magic-link/",
+      "area": "magic-link",
+      "imageReferences": 7,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Not implemented"
+    },
+    {
+      "title": "Can I set up room-specific self-check-in instructions for guest using the Magic Link?",
+      "url": "https://support.stayflexi.com/docs/documentation/magic-link/can-i-set-up-room-specific-self-check-in-instructions-for-guests-using-the-magic-link/",
+      "area": "magic-link",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Not implemented"
+    },
+    {
+      "title": "Group Dashboard",
+      "url": "https://support.stayflexi.com/docs/documentation/group-dashboard/",
+      "area": "group-dashboard",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Group Performance Dashboard Overview",
+      "url": "https://support.stayflexi.com/docs/documentation/group-dashboard/group-performance-dashboard-overview/",
+      "area": "group-dashboard",
+      "imageReferences": 8,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "What can I view and analyse under the Group Performance Dashboard?",
+      "url": "https://support.stayflexi.com/docs/documentation/group-dashboard/what-can-i-view-and-analyse-under-the-group-performance-dashboard/",
+      "area": "group-dashboard",
+      "imageReferences": 5,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I view performance for a specific property, multiple properties, or all my properties together?",
+      "url": "https://support.stayflexi.com/docs/documentation/group-dashboard/how-can-i-view-performance-for-a-specific-property-multiple-properties-or-all-my-properties-together/",
+      "area": "group-dashboard",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How can I view and compare monthly performance in graph format?",
+      "url": "https://support.stayflexi.com/docs/documentation/group-dashboard/how-can-i-view-and-compare-monthly-performance-in-graph-format/",
+      "area": "group-dashboard",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "How do I interpret the top performing and low performing properties?",
+      "url": "https://support.stayflexi.com/docs/documentation/group-dashboard/how-do-i-interpret-the-top-performing-and-low-performing-properties/",
+      "area": "group-dashboard",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Can I filter the booking source performance by number of rooms sold instead of revenue?",
+      "url": "https://support.stayflexi.com/docs/documentation/group-dashboard/can-i-filter-the-booking-source-performance-by-number-of-rooms-sold-instead-of-revenue/",
+      "area": "group-dashboard",
+      "imageReferences": 2,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing, partial"
+    },
+    {
+      "title": "Helpline",
+      "url": "https://support.stayflexi.com/docs/documentation/help-line/",
+      "area": "help-line",
+      "imageReferences": 0,
+      "reviewStatus": "Text extracted; category-level product comparison. Individual screenshot review not complete.",
+      "fridayStatus": "Existing help screen, no vendor relationship"
+    },
+    {
+      "title": "Stayflexi Documentation",
+      "url": "https://support.stayflexi.com/docs/documentation/",
+      "area": "index",
+      "imageReferences": 20,
+      "reviewStatus": "Documentation category index",
+      "fridayStatus": "Reference"
+    }
+  ]
+}
