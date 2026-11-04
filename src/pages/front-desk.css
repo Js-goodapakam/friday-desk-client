@@ -1,0 +1,36 @@
+#root .frontdesk-page{display:grid;gap:16px;min-width:0;color:var(--fr-ink,#182c47)}
+#root .app .frontdesk-heading{margin:0!important;align-items:center}#root .app .frontdesk-heading h1{margin:4px 0 0!important}
+#root .frontdesk-panel{min-width:0;background:var(--fr-surface,#fff);border:1px solid var(--fr-border,#dfe7f2);border-radius:10px;overflow:hidden}
+#root .frontdesk-filters{display:flex;align-items:flex-end;gap:14px;padding:16px 18px;border-bottom:1px solid var(--fr-border,#dfe7f2)}
+#root .frontdesk-filters label{display:grid;gap:6px;min-width:0;font-size:12px;color:var(--fr-muted,#63758d)}
+#root .frontdesk-search{flex:1}#root .frontdesk-status{flex:0 0 190px}
+#root .frontdesk-filters :is(input,select){display:block;box-sizing:border-box;width:100%;min-width:0;height:40px;padding:9px 12px;border:1px solid #cfdef0;border-radius:6px;background:#fff;color:var(--fr-ink,#182c47);font:inherit;font-size:13px}
+#root .frontdesk-table-scroll{max-width:100%;overflow-x:auto}
+#root .frontdesk-table{width:100%;min-width:940px;table-layout:fixed;border-collapse:collapse}
+#root .frontdesk-table .frontdesk-col-guest{width:23%}#root .frontdesk-table .frontdesk-col-room{width:16%}#root .frontdesk-table .frontdesk-col-action{width:124px}
+#root .frontdesk-table :is(th,td){padding:14px 16px;text-align:left;vertical-align:middle;border-bottom:1px solid #e8eef6;line-height:1.5;font-size:13px!important}
+#root .frontdesk-table th{padding-top:12px;padding-bottom:12px;background:#fafcff;font-size:11px!important;font-weight:500;white-space:nowrap;color:var(--fr-muted,#63758d)}
+#root .frontdesk-guest{display:block;font-size:13px;font-weight:600;line-height:1.5;overflow-wrap:anywhere}
+#root .frontdesk-secondary{display:block;margin-top:3px;font-size:11px;color:var(--fr-muted,#63758d);line-height:1.5;overflow-wrap:anywhere}
+#root .frontdesk-room{display:block;font-size:13px;font-weight:600}#root .frontdesk-table time{white-space:nowrap;font-size:12px}
+#root .frontdesk-note{display:block;font-size:11px;color:var(--fr-muted,#63758d);margin-top:3px}
+#root .frontdesk-table .frontdesk-money{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+#root .frontdesk-table .frontdesk-action{text-align:right}
+#root .frontdesk-action button{display:inline-flex;align-items:center;justify-content:center;width:88px;min-height:36px;padding:7px 10px;white-space:nowrap;font-size:12px;border-radius:6px;box-shadow:none}
+#root .frontdesk-no-action{color:var(--fr-muted,#63758d)}#root .frontdesk-table .badge{max-width:100%;white-space:nowrap}
+#root .frontdesk-cards{display:none}#root .frontdesk-empty{padding:30px 18px;text-align:center;color:var(--fr-muted,#63758d);font-size:13px}
+#root .frontdesk-pagination{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:14px 18px;font-size:12px;color:var(--fr-muted,#63758d)}
+#root .frontdesk-pagination>div{display:flex;align-items:center;gap:12px}#root .frontdesk-pagination button{min-height:34px;padding:7px 12px;font-size:12px}
+@media(max-width:1100px){#root .frontdesk-table :is(th,td){padding-left:12px;padding-right:12px}}
+@media(max-width:1100px){
+ #root .frontdesk-table-scroll{display:none}#root .frontdesk-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:16px}
+ #root .frontdesk-card{min-width:0;padding:16px;border:1px solid var(--fr-border,#dfe7f2);border-radius:8px}
+ #root .frontdesk-card>header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}#root .frontdesk-card>header>div{min-width:0}
+ #root .frontdesk-room-pill{flex:none;padding:4px 8px;border-radius:5px;background:#edf4ff;font-size:11px;color:#2463b7;white-space:nowrap}
+ #root .frontdesk-room-type{font-size:12px;color:var(--fr-muted,#63758d);margin:12px 0}
+ #root .frontdesk-card dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px;margin:0;padding:12px 0;border-top:1px solid #edf2f8}
+ #root .frontdesk-card dl>div{min-width:0}#root .frontdesk-card dt{font-size:11px;color:var(--fr-muted,#63758d);margin-bottom:5px}#root .frontdesk-card dd{margin:0;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+ #root .frontdesk-card dd.frontdesk-money{font-weight:600;font-variant-numeric:tabular-nums}
+ #root .frontdesk-card footer{display:flex;justify-content:flex-end;margin:10px 0 0!important;padding:0!important;border:0!important;background:transparent!important}#root .frontdesk-card footer button{width:100%;min-height:40px;font-size:13px;box-shadow:none}
+}
+@media(max-width:600px){#root .frontdesk-filters{padding:14px;flex-direction:column;align-items:stretch;gap:12px}#root .frontdesk-status{flex:auto}#root .frontdesk-filters :is(input,select){height:44px;font-size:16px}#root .frontdesk-cards{grid-template-columns:minmax(0,1fr);padding:14px;gap:12px}#root .frontdesk-pagination{padding:14px;align-items:flex-start}#root .frontdesk-pagination>div{width:100%;justify-content:space-between;gap:8px}}
