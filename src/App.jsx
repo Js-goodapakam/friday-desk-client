@@ -20,7 +20,7 @@ import CreateReservation from "./pages/CreateReservation.jsx";
 import OwnerAdmin from "./pages/OwnerAdmin.jsx";
 import "./pages/demo.css";
 import "./pages/demo-extra.css";
-import {loadPropertyWorkspace,propertyStorageKey} from "./core/propertyWorkspace.js";
+import {emptyPropertyWorkspace} from "./core/propertyWorkspace.js";
 import { KEY,HOTEL,offset,stamp,fmt,date,money,nights,total,balance,initials,uid,load,seed } from "./core/data.js";
 import { Badge,Field } from "./components/Common.jsx";
 import Reservations from "./pages/Reservations.jsx";
@@ -1060,8 +1060,8 @@ function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspa
  // when the browser preserves the previous page's scroll position.
  useEffect(()=>{window.scrollTo({top:0,left:0,behavior:"auto"});},[page]);
  const saveReservation=f=>{const validation=reservationError(data,f);if(validation){alert(validation);return}const overlap=data.reservations.some(r=>r.room===f.room&&["Confirmed","Checked In","Modified"].includes(r.status)&&f.arrival<r.departure&&f.departure>r.arrival);if(overlap){alert(`Room ${f.room} has an overlapping stay.`);return}setData(d=>{let guestId=f.guestId;let guests=d.guests;if(f.guestMode==="new"||!guestId){guestId=uid("G");guests=[...guests,{id:guestId,name:`${f.firstName.trim()} ${f.lastName.trim()}`,email:f.email.trim(),phone:f.phone.trim(),nationality:f.nationality,idType:f.idType,idNumber:f.idNumber,address:f.address,idAttachment:f.idAttachment||null}]}else if(f.idAttachment){guests=guests.map(g=>g.id===guestId?{...g,nationality:f.nationality,idType:f.idType,idNumber:f.idNumber,address:f.address,idAttachment:f.idAttachment}:g)}return {...d,guests,reservations:[...d.reservations,{id:uid("R"),guestId,room:f.room,arrival:f.arrival,departure:f.departure,expectedIn:f.expectedIn,expectedOut:f.expectedOut,status:"Confirmed",rate:Number(f.rate),paid:Number(f.paid),bookingDate:offset(0),source:f.source,adults:Number(f.adults),children:Number(f.children),actualCheckIn:null,actualCheckOut:null}]}});setEditor(false)};
- const checkIn=r=>{if(r.status!=="Confirmed"||r.arrival>offset(0)||r.departure<=offset(0)){alert("Only a confirmed reservation within its stay dates can check in.");return}if(data.reservations.some(x=>x.id!==r.id&&x.room===r.room&&x.status==="Checked In")){alert("This room already has an in-house guest.");return}const now=stamp();setData(d=>({...d,reservations:d.reservations.map(x=>x.id===r.id?{...x,status:"Checked In",actualCheckIn:now}:x)}));setPage("guests")};
- const checkOut=r=>{if(r.status!=="Checked In"){alert("Only an in-house reservation can check out.");return}if(balance(r)>0){alert("Settle the outstanding balance before check-out.");return}if(!window.confirm("Check out this guest?"))return;const now=stamp();setData(d=>({...d,reservations:d.reservations.map(x=>x.id===r.id?{...x,status:"Checked Out",actualCheckOut:now}:x)}));setPage("guests")};
+ const checkIn=async r=>{const businessDay=data.demo?.referenceDate||offset(0);if(!["Confirmed","Modified"].includes(r.status)||r.arrival>businessDay||r.departure<=businessDay){alert("Only a confirmed reservation within its stay dates can check in.");return}if(data.reservations.some(x=>x.id!==r.id&&x.room===r.room&&x.status==="Checked In")){alert("This room already has an in-house guest.");return}const now=stamp();const saved=await setData(d=>({...d,reservations:d.reservations.map(x=>x.id===r.id?{...x,status:"Checked In",actualCheckIn:now}:x)}));if(saved!==false)setPage("guests")};
+ const checkOut=async r=>{if(r.status!=="Checked In"){alert("Only an in-house reservation can check out.");return}if(balance(r)>0){alert("Settle the outstanding balance before check-out.");return}if(!window.confirm("Check out this guest?"))return;const now=stamp();const saved=await setData(d=>({...d,reservations:d.reservations.map(x=>x.id===r.id?{...x,status:"Checked Out",actualCheckOut:now}:x)}));if(saved!==false)setPage("guests")};
  const requests=data.requests;
  const navGroups=[
   [["dashboard","Dashboard","dashboard"],["calendar","Calendar","calendar"],["reservations","Reservations","reservations"],["guests","Guests","guests"]],
@@ -1104,25 +1104,26 @@ function GuestPortal({data,onRequest,onLogout}){
 }
 
 function PropertyWorkspace({property,session,onLogout,onBack}) {
- const [data,updateData]=useState(()=>loadPropertyWorkspace(property,session));
+ const [data,updateData]=useState(()=>emptyPropertyWorkspace(property,session));
  const [loading,setLoading]=useState(true),[storageError,setStorageError]=useState(""),[saving,setSaving]=useState(false);
- const current=useRef(data),remote=useRef(false),version=useRef(0),queue=useRef(Promise.resolve()),mounted=useRef(true),failed=useRef(false);
- const loadRemote=async()=>{const result=await workspaceRequest(property.id);if(result.state){remote.current=true;version.current=result.version;current.current=result.state;updateData(result.state);}return result;};
- useEffect(()=>{mounted.current=true;loadRemote().catch(error=>{if(property.demo&&mounted.current)setStorageError(error.message);}).finally(()=>{if(mounted.current)setLoading(false);});return()=>{mounted.current=false;};},[property.id]);
+ const current=useRef(data),committed=useRef(data),remote=useRef(false),version=useRef(0),queue=useRef(Promise.resolve()),mounted=useRef(true),failed=useRef(false);
+ const loadRemote=async()=>{const result=await workspaceRequest(property.id);if(!result.state||Number(result.state.property?.id)!==Number(property.id)||!Number.isInteger(result.version)||result.version<1)throw Error('Database-backed storage is not configured for this property.');remote.current=true;version.current=result.version;committed.current=result.state;current.current=result.state;updateData(result.state);return result;};
+ useEffect(()=>{mounted.current=true;loadRemote().catch(error=>{if(mounted.current)setStorageError(error.message);}).finally(()=>{if(mounted.current)setLoading(false);});return()=>{mounted.current=false;};},[property.id]);
  const setData=useCallback(change=>{
-  const next=typeof change==="function"?change(current.current):change;current.current=next;updateData(next);setStorageError("");
-  if(!remote.current){try{localStorage.setItem(propertyStorageKey(session.id,property.id),JSON.stringify(next));return Promise.resolve(true);}catch{setStorageError("Unable to save browser workspace.");return Promise.resolve(false);}}
-  setSaving(true);failed.current=false;
-  queue.current=queue.current.then(async()=>{
-   const result=await workspaceRequest(property.id,"PUT",{state:next,version:version.current});version.current=result.version;
-   if(current.current===next){current.current=result.state;if(mounted.current)updateData(result.state);}
-  }).catch(error=>{failed.current=true;if(mounted.current)setStorageError(error.message+" Your changes remain on screen. Reload to resolve conflicting updates.");}).finally(()=>{if(mounted.current)setSaving(false);});
-  return queue.current.then(()=>!failed.current);
+  if(!remote.current||failed.current){setStorageError('Reload the saved database records before making more changes.');return Promise.resolve(false);}
+  const next=typeof change==="function"?change(current.current):change;current.current=next;updateData(next);setStorageError('');setSaving(true);
+  const operation=queue.current.then(async()=>{
+   if(failed.current)return false;
+   try{const result=await workspaceRequest(property.id,"PUT",{state:next,version:version.current});version.current=result.version;committed.current=result.state;
+    if(current.current===next){current.current=result.state;if(mounted.current)updateData(result.state);}return true;
+   }catch(error){failed.current=true;current.current=committed.current;if(mounted.current){updateData(committed.current);setStorageError(error.message+' Changes were not saved. Reload before retrying.');}return false;}
+  }).finally(()=>{if(mounted.current)setSaving(false);});
+  queue.current=operation.then(()=>undefined);return operation;
  },[session.id,property.id]);
  const back=async()=>{await queue.current;if(!failed.current)onBack();};
  const reload=async()=>{await queue.current;await loadRemote();failed.current=false;setStorageError("");};
  if(loading)return <FridayLoader fullscreen/>;
- if(property.demo&&!remote.current)return <div role="alert" style={{padding:32}}>{storageError||"Sample data workspace unavailable."}<button onClick={onBack}>Back to properties</button></div>;
+ if(!remote.current)return <div className="storage-unavailable" role="alert"><h1>Property storage unavailable</h1><p>{storageError||'Unable to load saved property records.'}</p><button className="subtle" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Retry connection</button><button className="primary" onClick={onBack}>Back to properties</button></div>;
  return <>{storageError&&<div className="demo-error" role="alert">{storageError}<button type="button" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Reload saved records</button></div>}<Admin initialPage={property.initialPage} data={data} setData={setData} session={{...session,propertyId:property.id}} onLogout={onLogout} onBackToProperties={back} onReloadWorkspace={reload}/></>;
 }
 

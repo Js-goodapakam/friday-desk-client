@@ -10,6 +10,7 @@ export default function Finance({ data, setData }) {
   const [status, setStatus] = useState("All");
   const [selected, setSelected] = useState(null);
   const [paymentOpen, setPaymentOpen] = useState(false);
+  const [paymentBusy, setPaymentBusy] = useState(false);
   const [payment, setPayment] = useState({
     amount: "",
     method: "UPI",
@@ -64,14 +65,15 @@ export default function Finance({ data, setData }) {
     setPaymentOpen(true);
   };
 
-  const recordPayment = () => {
-    if (!selected || !setData) return;
+  const recordPayment = async () => {
+    if (!selected || !setData || paymentBusy) return;
 
     const amount = Number(payment.amount || 0);
     if (!amount || amount <= 0) return;
     if (amount > selected.balance) return;
 
-    setData((prev) => ({
+    setPaymentBusy(true);
+    const saved = await setData((prev) => ({
       ...prev,
       reservations: prev.reservations.map((r) =>
         r.id === selected.reservation.id
@@ -87,6 +89,8 @@ export default function Finance({ data, setData }) {
       ),
     }));
 
+    setPaymentBusy(false);
+    if(saved===false)return;
     setPaymentOpen(false);
     setSelected(null);
   };
@@ -315,7 +319,7 @@ export default function Finance({ data, setData }) {
 
             <div className="finance-modal-actions">
               <button className="finance-secondary" onClick={() => setPaymentOpen(false)}>Cancel</button>
-              <button className="finance-primary" onClick={recordPayment}>Save Payment</button>
+              <button className="finance-primary" disabled={paymentBusy} onClick={recordPayment}>{paymentBusy?'Saving…':'Save Payment'}</button>
             </div>
           </div>
         </div>

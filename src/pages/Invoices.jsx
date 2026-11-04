@@ -31,7 +31,7 @@ function InvoicesPage({ data, setData }) {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [settings, setSettings] = useState(() => settingsFrom(data));
 
-  const invoices = data.invoices || [];
+  const invoices = useMemo(() => data.invoices || [], [data.invoices]);
 
   const metrics = useMemo(() => {
     const total = invoices.reduce((s, x) => s + Number(x.total || 0), 0);
@@ -44,8 +44,8 @@ function InvoicesPage({ data, setData }) {
     };
   }, [invoices]);
 
-  const saveSettings = () => {
-    setData(d => ({ ...d, invoiceSettings: settings }));
+  const saveSettings = async () => {
+    if(await setData(d => ({ ...d, invoiceSettings: settings }))===false)return;
     setSettingsOpen(false);
   };
 
@@ -63,7 +63,7 @@ function InvoicesPage({ data, setData }) {
     reader.readAsDataURL(file);
   };
 
-  const create = payload => {
+  const create = async payload => {
     const current = settingsFrom(data);
     const num = Number(current.nextNumber || 1);
     const invoice = {
@@ -87,7 +87,7 @@ function InvoicesPage({ data, setData }) {
       },
     };
 
-    setData(d => ({
+    const saved = await setData(d => ({
       ...d,
       invoices: [invoice, ...(d.invoices || [])],
       invoiceSettings: {
@@ -95,6 +95,7 @@ function InvoicesPage({ data, setData }) {
         nextNumber: num + 1,
       },
     }));
+    if(saved===false)return;
     setCreating(false);
     setViewing(invoice);
   };

@@ -1,40 +1,19 @@
-import { useState } from "react";
-import { fmt } from "../core/data.js";
-import { Badge } from "../components/Common.jsx";
+import {useState} from 'react';
+import {fmt,uid} from '../core/data.js';
+import {Badge} from '../components/Common.jsx';
+import {useDialogFocus} from '../core/useDialogFocus.js';
+import {requestType,filterRequests} from '../core/guestRequests.js';
 
 export default function RequestsPage({data,setData}){
- const [q,setQ]=useState(""),[filter,setFilter]=useState("All Status");
- const rows=data.requests.filter(item=>{
-   const g=data.guests.find(x=>x.id===item.guestId);
-   const room=data.reservations.find(r=>r.id===item.reservationId)?.room||"";
-   const text=`${g?.name||""} ${room} ${item.text}`.toLowerCase();
-   return text.includes(q.toLowerCase()) && (filter==="All Status"||item.status===filter);
- });
- const count=s=>data.requests.filter(x=>x.status===s).length;
- const resolve=id=>setData(d=>({...d,requests:d.requests.map(x=>x.id===id?{...x,status:x.status==="Open"?"Resolved":"Open"}:x)}));
- return <div className="requests-page">
-   <div className="page-heading requests-heading">
-     <div><div className="eyebrow">SERVICE DESK</div><h1>Guest Requests</h1><p className="muted">Manage and track guest requests from check-in to check-out</p></div>
-     <button className="primary" onClick={()=>alert("New request flow is available from the Guest Portal.")}>＋ New Request</button>
-   </div>
-   <div className="request-summary">
-     <div className="request-stat open"><span className="request-icon">◌</span><div><b>{count("Open")}</b><span>Open</span><small>Needs attention</small></div></div>
-     <div className="request-stat progress"><span className="request-icon">◷</span><div><b>{count("In Progress")}</b><span>In Progress</span><small>Being handled</small></div></div>
-     <div className="request-stat resolved"><span className="request-icon">✓</span><div><b>{count("Resolved")}</b><span>Resolved</span><small>Completed</small></div></div>
-     <div className="request-stat closed"><span className="request-icon">×</span><div><b>{count("Closed")}</b><span>Closed</span><small>No recent issues</small></div></div>
-   </div>
-   <section className="card request-table-card">
-     <div className="request-filters">
-       <input value={q} onChange={e=>setQ(e.target.value)} placeholder="⌕  Search by guest name, room, or request…"/>
-       <label><span>Status</span><select value={filter} onChange={e=>setFilter(e.target.value)}><option>All Status</option><option>Open</option><option>In Progress</option><option>Resolved</option><option>Closed</option></select></label>
-       <label><span>Request Type</span><select><option>All Types</option><option>Housekeeping</option><option>Extra Towels</option><option>Maintenance</option></select></label>
-       <label><span>Date Range</span><select><option>All Time</option><option>Today</option><option>Last 7 Days</option><option>Last 30 Days</option></select></label>
-     </div>
-     <div className="table-scroll">
-       <table className="request-table"><thead><tr><th>#</th><th>Guest</th><th>Room</th><th>Request Type</th><th>Description</th><th>Status</th><th>Requested On</th><th>Assigned To</th><th>Action</th></tr></thead>
-       <tbody>{rows.length?rows.map((item,i)=>{const g=data.guests.find(x=>x.id===item.guestId);const room=data.reservations.find(r=>r.id===item.reservationId)?.room||"—";return <tr key={item.id}><td>{i+1}</td><td><strong>{g?.name}</strong></td><td>{room}</td><td><span className="request-type">{item.text.toLowerCase().includes("towel")?"Extra Towels":"Guest Request"}</span></td><td>{item.text}</td><td><Badge>{item.status}</Badge></td><td>{fmt(item.created)}</td><td>Front Desk</td><td><button className="subtle table-action" onClick={()=>resolve(item.id)}>{item.status==="Open"?"Resolve":"View"}</button></td></tr>}) : <tr><td colSpan="9" className="empty-cell">No guest requests match your filters.</td></tr>}</tbody></table>
-     </div>
-     <div className="table-footer"><span>Showing {rows.length} of {data.requests.length} requests</span><div className="pagination"><button disabled>‹</button><button className="current">1</button><button disabled>›</button></div></div>
-   </section>
- </div>
+ const [q,setQ]=useState(''),[status,setStatus]=useState('All Status'),[type,setType]=useState('All Types'),[period,setPeriod]=useState('All Time'),[editor,setEditor]=useState(null),[busy,setBusy]=useState(false),[error,setError]=useState('');
+ useDialogFocus(Boolean(editor),()=>{if(!busy)setEditor(null);});
+ const rows=filterRequests(data,{q,status,type,period});
+ async function persist(change){setBusy(true);setError('');try{if(await setData(change)===false)throw Error('Request was not saved. Reload confirmed records and retry.');setEditor(null);}catch(e){setError(e.message);}finally{setBusy(false);}}
+ function save(e){e.preventDefault();const r=data.reservations.find(r=>r.id===editor.reservationId);if(!r||!editor.text.trim()){setError('Choose a reservation and describe the request.');return;}persist(d=>({...d,requests:[...d.requests,{...editor,id:uid('REQ'),guestId:r.guestId,status:'Open',created:new Date().toISOString(),text:editor.text.trim()}]}));}
+ return <section className="requests-page"><header className="page-heading requests-heading"><div><div className="eyebrow">SERVICE DESK</div><h1>Guest requests</h1><p className="muted">Manage guest requests and follow-up.</p></div><button className="primary" onClick={()=>{setError('');setEditor({reservationId:'',type:'Guest Request',text:'',assignedTo:''});}}>+ New request</button></header>{error&&!editor&&<p className="hp-error" role="alert">{error}</p>}
+ <div className="request-summary">{['Open','In Progress','Resolved','Closed'].map(s=><div className="request-stat" key={s}><div><b>{data.requests.filter(x=>x.status===s).length}</b><span>{s}</span></div></div>)}</div>
+ <section className="card request-table-card"><div className="request-filters"><input aria-label="Search guest requests" value={q} onChange={e=>setQ(e.target.value)} placeholder="Search guest, room or request"/>{[['Status',status,setStatus,['All Status','Open','In Progress','Resolved','Closed']],['Request type',type,setType,['All Types','Guest Request','Housekeeping','Extra Towels','Maintenance']],['Date range',period,setPeriod,['All Time','Today','Last 7 Days','Last 30 Days']]].map(([label,value,change,options])=><label key={label}><span>{label}</span><select aria-label={label} value={value} onChange={e=>change(e.target.value)}>{options.map(x=><option key={x}>{x}</option>)}</select></label>)}</div>
+ <div className="table-scroll"><table className="request-table"><thead><tr>{['Guest','Room','Type','Description','Status','Requested on','Assigned to','Update status'].map(x=><th key={x}>{x}</th>)}</tr></thead><tbody>{rows.map(item=><tr key={item.id}><td>{data.guests.find(g=>g.id===item.guestId)?.name||'Guest'}</td><td>{data.reservations.find(r=>r.id===item.reservationId)?.room||'—'}</td><td>{requestType(item)}</td><td>{item.text}</td><td><Badge>{item.status}</Badge></td><td>{fmt(item.created)}</td><td>{item.assignedTo||'Unassigned'}</td><td><select aria-label={`Status for request ${item.id}`} value={item.status} disabled={busy} onChange={e=>{const next=e.target.value;persist(d=>({...d,requests:d.requests.map(x=>x.id===item.id?{...x,status:next}:x)}));}}>{['Open','In Progress','Resolved','Closed'].map(s=><option key={s}>{s}</option>)}</select></td></tr>)}{!rows.length&&<tr><td colSpan="8">No requests match these filters.</td></tr>}</tbody></table></div><div className="table-footer">{rows.length} requests</div></section>
+ {editor&&<div className="pg-backdrop"><form className="pg-modal hp-form" role="dialog" aria-modal="true" aria-labelledby="new-request-title" onSubmit={save}><h2 id="new-request-title">New guest request</h2><label>Reservation<select aria-label="Request reservation" required value={editor.reservationId} onChange={e=>setEditor({...editor,reservationId:e.target.value})}><option value="">Select reservation</option>{data.reservations.filter(r=>!['Cancelled','No Show'].includes(r.status)).map(r=><option key={r.id} value={r.id}>{data.guests.find(g=>g.id===r.guestId)?.name||'Guest'} · Room {r.room}</option>)}</select></label><label>Type<select value={editor.type} onChange={e=>setEditor({...editor,type:e.target.value})}>{['Guest Request','Housekeeping','Extra Towels','Maintenance'].map(s=><option key={s}>{s}</option>)}</select></label><label>Description<textarea className="hp-textarea" required maxLength={2000} value={editor.text} onChange={e=>setEditor({...editor,text:e.target.value})}/></label><label>Assigned to<input maxLength={100} value={editor.assignedTo} onChange={e=>setEditor({...editor,assignedTo:e.target.value})} placeholder="Unassigned"/></label>{error&&<p className="hp-error" role="alert">{error}</p>}<div className="pg-modal-actions"><button type="button" className="pg-secondary" disabled={busy} onClick={()=>setEditor(null)}>Cancel</button><button className="pg-primary" disabled={busy}>{busy?'Saving…':'Create request'}</button></div></form></div>}
+ </section>;
 }
