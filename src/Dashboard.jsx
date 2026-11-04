@@ -220,7 +220,7 @@ export default function Dashboard({
       {/* ---------- Header ---------- */}
       <header className="fd-head">
         <div>
-          <div className="fd-eyebrow">{todayLabel}{data.demo?' · Sample data reference date':''}</div>
+          <div className="fd-eyebrow">{todayLabel}</div>
           <h1 className="fd-title">{greeting()}</h1>
           <p className="fd-sub">Here is what is happening at {hotel.name}, {hotel.location} today.</p>
         </div>
