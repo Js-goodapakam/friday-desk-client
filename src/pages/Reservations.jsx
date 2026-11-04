@@ -16,7 +16,7 @@ function CallIcon() {
   );
 }
 
-export default function Reservations({ data, setPage, onCheckIn, onEdit, onCall }) {
+export default function Reservations({ data, onCheckIn, onEdit, onCall }) {
   const [q, setQ] = useState("");
   const [filter, setFilter] = useState("All");
   const [roomFilter, setRoomFilter] = useState("All Rooms");
@@ -84,6 +84,7 @@ export default function Reservations({ data, setPage, onCheckIn, onEdit, onCall 
         }}
       >
         <div
+          className="reservation-filter-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "minmax(280px, 1fr) repeat(3, minmax(140px, 180px))",

@@ -44,7 +44,7 @@ html{scrollbar-gutter:stable}body{font-family:var(--fr-font);background:var(--fr
 #root :is(.field small,.fd-form-grid small,.pw-admin>p,.pw-admin form>p,.cm-empty p,.cm-checklist small,.finance-subtitle,.reports-description){color:var(--fr-muted);font-size:12px;line-height:1.65}
 #root :is(.pw-heading,.page-heading,.business-heading,.finance-heading,.reports-page-heading,.cm-head,.ri-head,.invoice-page-heading,.guests-heading){align-items:flex-start;gap:18px;margin-bottom:22px;min-width:0}
 #root :is(.page-heading,.business-heading,.pw-heading,.finance-heading,.reports-page-heading,.cm-head,.ri-head)>div{min-width:0}
-#root :is(.business-heading>div:last-child,.invoice-heading-actions,.reports-page-actions,.finance-heading-actions){display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+#root :is(.business-heading>div:last-child:not(:first-child),.invoice-heading-actions,.reports-page-actions,.finance-heading-actions){display:flex;gap:9px;align-items:center;flex-wrap:wrap}
 #root :is(.pw-toolbar,.business-toolbar,.table-toolbar,.guest-toolbar,.finance-toolbar,.demo-controls){gap:10px;align-items:center;flex-wrap:wrap}
 #root :is(.pw-toolbar,.business-toolbar)>input{flex:1 1 220px;max-width:360px}
 #root :is(.pw-app){--pw-ink:var(--fr-ink);--pw-muted:var(--fr-muted);--pw-line:var(--fr-border);--pw-blue:var(--fr-primary)}

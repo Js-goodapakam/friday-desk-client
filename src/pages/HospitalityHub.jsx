@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {Children,useState} from 'react';
 import {money,offset,uid,downloadCSV,toCSV,balance} from '../core/data.js';
 import {orderTotal,stockBalance,auditMetrics,validateHospitality} from '../core/hospitality.js';
 import {useDialogFocus} from '../core/useDialogFocus.js';
@@ -19,7 +19,7 @@ const specs={
 };
 const defaults={expenses:{date:offset(0),category:'Other',method:'Cash',amount:0},cashMovements:{date:offset(0),kind:'Top-up',amount:0},accounts:{creditLimit:0,creditDays:30},stockItems:{unit:'pieces',opening:0,reorder:0},stockMovements:{date:offset(0),kind:'Receipt',quantity:1},posItems:{available:true,price:0},reviews:{date:offset(0),rating:5,source:'Direct feedback',status:'New',response:''}};
 const nkeys=new Set(['amount','creditLimit','creditDays','opening','reorder','quantity','price','rating']);
-const Table=({headers,children})=><div className="hp-table-wrap"><table><thead><tr>{headers.map(x=><th key={x}>{x}</th>)}</tr></thead><tbody>{children}</tbody></table></div>;
+const Table=({headers,children})=><div className="hp-table-wrap"><table><thead><tr>{headers.map(x=><th key={x}>{x}</th>)}</tr></thead><tbody>{Children.count(children)?children:<tr><td colSpan={headers.length} className="hp-empty">No records yet.</td></tr>}</tbody></table></div>;
 export default function HospitalityHub({data,setData,session}){
  const [section,setSection]=useState('expenses'),[editor,setEditor]=useState(null),[busy,setBusy]=useState(false),[error,setError]=useState(''),[notice,setNotice]=useState(''),[search,setSearch]=useState(''),[date,setDate]=useState(offset(0)),[menuId,setMenuId]=useState(''),[quantity,setQuantity]=useState(1);
  const h=data.hospitality||{},canEdit=['ADMIN','MANAGER'].includes(session.role),canClean=['ADMIN','MANAGER','HOUSEKEEPING'].includes(session.role);
