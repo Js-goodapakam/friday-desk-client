@@ -1,0 +1,4153 @@
+{
+  "version": 1,
+  "source": "Customer matrix supplied 6 November 2026",
+  "modules": [
+    {
+      "key": "dashboard",
+      "name": "Dashboard & Analytics"
+    },
+    {
+      "key": "property",
+      "name": "Property & Room Management"
+    },
+    {
+      "key": "reservations",
+      "name": "Reservations & Bookings"
+    },
+    {
+      "key": "front_desk",
+      "name": "Front Desk Operations"
+    },
+    {
+      "key": "guest_crm",
+      "name": "Guest CRM & Enquiry Management"
+    },
+    {
+      "key": "revenue",
+      "name": "Rates, Tariffs & Revenue Management"
+    },
+    {
+      "key": "channels",
+      "name": "Channel Manager & OTA Integration"
+    },
+    {
+      "key": "booking_engine",
+      "name": "Direct Booking Engine"
+    },
+    {
+      "key": "housekeeping",
+      "name": "Housekeeping & Maintenance"
+    },
+    {
+      "key": "billing",
+      "name": "Payments, Folios & Billing"
+    },
+    {
+      "key": "finance",
+      "name": "Finance & Night Audit"
+    },
+    {
+      "key": "internal_chat",
+      "name": "In-House Chat & Communication"
+    },
+    {
+      "key": "notifications",
+      "name": "WhatsApp, Email & Notifications"
+    },
+    {
+      "key": "multi_property",
+      "name": "Multi-Property Management"
+    },
+    {
+      "key": "reports",
+      "name": "Reports & Business Intelligence"
+    },
+    {
+      "key": "staff",
+      "name": "Staff, Roles & Access Management"
+    },
+    {
+      "key": "integrations",
+      "name": "Integrations & Developer APIs"
+    },
+    {
+      "key": "guest_experience",
+      "name": "Guest Experience & Loyalty"
+    },
+    {
+      "key": "subscription",
+      "name": "Subscription & SaaS Administration"
+    },
+    {
+      "key": "settings",
+      "name": "Settings, Security & Localisation"
+    }
+  ],
+  "roles": [
+    [
+      "property_owner",
+      "Property Owner"
+    ],
+    [
+      "super_admin",
+      "Super Admin"
+    ],
+    [
+      "admin_manager",
+      "Admin Manager"
+    ],
+    [
+      "finance_manager",
+      "Finance Manager"
+    ],
+    [
+      "front_desk",
+      "Front Desk"
+    ]
+  ],
+  "features": [
+    {
+      "key": "dashboard.real_time_property_dashboard",
+      "module": "dashboard",
+      "name": "Real-time property dashboard",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "dashboard"
+    },
+    {
+      "key": "dashboard.multi_property_dashboard",
+      "module": "dashboard",
+      "name": "Multi-property dashboard",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "dashboard"
+    },
+    {
+      "key": "dashboard.occupancy_overview",
+      "module": "dashboard",
+      "name": "Occupancy overview",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "dashboard"
+    },
+    {
+      "key": "dashboard.daily_weekly_and_monthly_revenue",
+      "module": "dashboard",
+      "name": "Daily, weekly and monthly revenue",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "dashboard"
+    },
+    {
+      "key": "dashboard.today_s_arrivals_and_departures",
+      "module": "dashboard",
+      "name": "Today's arrivals and departures",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "dashboard"
+    },
+    {
+      "key": "dashboard.in_house_guest_summary",
+      "module": "dashboard",
+      "name": "In-house guest summary",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "dashboard"
+    },
+    {
+      "key": "dashboard.available_occupied_and_blocked_rooms",
+      "module": "dashboard",
+      "name": "Available, occupied and blocked rooms",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "dashboard"
+    },
+    {
+      "key": "dashboard.adr_and_revpar_tracking",
+      "module": "dashboard",
+      "name": "ADR and RevPAR tracking",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "dashboard"
+    },
+    {
+      "key": "dashboard.revenue_and_occupancy_trends",
+      "module": "dashboard",
+      "name": "Revenue and occupancy trends",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "dashboard"
+    },
+    {
+      "key": "dashboard.property_performance_comparison",
+      "module": "dashboard",
+      "name": "Property performance comparison",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "dashboard"
+    },
+    {
+      "key": "dashboard.custom_date_filters",
+      "module": "dashboard",
+      "name": "Custom date filters",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "dashboard"
+    },
+    {
+      "key": "dashboard.dashboard_widgets_and_personalisation",
+      "module": "dashboard",
+      "name": "Dashboard widgets and personalisation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "dashboard"
+    },
+    {
+      "key": "property.property_creation_and_configuration",
+      "module": "property",
+      "name": "Property creation and configuration",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "property"
+    },
+    {
+      "key": "property.multi_property_management",
+      "module": "property",
+      "name": "Multi-property management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "property"
+    },
+    {
+      "key": "property.property_profile_and_contact_information",
+      "module": "property",
+      "name": "Property profile and contact information",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "property"
+    },
+    {
+      "key": "property.room_type_and_category_creation",
+      "module": "property",
+      "name": "Room type and category creation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "property"
+    },
+    {
+      "key": "property.room_inventory_management",
+      "module": "property",
+      "name": "Room inventory management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "property"
+    },
+    {
+      "key": "property.room_numbering_and_floor_mapping",
+      "module": "property",
+      "name": "Room numbering and floor mapping",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "property"
+    },
+    {
+      "key": "property.room_amenities_configuration",
+      "module": "property",
+      "name": "Room amenities configuration",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "property"
+    },
+    {
+      "key": "property.room_status_management",
+      "module": "property",
+      "name": "Room status management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "property"
+    },
+    {
+      "key": "property.room_blocking_and_unblocking",
+      "module": "property",
+      "name": "Room blocking and unblocking",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "property"
+    },
+    {
+      "key": "property.out_of_order_and_out_of_service_rooms",
+      "module": "property",
+      "name": "Out-of-order and out-of-service rooms",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "property"
+    },
+    {
+      "key": "property.room_allocation_and_reassignment",
+      "module": "property",
+      "name": "Room allocation and reassignment",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "property"
+    },
+    {
+      "key": "property.property_specific_staff_assignment",
+      "module": "property",
+      "name": "Property-specific staff assignment",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "property"
+    },
+    {
+      "key": "reservations.direct_reservations",
+      "module": "reservations",
+      "name": "Direct reservations",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.walk_in_bookings",
+      "module": "reservations",
+      "name": "Walk-in bookings",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.individual_reservations",
+      "module": "reservations",
+      "name": "Individual reservations",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.group_reservations",
+      "module": "reservations",
+      "name": "Group reservations",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.corporate_reservations",
+      "module": "reservations",
+      "name": "Corporate reservations",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.multi_room_reservations",
+      "module": "reservations",
+      "name": "Multi-room reservations",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.reservation_calendar",
+      "module": "reservations",
+      "name": "Reservation calendar",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.drag_and_drop_room_allocation",
+      "module": "reservations",
+      "name": "Drag-and-drop room allocation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.booking_modification",
+      "module": "reservations",
+      "name": "Booking modification",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.booking_extension",
+      "module": "reservations",
+      "name": "Booking extension",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.booking_cancellation",
+      "module": "reservations",
+      "name": "Booking cancellation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.no_show_management",
+      "module": "reservations",
+      "name": "No-show management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.booking_confirmation_and_vouchers",
+      "module": "reservations",
+      "name": "Booking confirmation and vouchers",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.booking_source_tracking",
+      "module": "reservations",
+      "name": "Booking source tracking",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.advance_deposit_tracking",
+      "module": "reservations",
+      "name": "Advance deposit tracking",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.reservation_history",
+      "module": "reservations",
+      "name": "Reservation history",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.booking_duplication_and_merging",
+      "module": "reservations",
+      "name": "Booking duplication and merging",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "reservations.waitlist_management",
+      "module": "reservations",
+      "name": "Waitlist management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "reservations"
+    },
+    {
+      "key": "front_desk.guest_check_in",
+      "module": "front_desk",
+      "name": "Guest check-in",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "front_desk.guest_check_out",
+      "module": "front_desk",
+      "name": "Guest check-out",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "front_desk.early_check_in",
+      "module": "front_desk",
+      "name": "Early check-in",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "front_desk.late_check_out",
+      "module": "front_desk",
+      "name": "Late check-out",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "front_desk.express_check_in_and_check_out",
+      "module": "front_desk",
+      "name": "Express check-in and check-out",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "front_desk.guest_id_and_document_verification",
+      "module": "front_desk",
+      "name": "Guest ID and document verification",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "front_desk.room_assignment_and_room_changes",
+      "module": "front_desk",
+      "name": "Room assignment and room changes",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "front_desk.guest_registration_cards",
+      "module": "front_desk",
+      "name": "Guest registration cards",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "front_desk.in_house_guest_management",
+      "module": "front_desk",
+      "name": "In-house guest management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "front_desk.stay_extensions",
+      "module": "front_desk",
+      "name": "Stay extensions",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "front_desk.guest_special_instructions",
+      "module": "front_desk",
+      "name": "Guest special instructions",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "front_desk.shift_handover",
+      "module": "front_desk",
+      "name": "Shift handover",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "front_desk.cashier_shift_opening_and_closing",
+      "module": "front_desk",
+      "name": "Cashier shift opening and closing",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "front_desk.key_issuance_and_tracking",
+      "module": "front_desk",
+      "name": "Key issuance and tracking",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "front_desk"
+    },
+    {
+      "key": "guest_crm.guest_profile_creation",
+      "module": "guest_crm",
+      "name": "Guest profile creation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.guest_contact_management",
+      "module": "guest_crm",
+      "name": "Guest contact management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.guest_stay_history",
+      "module": "guest_crm",
+      "name": "Guest stay history",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Restricted Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.enquiry_creation",
+      "module": "guest_crm",
+      "name": "Enquiry creation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.enquiry_source_tracking",
+      "module": "guest_crm",
+      "name": "Enquiry source tracking",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.enquiry_assignment",
+      "module": "guest_crm",
+      "name": "Enquiry assignment",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.follow_up_reminders",
+      "module": "guest_crm",
+      "name": "Follow-up reminders",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.enquiry_to_booking_conversion",
+      "module": "guest_crm",
+      "name": "Enquiry-to-booking conversion",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.guest_preferences",
+      "module": "guest_crm",
+      "name": "Guest preferences",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.guest_segmentation",
+      "module": "guest_crm",
+      "name": "Guest segmentation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.corporate_customer_profiles",
+      "module": "guest_crm",
+      "name": "Corporate customer profiles",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.travel_agent_profiles",
+      "module": "guest_crm",
+      "name": "Travel agent profiles",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.guest_feedback_and_complaints",
+      "module": "guest_crm",
+      "name": "Guest feedback and complaints",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.repeat_guest_identification",
+      "module": "guest_crm",
+      "name": "Repeat guest identification",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "guest_crm.guest_communication_history",
+      "module": "guest_crm",
+      "name": "Guest communication history",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "guest_crm"
+    },
+    {
+      "key": "revenue.base_tariff_configuration",
+      "module": "revenue",
+      "name": "Base tariff configuration",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.seasonal_pricing",
+      "module": "revenue",
+      "name": "Seasonal pricing",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.weekend_pricing",
+      "module": "revenue",
+      "name": "Weekend pricing",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.dynamic_pricing_rules",
+      "module": "revenue",
+      "name": "Dynamic pricing rules",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.occupancy_based_pricing",
+      "module": "revenue",
+      "name": "Occupancy-based pricing",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.rate_plan_management",
+      "module": "revenue",
+      "name": "Rate plan management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.meal_plan_configuration",
+      "module": "revenue",
+      "name": "Meal plan configuration",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.corporate_negotiated_rates",
+      "module": "revenue",
+      "name": "Corporate negotiated rates",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.discount_creation",
+      "module": "revenue",
+      "name": "Discount creation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.coupon_and_promotional_code_management",
+      "module": "revenue",
+      "name": "Coupon and promotional code management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.minimum_and_maximum_stay_restrictions",
+      "module": "revenue",
+      "name": "Minimum and maximum stay restrictions",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.stop_sell_management",
+      "module": "revenue",
+      "name": "Stop-sell management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.bulk_tariff_updates",
+      "module": "revenue",
+      "name": "Bulk tariff updates",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.revenue_forecasting",
+      "module": "revenue",
+      "name": "Revenue forecasting",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.tariff_change_approval_workflows",
+      "module": "revenue",
+      "name": "Tariff change approval workflows",
+      "labels": {
+        "property_owner": "Approval Access",
+        "super_admin": "Approval Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "revenue.rate_change_history",
+      "module": "revenue",
+      "name": "Rate change history",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "revenue"
+    },
+    {
+      "key": "channels.ota_account_connection",
+      "module": "channels",
+      "name": "OTA account connection",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.ota_credential_management",
+      "module": "channels",
+      "name": "OTA credential management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.room_type_mapping",
+      "module": "channels",
+      "name": "Room type mapping",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.rate_plan_mapping",
+      "module": "channels",
+      "name": "Rate plan mapping",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.two_way_availability_synchronisation",
+      "module": "channels",
+      "name": "Two-way availability synchronisation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.two_way_rate_synchronisation",
+      "module": "channels",
+      "name": "Two-way rate synchronisation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.ota_reservation_import",
+      "module": "channels",
+      "name": "OTA reservation import",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.booking_modification_synchronisation",
+      "module": "channels",
+      "name": "Booking modification synchronisation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.cancellation_synchronisation",
+      "module": "channels",
+      "name": "Cancellation synchronisation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.centralised_inventory_management",
+      "module": "channels",
+      "name": "Centralised inventory management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.overbooking_prevention",
+      "module": "channels",
+      "name": "Overbooking prevention",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.channel_specific_pricing",
+      "module": "channels",
+      "name": "Channel-specific pricing",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.ota_commission_configuration",
+      "module": "channels",
+      "name": "OTA commission configuration",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.ota_performance_reports",
+      "module": "channels",
+      "name": "OTA performance reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.synchronisation_error_monitoring",
+      "module": "channels",
+      "name": "Synchronisation error monitoring",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.automatic_retry_and_recovery",
+      "module": "channels",
+      "name": "Automatic retry and recovery",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.bulk_rate_and_inventory_updates",
+      "module": "channels",
+      "name": "Bulk rate and inventory updates",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.ota_connection_health_monitoring",
+      "module": "channels",
+      "name": "OTA connection health monitoring",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.channel_activation_and_deactivation",
+      "module": "channels",
+      "name": "Channel activation and deactivation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "channels.synchronisation_activity_logs",
+      "module": "channels",
+      "name": "Synchronisation activity logs",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "channels"
+    },
+    {
+      "key": "booking_engine.hotel_website_booking_widget",
+      "module": "booking_engine",
+      "name": "Hotel website booking widget",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "booking_engine"
+    },
+    {
+      "key": "booking_engine.live_room_availability_search",
+      "module": "booking_engine",
+      "name": "Live room availability search",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "booking_engine"
+    },
+    {
+      "key": "booking_engine.online_reservation_creation",
+      "module": "booking_engine",
+      "name": "Online reservation creation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "booking_engine"
+    },
+    {
+      "key": "booking_engine.online_payment_collection",
+      "module": "booking_engine",
+      "name": "Online payment collection",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Create & Edit",
+        "front_desk": "View Only"
+      },
+      "entitlement": "booking_engine"
+    },
+    {
+      "key": "booking_engine.promotional_code_application",
+      "module": "booking_engine",
+      "name": "Promotional code application",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "booking_engine"
+    },
+    {
+      "key": "booking_engine.multi_room_booking",
+      "module": "booking_engine",
+      "name": "Multi-room booking",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "booking_engine"
+    },
+    {
+      "key": "booking_engine.booking_confirmation",
+      "module": "booking_engine",
+      "name": "Booking confirmation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "booking_engine"
+    },
+    {
+      "key": "booking_engine.mobile_responsive_booking_interface",
+      "module": "booking_engine",
+      "name": "Mobile-responsive booking interface",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "booking_engine"
+    },
+    {
+      "key": "booking_engine.cancellation_policy_display",
+      "module": "booking_engine",
+      "name": "Cancellation policy display",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "booking_engine"
+    },
+    {
+      "key": "booking_engine.booking_modification_requests",
+      "module": "booking_engine",
+      "name": "Booking modification requests",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "booking_engine"
+    },
+    {
+      "key": "booking_engine.multi_property_booking_search",
+      "module": "booking_engine",
+      "name": "Multi-property booking search",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "booking_engine"
+    },
+    {
+      "key": "booking_engine.booking_engine_branding",
+      "module": "booking_engine",
+      "name": "Booking engine branding",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "booking_engine"
+    },
+    {
+      "key": "housekeeping.housekeeping_dashboard",
+      "module": "housekeeping",
+      "name": "Housekeeping dashboard",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "housekeeping"
+    },
+    {
+      "key": "housekeeping.room_cleaning_schedules",
+      "module": "housekeeping",
+      "name": "Room cleaning schedules",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "housekeeping"
+    },
+    {
+      "key": "housekeeping.housekeeping_task_assignments",
+      "module": "housekeeping",
+      "name": "Housekeeping task assignments",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "housekeeping"
+    },
+    {
+      "key": "housekeeping.clean_dirty_and_inspected_room_statuses",
+      "module": "housekeeping",
+      "name": "Clean, dirty and inspected room statuses",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "housekeeping"
+    },
+    {
+      "key": "housekeeping.room_inspection_checklists",
+      "module": "housekeeping",
+      "name": "Room inspection checklists",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "housekeeping"
+    },
+    {
+      "key": "housekeeping.linen_tracking",
+      "module": "housekeeping",
+      "name": "Linen tracking",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "housekeeping"
+    },
+    {
+      "key": "housekeeping.room_amenities_replenishment",
+      "module": "housekeeping",
+      "name": "Room amenities replenishment",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "housekeeping"
+    },
+    {
+      "key": "housekeeping.maintenance_requests",
+      "module": "housekeeping",
+      "name": "Maintenance requests",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "housekeeping"
+    },
+    {
+      "key": "housekeeping.work_order_assignment",
+      "module": "housekeeping",
+      "name": "Work-order assignment",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "housekeeping"
+    },
+    {
+      "key": "housekeeping.out_of_order_room_tracking",
+      "module": "housekeeping",
+      "name": "Out-of-order room tracking",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "housekeeping"
+    },
+    {
+      "key": "housekeeping.maintenance_history",
+      "module": "housekeeping",
+      "name": "Maintenance history",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "housekeeping"
+    },
+    {
+      "key": "housekeeping.staff_task_completion_monitoring",
+      "module": "housekeeping",
+      "name": "Staff task completion monitoring",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "housekeeping"
+    },
+    {
+      "key": "housekeeping.housekeeping_productivity_reports",
+      "module": "housekeeping",
+      "name": "Housekeeping productivity reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "housekeeping"
+    },
+    {
+      "key": "billing.guest_folio_creation",
+      "module": "billing",
+      "name": "Guest folio creation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.room_charge_posting",
+      "module": "billing",
+      "name": "Room charge posting",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.additional_service_charges",
+      "module": "billing",
+      "name": "Additional service charges",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.split_folios",
+      "module": "billing",
+      "name": "Split folios",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.merged_folios",
+      "module": "billing",
+      "name": "Merged folios",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.advance_payment_management",
+      "module": "billing",
+      "name": "Advance payment management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.partial_payment_settlement",
+      "module": "billing",
+      "name": "Partial payment settlement",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.full_payment_settlement",
+      "module": "billing",
+      "name": "Full payment settlement",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.refund_processing",
+      "module": "billing",
+      "name": "Refund processing",
+      "labels": {
+        "property_owner": "Approval Access",
+        "super_admin": "Approval Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Approval Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.gst_and_tax_configuration",
+      "module": "billing",
+      "name": "GST and tax configuration",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.tax_invoice_generation",
+      "module": "billing",
+      "name": "Tax invoice generation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.credit_notes",
+      "module": "billing",
+      "name": "Credit notes",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.payment_gateway_integration",
+      "module": "billing",
+      "name": "Payment gateway integration",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.cash_card_upi_and_bank_transfer_recording",
+      "module": "billing",
+      "name": "Cash, card, UPI and bank transfer recording",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.outstanding_dues_tracking",
+      "module": "billing",
+      "name": "Outstanding dues tracking",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.corporate_billing",
+      "module": "billing",
+      "name": "Corporate billing",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.payment_reconciliation",
+      "module": "billing",
+      "name": "Payment reconciliation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "billing.invoice_download_and_sharing",
+      "module": "billing",
+      "name": "Invoice download and sharing",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "billing"
+    },
+    {
+      "key": "finance.daily_revenue_reconciliation",
+      "module": "finance",
+      "name": "Daily revenue reconciliation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "finance.night_audit",
+      "module": "finance",
+      "name": "Night audit",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "finance.business_date_closing",
+      "module": "finance",
+      "name": "Business-date closing",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "finance.cashier_shift_reconciliation",
+      "module": "finance",
+      "name": "Cashier shift reconciliation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "finance.revenue_by_department",
+      "module": "finance",
+      "name": "Revenue by department",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "finance.tax_summaries",
+      "module": "finance",
+      "name": "Tax summaries",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "finance.accounts_receivable",
+      "module": "finance",
+      "name": "Accounts receivable",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "finance.refund_approval",
+      "module": "finance",
+      "name": "Refund approval",
+      "labels": {
+        "property_owner": "Approval Access",
+        "super_admin": "Approval Access",
+        "admin_manager": "No Access",
+        "finance_manager": "Approval Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "finance.financial_adjustment_approval",
+      "module": "finance",
+      "name": "Financial adjustment approval",
+      "labels": {
+        "property_owner": "Approval Access",
+        "super_admin": "Approval Access",
+        "admin_manager": "No Access",
+        "finance_manager": "Approval Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "finance.financial_audit_trail",
+      "module": "finance",
+      "name": "Financial audit trail",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "finance.daily_collection_reports",
+      "module": "finance",
+      "name": "Daily collection reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "finance.accounting_software_integration",
+      "module": "finance",
+      "name": "Accounting software integration",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "finance.outstanding_balance_ageing",
+      "module": "finance",
+      "name": "Outstanding balance ageing",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "finance.financial_period_closing",
+      "module": "finance",
+      "name": "Financial period closing",
+      "labels": {
+        "property_owner": "Approval Access",
+        "super_admin": "Approval Access",
+        "admin_manager": "No Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "finance"
+    },
+    {
+      "key": "internal_chat.organization_wide_communication_environment",
+      "module": "internal_chat",
+      "name": "Organization-wide communication environment",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.property_specific_channels",
+      "module": "internal_chat",
+      "name": "Property-specific channels",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.department_specific_channels",
+      "module": "internal_chat",
+      "name": "Department-specific channels",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.one_to_one_direct_messaging",
+      "module": "internal_chat",
+      "name": "One-to-one direct messaging",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.cross_property_staff_messaging",
+      "module": "internal_chat",
+      "name": "Cross-property staff messaging",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.group_owner_announcements",
+      "module": "internal_chat",
+      "name": "Group owner announcements",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Create & Edit",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.pinned_messages_and_instructions",
+      "module": "internal_chat",
+      "name": "Pinned messages and instructions",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Restricted Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.message_read_receipts",
+      "module": "internal_chat",
+      "name": "Message read receipts",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.announcement_acknowledgements",
+      "module": "internal_chat",
+      "name": "Announcement acknowledgements",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.real_time_notifications",
+      "module": "internal_chat",
+      "name": "Real-time notifications",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.file_and_image_sharing",
+      "module": "internal_chat",
+      "name": "File and image sharing",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.message_search",
+      "module": "internal_chat",
+      "name": "Message search",
+      "labels": {
+        "property_owner": "Restricted Access",
+        "super_admin": "Restricted Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.conversation_history",
+      "module": "internal_chat",
+      "name": "Conversation history",
+      "labels": {
+        "property_owner": "Restricted Access",
+        "super_admin": "Restricted Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.staff_escalations",
+      "module": "internal_chat",
+      "name": "Staff escalations",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.escalation_assignments",
+      "module": "internal_chat",
+      "name": "Escalation assignments",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.role_based_channel_permissions",
+      "module": "internal_chat",
+      "name": "Role-based channel permissions",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.channel_member_management",
+      "module": "internal_chat",
+      "name": "Channel member management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.message_retention_and_audit_controls",
+      "module": "internal_chat",
+      "name": "Message retention and audit controls",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.pms_record_sharing_in_conversations",
+      "module": "internal_chat",
+      "name": "PMS record sharing in conversations",
+      "labels": {
+        "property_owner": "Restricted Access",
+        "super_admin": "Restricted Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "internal_chat.tariff_change_requests_linked_to_pms_workflows",
+      "module": "internal_chat",
+      "name": "Tariff change requests linked to PMS workflows",
+      "labels": {
+        "property_owner": "Approval Access",
+        "super_admin": "Approval Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "internal_chat"
+    },
+    {
+      "key": "notifications.whatsapp_click_to_chat",
+      "module": "notifications",
+      "name": "WhatsApp click-to-chat",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "notifications.whatsapp_business_api_integration",
+      "module": "notifications",
+      "name": "WhatsApp Business API integration",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "notifications.two_way_whatsapp_messaging",
+      "module": "notifications",
+      "name": "Two-way WhatsApp messaging",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "notifications.booking_confirmation_templates",
+      "module": "notifications",
+      "name": "Booking confirmation templates",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "notifications.check_in_reminders",
+      "module": "notifications",
+      "name": "Check-in reminders",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "notifications.checkout_reminders",
+      "module": "notifications",
+      "name": "Checkout reminders",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "notifications.payment_reminders",
+      "module": "notifications",
+      "name": "Payment reminders",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "notifications.guest_broadcast_campaigns",
+      "module": "notifications",
+      "name": "Guest broadcast campaigns",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "notifications.email_notifications",
+      "module": "notifications",
+      "name": "Email notifications",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "notifications.staff_notification_preferences",
+      "module": "notifications",
+      "name": "Staff notification preferences",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "notifications.notification_delivery_tracking",
+      "module": "notifications",
+      "name": "Notification delivery tracking",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "notifications.communication_template_management",
+      "module": "notifications",
+      "name": "Communication template management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "notifications.consent_and_opt_out_management",
+      "module": "notifications",
+      "name": "Consent and opt-out management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "notifications.scheduled_messages",
+      "module": "notifications",
+      "name": "Scheduled messages",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "notifications"
+    },
+    {
+      "key": "multi_property.organization_level_workspace",
+      "module": "multi_property",
+      "name": "Organization-level workspace",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "multi_property"
+    },
+    {
+      "key": "multi_property.centralised_property_dashboard",
+      "module": "multi_property",
+      "name": "Centralised property dashboard",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "multi_property"
+    },
+    {
+      "key": "multi_property.property_switching",
+      "module": "multi_property",
+      "name": "Property switching",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "multi_property"
+    },
+    {
+      "key": "multi_property.consolidated_reservation_reporting",
+      "module": "multi_property",
+      "name": "Consolidated reservation reporting",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "multi_property"
+    },
+    {
+      "key": "multi_property.cross_property_availability_search",
+      "module": "multi_property",
+      "name": "Cross-property availability search",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "multi_property"
+    },
+    {
+      "key": "multi_property.central_reservation_management",
+      "module": "multi_property",
+      "name": "Central reservation management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "multi_property"
+    },
+    {
+      "key": "multi_property.property_wise_revenue_comparison",
+      "module": "multi_property",
+      "name": "Property-wise revenue comparison",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "multi_property"
+    },
+    {
+      "key": "multi_property.centralised_staff_access",
+      "module": "multi_property",
+      "name": "Centralised staff access",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "multi_property"
+    },
+    {
+      "key": "multi_property.shared_guest_profiles_with_access_controls",
+      "module": "multi_property",
+      "name": "Shared guest profiles with access controls",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "multi_property"
+    },
+    {
+      "key": "multi_property.organization_wide_announcements",
+      "module": "multi_property",
+      "name": "Organization-wide announcements",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Create & Edit",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "View Only"
+      },
+      "entitlement": "multi_property"
+    },
+    {
+      "key": "multi_property.property_specific_operational_settings",
+      "module": "multi_property",
+      "name": "Property-specific operational settings",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "multi_property"
+    },
+    {
+      "key": "multi_property.consolidated_financial_reports",
+      "module": "multi_property",
+      "name": "Consolidated financial reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "multi_property"
+    },
+    {
+      "key": "multi_property.property_level_permission_management",
+      "module": "multi_property",
+      "name": "Property-level permission management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "multi_property"
+    },
+    {
+      "key": "reports.occupancy_reports",
+      "module": "reports",
+      "name": "Occupancy reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.reservation_reports",
+      "module": "reports",
+      "name": "Reservation reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.revenue_reports",
+      "module": "reports",
+      "name": "Revenue reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.adr_and_revpar_reports",
+      "module": "reports",
+      "name": "ADR and RevPAR reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.booking_source_reports",
+      "module": "reports",
+      "name": "Booking source reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.ota_performance_reports",
+      "module": "reports",
+      "name": "OTA performance reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.cancellation_reports",
+      "module": "reports",
+      "name": "Cancellation reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.no_show_reports",
+      "module": "reports",
+      "name": "No-show reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.guest_history_reports",
+      "module": "reports",
+      "name": "Guest history reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.outstanding_payment_reports",
+      "module": "reports",
+      "name": "Outstanding payment reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.tax_and_gst_reports",
+      "module": "reports",
+      "name": "Tax and GST reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.housekeeping_productivity_reports",
+      "module": "reports",
+      "name": "Housekeeping productivity reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.staff_performance_reports",
+      "module": "reports",
+      "name": "Staff performance reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.custom_date_range_reports",
+      "module": "reports",
+      "name": "Custom date-range reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.excel_export",
+      "module": "reports",
+      "name": "Excel export",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.csv_export",
+      "module": "reports",
+      "name": "CSV export",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.pdf_export",
+      "module": "reports",
+      "name": "PDF export",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.scheduled_report_delivery",
+      "module": "reports",
+      "name": "Scheduled report delivery",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "reports.multi_property_comparison_reports",
+      "module": "reports",
+      "name": "Multi-property comparison reports",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "reports"
+    },
+    {
+      "key": "staff.property_owner_role",
+      "module": "staff",
+      "name": "Property Owner role",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "View Only",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.super_admin_role",
+      "module": "staff",
+      "name": "Super Admin role",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Restricted Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.admin_manager_role",
+      "module": "staff",
+      "name": "Admin Manager role",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.finance_manager_role",
+      "module": "staff",
+      "name": "Finance Manager role",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.front_desk_role",
+      "module": "staff",
+      "name": "Front Desk role",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "View Only"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.custom_staff_roles",
+      "module": "staff",
+      "name": "Custom staff roles",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.role_based_module_permissions",
+      "module": "staff",
+      "name": "Role-based module permissions",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.feature_level_permissions",
+      "module": "staff",
+      "name": "Feature-level permissions",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.property_level_access_restrictions",
+      "module": "staff",
+      "name": "Property-level access restrictions",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.user_invitations",
+      "module": "staff",
+      "name": "User invitations",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.user_activation",
+      "module": "staff",
+      "name": "User activation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.user_suspension_and_deactivation",
+      "module": "staff",
+      "name": "User suspension and deactivation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.password_reset",
+      "module": "staff",
+      "name": "Password reset",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.account_recovery",
+      "module": "staff",
+      "name": "Account recovery",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.user_activity_logs",
+      "module": "staff",
+      "name": "User activity logs",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.multi_factor_authentication",
+      "module": "staff",
+      "name": "Multi-factor authentication",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.session_management",
+      "module": "staff",
+      "name": "Session management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "staff.staff_access_review",
+      "module": "staff",
+      "name": "Staff access review",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "staff"
+    },
+    {
+      "key": "integrations.rest_api_access",
+      "module": "integrations",
+      "name": "REST API access",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.api_key_management",
+      "module": "integrations",
+      "name": "API key management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.api_credential_rotation",
+      "module": "integrations",
+      "name": "API credential rotation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.webhook_configuration",
+      "module": "integrations",
+      "name": "Webhook configuration",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.user_creation_apis",
+      "module": "integrations",
+      "name": "User creation APIs",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.user_update_and_deactivation_apis",
+      "module": "integrations",
+      "name": "User update and deactivation APIs",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.reservation_apis",
+      "module": "integrations",
+      "name": "Reservation APIs",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.availability_and_inventory_apis",
+      "module": "integrations",
+      "name": "Availability and inventory APIs",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.rate_management_apis",
+      "module": "integrations",
+      "name": "Rate management APIs",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.payment_integration_apis",
+      "module": "integrations",
+      "name": "Payment integration APIs",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.third_party_crm_integrations",
+      "module": "integrations",
+      "name": "Third-party CRM integrations",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.accounting_integrations",
+      "module": "integrations",
+      "name": "Accounting integrations",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.pos_integrations",
+      "module": "integrations",
+      "name": "POS integrations",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.integration_activity_logs",
+      "module": "integrations",
+      "name": "Integration activity logs",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.api_monitoring",
+      "module": "integrations",
+      "name": "API monitoring",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.api_rate_limiting",
+      "module": "integrations",
+      "name": "API rate limiting",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "integrations.api_access_scopes",
+      "module": "integrations",
+      "name": "API access scopes",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "integrations"
+    },
+    {
+      "key": "guest_experience.guest_self_service_portal",
+      "module": "guest_experience",
+      "name": "Guest self-service portal",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "guest_experience"
+    },
+    {
+      "key": "guest_experience.digital_registration_forms",
+      "module": "guest_experience",
+      "name": "Digital registration forms",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "guest_experience"
+    },
+    {
+      "key": "guest_experience.pre_arrival_information_collection",
+      "module": "guest_experience",
+      "name": "Pre-arrival information collection",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "guest_experience"
+    },
+    {
+      "key": "guest_experience.digital_check_in_requests",
+      "module": "guest_experience",
+      "name": "Digital check-in requests",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "guest_experience"
+    },
+    {
+      "key": "guest_experience.guest_service_requests",
+      "module": "guest_experience",
+      "name": "Guest service requests",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "guest_experience"
+    },
+    {
+      "key": "guest_experience.guest_feedback_forms",
+      "module": "guest_experience",
+      "name": "Guest feedback forms",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "guest_experience"
+    },
+    {
+      "key": "guest_experience.review_collection",
+      "module": "guest_experience",
+      "name": "Review collection",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "guest_experience"
+    },
+    {
+      "key": "guest_experience.loyalty_programmes",
+      "module": "guest_experience",
+      "name": "Loyalty programmes",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "guest_experience"
+    },
+    {
+      "key": "guest_experience.membership_management",
+      "module": "guest_experience",
+      "name": "Membership management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "guest_experience"
+    },
+    {
+      "key": "guest_experience.guest_offers_and_packages",
+      "module": "guest_experience",
+      "name": "Guest offers and packages",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "guest_experience"
+    },
+    {
+      "key": "guest_experience.additional_service_upselling",
+      "module": "guest_experience",
+      "name": "Additional service upselling",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "View Only",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "guest_experience"
+    },
+    {
+      "key": "guest_experience.guest_preference_management",
+      "module": "guest_experience",
+      "name": "Guest preference management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "No Access",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "guest_experience"
+    },
+    {
+      "key": "subscription.basic_plan_management",
+      "module": "subscription",
+      "name": "Basic plan management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.premium_plan_management",
+      "module": "subscription",
+      "name": "Premium plan management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.enterprise_plan_management",
+      "module": "subscription",
+      "name": "Enterprise plan management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.feature_based_plan_restrictions",
+      "module": "subscription",
+      "name": "Feature-based plan restrictions",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.property_limits",
+      "module": "subscription",
+      "name": "Property limits",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.room_inventory_limits",
+      "module": "subscription",
+      "name": "Room inventory limits",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.trial_account_management",
+      "module": "subscription",
+      "name": "Trial account management",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.subscription_activation",
+      "module": "subscription",
+      "name": "Subscription activation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.subscription_renewal",
+      "module": "subscription",
+      "name": "Subscription renewal",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.plan_upgrades_and_downgrades",
+      "module": "subscription",
+      "name": "Plan upgrades and downgrades",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.subscription_invoices",
+      "module": "subscription",
+      "name": "Subscription invoices",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.usage_monitoring",
+      "module": "subscription",
+      "name": "Usage monitoring",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.organization_onboarding",
+      "module": "subscription",
+      "name": "Organization onboarding",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.tenant_level_configuration",
+      "module": "subscription",
+      "name": "Tenant-level configuration",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.storage_and_usage_limits",
+      "module": "subscription",
+      "name": "Storage and usage limits",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "subscription.subscription_suspension_and_reactivation",
+      "module": "subscription",
+      "name": "Subscription suspension and reactivation",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "subscription"
+    },
+    {
+      "key": "settings.organization_settings",
+      "module": "settings",
+      "name": "Organization settings",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.property_settings",
+      "module": "settings",
+      "name": "Property settings",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.user_level_language_preferences",
+      "module": "settings",
+      "name": "User-level language preferences",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.english_interface",
+      "module": "settings",
+      "name": "English interface",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.kannada_interface",
+      "module": "settings",
+      "name": "Kannada interface",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.currency_configuration",
+      "module": "settings",
+      "name": "Currency configuration",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.timezone_configuration",
+      "module": "settings",
+      "name": "Timezone configuration",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "View Only",
+        "front_desk": "No Access"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.date_and_time_formats",
+      "module": "settings",
+      "name": "Date and time formats",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.tax_and_invoice_settings",
+      "module": "settings",
+      "name": "Tax and invoice settings",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Create & Edit",
+        "front_desk": "No Access"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.notification_settings",
+      "module": "settings",
+      "name": "Notification settings",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.audit_logs",
+      "module": "settings",
+      "name": "Audit logs",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.data_export",
+      "module": "settings",
+      "name": "Data export",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.backup_and_recovery",
+      "module": "settings",
+      "name": "Backup and recovery",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.data_retention_policies",
+      "module": "settings",
+      "name": "Data retention policies",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "No Access",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.role_based_security",
+      "module": "settings",
+      "name": "Role-based security",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "View Only",
+        "finance_manager": "No Access",
+        "front_desk": "No Access"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.privacy_and_consent_controls",
+      "module": "settings",
+      "name": "Privacy and consent controls",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.mobile_responsive_interface",
+      "module": "settings",
+      "name": "Mobile-responsive interface",
+      "labels": {
+        "property_owner": "Create & Edit",
+        "super_admin": "Create & Edit",
+        "admin_manager": "Create & Edit",
+        "finance_manager": "Create & Edit",
+        "front_desk": "Create & Edit"
+      },
+      "entitlement": "settings"
+    },
+    {
+      "key": "settings.login_and_authentication_settings",
+      "module": "settings",
+      "name": "Login and authentication settings",
+      "labels": {
+        "property_owner": "Full Access",
+        "super_admin": "Full Access",
+        "admin_manager": "Restricted Access",
+        "finance_manager": "Restricted Access",
+        "front_desk": "Restricted Access"
+      },
+      "entitlement": "settings"
+    }
+  ]
+}

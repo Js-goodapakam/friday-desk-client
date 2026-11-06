@@ -1,6 +1,8 @@
 import {useEffect,useState} from 'react';
 import {ownerRequest} from '../services/owner.js';
 import OwnerStaff from './OwnerStaff.jsx';
+import EnterpriseTeam from './EnterpriseTeam.jsx';
+import DraftPlans from './DraftPlans.jsx';
 const modules=['Portfolio overview','Properties','Reservation calendar','Reservations','Guests','Enquiries','Group bookings','Front desk','Housekeeping','Rates & inventory','Channel management','Payments & folios','Invoices','Finance','Communications','Tasks','Guest requests','Reports','Property setup','Users & roles','Audit history'];
 export default function OwnerAdmin({view,session,onSettings}){
  const [result,setResult]=useState(null),[error,setError]=useState(''),[notice,setNotice]=useState(''),[busy,setBusy]=useState(false),[search,setSearch]=useState('');
@@ -12,7 +14,8 @@ export default function OwnerAdmin({view,session,onSettings}){
  function change(key,value){setResult({...result,settings:{...result.settings,[key]:value}});}
  if(!result)return <section className="pw-empty" role={error?'alert':'status'}>{error||'Loading owner administration…'}{error&&<button className="pw-secondary" onClick={reload}>Retry</button>}</section>;
  const readonly=session.role!=='ADMIN';
- if(view==='team')return <OwnerStaff result={result} session={session} onUpdate={setResult}/>;
+ if(view==='subscription'&&import.meta.env.VITE_ENTERPRISE_REVIEW==='1'&&session.role==='ADMIN')return <DraftPlans/>;
+ if(view==='team')return import.meta.env.VITE_ENTERPRISE_REVIEW==='1'&&session.role==='ADMIN'?<EnterpriseTeam result={result} session={session} onUpdate={setResult}/>:<OwnerStaff result={result} session={session} onUpdate={setResult}/>;
  const summaries=view==='team'?[['Team members',result.users.length],['Active accounts',result.users.filter(u=>u.isActive).length],['Hotel branches',result.properties.length]]:view==='subscription'?[['Plan','Friday Enterprise'],['Status','Draft proposal'],['Billing cycle','To be confirmed']]:[['Organisation',result.settings.organizationName],['Timezone',result.settings.timezone],['Your access',session.role.replaceAll('_',' ')]];
  return <section className="pw-panel pw-admin">{error&&<p className="pw-error" role="alert">{error}</p>}{notice&&<p className="pw-success" role="status">{notice}</p>}
  <div className="oi-admin-summary">{summaries.map(([label,value])=><div key={label}><span>{label}</span><strong style={{fontSize:typeof value==='number'?25:16}}>{value}</strong></div>)}</div>

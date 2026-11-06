@@ -4,7 +4,9 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [react()],
+  build: {rollupOptions:{input:{main:'index.html',review:'review.html'}}},
   define: mode === 'local-dev' ? {
+    'import.meta.env.VITE_ENTERPRISE_REVIEW': JSON.stringify('1'),
     'import.meta.env.VITE_API_URL': JSON.stringify(''),
     'import.meta.env.VITE_TELECMI_AGENT_USER_ID': JSON.stringify(''),
     'import.meta.env.VITE_TELECMI_AGENT_PASSWORD': JSON.stringify(''),

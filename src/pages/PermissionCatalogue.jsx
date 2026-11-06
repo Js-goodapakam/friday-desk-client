@@ -1,0 +1,17 @@
+import {useEffect,useState} from 'react';
+import {API_BASE} from '../services/apiBase.js';
+import './enterprise-access.css';
+
+export default function PermissionCatalogue({initialData=null}){
+ const [data,setData]=useState(initialData),[error,setError]=useState(''),[query,setQuery]=useState(''),[role,setRole]=useState('all'),[expanded,setExpanded]=useState(new Set(['dashboard'])),[retry,setRetry]=useState(0);
+ useEffect(()=>{if(initialData)return;const controller=new AbortController();fetch(`${API_BASE}/api/access/catalogue`,{credentials:'include',signal:controller.signal}).then(async r=>{const body=await r.json();if(!r.ok)throw Error(body.error||'Unable to load permissions.');return body;}).then(setData).catch(e=>{if(e.name!=='AbortError')setError(e.message);});return()=>controller.abort();},[retry,initialData]);
+ if(!data)return <section className="ea-panel" role={error?'alert':'status'}>{error?<><p>{error}</p><button className="pw-secondary" onClick={()=>{setError('');setRetry(x=>x+1);}}>Retry</button></>:'Loading permission catalogue…'}</section>;
+ const roles=role==='all'?data.roles:data.roles.filter(r=>r.key===role);
+ const needle=query.trim().toLowerCase(),features=data.features.filter(f=>[f.name,f.key,data.modules.find(m=>m.key===f.module)?.name].join(' ').toLowerCase().includes(needle));
+ const toggle=key=>setExpanded(old=>{const next=new Set(old);if(next.has(key))next.delete(key);else next.add(key);return next;});
+ return <section className="ea-catalogue"><header className="ea-heading"><div><span className="eyebrow">TEAM & PERMISSIONS</span><h2>Permission catalogue</h2><p>Review the approved feature access for each role.</p></div><span className="ea-review">Specification review</span></header>
+ <div className="ea-toolbar"><label>Search features<input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search modules or features"/></label><label>Role<select value={role} onChange={e=>setRole(e.target.value)}><option value="all">All five roles</option>{data.roles.map(r=><option key={r.key} value={r.key}>{r.name}</option>)}</select></label><span>{features.length} features</span></div>
+ <p className="ea-note">Restricted access needs a scoped policy. This catalogue does not change staff access.</p>
+ <div className="ea-module-list">{data.modules.map(m=>{const rows=features.filter(f=>f.module===m.key);if(!rows.length)return null;const open=Boolean(needle)||expanded.has(m.key);return <section className="ea-module" key={m.key}><h3><button aria-expanded={open} aria-controls={`ea-${m.key}`} onClick={()=>toggle(m.key)}><span className="ea-chevron" aria-hidden="true">{open?'−':'+'}</span><span>{m.name}</span><small>{rows.length}</small></button></h3>{open&&<div id={`ea-${m.key}`} className="ea-table-scroll" tabIndex={0} aria-label={`${m.name} permissions`}><table><thead><tr><th scope="col">Feature</th>{roles.map(r=><th scope="col" key={r.key}>{r.name}</th>)}</tr></thead><tbody>{rows.map(f=><tr key={f.key}><th scope="row">{f.name}<code>{f.key}</code></th>{roles.map(r=><td key={r.key}><span className={`ea-level ea-level--${f.labels[r.key]==='No Access'?'none':f.labels[r.key]==='Approval Access'?'approval':f.labels[r.key]==='Restricted Access'?'restricted':'standard'}`}>{f.labels[r.key]}</span></td>)}</tr>)}</tbody></table></div>}</section>;})}{!features.length&&<div className="ea-panel" role="status">No matching features.</div>}</div></section>;
+}
+
