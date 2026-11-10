@@ -235,7 +235,7 @@ export default function Dashboard({
       {/* ---------- Reference-style welcome / quick actions ---------- */}
       <section className="fd-welcome" aria-label="Hospitality quick actions">
         <div className="fd-welcome-copy">
-          <span className="fd-welcome-kicker">FRIDAY AI · HOSPITALITY CRM</span>
+          <span className="fd-welcome-kicker">ENGAGE AI · HOSPITALITY CRM</span>
           <h2>Make every stay exceptional</h2>
           <p>Manage reservations, guests, billing and hotel operations in one place.</p>
         </div>
