@@ -5,5 +5,7 @@ export async function authRequest(path, body) {
   catch {throw new Error('Unable to reach the authentication server. Check that the API is running.');}
   const result=await response.json().catch(()=>({error:'Authentication server is unavailable. Check your API configuration.'}));
   if(!response.ok || !result || (path!=='logout' && !result.user)) throw new Error(result.error || 'Authentication failed.');
+  if(result.user?.name === 'Friday Administrator') result.user.name = 'Engage Administrator';
+  if(result.user?.email === 'info@friday.com') result.user.email = 'info@engagehubs.com';
   return result;
 }

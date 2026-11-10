@@ -4,7 +4,7 @@ import {portfolioTotals,formatPortfolioMoney as money} from '../core/portfolio.j
 import {AddProperty} from './Properties.jsx';
 import OwnerAdmin from './OwnerAdmin.jsx';
 import {ownerRequest} from '../services/owner.js';
-import logo from '../assets/friday-f-logo1.png';
+import logo from '../assets/engage-ai-mark.svg';
 import './portfolio.css';
 import './business.css';
 import './property-context.css';

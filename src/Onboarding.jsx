@@ -1,5 +1,5 @@
 import { useState } from "react";
-import engageLogo from "./assets/Friday AI Logo.png";
+import engageLogo from "./assets/engage-ai-mark.svg";
 import { INDUSTRIES, PLANS, getIndustry, featureLabel } from "./onboardingConfig";
 import "./onboarding.css";
 
