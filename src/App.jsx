@@ -1105,15 +1105,18 @@ function PropertyWorkspace({property,session,onLogout,onBack}) {
  const [data,updateData]=useState(()=>emptyPropertyWorkspace(property,session));
  const [loading,setLoading]=useState(true),[storageError,setStorageError]=useState(""),[saving,setSaving]=useState(false);
  const current=useRef(data),committed=useRef(data),remote=useRef(false),version=useRef(0),queue=useRef(Promise.resolve()),mounted=useRef(true),failed=useRef(false);
- const loadRemote=async()=>{const result=await workspaceRequest(property.id);if(!result.state||Number(result.state.property?.id)!==Number(property.id)||!Number.isInteger(result.version)||result.version<1)throw Error('Database-backed storage is not configured for this property.');remote.current=true;version.current=result.version;committed.current=result.state;current.current=result.state;updateData(result.state);return result;};
+ const managed=useRef(false);
+ const hydrate=result=>result.managed?{...emptyPropertyWorkspace(property,session),...result.state,property:{...emptyPropertyWorkspace(property,session).property,...result.state.property}}:result.state;
+ const loadRemote=async()=>{const result=await workspaceRequest(property.id);if(!result.state||Number(result.state.property?.id)!==Number(property.id)||!Number.isInteger(result.version)||result.version<1)throw Error('Database-backed storage is not configured for this property.');managed.current=result.managed===true;const saved=hydrate(result);remote.current=true;version.current=result.version;committed.current=saved;current.current=saved;updateData(saved);return result;};
  useEffect(()=>{mounted.current=true;loadRemote().catch(error=>{if(mounted.current)setStorageError(error.message);}).finally(()=>{if(mounted.current)setLoading(false);});return()=>{mounted.current=false;};},[property.id]);
  const setData=useCallback(change=>{
   if(!remote.current||failed.current){setStorageError('Reload the saved database records before making more changes.');return Promise.resolve(false);}
   const next=typeof change==="function"?change(current.current):change;current.current=next;updateData(next);setStorageError('');setSaving(true);
   const operation=queue.current.then(async()=>{
    if(failed.current)return false;
-   try{const result=await workspaceRequest(property.id,"PUT",{state:next,version:version.current});version.current=result.version;committed.current=result.state;
-    if(current.current===next){current.current=result.state;if(mounted.current)updateData(result.state);}return true;
+   try{const state=managed.current?{...Object.fromEntries(Object.entries(next).filter(([key,value])=>JSON.stringify(value)!==JSON.stringify(committed.current[key]))),property:next.property}:next;
+    const result=await workspaceRequest(property.id,"PUT",{state,version:version.current});version.current=result.version;const saved=hydrate(result);committed.current=saved;
+    if(current.current===next){current.current=saved;if(mounted.current)updateData(saved);}return true;
    }catch(error){failed.current=true;current.current=committed.current;if(mounted.current){updateData(committed.current);setStorageError(error.message+' Changes were not saved. Reload before retrying.');}return false;}
   }).finally(()=>{if(mounted.current)setSaving(false);});
   queue.current=operation.then(()=>undefined);return operation;
