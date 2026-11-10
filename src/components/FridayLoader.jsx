@@ -1,4 +1,4 @@
-import logo from '../assets/engage-ai-mark.svg';
+import logo from '../assets/engage-logo.png';
 import RefreshLoader from './RefreshLoader.jsx';
 import {isBrowserRefresh} from '../core/refreshState.js';
 export default function FridayLoader({fullscreen=false}){

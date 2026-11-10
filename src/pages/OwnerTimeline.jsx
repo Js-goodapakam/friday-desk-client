@@ -1,5 +1,5 @@
 import OwnerSeriesGraph from './OwnerSeriesGraph.jsx';
-import engageLogo from '../assets/engage-ai-mark.svg';
+import engageLogo from '../assets/engage-logo.png';
 import OwnerPie from './OwnerPie.jsx';
 import {useEffect,useState} from 'react';
 import {workspaceRequest} from '../services/workspace.js';

@@ -1,3 +1,4 @@
+import engageLogo from "./assets/engage-logo.png";
 import { useEffect, useState } from "react";
 
 /* Small inline icon wrapper (no extra packages needed) */
@@ -216,7 +217,7 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
         {/* ================= LEFT ================= */}
         <section className="fl-left">
           <div className="fl-left-inner">
-            <div className="fl-logo fl-logo-text" aria-label="Engage AI">Engage <span>AI</span></div>
+            <img src={engageLogo} alt="Engage AI" width="100" height="100" />
             <div className="fl-tagline">
               <span>CRM</span><i /><span>Automation</span><i /><span>Communication</span>
             </div>
