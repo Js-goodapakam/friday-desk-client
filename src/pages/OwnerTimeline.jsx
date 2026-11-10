@@ -1,5 +1,5 @@
 import OwnerSeriesGraph from './OwnerSeriesGraph.jsx';
-import fridayLogo from '../assets/friday-f-logo.png';
+import engageLogo from '../assets/friday-f-logo.png';
 import OwnerPie from './OwnerPie.jsx';
 import {useEffect,useState} from 'react';
 import {workspaceRequest} from '../services/workspace.js';
@@ -10,7 +10,7 @@ export default function OwnerTimeline({properties,mode,start,end,today,view,page
  const [loadedIds,setLoadedIds]=useState('');
  const [pending,setPending]=useState(true),[retry,setRetry]=useState(0);
  const loadingLabel=(properties.length===1?properties[0].name:'All selected branches')+' · '+(mode==='today'?today:mode==='custom'?start+' – '+end:start||mode);
- const loader=<div className="oi-branded-loader" role="status" aria-live="polite"><img src={fridayLogo} alt="Friday"/><strong>Preparing your overview…</strong><span>{loadingLabel}</span><div className="oi-load-progress"><i/></div></div>;
+ const loader=<div className="oi-branded-loader" role="status" aria-live="polite"><img src={engageLogo} alt="Engage"/><strong>Preparing your overview…</strong><span>{loadingLabel}</span><div className="oi-load-progress"><i/></div></div>;
  const ids=properties.map(p=>p.id).join(',');
  useEffect(()=>{let active=true;Promise.resolve().then(()=>{if(active){setPending(true);setError('');}});if(!ids)return;Promise.all(ids.split(',').map(id=>workspaceRequest(id))).then(r=>{if(r.some(x=>!x.state))throw Error('Historical records are unavailable for one or more selected branches.');if(active){setResult(r.map(x=>x.state));setLoadedIds(ids);setPending(false);}}).catch(e=>{if(active){setError(e.message);setPending(false);}});return()=>{active=false;};},[ids,retry,revision]);
  const buckets=timelineBuckets(mode,start,end,today);

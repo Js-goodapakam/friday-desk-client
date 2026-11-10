@@ -1,5 +1,5 @@
 /* =========================================================
-   FRIDAY AI - ONBOARDING CONFIG
+   ENGAGE AI - ONBOARDING CONFIG
    Everything the Industry and Plan pages show comes from here.
 
    PLACEHOLDERS: plan names, taglines, feature-to-plan mapping and

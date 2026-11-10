@@ -1,9 +1,9 @@
 import { useState } from "react";
-import fridayLogo from "./assets/Friday AI Logo.png";
+import engageLogo from "./assets/Friday AI Logo.png";
 import { INDUSTRIES, PLANS, getIndustry, featureLabel } from "./onboardingConfig";
 import "./onboarding.css";
 
-/* Small inline icon wrapper (same approach as Friday.jsx) */
+/* Small inline icon wrapper (same approach as Engage.jsx) */
 const Ico = ({ children, className, fill = "none", sw = 1.8 }) => (
   <svg className={className} viewBox="0 0 24 24" fill={fill} stroke="currentColor"
     strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -80,7 +80,7 @@ function formatPrice(price, currency) {
  *  - onIndustrySelected: async (industryId) => void   - save it on your backend; throw an Error to show a message
  *  - onPlanSelected:     async ({ industry, plan }) => void - start checkout; throw an Error to show a message
  */
-export default function FridayOnboarding({
+export default function EngageOnboarding({
   initialStep = "industry",
   initialIndustry = null,
   onIndustrySelected,
@@ -127,7 +127,7 @@ export default function FridayOnboarding({
   return (
     <div className="ob-page">
       <header className="ob-top">
-        <img className="ob-logo" src={fridayLogo} alt="Friday AI" />
+        <img className="ob-logo" src={engageLogo} alt="Engage AI" />
       </header>
 
       <main className="ob-main">
@@ -138,7 +138,7 @@ export default function FridayOnboarding({
           <section className="ob-section" aria-labelledby="ob-industry-title">
             <h1 className="ob-title" id="ob-industry-title">What kind of business do you run?</h1>
             <p className="ob-subtitle">
-              We&apos;ll set up Friday with the tools that fit your business.
+              We&apos;ll set up Engage with the tools that fit your business.
             </p>
 
             <div className="ob-industries" role="radiogroup" aria-labelledby="ob-industry-title">

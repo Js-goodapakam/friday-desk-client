@@ -222,7 +222,7 @@ export default function Settings({ data, setData, session, onManageProperties })
     } catch (error) {
       console.error(error);
       setData((d) => ({ ...d, telecmi: { ...d.telecmi, status: "Connection failed" } }));
-      setTeleError("Unable to reach the Friday AI - Desk server. Please check that the backend is running.");
+      setTeleError("Unable to reach the Engage AI - Desk server. Please check that the backend is running.");
     } finally {
       setTestingTele(false);
     }
@@ -563,7 +563,7 @@ export default function Settings({ data, setData, session, onManageProperties })
 
               <div className="fd-integration-body">
                 <div className="fd-integration-explain">
-                  {channel === "telephony" && <><PhoneIcon /><div><b>What this does</b><span>Lets the front desk call guests from Friday AI - Desk and identify incoming guest calls.</span></div></>}
+                  {channel === "telephony" && <><PhoneIcon /><div><b>What this does</b><span>Lets the front desk call guests from Engage AI - Desk and identify incoming guest calls.</span></div></>}
                   {channel === "whatsapp" && <><MessageIcon /><div><b>What this does</b><span>Lets your team send and receive guest messages through your WhatsApp Business number.</span></div></>}
                   {channel === "rcs" && <><MessageIcon /><div><b>What this does</b><span>Lets your team send rich, branded guest messages through RCS.</span></div></>}
                 </div>
@@ -647,7 +647,7 @@ export default function Settings({ data, setData, session, onManageProperties })
               </div>
             )}
 
-            <div className="fd-technical-note"><b>Technical settings are protected</b><span>The App Secret is handled by the Friday AI - Desk server and is not displayed in the browser.</span><small>Browser SDK: {sdkStatus === "connected" ? "Connected" : sdkStatus === "connecting" ? "Connecting..." : "Not connected"}</small></div>
+            <div className="fd-technical-note"><b>Technical settings are protected</b><span>The App Secret is handled by the Engage AI - Desk server and is not displayed in the browser.</span><small>Browser SDK: {sdkStatus === "connected" ? "Connected" : sdkStatus === "connecting" ? "Connecting..." : "Not connected"}</small></div>
           </section>
         </div>
       )}

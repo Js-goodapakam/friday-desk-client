@@ -1,6 +1,6 @@
 import FridayOnboarding from "./Onboarding.jsx";
 
-console.log("%cFriday AI - Desk build: call-widget-v5-incoming (2026-09-26)", "background:#1557D6;color:#fff;padding:4px 10px;border-radius:6px;font-weight:700");
+console.log("%cEngage AI - Desk build: call-widget-v5-incoming (2026-09-26)", "background:#1557D6;color:#fff;padding:4px 10px;border-radius:6px;font-weight:700");
 import Dashboard from "./Dashboard.jsx";
 import { Component, useEffect, useMemo, useState, useRef, useCallback } from "react";
 import PIOPIY from "@telecmi/piopiyjs";
@@ -126,17 +126,17 @@ function emitIncomingTeleCMI(call){
 window.teleCMIIncomingCall = null;
 
 piopiy.on("trying", (data) => {
-  console.log("Friday AI - Desk: outgoing call state -> trying", data);
+  console.log("Engage AI - Desk: outgoing call state -> trying", data);
   activeTeleCMICall?.setStatus?.("trying");
 });
 
 piopiy.on("ringing", (data) => {
-  console.log("Friday AI - Desk: outgoing call state -> ringing", data);
+  console.log("Engage AI - Desk: outgoing call state -> ringing", data);
   activeTeleCMICall?.setStatus?.("ringing");
 });
 
 piopiy.on("answered", (data) => {
-  console.log("Friday AI - Desk: outgoing call state -> answered", data);
+  console.log("Engage AI - Desk: outgoing call state -> answered", data);
   activeTeleCMICall?.setStatus?.("connected");
   activeTeleCMICall?.setAnsweredAt?.(new Date());
 });
@@ -163,7 +163,7 @@ piopiy.on("callStream", (data) => {
 });
 
 piopiy.on("ended", (data) => {
-  console.log("Friday AI - Desk: outgoing call state -> ended", data);
+  console.log("Engage AI - Desk: outgoing call state -> ended", data);
   activeTeleCMICall?.setStatus?.("ended");
   activeTeleCMICall?.setEndedAt?.(new Date());
 
@@ -349,7 +349,7 @@ function GuestProfile({g,data,onClose,onCall}){
 class CallErrorBoundary extends Component{
  constructor(props){super(props);this.state={error:null}}
  static getDerivedStateFromError(error){return {error}}
- componentDidCatch(error,info){console.error("Friday AI - Desk: CallPopup crashed while rendering:",error,info)}
+ componentDidCatch(error,info){console.error("Engage AI - Desk: CallPopup crashed while rendering:",error,info)}
  render(){
   if(this.state.error){
    return <div className="call-widget call-widget--error">
@@ -594,7 +594,7 @@ function IncomingCallPopup({call,guest,onClose,onSave}){
 
   const answer=()=>{
     try{
-      console.log("Friday AI - Desk: Answering incoming TeleCMI call");
+      console.log("Engage AI - Desk: Answering incoming TeleCMI call");
       piopiy.answer();
     }catch(error){
       console.error("TeleCMI answer failed",error);
@@ -604,7 +604,7 @@ function IncomingCallPopup({call,guest,onClose,onSave}){
 
   const reject=()=>{
     try{
-      console.log("Friday AI - Desk: Rejecting incoming TeleCMI call");
+      console.log("Engage AI - Desk: Rejecting incoming TeleCMI call");
       piopiy.reject();
     }catch(error){
       console.error("TeleCMI reject failed",error);
@@ -689,7 +689,7 @@ function IncomingCallPopup({call,guest,onClose,onSave}){
 }
 
 function CallPopup({guest,onClose,onSave,telecmi}){
-  console.log("Friday AI - Desk: CallPopup mounting for", guest?.name, guest?.phone);
+  console.log("Engage AI - Desk: CallPopup mounting for", guest?.name, guest?.phone);
 
   const [status,setStatus]=useState("trying");
   const [seconds,setSeconds]=useState(0);
@@ -721,28 +721,28 @@ function CallPopup({guest,onClose,onSave,telecmi}){
       setFinished,
       setErrorMessage
     };
-    console.log("Friday AI - Desk: Outgoing CallPopup is now persistent.");
+    console.log("Engage AI - Desk: Outgoing CallPopup is now persistent.");
 
     teleCMICallStartedAt=new Date();
 
-    console.log("Friday AI - Desk: Starting real TeleCMI call to",guest.phone);
+    console.log("Engage AI - Desk: Starting real TeleCMI call to",guest.phone);
 
     const startCall=()=>{
       try{
         if(!piopiy.isLogedIn()){
-          console.log("Friday AI - Desk: Not logged in to TeleCMI yet — retrying login before starting call...");
+          console.log("Engage AI - Desk: Not logged in to TeleCMI yet — retrying login before starting call...");
           piopiy.once("login",()=>{
-            console.log("Friday AI - Desk: TeleCMI login completed, starting call...");
+            console.log("Engage AI - Desk: TeleCMI login completed, starting call...");
             piopiy.call(guest.phone.replace(/\D/g,""));
           });
           piopiy.once("loginFailed",(error)=>{
-            console.error("Friday AI - Desk: TeleCMI login failed",error);
+            console.error("Engage AI - Desk: TeleCMI login failed",error);
             setErrorMessage(`Login failed: ${describeCallError(error)}`);
             setStatus("error");
             // Keep the CallPopup visible. Do not auto-close it.
           });
           loginToTeleCMI().catch((error)=>{
-            console.error("Friday AI - Desk: TeleCMI retry login failed",error);
+            console.error("Engage AI - Desk: TeleCMI retry login failed",error);
             setErrorMessage(`Login failed: ${describeCallError(error)}`);
             setStatus("error");
             // Keep the CallPopup visible. Do not auto-close it.
@@ -750,7 +750,7 @@ function CallPopup({guest,onClose,onSave,telecmi}){
           return;
         }
 
-        console.log("Friday AI - Desk: TeleCMI already logged in, starting call...");
+        console.log("Engage AI - Desk: TeleCMI already logged in, starting call...");
         piopiy.call(guest.phone.replace(/\D/g,""));
       }catch(error){
         console.error("TeleCMI call failed to start",error);
@@ -1090,7 +1090,7 @@ function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspa
  {["frontdesk","housekeeping","folios","tasks"].includes(page)&&<DemoOperations key={page} view={page} data={data} setData={setData} onCheckIn={checkIn} onCheckOut={checkOut}/>}
  {page==="folios"&&<FolioActions data={data} setData={setData}/>}
  {page==="settings"&&<><div className="page-heading"><div><div className="eyebrow">ADMINISTRATION</div><h1>Property settings</h1><p className="muted">Property details, operational policies and integrations.</p></div></div><Settings data={data} setData={setData} session={session} onManageProperties={onBackToProperties}/></>}
- </main><footer>Friday AI - Desk · {data.property?.name} · Hospitality CRM</footer></div>{editingReservation&&<ReservationActions reservation={editingReservation} data={data} setData={setData} onClose={()=>setEditingReservation(null)}/>}{editor&&(data.demo?<CreateReservation data={data} setData={setData} onClose={()=>setEditor(false)}/>:<ReservationEditor data={data} onClose={()=>setEditor(false)} onSave={saveReservation}/>)} {selected&&<GuestProfile g={selected} data={data} onClose={()=>setSelected(null)} onCall={startOutgoingCall}/>} {incomingCall&&<CallErrorBoundary onClose={()=>{setIncomingCall(null);currentIncomingTeleCMICall=null;window.teleCMIIncomingCall=null}}><IncomingCallPopup call={incomingCall} guest={incomingGuest} onClose={()=>{setIncomingCall(null);currentIncomingTeleCMICall=null;window.teleCMIIncomingCall=null}} onSave={call=>setData(d=>({...d,callActivities:[...(d.callActivities||[]),call]}))}/></CallErrorBoundary>} {callGuest&&<CallErrorBoundary onClose={()=>setCallGuest(null)}><CallPopup guest={callGuest} telecmi={data.telecmi} onClose={()=>setCallGuest(null)} onSave={call=>setData(d=>({...d,callActivities:[...(d.callActivities||[]),call]}))}/></CallErrorBoundary>}</div>
+ </main><footer>Engage AI - Desk · {data.property?.name} · Hospitality CRM</footer></div>{editingReservation&&<ReservationActions reservation={editingReservation} data={data} setData={setData} onClose={()=>setEditingReservation(null)}/>}{editor&&(data.demo?<CreateReservation data={data} setData={setData} onClose={()=>setEditor(false)}/>:<ReservationEditor data={data} onClose={()=>setEditor(false)} onSave={saveReservation}/>)} {selected&&<GuestProfile g={selected} data={data} onClose={()=>setSelected(null)} onCall={startOutgoingCall}/>} {incomingCall&&<CallErrorBoundary onClose={()=>{setIncomingCall(null);currentIncomingTeleCMICall=null;window.teleCMIIncomingCall=null}}><IncomingCallPopup call={incomingCall} guest={incomingGuest} onClose={()=>{setIncomingCall(null);currentIncomingTeleCMICall=null;window.teleCMIIncomingCall=null}} onSave={call=>setData(d=>({...d,callActivities:[...(d.callActivities||[]),call]}))}/></CallErrorBoundary>} {callGuest&&<CallErrorBoundary onClose={()=>setCallGuest(null)}><CallPopup guest={callGuest} telecmi={data.telecmi} onClose={()=>setCallGuest(null)} onSave={call=>setData(d=>({...d,callActivities:[...(d.callActivities||[]),call]}))}/></CallErrorBoundary>}</div>
 }
 
 
