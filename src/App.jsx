@@ -48,7 +48,7 @@ import HospitalityHub from "./pages/HospitalityHub.jsx";
 
 
 const piopiy = new PIOPIY({
-  name: "Friday AI - Desk",
+  name: "Engage AI - Desk",
   debug: true,
   autoplay: true,
   ringTime: 40,
@@ -190,7 +190,7 @@ function TajLogo({compact=false}){return <a className={`taj-logo ${compact?"comp
 /* Optional F logo: save it as src/assets/friday-f-logo.png (or .svg / .webp). Without it, the "F" letter mark shows. */
 const brandLogoFiles = import.meta.glob("./assets/friday-f-logo.{png,svg,webp}", { eager: true, import: "default" });
 const FRIDAY_MARK = Object.values(brandLogoFiles)[0] || null;
-function Brand({className="brand"}){return <div className={className}>{FRIDAY_MARK?<img className="brand-logo" src={FRIDAY_MARK} alt=""/>:<span className="brand-mark">F</span>}<b>Friday AI - Desk</b></div>}
+function Brand({className="brand"}){return <div className={className}><span className="brand-mark">E</span><b>Engage AI - Desk</b></div>}
 
 /* TeleCMI provider logo: place the file at src/assets/telecmi logo.png (or .svg/.webp). Falls back to a "T" mark if not found. */
 const telecmiLogoFiles = import.meta.glob("./assets/telecmi logo.{png,svg,webp}", { eager: true, import: "default" });

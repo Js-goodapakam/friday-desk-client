@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import fridayLogo from "./assets/Friday AI Logo.png";
 
 /* Small inline icon wrapper (no extra packages needed) */
 const Ico = ({ children, className, fill = "none", sw = 1.8 }) => (
@@ -217,14 +216,14 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
         {/* ================= LEFT ================= */}
         <section className="fl-left">
           <div className="fl-left-inner">
-            <img className="fl-logo" src={fridayLogo} alt="Friday AI" />
+            <div className="fl-logo fl-logo-text" aria-label="Engage AI">Engage <span>AI</span></div>
             <div className="fl-tagline">
               <span>CRM</span><i /><span>Automation</span><i /><span>Communication</span>
             </div>
 
             {mode === "login" && <>
               <h1 className="fl-title">Login to your account</h1>
-              <p className="fl-subtitle">Enter the details to access Friday AI workspace</p>
+              <p className="fl-subtitle">Enter the details to access Engage AI workspace</p>
 
               <form className="fl-form" onSubmit={handleLoginSubmit}>
                 <div className="fl-field">
@@ -374,7 +373,7 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
           </div>
 
           <footer className="fl-footer">
-            <span>© 2026 Friday Innovations Private Limited. All rights reserved.</span>
+            <span>© 2026 Engagehubs Technologies Private Limited. All rights reserved.</span>
             <nav><a href="https://js-goodapakam.github.io/project-friday/privacy-policy" target="_blank" rel="noreferrer">Privacy</a><a href="https://js-goodapakam.github.io/project-friday/terms-and-conditions" target="_blank" rel="noreferrer">Terms</a></nav>
           </footer>
         </section>
@@ -398,7 +397,7 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
             <h2>
               <span>Your business.</span>
               <span className="fl-grad">Smarter with</span>
-              <span className="fl-grad">Friday AI.</span>
+              <span className="fl-grad">Engage AI.</span>
             </h2>
             <p>
               AI-powered CRM, automation and communication built for modern businesses.

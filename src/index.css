@@ -3767,6 +3767,7 @@ body{
 }
 
 /* FRIDAY AI - DESK BRAND: one line name + optional F logo */
+.fl-logo-text{display:inline-flex;align-items:center;width:auto;height:auto;color:#092652;font-size:32px;font-weight:800;letter-spacing:-1.8px;line-height:1;padding:10px 0}.fl-logo-text span{color:#1769e0}
 .sidebar .brand b,
 .guest-top .brand b{
   white-space:nowrap!important;
