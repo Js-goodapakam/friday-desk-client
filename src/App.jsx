@@ -187,7 +187,7 @@ piopiy.on("error", (error) => {
 
 function TajLogo({compact=false}){return <a className={`taj-logo ${compact?"compact":""}`} href="https://www.tajhotels.com/en-in/hotels/taj-tirupati" target="_blank" rel="noreferrer" aria-label="Taj official website"><span className="taj-mark">TAJ</span><span>TIRUPATI</span></a>}
 
-import engageLogo from "./assets/engage-logo.png";
+import engageLogo from "./assets/engagehubs-mark.svg";
 function Brand({className="brand"}){return <div className={className}><img className="brand-logo" src={engageLogo} alt="" /><b>Engage AI - Desk</b></div>}
 
 /* TeleCMI provider logo: place the file at src/assets/telecmi logo.png (or .svg/.webp). Falls back to a "T" mark if not found. */
