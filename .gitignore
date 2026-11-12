@@ -20,3 +20,5 @@ dist/
 Thumbs.db
 # Data exports / reports
 src/assets/*.csv
+.vercel
+.env*
