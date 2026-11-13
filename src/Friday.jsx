@@ -1,4 +1,4 @@
-import engageLogo from "./assets/engagehubs-mark.svg";
+import engageLogo from "./assets/engage-stay-mark-black.svg";
 import { useEffect, useState } from "react";
 
 /* Small inline icon wrapper (no extra packages needed) */
@@ -218,7 +218,7 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
         {/* ================= LEFT ================= */}
         <section className="fl-left">
           <div className="fl-left-inner">
-            <img src={engageLogo} alt="Engagehubs" width="100" height="100" />
+            <div className="fl-brand-lockup" aria-label="Engage Stay"><img className="fl-brand-mark" src={engageLogo} alt="" /><span className="fl-brand-name">Engage Stay</span></div>
             <div className="fl-tagline">
               <span>CRM</span><i /><span>Automation</span><i /><span>Communication</span>
             </div>
