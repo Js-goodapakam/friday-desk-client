@@ -281,12 +281,12 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
           <div className="fl-left-inner">
             <div className="fl-brand-lockup" aria-label="Engage Stay"><img className="fl-brand-mark" src={engageLogo} alt="" /><span className="fl-brand-name">Engage Stay</span></div>
             <div className="fl-tagline">
-              <span>CRM</span><i /><span>Automation</span><i /><span>Communication</span>
+              <span>PMS</span><i /><span>Channel Manager</span><i /><span>Guest Experience</span>
             </div>
 
             {mode === "login" && <>
               <h1 className="fl-title">Login to your account</h1>
-              <p className="fl-subtitle">Enter the details to access Engage AI workspace</p>
+              <p className="fl-subtitle">Enter your details to access your Engage Stay workspace</p>
 
               <form className="fl-form" onSubmit={handleLoginSubmit}>
                 <div className="fl-field">
@@ -449,19 +449,19 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
           </svg>
 
           <div className="fl-topnav">
-            <span>Build</span><i />
-            <span>Automate</span><i />
+            <span>Manage</span><i />
+            <span>Connect</span><i />
             <span>Grow</span>
           </div>
 
           <div className="fl-hero">
             <h2>
-              <span>Your business.</span>
-              <span className="fl-grad">Smarter with</span>
-              <span className="fl-grad">Engage AI.</span>
+              <span>Your property.</span>
+              <span className="fl-grad">Better with</span>
+              <span className="fl-grad">Engage Stay.</span>
             </h2>
             <p>
-              AI-powered CRM, automation and communication built for modern businesses.
+              One connected workspace for reservations, availability, guest services and property operations.
             </p>
           </div>
 
@@ -474,10 +474,10 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
                 <Ico fill="currentColor" sw={0}>
                   <path d="M12 2l2.2 6.3L21 10l-6.8 1.7L12 18l-2.2-6.3L3 10l6.8-1.7z" />
                 </Ico>
-                <span className="fl-ai-pill">AI Assistant</span>
+                <span className="fl-ai-pill">Smart Operations</span>
                 <span className="fl-ai-dot" />
               </div>
-              <p>Turning conversations into opportunities</p>
+              <p>Make each guest stay easier to manage</p>
               <span className="fl-arrow"><Arrow /></span>
             </div>
 
@@ -493,8 +493,8 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
                 <span className="fl-arrow"><Arrow /></span>
               </div>
               <div>
-                <h4>CRM</h4>
-                <small>Manage customers<br />smarter</small>
+                <h4>Reservations</h4>
+                <small>Bookings in<br />one place</small>
               </div>
             </div>
 
@@ -505,8 +505,8 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
               </Ico>
               <div className="fl-card-bottom">
                 <div>
-                  <h4>Automation</h4>
-                  <small>Save time,<br />do more</small>
+                  <h4>Inventory</h4>
+                  <small>Rooms and<br />availability</small>
                 </div>
                 <span className="fl-arrow"><Arrow /></span>
               </div>
@@ -517,11 +517,11 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
               <Ico className="fl-card-ico" fill="currentColor" sw={0}>
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
               </Ico>
-              <h4>Communication</h4>
+              <h4>Guest Service</h4>
               <span className="fl-mini">
                 <Ico><path d="M17 7 7 17" /><path d="M7 17h8" /><path d="M7 17V9" /></Ico>
               </span>
-              <small>Calls, SMS &amp; more<br />in one place</small>
+              <small>Guest requests<br />in one place</small>
               <span className="fl-arrow"><Arrow /></span>
             </div>
           </div>
@@ -532,11 +532,11 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
                 <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
                 <path d="m9 12 2 2 4-4" />
               </Ico>
-              <span>Trusted by<br />Businesses</span>
+              <span>Built for<br />Hospitality</span>
             </div>
             <div className="fl-stat">
               <Ico><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></Ico>
-              <span>99.9%<br />Uptime</span>
+              <span>One<br />Workspace</span>
             </div>
             <div className="fl-stat">
               <Ico>
@@ -544,7 +544,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
                 <rect x="10" y="9" width="4" height="12" rx="1" />
                 <rect x="17" y="3" width="4" height="18" rx="1" />
               </Ico>
-              <span>Scale<br />Effortlessly</span>
+              <span>Manage<br />Multiple Stays</span>
             </div>
             <div className="fl-stat">
               <Ico>
@@ -552,7 +552,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
                 <path d="M2 12h20" />
               </Ico>
-              <span>Built for<br />a Global World</span>
+              <span>Guest-first<br />Operations</span>
             </div>
           </div>
         </div>
