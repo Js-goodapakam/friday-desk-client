@@ -5031,3 +5031,36 @@ html, body, #root, .app, .guest-app, button, input, select, textarea {
   flex:1 1 auto !important;
   min-height:0 !important;
 }
+
+/* Engage Stay — transparent black EH mark and product wordmark.
+   SF Pro Display renders where installed; no proprietary font is bundled. */
+.fl-page .fl-brand-lockup{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  width:max-content;
+  max-width:100%;
+  height:100px;
+  color:#000;
+}
+.fl-page .fl-brand-mark{
+  display:block;
+  flex:none;
+  width:64px;
+  height:78px;
+  object-fit:contain;
+}
+.fl-page .fl-brand-name{
+  font-family:"SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size:38px;
+  font-weight:600;
+  line-height:1.05;
+  letter-spacing:-.035em;
+  white-space:nowrap;
+  color:#000;
+}
+@media(max-width:480px){
+  .fl-page .fl-brand-lockup{gap:10px;height:82px;}
+  .fl-page .fl-brand-mark{width:48px;height:60px;}
+  .fl-page .fl-brand-name{font-size:30px;}
+}
