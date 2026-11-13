@@ -54,7 +54,20 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
   const [signingIn, setSigningIn] = useState(false);
   const [countryDial, setCountryDial] = useState("+91");
   const [mobile, setMobile] = useState("");
-  const beginSocialSignup = (provider) => window.location.assign(`/api/auth/social/${provider}`);
+  const beginSocialSignup = (provider) => {
+    // Start OAuth on the API origin: its HttpOnly state cookie must be set
+    // on the same host that receives the OAuth callback.
+    const apiOrigin = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+    window.location.assign(apiOrigin ? new URL(`/api/auth/social/${provider}`, apiOrigin).toString() : `/api/auth/social/${provider}`);
+  };
+
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("signup") === "received") {
+      setMode("login");
+      setSuccessMessage("Your verified registration request was received. The Engagehubs team will review your property and send an activation invitation.");
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  }, []);
 
   useEffect(() => {
     const updateRightScale = () => {
@@ -220,12 +233,12 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
           <div className="fl-left-inner">
             <img src={engageLogo} alt="Engagehubs" width="100" height="100" />
             <div className="fl-tagline">
-              <span>CRM</span><i /><span>Automation</span><i /><span>Communication</span>
+              <span>PMS</span><i /><span>Channel Manager</span><i /><span>Guest Experience</span>
             </div>
 
             {mode === "login" && <>
               <h1 className="fl-title">Login to your account</h1>
-              <p className="fl-subtitle">Enter the details to access Engage AI workspace</p>
+              <p className="fl-subtitle">Enter your details to access your Engage Stay workspace</p>
 
               <form className="fl-form" onSubmit={handleLoginSubmit}>
                 <div className="fl-field">
@@ -258,20 +271,14 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 <button type="submit" className="fl-submit" disabled={signingIn}>{signingIn ? "Signing in…" : <>Sign in <Arrow /></>}</button>
               </form>
 
-              <div className="fl-divider">Or continue with</div>
-              <div className="fl-social" onClick={(event) => { const button = event.target.closest("button"); if (button) beginSocialSignup(button.textContent.includes("Microsoft") ? "microsoft" : "google"); }}>
-                <button type="button"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" /><path fill="#FF3D00" d="m6.306 14.691 6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z" /><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" /><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" /></svg>Google</button>
-                <button type="button"><svg viewBox="0 0 23 23" aria-hidden="true"><rect x="1" y="1" width="10" height="10" fill="#f25022" /><rect x="12" y="1" width="10" height="10" fill="#7fba00" /><rect x="1" y="12" width="10" height="10" fill="#00a4ef" /><rect x="12" y="12" width="10" height="10" fill="#ffb900" /></svg>Microsoft</button>
-              </div>
-
               <p className="fl-signup">Don&apos;t have an account?<button type="button" onClick={switchToSignup}>Sign up</button></p>
             </>}
 
             {mode === "signup" && <>
-              <h1 className="fl-title fl-signup-title">Create your account</h1>
-              <p className="fl-subtitle">Add your details to get started</p>
+              <h1 className="fl-title fl-signup-title">Register your property</h1>
+              <p className="fl-subtitle">Start with a verified account. Property access is activated after review.</p>
 
-              <form className="fl-form fl-signup-form" onSubmit={handleSignupSubmit}>
+              {onSignupVerified ? <form className="fl-form fl-signup-form" onSubmit={handleSignupSubmit}>
                 <div className="fl-field">
                   <label className="fl-label" htmlFor="fl-business">Business Name</label>
                   <div className="fl-input"><Ico className="fl-icon"><path d="M3 21h18" /><path d="M5 21V7l7-4 7 4v14" /><path d="M9 21v-6h6v6" /><path d="M9 9h.01M15 9h.01M9 12h.01M15 12h.01" /></Ico><input id="fl-business" required type="text" placeholder="Enter your business name" value={businessName} onChange={(e) => setBusinessName(e.target.value)} autoComplete="organization" /></div>
@@ -297,29 +304,13 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 {formError && <div className="fl-form-error">{formError}</div>}
 
                 <button type="submit" className="fl-submit" ><>Create Account <Arrow /></></button>
-              </form>
+              </form> : <div className="fl-form fl-signup-form">
+                <p className="fl-subtitle">Continue with Google to verify your identity and submit an onboarding request. Our team will review your registration before enabling your workspace.</p>
+                <label className="fl-terms"><input type="checkbox" checked={acceptedTerms} onChange={(e) => setAcceptedTerms(e.target.checked)} /><span>I agree to the <a href="https://js-goodapakam.github.io/project-friday/terms-and-conditions" target="_blank" rel="noreferrer">Terms</a> and <a href="https://js-goodapakam.github.io/project-friday/privacy-policy" target="_blank" rel="noreferrer">Privacy Policy</a>.</span></label>
+                <button type="button" className="fl-submit" disabled={!acceptedTerms} onClick={() => beginSocialSignup("google")}>Register with Google <Arrow /></button>
+                <p className="fl-subtitle">Email/password and Microsoft registrations are not yet enabled. For assisted onboarding, contact your Engagehubs administrator.</p>
+              </div>}
 
-              <div className="fl-divider fl-signup-divider">Or Sign in with</div>
-              <div className="fl-social fl-signup-social" onClick={(event) => { const button = event.target.closest("button"); if (button) beginSocialSignup(button.textContent.includes("Microsoft") ? "microsoft" : "google"); }}>
-                <button type="button">
-                  <svg viewBox="0 0 48 48" aria-hidden="true">
-                    <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" />
-                    <path fill="#FF3D00" d="m6.306 14.691 6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z" />
-                    <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" />
-                    <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" />
-                  </svg>
-                  Google
-                </button>
-                <button type="button">
-  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-    <rect x="1" y="1" width="10.5" height="10.5" fill="#F25022" />
-    <rect x="12.5" y="1" width="10.5" height="10.5" fill="#7FBA00" />
-    <rect x="1" y="12.5" width="10.5" height="10.5" fill="#00A4EF" />
-    <rect x="12.5" y="12.5" width="10.5" height="10.5" fill="#FFB900" />
-  </svg>
-  Microsoft
-</button>
-              </div>
 
               <p className="fl-signup">Already have an account?<button type="button" onClick={switchToLogin}>Sign in</button></p>
             </>}
@@ -390,19 +381,19 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
           </svg>
 
           <div className="fl-topnav">
-            <span>Build</span><i />
-            <span>Automate</span><i />
+            <span>Manage</span><i />
+            <span>Connect</span><i />
             <span>Grow</span>
           </div>
 
           <div className="fl-hero">
             <h2>
-              <span>Your business.</span>
-              <span className="fl-grad">Smarter with</span>
-              <span className="fl-grad">Engage AI.</span>
+              <span>Your property.</span>
+              <span className="fl-grad">Better with</span>
+              <span className="fl-grad">Engage Stay.</span>
             </h2>
             <p>
-              AI-powered CRM, automation and communication built for modern businesses.
+              One connected workspace for reservations, room availability, guest services and property operations.
             </p>
           </div>
 
@@ -415,10 +406,10 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 <Ico fill="currentColor" sw={0}>
                   <path d="M12 2l2.2 6.3L21 10l-6.8 1.7L12 18l-2.2-6.3L3 10l6.8-1.7z" />
                 </Ico>
-                <span className="fl-ai-pill">AI Assistant</span>
+                <span className="fl-ai-pill">Smart Operations</span>
                 <span className="fl-ai-dot" />
               </div>
-              <p>Turning conversations into opportunities</p>
+              <p>Make each guest stay easier to manage</p>
               <span className="fl-arrow"><Arrow /></span>
             </div>
 
@@ -434,8 +425,8 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 <span className="fl-arrow"><Arrow /></span>
               </div>
               <div>
-                <h4>CRM</h4>
-                <small>Manage customers<br />smarter</small>
+                <h4>Reservations</h4>
+                <small>Bookings in<br />one place</small>
               </div>
             </div>
 
@@ -446,8 +437,8 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
               </Ico>
               <div className="fl-card-bottom">
                 <div>
-                  <h4>Automation</h4>
-                  <small>Save time,<br />do more</small>
+                  <h4>Inventory</h4>
+                  <small>Rooms and<br />availability</small>
                 </div>
                 <span className="fl-arrow"><Arrow /></span>
               </div>
@@ -458,11 +449,11 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
               <Ico className="fl-card-ico" fill="currentColor" sw={0}>
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
               </Ico>
-              <h4>Communication</h4>
+              <h4>Guest Service</h4>
               <span className="fl-mini">
                 <Ico><path d="M17 7 7 17" /><path d="M7 17h8" /><path d="M7 17V9" /></Ico>
               </span>
-              <small>Calls, SMS &amp; more<br />in one place</small>
+              <small>Guest requests<br />in one place</small>
               <span className="fl-arrow"><Arrow /></span>
             </div>
           </div>
@@ -473,11 +464,11 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
                 <path d="m9 12 2 2 4-4" />
               </Ico>
-              <span>Trusted by<br />Businesses</span>
+              <span>Built for<br />Hospitality</span>
             </div>
             <div className="fl-stat">
               <Ico><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></Ico>
-              <span>99.9%<br />Uptime</span>
+              <span>One<br />Workspace</span>
             </div>
             <div className="fl-stat">
               <Ico>
@@ -485,7 +476,7 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 <rect x="10" y="9" width="4" height="12" rx="1" />
                 <rect x="17" y="3" width="4" height="18" rx="1" />
               </Ico>
-              <span>Scale<br />Effortlessly</span>
+              <span>Manage<br />Multiple Stays</span>
             </div>
             <div className="fl-stat">
               <Ico>
@@ -493,7 +484,7 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
                 <path d="M2 12h20" />
               </Ico>
-              <span>Built for<br />a Global World</span>
+              <span>Guest-first<br />Operations</span>
             </div>
           </div>
         </div>
