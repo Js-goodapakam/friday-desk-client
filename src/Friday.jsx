@@ -1,5 +1,6 @@
 import engageLogo from "./assets/engage-stay-mark-black.svg";
 import { useEffect, useState } from "react";
+import { signupRequest } from "./services/signup.js";
 
 /* Small inline icon wrapper (no extra packages needed) */
 const Ico = ({ children, className, fill = "none", sw = 1.8 }) => (
@@ -36,7 +37,7 @@ const COUNTRIES = [
   { code: "DE", dial: "+49", label: "Germany" },
 ];
 
-export default function FridayLogin({ onLogin, onSignupVerified, onForgotPassword }) {
+export default function FridayLogin({ onLogin, onForgotPassword }) {
   const [mode, setMode] = useState("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,7 +55,47 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
   const [signingIn, setSigningIn] = useState(false);
   const [countryDial, setCountryDial] = useState("+91");
   const [mobile, setMobile] = useState("");
+  const [submittingSignup, setSubmittingSignup] = useState(false);
+  const [verificationToken, setVerificationToken] = useState(null);
   const beginSocialSignup = (provider) => window.location.assign(`/api/auth/social/${provider}`);
+
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search);
+    const hash = new URLSearchParams(window.location.hash.slice(1));
+    const signupStatus = query.get("signup");
+
+    if (signupStatus === "received") {
+      setMode("received");
+      window.history.replaceState(null, "", window.location.pathname);
+      return;
+    }
+
+    if (signupStatus !== "verify") return;
+
+    // Supabase redirects to the application with a short-lived session in
+    // the hash after email confirmation. Remove it from browser history before
+    // exchanging it with the Engage Stay server.
+    const token = hash.get("access_token");
+    const type = hash.get("type");
+    window.history.replaceState(null, "", window.location.pathname);
+
+    if (!token || type !== "signup") {
+      setMode("email-sent");
+      setFormError("Email verification could not be completed. Reopen the original confirmation link or contact support.");
+      return;
+    }
+
+    setMode("finalizing");
+    setVerificationToken(token);
+    signupRequest("complete", { accessToken: token }).then(() => {
+      setVerificationToken(null);
+      setFormError("");
+      setMode("received");
+    }).catch((error) => {
+      setMode("finalizing");
+      setFormError(error.message || "We could not submit your signup request. Please retry.");
+    });
+  }, []);
 
   useEffect(() => {
     const updateRightScale = () => {
@@ -103,8 +144,8 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
       return;
     }
 
-    if (password.length < 8) {
-      setFormError("Password must contain at least 8 characters.");
+    if (password.length < 10) {
+      setFormError("Password must contain at least 10 characters.");
       return;
     }
 
@@ -118,26 +159,22 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
       return;
     }
 
-    if (!onSignupVerified) {setFormError("Self-service registration is not available. Ask your administrator to create your account.");return;}
     setMode("mobile");
     setFormError("");
     setSuccessMessage("");
   };
 
-  const handleMobileSubmit = (e) => {
+  const handleMobileSubmit = async (e) => {
     e.preventDefault();
+    if (submittingSignup) return;
     setFormError("");
     setSuccessMessage("");
 
     const digits = mobile.replace(/\D/g, "");
-    if (!digits) {
-      setFormError("Please enter your mobile number.");
-      return;
-    }
-
     const valid = countryDial === "+91"
       ? /^[6-9]\d{9}$/.test(digits)
       : digits.length >= 6 && digits.length <= 14;
+
     if (!valid) {
       setFormError(countryDial === "+91"
         ? "Please enter a valid 10-digit Indian mobile number."
@@ -145,13 +182,37 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
       return;
     }
 
-    setSuccessMessage("Mobile number added.");
-    onSignupVerified?.({
-      businessName: businessName.trim(),
-      email: email.trim(),
-      password,
-      mobile: `${countryDial}${digits}`,
-    });
+    setSubmittingSignup(true);
+    try {
+      await signupRequest("start", {
+        businessName: businessName.trim(),
+        email: email.trim().toLowerCase(),
+        password,
+        mobile: `${countryDial}${digits}`,
+      });
+      setPassword("");
+      setConfirmPassword("");
+      setMode("email-sent");
+    } catch (error) {
+      setFormError(error.message || "Unable to send the verification email.");
+    } finally {
+      setSubmittingSignup(false);
+    }
+  };
+
+  const retryVerifiedSignup = async () => {
+    if (!verificationToken || submittingSignup) return;
+    setFormError("");
+    setSubmittingSignup(true);
+    try {
+      await signupRequest("complete", { accessToken: verificationToken });
+      setVerificationToken(null);
+      setMode("received");
+    } catch (error) {
+      setFormError(error.message || "Unable to complete the registration.");
+    } finally {
+      setSubmittingSignup(false);
+    }
   };
 
   const handleLoginSubmit = async (e) => {
@@ -220,12 +281,12 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
           <div className="fl-left-inner">
             <div className="fl-brand-lockup" aria-label="Engage Stay"><img className="fl-brand-mark" src={engageLogo} alt="" /><span className="fl-brand-name">Engage Stay</span></div>
             <div className="fl-tagline">
-              <span>CRM</span><i /><span>Automation</span><i /><span>Communication</span>
+              <span>PMS</span><i /><span>Channel Manager</span><i /><span>Guest Experience</span>
             </div>
 
             {mode === "login" && <>
               <h1 className="fl-title">Login to your account</h1>
-              <p className="fl-subtitle">Enter the details to access Engage AI workspace</p>
+              <p className="fl-subtitle">Enter your details to access your Engage Stay workspace</p>
 
               <form className="fl-form" onSubmit={handleLoginSubmit}>
                 <div className="fl-field">
@@ -268,8 +329,8 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
             </>}
 
             {mode === "signup" && <>
-              <h1 className="fl-title fl-signup-title">Create your account</h1>
-              <p className="fl-subtitle">Add your details to get started</p>
+              <h1 className="fl-title fl-signup-title">Register your property</h1>
+              <p className="fl-subtitle">Verify your email to submit a request for Engage Stay access.</p>
 
               <form className="fl-form fl-signup-form" onSubmit={handleSignupSubmit}>
                 <div className="fl-field">
@@ -296,37 +357,15 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
 
                 {formError && <div className="fl-form-error">{formError}</div>}
 
-                <button type="submit" className="fl-submit" ><>Create Account <Arrow /></></button>
+                <button type="submit" className="fl-submit">Continue <Arrow /></button>
               </form>
-
-              <div className="fl-divider fl-signup-divider">Or Sign in with</div>
-              <div className="fl-social fl-signup-social" onClick={(event) => { const button = event.target.closest("button"); if (button) beginSocialSignup(button.textContent.includes("Microsoft") ? "microsoft" : "google"); }}>
-                <button type="button">
-                  <svg viewBox="0 0 48 48" aria-hidden="true">
-                    <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" />
-                    <path fill="#FF3D00" d="m6.306 14.691 6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z" />
-                    <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" />
-                    <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" />
-                  </svg>
-                  Google
-                </button>
-                <button type="button">
-  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-    <rect x="1" y="1" width="10.5" height="10.5" fill="#F25022" />
-    <rect x="12.5" y="1" width="10.5" height="10.5" fill="#7FBA00" />
-    <rect x="1" y="12.5" width="10.5" height="10.5" fill="#00A4EF" />
-    <rect x="12.5" y="12.5" width="10.5" height="10.5" fill="#FFB900" />
-  </svg>
-  Microsoft
-</button>
-              </div>
 
               <p className="fl-signup">Already have an account?<button type="button" onClick={switchToLogin}>Sign in</button></p>
             </>}
 
             {mode === "mobile" && <>
-              <h1 className="fl-title fl-mobile-title">Mobile Number Verification</h1>
-              <p className="fl-subtitle">Enter your phone number to receive a verification code</p>
+              <h1 className="fl-title fl-mobile-title">Contact number</h1>
+              <p className="fl-subtitle">Add a contact number for the onboarding team. We will verify your email next.</p>
 
               <form className="fl-form fl-mobile-form" onSubmit={handleMobileSubmit}>
                 <div className="fl-field">
@@ -342,10 +381,30 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 {formError && <div className="fl-form-error" role="alert">{formError}</div>}
                 {successMessage && <div className="fl-form-success" role="status">{successMessage}</div>}
 
-                <button type="submit" className="fl-submit">Next <Arrow /></button>
+                <button type="submit" className="fl-submit" disabled={submittingSignup}>{submittingSignup ? "Sending verification…" : <>Send verification email <Arrow /></>}</button>
               </form>
 
               <p className="fl-signup">Already have an account?<button type="button" onClick={switchToLogin}>Sign in</button></p>
+            </>}
+
+            {mode === "email-sent" && <>
+              <h1 className="fl-title">Check your email</h1>
+              <p className="fl-subtitle">We sent a confirmation link to <strong>{email || "your email address"}</strong>. Open the link to finish your registration. Your details will appear in the Engagehubs Owner Tool only after verification.</p>
+              {formError && <div className="fl-form-error" role="alert">{formError}</div>}
+              <p className="fl-signup"><button type="button" onClick={switchToSignup}>Back to registration</button></p>
+            </>}
+
+            {mode === "finalizing" && <>
+              <h1 className="fl-title">Submitting your registration</h1>
+              <p className="fl-subtitle">Your email is confirmed. We are submitting the business details to the Engagehubs Owner Tool.</p>
+              {formError && <div className="fl-form-error" role="alert">{formError}</div>}
+              {verificationToken && <button type="button" className="fl-submit" onClick={retryVerifiedSignup} disabled={submittingSignup}>{submittingSignup ? "Retrying…" : "Retry submission"}</button>}
+            </>}
+
+            {mode === "received" && <>
+              <h1 className="fl-title">Registration received</h1>
+              <p className="fl-subtitle">Your signup request has been sent to the Engagehubs Owner Tool for review. The team will contact you about account activation and workspace access.</p>
+              <button type="button" className="fl-submit" onClick={switchToLogin}>Back to sign in <Arrow /></button>
             </>}
 
             {mode === "forgot" && <>
@@ -390,19 +449,19 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
           </svg>
 
           <div className="fl-topnav">
-            <span>Build</span><i />
-            <span>Automate</span><i />
+            <span>Manage</span><i />
+            <span>Connect</span><i />
             <span>Grow</span>
           </div>
 
           <div className="fl-hero">
             <h2>
-              <span>Your business.</span>
-              <span className="fl-grad">Smarter with</span>
-              <span className="fl-grad">Engage AI.</span>
+              <span>Your property.</span>
+              <span className="fl-grad">Better with</span>
+              <span className="fl-grad">Engage Stay.</span>
             </h2>
             <p>
-              AI-powered CRM, automation and communication built for modern businesses.
+              One connected workspace for reservations, availability, guest services and property operations.
             </p>
           </div>
 
@@ -415,10 +474,10 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 <Ico fill="currentColor" sw={0}>
                   <path d="M12 2l2.2 6.3L21 10l-6.8 1.7L12 18l-2.2-6.3L3 10l6.8-1.7z" />
                 </Ico>
-                <span className="fl-ai-pill">AI Assistant</span>
+                <span className="fl-ai-pill">Smart Operations</span>
                 <span className="fl-ai-dot" />
               </div>
-              <p>Turning conversations into opportunities</p>
+              <p>Make each guest stay easier to manage</p>
               <span className="fl-arrow"><Arrow /></span>
             </div>
 
@@ -434,8 +493,8 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 <span className="fl-arrow"><Arrow /></span>
               </div>
               <div>
-                <h4>CRM</h4>
-                <small>Manage customers<br />smarter</small>
+                <h4>Reservations</h4>
+                <small>Bookings in<br />one place</small>
               </div>
             </div>
 
@@ -446,8 +505,8 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
               </Ico>
               <div className="fl-card-bottom">
                 <div>
-                  <h4>Automation</h4>
-                  <small>Save time,<br />do more</small>
+                  <h4>Inventory</h4>
+                  <small>Rooms and<br />availability</small>
                 </div>
                 <span className="fl-arrow"><Arrow /></span>
               </div>
@@ -458,11 +517,11 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
               <Ico className="fl-card-ico" fill="currentColor" sw={0}>
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
               </Ico>
-              <h4>Communication</h4>
+              <h4>Guest Service</h4>
               <span className="fl-mini">
                 <Ico><path d="M17 7 7 17" /><path d="M7 17h8" /><path d="M7 17V9" /></Ico>
               </span>
-              <small>Calls, SMS &amp; more<br />in one place</small>
+              <small>Guest requests<br />in one place</small>
               <span className="fl-arrow"><Arrow /></span>
             </div>
           </div>
@@ -473,11 +532,11 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
                 <path d="m9 12 2 2 4-4" />
               </Ico>
-              <span>Trusted by<br />Businesses</span>
+              <span>Built for<br />Hospitality</span>
             </div>
             <div className="fl-stat">
               <Ico><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></Ico>
-              <span>99.9%<br />Uptime</span>
+              <span>One<br />Workspace</span>
             </div>
             <div className="fl-stat">
               <Ico>
@@ -485,7 +544,7 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 <rect x="10" y="9" width="4" height="12" rx="1" />
                 <rect x="17" y="3" width="4" height="18" rx="1" />
               </Ico>
-              <span>Scale<br />Effortlessly</span>
+              <span>Manage<br />Multiple Stays</span>
             </div>
             <div className="fl-stat">
               <Ico>
@@ -493,7 +552,7 @@ export default function FridayLogin({ onLogin, onSignupVerified, onForgotPasswor
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
                 <path d="M2 12h20" />
               </Ico>
-              <span>Built for<br />a Global World</span>
+              <span>Guest-first<br />Operations</span>
             </div>
           </div>
         </div>
