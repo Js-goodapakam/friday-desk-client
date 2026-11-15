@@ -184,7 +184,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
 
     setSubmittingSignup(true);
     try {
-      await signupRequest("start", {
+      const result = await signupRequest("start", {
         businessName: businessName.trim(),
         email: email.trim().toLowerCase(),
         password,
@@ -192,7 +192,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
       });
       setPassword("");
       setConfirmPassword("");
-      setMode("email-sent");
+      setMode(result?.status === "PENDING_REVIEW" ? "received" : "email-sent");
     } catch (error) {
       setFormError(error.message || "Unable to send the verification email.");
     } finally {
@@ -330,7 +330,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
 
             {mode === "signup" && <>
               <h1 className="fl-title fl-signup-title">Register your property</h1>
-              <p className="fl-subtitle">Verify your email to submit a request for Engage Stay access.</p>
+              <p className="fl-subtitle">Submit your business registration for Engage Stay access. Email verification may be required.</p>
 
               <form className="fl-form fl-signup-form" onSubmit={handleSignupSubmit}>
                 <div className="fl-field">
