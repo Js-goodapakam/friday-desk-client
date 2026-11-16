@@ -1,6 +1,6 @@
 import engageLogo from "./assets/engage-stay-mark-black.svg";
 import { useEffect, useState } from "react";
-import { signupRequest } from "./services/signup.js";
+import { signupRequest, signupMode } from "./services/signup.js";
 
 /* Small inline icon wrapper (no extra packages needed) */
 const Ico = ({ children, className, fill = "none", sw = 1.8 }) => (
@@ -57,6 +57,8 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
   const [mobile, setMobile] = useState("");
   const [submittingSignup, setSubmittingSignup] = useState(false);
   const [verificationToken, setVerificationToken] = useState(null);
+  const [emailVerificationRequired, setEmailVerificationRequired] = useState(true);
+  useEffect(() => { void signupMode().then(mode => setEmailVerificationRequired(mode?.emailVerificationRequired !== false)); }, []);
   const beginSocialSignup = (provider) => window.location.assign(`/api/auth/social/${provider}`);
 
   useEffect(() => {
@@ -144,12 +146,12 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
       return;
     }
 
-    if (password.length < 10) {
+    if (emailVerificationRequired && password.length < 10) {
       setFormError("Password must contain at least 10 characters.");
       return;
     }
 
-    if (password !== confirmPassword) {
+    if (emailVerificationRequired && password !== confirmPassword) {
       setFormError("Passwords do not match.");
       return;
     }
@@ -187,14 +189,14 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
       const result = await signupRequest("start", {
         businessName: businessName.trim(),
         email: email.trim().toLowerCase(),
-        password,
+        ...(emailVerificationRequired ? { password } : {}),
         mobile: `${countryDial}${digits}`,
       });
       setPassword("");
       setConfirmPassword("");
       setMode(result?.status === "PENDING_REVIEW" ? "received" : "email-sent");
     } catch (error) {
-      setFormError(error.message || "Unable to send the verification email.");
+      setFormError(error.message || "Unable to submit your registration.");
     } finally {
       setSubmittingSignup(false);
     }
@@ -330,7 +332,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
 
             {mode === "signup" && <>
               <h1 className="fl-title fl-signup-title">Register your property</h1>
-              <p className="fl-subtitle">Submit your business registration for Engage Stay access. Email verification may be required.</p>
+              <p className="fl-subtitle">{emailVerificationRequired ? "Register for Engage Stay. We will verify your email before onboarding." : "Request Engage Stay access. The Engagehubs team will review your details before activating any account."}</p>
 
               <form className="fl-form fl-signup-form" onSubmit={handleSignupSubmit}>
                 <div className="fl-field">
@@ -343,7 +345,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
                   <div className="fl-input"><Ico className="fl-icon"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></Ico><input id="fl-signup-email" required type="email" placeholder="Enter your email address" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" /></div>
                 </div>
 
-                <div className="fl-field">
+                {emailVerificationRequired && <><div className="fl-field">
                   <label className="fl-label" htmlFor="fl-signup-password">Password</label>
                   <div className="fl-input"><Ico className="fl-icon"><rect width="18" height="11" x="3" y="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></Ico><input id="fl-signup-password" required type={showPassword ? "text" : "password"} placeholder="Create a password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="new-password" /><button type="button" className="fl-eye" onClick={() => setShowPassword((v) => !v)} aria-label={showPassword ? "Hide password" : "Show password"}><Ico>{showPassword ? <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /> : <><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" /><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" /><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" /><line x1="2" x2="22" y1="2" y2="22" /></>}</Ico></button></div>
                 </div>
@@ -352,6 +354,8 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
                   <label className="fl-label" htmlFor="fl-confirm-password">Confirm Password</label>
                   <div className="fl-input"><Ico className="fl-icon"><rect width="18" height="11" x="3" y="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></Ico><input id="fl-confirm-password" required type={showConfirmPassword ? "text" : "password"} placeholder="Confirm your password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} autoComplete="new-password" /><button type="button" className="fl-eye" onClick={() => setShowConfirmPassword((v) => !v)} aria-label={showConfirmPassword ? "Hide password" : "Show password"}><Ico>{showConfirmPassword ? <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /> : <><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" /><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" /><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" /><line x1="2" x2="22" y1="2" y2="22" /></>}</Ico></button></div>
                 </div>
+
+                </>}
 
                 <label className="fl-terms"><input type="checkbox" checked={acceptedTerms} onChange={(e) => setAcceptedTerms(e.target.checked)} /><span>I agree to the <a href="https://js-goodapakam.github.io/project-friday/terms-and-conditions" target="_blank" rel="noreferrer">Terms</a> and <a href="https://js-goodapakam.github.io/project-friday/privacy-policy" target="_blank" rel="noreferrer">Privacy Policy</a>.</span></label>
 
@@ -365,7 +369,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
 
             {mode === "mobile" && <>
               <h1 className="fl-title fl-mobile-title">Contact number</h1>
-              <p className="fl-subtitle">Add a contact number for the onboarding team. We will verify your email next.</p>
+              <p className="fl-subtitle">{emailVerificationRequired ? "Add a contact number for onboarding. We will verify your email next." : "Add a contact number for the onboarding team. We will review your request without email verification for now."}</p>
 
               <form className="fl-form fl-mobile-form" onSubmit={handleMobileSubmit}>
                 <div className="fl-field">
@@ -381,7 +385,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
                 {formError && <div className="fl-form-error" role="alert">{formError}</div>}
                 {successMessage && <div className="fl-form-success" role="status">{successMessage}</div>}
 
-                <button type="submit" className="fl-submit" disabled={submittingSignup}>{submittingSignup ? "Sending verification…" : <>Send verification email <Arrow /></>}</button>
+                <button type="submit" className="fl-submit" disabled={submittingSignup}>{submittingSignup ? "Submitting…" : <>{emailVerificationRequired ? "Send verification email" : "Submit registration"} <Arrow /></>}</button>
               </form>
 
               <p className="fl-signup">Already have an account?<button type="button" onClick={switchToLogin}>Sign in</button></p>
@@ -403,7 +407,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
 
             {mode === "received" && <>
               <h1 className="fl-title">Registration received</h1>
-              <p className="fl-subtitle">Your signup request has been sent to the Engagehubs Owner Tool for review. The team will contact you about account activation and workspace access.</p>
+              <p className="fl-subtitle">Your signup request has been sent to the Engagehubs Owner Tool for review. Your email is not verified and no login account is active yet. The team will contact you about verification, activation and workspace access.</p>
               <button type="button" className="fl-submit" onClick={switchToLogin}>Back to sign in <Arrow /></button>
             </>}
 
