@@ -404,8 +404,8 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
             </>}
 
             {mode === "received" && <>
-              <h1 className="fl-title">Registration received</h1>
-              <p className="fl-subtitle">Your signup request has been sent to the Engagehubs Owner Tool for review. Your email is not verified. Your password is securely saved for your pending account, but property access is not yet active. The team will contact you about verification, approval and workspace access.</p>
+              <h1 className="fl-title">Registration Successful!</h1>
+              <p className="fl-subtitle">Thank you for registering with Engage Stay. Our team will review your details and notify you once your account is activated.</p>
               <button type="button" className="fl-submit" onClick={switchToLogin}>Back to sign in <Arrow /></button>
             </>}
 
