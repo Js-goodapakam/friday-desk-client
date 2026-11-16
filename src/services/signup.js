@@ -18,3 +18,13 @@ export async function signupRequest(path, body) {
   if (!response.ok) throw new Error(result.error || 'Registration could not be completed.');
   return result;
 }
+
+export async function signupMode() {
+  try {
+    const response = await fetch(`${API_BASE}/api/auth/signup/mode`, { credentials: 'include' });
+    if (!response.ok) return { emailVerificationRequired: true };
+    return await response.json();
+  } catch {
+    return { emailVerificationRequired: true };
+  }
+}
