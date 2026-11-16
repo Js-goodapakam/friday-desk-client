@@ -146,12 +146,12 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
       return;
     }
 
-    if (emailVerificationRequired && password.length < 10) {
+    if (password.length < 10) {
       setFormError("Password must contain at least 10 characters.");
       return;
     }
 
-    if (emailVerificationRequired && password !== confirmPassword) {
+    if (password !== confirmPassword) {
       setFormError("Passwords do not match.");
       return;
     }
@@ -189,7 +189,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
       const result = await signupRequest("start", {
         businessName: businessName.trim(),
         email: email.trim().toLowerCase(),
-        ...(emailVerificationRequired ? { password } : {}),
+        password,
         mobile: `${countryDial}${digits}`,
       });
       setPassword("");
@@ -345,7 +345,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
                   <div className="fl-input"><Ico className="fl-icon"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></Ico><input id="fl-signup-email" required type="email" placeholder="Enter your email address" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" /></div>
                 </div>
 
-                {emailVerificationRequired && <><div className="fl-field">
+                <div className="fl-field">
                   <label className="fl-label" htmlFor="fl-signup-password">Password</label>
                   <div className="fl-input"><Ico className="fl-icon"><rect width="18" height="11" x="3" y="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></Ico><input id="fl-signup-password" required type={showPassword ? "text" : "password"} placeholder="Create a password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="new-password" /><button type="button" className="fl-eye" onClick={() => setShowPassword((v) => !v)} aria-label={showPassword ? "Hide password" : "Show password"}><Ico>{showPassword ? <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /> : <><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" /><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" /><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" /><line x1="2" x2="22" y1="2" y2="22" /></>}</Ico></button></div>
                 </div>
@@ -354,8 +354,6 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
                   <label className="fl-label" htmlFor="fl-confirm-password">Confirm Password</label>
                   <div className="fl-input"><Ico className="fl-icon"><rect width="18" height="11" x="3" y="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></Ico><input id="fl-confirm-password" required type={showConfirmPassword ? "text" : "password"} placeholder="Confirm your password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} autoComplete="new-password" /><button type="button" className="fl-eye" onClick={() => setShowConfirmPassword((v) => !v)} aria-label={showConfirmPassword ? "Hide password" : "Show password"}><Ico>{showConfirmPassword ? <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /> : <><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" /><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" /><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" /><line x1="2" x2="22" y1="2" y2="22" /></>}</Ico></button></div>
                 </div>
-
-                </>}
 
                 <label className="fl-terms"><input type="checkbox" checked={acceptedTerms} onChange={(e) => setAcceptedTerms(e.target.checked)} /><span>I agree to the <a href="https://js-goodapakam.github.io/project-friday/terms-and-conditions" target="_blank" rel="noreferrer">Terms</a> and <a href="https://js-goodapakam.github.io/project-friday/privacy-policy" target="_blank" rel="noreferrer">Privacy Policy</a>.</span></label>
 
@@ -407,7 +405,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
 
             {mode === "received" && <>
               <h1 className="fl-title">Registration received</h1>
-              <p className="fl-subtitle">Your signup request has been sent to the Engagehubs Owner Tool for review. Your email is not verified and no login account is active yet. The team will contact you about verification, activation and workspace access.</p>
+              <p className="fl-subtitle">Your signup request has been sent to the Engagehubs Owner Tool for review. Your email is not verified. Your password is securely saved for your pending account, but property access is not yet active. The team will contact you about verification, approval and workspace access.</p>
               <button type="button" className="fl-submit" onClick={switchToLogin}>Back to sign in <Arrow /></button>
             </>}
 
