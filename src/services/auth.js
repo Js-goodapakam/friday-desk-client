@@ -9,3 +9,13 @@ export async function authRequest(path, body) {
   if(result.user?.email === 'info@friday.com') result.user.email = 'info@engagehubs.com';
   return result;
 }
+
+// New customer accounts are authenticated by Supabase. Legacy PMS accounts
+// retain their existing endpoint during the controlled migration.
+export async function loginWithIdentityBridge(credentials) {
+  try { return await authRequest('login', credentials); }
+  catch (legacyError) {
+    if (!/Incorrect email or password/.test(legacyError.message || '')) throw legacyError;
+    return authRequest('supabase/login', credentials);
+  }
+}

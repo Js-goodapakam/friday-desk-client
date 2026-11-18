@@ -6,7 +6,7 @@ import { Component, useEffect, useMemo, useState, useRef, useCallback } from "re
 import PIOPIY from "@telecmi/piopiyjs";
 import "./index.css";
 import FridayLogin from "./Friday.jsx";
-import { authRequest } from "./services/auth.js";
+import { authRequest, loginWithIdentityBridge } from "./services/auth.js";
 import Properties from "./pages/PortfolioWorkspace.jsx";
 import {workspaceRequest} from "./services/workspace.js";
 import DemoOperations from "./pages/DemoOperations.jsx";
@@ -1132,7 +1132,7 @@ export default function App(){
  useEffect(()=>{if(!checkingSession&&!session)finishBrowserRefresh();},[checkingSession,session]);
  useEffect(()=>{let active=true;authRequest("session").then(result=>{if(active)setSession(result.user)}).catch(()=>{}).finally(()=>{if(active)setCheckingSession(false)});return()=>{active=false};},[]);
  useEffect(()=>{if(!session)return;let active=true;const verify=()=>authRequest("session").catch(()=>{if(active)setSession(null);});const timer=setInterval(verify,300000);window.addEventListener("focus",verify);return()=>{active=false;clearInterval(timer);window.removeEventListener("focus",verify);};},[session]);
- const login=async credentials=>{const result=await authRequest("login",credentials);setSelectedProperty(null);setWelcome(true);setSession(result.user);};
+ const login=async credentials=>{const result=await loginWithIdentityBridge(credentials);setSelectedProperty(null);setWelcome(true);setSession(result.user);};
  const logout=async()=>{try{await authRequest("logout",{});setSelectedProperty(null);setSession(null);}catch(error){alert(error.message);}};
 
 
