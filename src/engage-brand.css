@@ -124,15 +124,7 @@
 .friday-inline-loader.engage-motion-inline .oi-load-progress i {
   background:linear-gradient(90deg,#135FDB,#3BBFEE);
 }
-/* The incoming workspace is revealed by an expanding circular aperture.
-   It starts only when the actual workspace mounts; data loading is never delayed. */
-#root .pw-app {
-  animation:engage-dashboard-reveal 740ms cubic-bezier(.22,1,.36,1) both;
-}
-@keyframes engage-dashboard-reveal {
-  from { opacity:.75; clip-path:circle(0px at 12% 26%); }
-  to { opacity:1; clip-path:circle(160vmax at 12% 26%); }
-}
+/* Workspace transition is now driven by EngageLogoFlight, which lands on the real sidebar logo. */
 @keyframes engage-logo-enter {
   from { opacity:0; transform:scale(.76); }
   to { opacity:1; transform:scale(1); }
@@ -164,6 +156,63 @@
 @media (prefers-reduced-motion:reduce) {
   .engage-motion-screen :is(.engage-motion-aura,.engage-motion-mark,.engage-mark-shape,.engage-motion-copy,.engage-motion-progress,.engage-motion-progress span),
   .engage-motion-inline .engage-mark-shape,
-  #root .pw-app { animation:none !important; }
+
   .engage-motion-progress span { width:100%; }
+}
+
+
+/* Continuous centre-to-top-left transition with the logo's actual sidebar position. */
+.engage-logo-flight {
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  overflow:hidden;
+  contain:layout style;
+}
+.engage-logo-flight-curtain {
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 58% 48% at 50% 46%,rgba(19,95,219,.20),transparent 73%),
+    radial-gradient(ellipse 35% 30% at 55% 44%,rgba(59,191,238,.10),transparent 80%),
+    linear-gradient(145deg,#040D2E 0%,#061A58 58%,#040D2E 100%);
+  clip-path:circle(160vmax at var(--engage-flight-destination-x,50%) var(--engage-flight-destination-y,50%));
+  will-change:clip-path;
+}
+.engage-logo-flight-icon {
+  position:absolute;
+  left:calc(50% - 48px);
+  top:calc(50% - 48px);
+  display:block;
+  width:96px;
+  height:96px;
+  max-width:none;
+  border:0;
+  object-fit:contain;
+  transform-origin:center center;
+  filter:drop-shadow(0 14px 30px rgba(0,0,0,.25));
+  will-change:transform;
+}
+.engage-flight-running .engage-logo-flight-curtain {
+  animation:engage-curtain-retract 870ms cubic-bezier(.45,.02,.25,1) 90ms forwards;
+}
+.engage-flight-running .engage-logo-flight-icon {
+  animation:engage-icon-fly-to-sidebar 960ms cubic-bezier(.22,1,.36,1) forwards;
+}
+@keyframes engage-curtain-retract {
+  0% { clip-path:circle(160vmax at var(--engage-flight-destination-x) var(--engage-flight-destination-y)); }
+  100% { clip-path:circle(0px at var(--engage-flight-destination-x) var(--engage-flight-destination-y)); }
+}
+@keyframes engage-icon-fly-to-sidebar {
+  0% { transform:translate3d(0,0,0) scale(1); opacity:1; }
+  15% { transform:translate3d(0,0,0) scale(1.06); opacity:1; }
+  100% {
+    transform:translate3d(var(--engage-flight-x),var(--engage-flight-y),0) scale(var(--engage-flight-scale));
+    opacity:1;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  .engage-logo-flight { display:none; }
+  .engage-logo-flight-curtain,.engage-logo-flight-icon { animation:none!important; }
 }
