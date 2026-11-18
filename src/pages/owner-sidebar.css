@@ -47,3 +47,12 @@
 #root .pw-app.pw-sidebar-collapsed .pw-nav-item>span{display:none}
 #root .pw-app.pw-sidebar-collapsed .pw-account,#root .pw-app.pw-sidebar-collapsed .pw-signout{justify-content:center}
 @media(min-width:901px) and (max-height:760px){#root .pw-app .pw-sidebar .pw-nav-item{min-height:35px;padding:7px 12px!important}#root .pw-app .pw-nav-title{margin-top:14px}#root .pw-app .pw-sidebar nav{gap:3px}}
+
+/* Use the official Engage app icon in the portfolio sidebar without changing its width. */
+#root .pw-app .pw-brand img {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  object-fit: contain;
+  flex: 0 0 32px;
+}
