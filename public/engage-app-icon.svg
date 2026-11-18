@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Engage app icon">
+  <defs>
+    <linearGradient id="engageGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#040D2E"/>
+      <stop offset="34%" stop-color="#061A58"/>
+      <stop offset="73%" stop-color="#135FDB"/>
+      <stop offset="100%" stop-color="#3BBFEE"/>
+    </linearGradient>
+    <radialGradient id="engageGlow" cx="90%" cy="8%" r="88%">
+      <stop offset="0%" stop-color="#3BBFEE" stop-opacity=".34"/>
+      <stop offset="66%" stop-color="#3BBFEE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="44" y="44" width="936" height="936" rx="240" fill="url(#engageGradient)"/>
+  <rect x="44" y="44" width="936" height="936" rx="240" fill="url(#engageGlow)"/>
+  <g fill="#F4F1DE" transform="translate(-115 -105)">
+    <path d="M671,323 385,464 385,565 670,423 Z"/>
+    <path d="M869,461 788,409 788,537 786,603 637,516 634,516 385,642 385,741 635,615 787,700 787,867 869,918 Z"/>
+    <path d="M646,691 386,819 386,921 645,791 Z"/>
+  </g>
+</svg>

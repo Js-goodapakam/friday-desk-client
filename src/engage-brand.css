@@ -1,0 +1,14 @@
+/* Engage official rounded-square application mark; exact EH geometry retained. */
+.fl-page .fl-brand-mark {
+  width: 72px !important;
+  height: 72px !important;
+  border-radius: 18px;
+  object-fit: contain !important;
+}
+@media (max-width: 480px) {
+  .fl-page .fl-brand-mark {
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 14px;
+  }
+}

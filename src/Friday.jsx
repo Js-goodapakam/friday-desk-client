@@ -1,4 +1,4 @@
-import engageLogo from "./assets/engage-stay-mark-black.svg";
+const engageLogo = "/engage-app-icon.svg";
 import { useEffect, useState } from "react";
 import { signupRequest, signupMode } from "./services/signup.js";
 
