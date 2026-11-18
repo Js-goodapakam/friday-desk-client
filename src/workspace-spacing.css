@@ -123,3 +123,87 @@
 #root .oi-branches .oi-branch-body h2{min-height:44px;margin:0 0 5px!important;line-height:1.4}
 #root .oi-branches .oi-branch-body>p{min-height:20px;margin:0!important}
 #root .oi-branches .oi-branch-metrics{padding:16px 0}
+
+
+/* Engage Stay loading experience — official app icon, improved contrast, unified identity. */
+.friday-refresh-screen {
+  background: radial-gradient(ellipse at 50% 37%, #e8f0fe 0%, #f4f7fc 50%, #f5f8fc 100%);
+  color: #040d2e;
+  gap: 0;
+  padding: 24px;
+  text-align: center;
+}
+.friday-refresh-mark {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  isolation: isolate;
+  flex: 0 0 100px;
+}
+.friday-refresh-mark::before {
+  inset: -28px;
+  background: radial-gradient(circle, rgba(19,95,219,.14), transparent 72%);
+  animation: engage-loading-glow 2.2s ease-in-out infinite;
+}
+.friday-refresh-intact {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(4,13,46,.16));
+  animation: engage-loading-arrive 650ms cubic-bezier(.22,1,.36,1) both;
+}
+.friday-refresh-copy { display:flex; flex-direction:column; align-items:center; gap:7px; }
+.friday-refresh-brand { font-size:12px; letter-spacing:.19em; font-weight:750; color:#061a58; }
+.friday-refresh-screen .friday-refresh-copy p {
+  font-size:15px;
+  color:#415a77;
+  margin:0;
+  animation:none;
+}
+.friday-refresh-progress {
+  width:148px;
+  height:3px;
+  border-radius:999px;
+  margin-top:24px;
+  overflow:hidden;
+  background:#dbe6f6;
+}
+.friday-refresh-progress span {
+  display:block;
+  width:38%;
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#135fdb,#3bbfee);
+  animation:engage-loading-bar 1.5s ease-in-out infinite;
+}
+.friday-page-loader .oi-branded-loader { background:#f5f8fc; }
+.friday-page-loader .oi-branded-loader img,
+.friday-inline-loader .oi-branded-loader img {
+  width:74px;
+  height:74px;
+  border-radius:18px;
+  object-fit:contain;
+  animation:engage-loading-arrive 650ms cubic-bezier(.22,1,.36,1) both;
+  filter:drop-shadow(0 8px 16px rgba(4,13,46,.15));
+}
+.friday-page-loader .oi-branded-loader strong,
+.friday-inline-loader .oi-branded-loader strong { color:#061a58; text-align:center; padding-inline:12px; }
+.friday-page-loader .oi-load-progress i,
+.friday-inline-loader .oi-load-progress i { background:linear-gradient(90deg,#135fdb,#3bbfee); }
+@keyframes engage-loading-arrive {
+  from { opacity:.4; transform:translateY(6px) scale(.96); }
+  to { opacity:1; transform:translateY(0) scale(1); }
+}
+@keyframes engage-loading-glow { 50% { opacity:.42; transform:scale(1.1); } }
+@keyframes engage-loading-bar {
+  from { transform:translateX(-110%); }
+  to { transform:translateX(380%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .friday-refresh-mark::before,
+  .friday-refresh-intact,
+  .friday-refresh-progress span,
+  .friday-page-loader .oi-branded-loader img,
+  .friday-inline-loader .oi-branded-loader img { animation:none; }
+  .friday-refresh-progress span { width:100%; transform:none; }
+}
