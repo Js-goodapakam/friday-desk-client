@@ -1,15 +1,13 @@
 import RefreshLoader from './RefreshLoader.jsx';
-import {isBrowserRefresh} from '../core/refreshState.js';
-
-const logo = '/engage-app-icon.svg';
+import EngageAnimatedLogo from './EngageAnimatedLogo.jsx';
 
 export default function FridayLoader({fullscreen=false}) {
-  if (fullscreen && isBrowserRefresh) return <RefreshLoader />;
+  if (fullscreen) return <RefreshLoader />;
   return (
-    <div className={fullscreen ? 'friday-page-loader' : 'friday-inline-loader'}
+    <div className="friday-inline-loader engage-motion-inline"
       role="status" aria-live="polite" aria-label="Loading Engage Stay workspace">
       <div className="oi-branded-loader">
-        <img src={logo} alt="" aria-hidden="true" />
+        <div className="engage-inline-mark"><EngageAnimatedLogo /></div>
         <strong>Preparing your Engage Stay workspace…</strong>
         <div className="oi-load-progress" aria-hidden="true"><i /></div>
       </div>

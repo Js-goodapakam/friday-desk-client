@@ -1,16 +1,16 @@
-const logo = '/engage-app-icon.svg';
+import EngageAnimatedLogo from './EngageAnimatedLogo.jsx';
 
 export default function RefreshLoader() {
   return (
-    <div className="friday-refresh-screen" role="status" aria-live="polite" aria-label="Loading Engage Stay workspace">
-      <div className="friday-refresh-mark" aria-hidden="true">
-        <img className="friday-refresh-intact" src={logo} alt="" />
-      </div>
-      <div className="friday-refresh-copy">
-        <span className="friday-refresh-brand">ENGAGE STAY</span>
+    <div className="friday-refresh-screen engage-motion-screen"
+      role="status" aria-live="polite" aria-label="Loading Engage Stay workspace">
+      <div className="engage-motion-aura" aria-hidden="true" />
+      <div className="engage-motion-mark"><EngageAnimatedLogo /></div>
+      <div className="engage-motion-copy">
+        <span className="engage-motion-product">ENGAGE STAY</span>
         <p>Preparing your workspace…</p>
       </div>
-      <div className="friday-refresh-progress" aria-hidden="true"><span /></div>
+      <div className="engage-motion-progress" aria-hidden="true"><span /></div>
     </div>
   );
 }

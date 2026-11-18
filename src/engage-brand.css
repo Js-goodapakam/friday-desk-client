@@ -12,3 +12,158 @@
     border-radius: 14px;
   }
 }
+
+/* Engage motion identity — video-inspired intro and circular dashboard reveal.
+   Only SVG path transforms animate; their official geometry never changes. */
+.friday-refresh-screen.engage-motion-screen {
+  position:fixed;
+  inset:0;
+  min-height:100dvh;
+  z-index:210;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:0;
+  overflow:hidden;
+  text-align:center;
+  padding:24px;
+  color:#F4F1DE;
+  background:
+    radial-gradient(ellipse 58% 48% at 50% 46%, rgba(19,95,219,.20), transparent 73%),
+    radial-gradient(ellipse 35% 30% at 55% 44%, rgba(59,191,238,.10), transparent 80%),
+    linear-gradient(145deg,#040D2E 0%,#061A58 58%,#040D2E 100%);
+}
+.engage-motion-aura {
+  pointer-events:none;
+  position:absolute;
+  left:50%;
+  top:49%;
+  width:min(62vw,440px);
+  aspect-ratio:1;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(59,191,238,.16),rgba(19,95,219,.08) 42%,transparent 70%);
+  filter:blur(12px);
+  animation:engage-ambient-pulse 2.7s ease-in-out infinite alternate;
+}
+.engage-motion-mark {
+  position:relative;
+  isolation:isolate;
+  width:96px;
+  height:96px;
+  flex:0 0 96px;
+  margin-bottom:19px;
+  filter:drop-shadow(0 14px 30px rgba(0,0,0,.25));
+  animation:engage-logo-enter 550ms cubic-bezier(.2,.75,.25,1) both;
+}
+.engage-motion-svg { display:block; width:100%; height:100%; overflow:visible; }
+.engage-mark-shape { transform-box:fill-box; transform-origin:center; }
+.engage-mark-top {
+  animation:engage-stroke-top 700ms cubic-bezier(.16,1,.3,1) 70ms both;
+}
+.engage-mark-middle {
+  animation:engage-stroke-middle 700ms cubic-bezier(.16,1,.3,1) 160ms both;
+}
+.engage-mark-bottom {
+  animation:engage-stroke-bottom 700ms cubic-bezier(.16,1,.3,1) 260ms both;
+}
+.engage-motion-copy {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:9px;
+  animation:engage-text-enter 600ms ease 360ms both;
+}
+.engage-motion-product {
+  display:block;
+  color:#F4F1DE;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.20em;
+  line-height:1.4;
+}
+.friday-refresh-screen.engage-motion-screen .engage-motion-copy p {
+  color:#c7d8ed;
+  font-size:14px;
+  line-height:1.5;
+  margin:0;
+  animation:none;
+}
+.engage-motion-progress {
+  position:relative;
+  width:146px;
+  height:3px;
+  overflow:hidden;
+  border-radius:999px;
+  margin-top:23px;
+  background:rgba(244,241,222,.16);
+  animation:engage-text-enter 600ms ease 500ms both;
+}
+.engage-motion-progress span {
+  display:block;
+  height:100%;
+  width:36%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#135FDB,#3BBFEE);
+  animation:engage-shimmer 1.3s ease-in-out infinite;
+}
+.friday-inline-loader.engage-motion-inline .engage-inline-mark {
+  width:68px;
+  height:68px;
+  margin:0 auto;
+}
+.friday-inline-loader.engage-motion-inline .engage-inline-mark .engage-motion-svg {
+  filter:drop-shadow(0 8px 18px rgba(4,13,46,.12));
+}
+.friday-inline-loader.engage-motion-inline .oi-branded-loader { gap:14px; }
+.friday-inline-loader.engage-motion-inline .oi-branded-loader strong {
+  text-align:center;
+  color:#061A58;
+}
+.friday-inline-loader.engage-motion-inline .oi-load-progress i {
+  background:linear-gradient(90deg,#135FDB,#3BBFEE);
+}
+/* The incoming workspace is revealed by an expanding circular aperture.
+   It starts only when the actual workspace mounts; data loading is never delayed. */
+#root .pw-app {
+  animation:engage-dashboard-reveal 740ms cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes engage-dashboard-reveal {
+  from { opacity:.75; clip-path:circle(0px at 12% 26%); }
+  to { opacity:1; clip-path:circle(160vmax at 12% 26%); }
+}
+@keyframes engage-logo-enter {
+  from { opacity:0; transform:scale(.76); }
+  to { opacity:1; transform:scale(1); }
+}
+@keyframes engage-stroke-top {
+  from { opacity:0; transform:translate(-80px,-55px); }
+  to { opacity:1; transform:translate(0,0); }
+}
+@keyframes engage-stroke-middle {
+  from { opacity:0; transform:translate(90px,0); }
+  to { opacity:1; transform:translate(0,0); }
+}
+@keyframes engage-stroke-bottom {
+  from { opacity:0; transform:translate(-70px,72px); }
+  to { opacity:1; transform:translate(0,0); }
+}
+@keyframes engage-text-enter {
+  from { opacity:0; transform:translateY(9px); }
+  to { opacity:1; transform:translateY(0); }
+}
+@keyframes engage-ambient-pulse {
+  from { opacity:.55; scale:.95; }
+  to { opacity:1; scale:1.07; }
+}
+@keyframes engage-shimmer {
+  from { transform:translateX(-110%); }
+  to { transform:translateX(390%); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .engage-motion-screen :is(.engage-motion-aura,.engage-motion-mark,.engage-mark-shape,.engage-motion-copy,.engage-motion-progress,.engage-motion-progress span),
+  .engage-motion-inline .engage-mark-shape,
+  #root .pw-app { animation:none !important; }
+  .engage-motion-progress span { width:100%; }
+}
