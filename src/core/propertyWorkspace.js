@@ -1,5 +1,35 @@
 import {seed} from './data.js';
 
+const managedSections = {
+ operations: ['rooms', 'guests', 'reservations', 'requests', 'tasks', 'housekeeping'],
+ finance: ['folios', 'payments', 'invoices', 'invoiceSettings'],
+ inventory: ['ratePlans', 'inventoryOverrides', 'inventoryAudit', 'revenueManagement'],
+ communications: ['communications', 'callActivities'],
+};
+const objectSections = new Set(['invoiceSettings', 'inventoryOverrides', 'revenueManagement']);
+
+export function managedWorkspaceView(state, property, modules) {
+ const view = {property: {...property, ...state.property}};
+ for (const key of Object.values(managedSections).flat()) {
+  view[key] = objectSections.has(key) ? {} : [];
+ }
+ for (const key of modules.flatMap(module => managedSections[module] || [])) {
+  if (Object.hasOwn(state, key)) view[key] = state[key];
+ }
+ return view;
+}
+
+export function managedWorkspaceChanges(next, previous, modules) {
+ const allowed = new Set(modules.flatMap(module => managedSections[module] || []));
+ const patch = {property: {id: previous.property.id}};
+ for (const [key, value] of Object.entries(next)) {
+  if (JSON.stringify(value) === JSON.stringify(previous[key])) continue;
+  if (!allowed.has(key)) throw new Error('This workspace section cannot be saved.');
+  patch[key] = value;
+ }
+ return patch;
+}
+
 export const propertyStorageKey=(userId,propertyId)=>`friday-pms-user-${userId}-property-${propertyId}-v1`;
 export function emptyPropertyWorkspace(property, user) {
  const defaults=seed();
