@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SimplePage } from "./SimplePage.jsx";
-export default function Rooms({data, onAddRoom}) {
+export default function Rooms({data, onAddRoom, housekeeping, onCleaningStatus}) {
  const [pending,setPending]=useState(false);
  const [error,setError]=useState("");
  async function addRoom(event) {
@@ -19,9 +19,27 @@ export default function Rooms({data, onAddRoom}) {
    setPending(false);
   }
  }
- return <SimplePage title="Rooms" eyebrow="ROOM INVENTORY">
+ async function markRoom(number,status) {
+  if(pending)return;
+  setPending(true);
+  try { await onCleaningStatus(number,status); }
+  finally { setPending(false); }
+ }
+ return <SimplePage title={housekeeping?"Housekeeping":"Rooms"} eyebrow={housekeeping?"PROPERTY OPERATIONS":"ROOM INVENTORY"}>
   <section className="card property-card"><div className="property-main"><div><h2>{data.property?.name}</h2><p className="muted">{data.rooms.length} rooms · one operating location</p></div><span className="pill">1 Location</span></div>
-  <div className="room-grid large">{data.rooms.map(rm=>{const s=data.reservations.find(r=>r.room===rm.number&&r.status==="Checked In");return <div className={`room-tile ${s?"occupied":""}`} key={rm.number}><strong>Room {rm.number}</strong><span>{s?`Occupied · ${data.guests.find(g=>g.id===s.guestId)?.name||"Guest"}`:"Available"}</span><small>{rm.type}</small></div>})}</div>
+  <div className="room-grid large">{data.rooms.map(rm=>{
+   const guest=data.reservations.find(r=>r.room===rm.number&&r.status==="Checked In");
+   const status=rm.housekeepingStatus;
+   return <div className={`room-tile ${guest?"occupied":""}`} key={rm.number}>
+    <strong>Room {rm.number}</strong>
+    <span>{guest?`Occupied · ${data.guests.find(g=>g.id===guest.guestId)?.name||"Guest"}`:"Vacant"}</span>
+    <small>{rm.type}</small>
+    {housekeeping&&<><span>{status||"Unrecorded"}</span>{!guest&&status!=="Inspected"&&
+     <button className="subtle" disabled={pending} onClick={()=>markRoom(rm.number,status==="Clean"?"Inspected":"Clean")}>
+      {status==="Clean"?"Mark inspected":"Mark clean"}
+     </button>}</>}
+   </div>;
+  })}</div>
   </section>
   {onAddRoom&&<section className="card property-card"><h2>Add room</h2>
    <form onSubmit={addRoom}>
