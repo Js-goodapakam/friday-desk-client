@@ -171,7 +171,7 @@ export default function Guests({ data, setSelected, setData, onCall }) {
     setForm((prev) => ({ ...prev, [key]: value }));
   };
 
-  const saveRoomAllocation = () => {
+  const saveRoomAllocation = async () => {
     if (!selectedGuest?.reservation?.id) return;
 
     const reservationId = selectedGuest.reservation.id;
@@ -207,12 +207,17 @@ export default function Guests({ data, setSelected, setData, onCall }) {
       return;
     }
 
-    setData((current) => ({
+    const saved = await setData((current) => ({
       ...current,
       reservations: (current.reservations || []).map((r) =>
         r.id === reservationId ? { ...r, room: roomNumber } : r
       ),
     }));
+
+    if (saved === false) {
+      setRoomSaveMessage("Room allocation was not saved. Reload the workspace before retrying.");
+      return;
+    }
 
     setSelectedGuest((prev) =>
       prev
@@ -228,12 +233,7 @@ export default function Guests({ data, setSelected, setData, onCall }) {
     setRoomSaveMessage(`Room ${roomNumber} allocated successfully.`);
   };
 
-  const saveGuest = () => {
-    /*
-      Guests.jsx is intentionally UI/data-model compatible with the current
-      Guests page. Persistence should be wired to the application's existing
-      state/service layer when the guest master API is introduced.
-    */
+  const saveGuest = async () => {
     const name =
       `${form.firstName || ""} ${form.lastName || ""}`.trim() ||
       form.name ||
@@ -248,12 +248,13 @@ export default function Guests({ data, setSelected, setData, onCall }) {
     };
 
     if (setData) {
-      setData((current) => ({
+      const saved = await setData((current) => ({
         ...current,
         guests: (current.guests || []).map((item) =>
           item.id === nextGuest.id ? { ...item, ...nextGuest } : item
         ),
       }));
+      if (saved === false) return;
     }
 
     setForm(nextGuest);
