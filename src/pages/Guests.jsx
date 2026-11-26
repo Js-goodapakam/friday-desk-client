@@ -83,13 +83,19 @@ export default function Guests({ data, setSelected, setData, onCall }) {
   const [roomPickerOpen, setRoomPickerOpen] = useState(false);
   const [roomSaveMessage, setRoomSaveMessage] = useState("");
 
-  const checkedInReservations = useMemo(
-    () => data.demo ? data.guests.map(g=>data.reservations.find(r=>r.guestId===g.id&&r.status==="Checked In")||data.reservations.find(r=>r.guestId===g.id)).filter(Boolean) : data.reservations.filter((r) => r.status === "Checked In"),
-    [data.reservations,data.guests,data.demo]
-  );
+  const guestReservations = useMemo(() => {
+    const latestByGuest = new Map();
+    for (const stay of data.reservations) {
+      const current = latestByGuest.get(stay.guestId);
+      if (!current || (stay.status === "Checked In" && current.status !== "Checked In") ||
+          (stay.status === current.status || (stay.status !== "Checked In" && current.status !== "Checked In")) &&
+          stay.arrival > current.arrival) latestByGuest.set(stay.guestId, stay);
+    }
+    return [...latestByGuest.values()];
+  }, [data.reservations]);
 
   const rows = useMemo(() => {
-    return checkedInReservations
+    return guestReservations
       .map((r) => {
         const guest = data.guests.find((g) => g.id === r.guestId);
         return guest ? { guest, reservation: r } : null;
@@ -110,7 +116,7 @@ export default function Guests({ data, setSelected, setData, onCall }) {
 
         return haystack.includes(q.toLowerCase());
       });
-  }, [checkedInReservations, data.guests, q]);
+  }, [guestReservations, data.guests, q]);
 
   const kycPending = rows.filter(
     ({ guest }) => guest.kycStatus !== "Verified"
@@ -918,7 +924,7 @@ export default function Guests({ data, setSelected, setData, onCall }) {
       </div>
 
       <div className="guest-kpis">
-        <Kpi label={data.demo?"Guest profiles":"In-house guests"} value={rows.length} />
+        <Kpi label="Guest profiles" value={rows.length} />
         <Kpi label="KYC pending" value={kycPending} />
         <Kpi
           label="Arrivals today"
@@ -955,7 +961,7 @@ export default function Guests({ data, setSelected, setData, onCall }) {
       <section className="card table-card guests-table-card">
         <div className="guest-table-title">
           <div>
-            <strong>{data.demo?"Guest directory":"In-house guests"}</strong>
+            <strong>Guest directory</strong>
             <span>Guests who have completed the reservation-to-check-in flow.</span>
           </div>
           <span className="guest-table-count">{rows.length}</span>
