@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { iso } from "../core/data.js";
 import "./calendar.css";
 
@@ -90,7 +90,7 @@ function reservationTimeForDay(r,d){
 
 function MiniCalendar({cursor,onPick,data}){
   const [miniCursor,setMiniCursor]=useState(new Date(cursor.getFullYear(),cursor.getMonth(),1));
-  useEffect(()=>setMiniCursor(new Date(cursor.getFullYear(),cursor.getMonth(),1)),[cursor]);
+
 
   const y=miniCursor.getFullYear(), m=miniCursor.getMonth();
   const lead=new Date(y,m,1).getDay();
@@ -416,7 +416,7 @@ export default function CalendarPage({data,onOpenGuest,onNewReservation}){
 
       <div className="teams-calendar-workspace">
         <aside className="teams-calendar-sidebar">
-          <MiniCalendar cursor={cursor} onPick={d=>{setCursor(d);setView("day")}} data={data}/>
+          <MiniCalendar key={cursor.getTime()} cursor={cursor} onPick={d=>{setCursor(d);setView("day")}} data={data}/>
           <div className="teams-sidebar-section">
             <div className="teams-sidebar-section-title">My calendars</div>
             <label><i className="calendar-check blue"/> Reservations</label>
