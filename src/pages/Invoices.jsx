@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { uid, stamp, offset, date, money, nights } from "../core/data.js";
 import "./invoices.css";
+import {useDialogFocus} from "../core/useDialogFocus.js";
 
 const DEFAULT_SETTINGS = {
   prefix: "INV",
@@ -332,6 +333,7 @@ function InvoiceSettings({ settings, setSettings, onLogo, onClose, onSave }) {
 }
 
 function InvoiceEditor({ data, settings, onClose, onSave }) {
+  useDialogFocus(true,onClose,'.invoice-editor-modal');
   const [reservationId, setReservationId] = useState("");
   const [items, setItems] = useState([]);
   const [taxRate, setTaxRate] = useState(settings.taxRate ?? 5);
@@ -416,14 +418,14 @@ function InvoiceEditor({ data, settings, onClose, onSave }) {
 
   return (
     <div className="modal-backdrop">
-      <section className="modal card invoice-editor-modal">
+      <section className="modal card invoice-editor-modal" role="dialog" aria-modal="true" aria-labelledby="invoice-editor-title">
         <div className="modal-head">
           <div>
             <div className="eyebrow">NEW HOTEL INVOICE</div>
-            <h2>Generate Invoice</h2>
+            <h2 id="invoice-editor-title">Generate Invoice</h2>
             <p className="muted small">Select a reservation, verify the stay details, then build the folio line items.</p>
           </div>
-          <button type="button" className="icon-button" onClick={onClose}>×</button>
+          <button type="button" className="icon-button" aria-label="Close invoice editor" onClick={onClose}>×</button>
         </div>
 
         <div className="invoice-editor-layout">
@@ -573,6 +575,7 @@ function InvoiceEditor({ data, settings, onClose, onSave }) {
 }
 
 function InvoiceView({ invoice, data, settings, onClose }) {
+  useDialogFocus(true,onClose,'.invoice-view-modal');
   const res = data.reservations.find(r => r.id === invoice.reservationId);
   const guest = data.guests.find(g => g.id === invoice.guestId);
   const p = { ...settings, ...(invoice.hotelSnapshot || {}) };
@@ -580,16 +583,16 @@ function InvoiceView({ invoice, data, settings, onClose }) {
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
-      <section className="modal card invoice-view-modal" onClick={e => e.stopPropagation()}>
+      <section className="modal card invoice-view-modal" role="dialog" aria-modal="true" aria-labelledby="invoice-view-title" onClick={e => e.stopPropagation()}>
         <div className="modal-head no-print">
           <div>
             <div className="eyebrow">INVOICE PREVIEW</div>
-            <h2>{invoice.number}</h2>
+            <h2 id="invoice-view-title">{invoice.number}</h2>
             <p className="muted small">Print or save this invoice as PDF using the hotel template.</p>
           </div>
           <div className="modal-head-actions">
             <button type="button" className="primary" onClick={() => window.print()}>Print / Save PDF</button>
-            <button type="button" className="icon-button" onClick={onClose}>×</button>
+            <button type="button" className="icon-button" aria-label="Close invoice preview" onClick={onClose}>×</button>
           </div>
         </div>
 
