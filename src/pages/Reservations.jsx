@@ -120,7 +120,7 @@ export default function Reservations({ data, onCheckIn, onEdit, onCall }) {
                 background: "#fff",
                 color: "#15284b",
                 outline: "none",
-                fontFamily: "Poppins, sans-serif",
+                fontFamily: "var(--fr-font)",
                 fontSize: 12,
               }}
             />
