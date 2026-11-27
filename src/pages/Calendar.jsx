@@ -56,8 +56,9 @@ function guestFor(data,r){
   return (data.guests||[]).find(x=>x.id===r?.guestId);
 }
 function isActive(r,d){
-  return r.status!=="Cancelled" && r.arrival<=d && d<=r.departure;
+  return r.status!=="Cancelled" && spansDay(r,d);
 }
+function spansDay(r,d){return r.arrival<=d && d<=r.departure;}
 function dayReservations(data,d){
   return (data.reservations||[]).filter(r=>isActive(r,d));
 }
@@ -211,7 +212,7 @@ function TimeGrid({data,days,query,roomFilter,statusFilter}){
           {days.map(d=>{
             const dIso=iso(d);
             const isToday=dIso===today;
-            const events=filtered.filter(r=>isActive(r,dIso));
+            const events=filtered.filter(r=>spansDay(r,dIso));
             return (
               <div className={`teams-day-column${isToday?" today":""}`} key={dIso}>
                 {Array.from({length:TOTAL_HOURS},(_,h)=><div className="teams-hour-row" key={h}/>)}
@@ -239,7 +240,7 @@ function MonthView({data,cursor,onPickDay,query,roomFilter,statusFilter}){
 
   const filtered=(dIso)=>{
     const q=query.trim().toLowerCase();
-    return dayReservations(data,dIso).filter(r=>{
+    return (statusFilter==="Cancelled"?(data.reservations||[]).filter(r=>spansDay(r,dIso)):dayReservations(data,dIso)).filter(r=>{
       if(r.status==="Cancelled" && statusFilter!=="Cancelled") return false;
       if(statusFilter!=="all" && r.status!==statusFilter) return false;
       if(roomFilter!=="all" && getRoomName(data,r)!==roomFilter) return false;
@@ -295,7 +296,9 @@ function YearView({data,year,onPickMonth}){
 
 function Agenda({data,day,query,roomFilter,statusFilter,onOpenGuest}){
   const d=iso(day);
-  const rows=[...dayArrivals(data,d),...dayDepartures(data,d),...dayReservations(data,d)]
+  const candidates=statusFilter==="Cancelled"?(data.reservations||[]).filter(r=>spansDay(r,d)):
+    [...dayArrivals(data,d),...dayDepartures(data,d),...dayReservations(data,d)];
+  const rows=candidates
     .filter((r,i,a)=>a.findIndex(x=>x.id===r.id)===i)
     .filter(r=>{
       if(r.status==="Cancelled" && statusFilter!=="Cancelled") return false;
