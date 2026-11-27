@@ -143,6 +143,7 @@ function FilterBar({roomFilter,setRoomFilter,statusFilter,setStatusFilter,rooms}
         <option value="Confirmed">Confirmed</option>
         <option value="Checked In">Checked In</option>
         <option value="Checked Out">Checked Out</option>
+        <option value="Cancelled">Cancelled</option>
         <option value="Reserved">Reserved</option>
         <option value="Cancelled">Cancelled</option>
       </select>
@@ -239,6 +240,7 @@ function MonthView({data,cursor,onPickDay,query,roomFilter,statusFilter}){
   const filtered=(dIso)=>{
     const q=query.trim().toLowerCase();
     return dayReservations(data,dIso).filter(r=>{
+      if(r.status==="Cancelled" && statusFilter!=="Cancelled") return false;
       if(statusFilter!=="all" && r.status!==statusFilter) return false;
       if(roomFilter!=="all" && getRoomName(data,r)!==roomFilter) return false;
       if(!q) return true;
@@ -296,6 +298,7 @@ function Agenda({data,day,query,roomFilter,statusFilter,onOpenGuest}){
   const rows=[...dayArrivals(data,d),...dayDepartures(data,d),...dayReservations(data,d)]
     .filter((r,i,a)=>a.findIndex(x=>x.id===r.id)===i)
     .filter(r=>{
+      if(r.status==="Cancelled" && statusFilter!=="Cancelled") return false;
       if(statusFilter!=="all" && r.status!==statusFilter) return false;
       if(roomFilter!=="all" && getRoomName(data,r)!==roomFilter) return false;
       const q=query.trim().toLowerCase();
