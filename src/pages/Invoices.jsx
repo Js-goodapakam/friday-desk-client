@@ -26,7 +26,7 @@ function settingsFrom(data) {
   return { ...DEFAULT_SETTINGS, ...(data.invoiceSettings || {}) };
 }
 
-function InvoicesPage({ data, setData }) {
+function InvoicesPage({ data, setData, onInvoicePayment }) {
   const [creating, setCreating] = useState(false);
   const [viewing, setViewing] = useState(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -205,6 +205,7 @@ function InvoicesPage({ data, setData }) {
           data={data}
           settings={settingsFrom(data)}
           onClose={() => setViewing(null)}
+          onPayment={onInvoicePayment && (async operation=>setViewing(await onInvoicePayment(operation)))}
         />
       )}
 
@@ -574,12 +575,28 @@ function InvoiceEditor({ data, settings, onClose, onSave }) {
   );
 }
 
-function InvoiceView({ invoice, data, settings, onClose }) {
+function InvoiceView({ invoice, data, settings, onClose, onPayment }) {
+  const [amount,setAmount]=useState(""),[reference,setReference]=useState("");
+  const [pending,setPending]=useState(false),[error,setError]=useState("");
+  const [paymentId,setPaymentId]=useState(()=>crypto.randomUUID());
   useDialogFocus(true,onClose,'.invoice-view-modal');
   const res = data.reservations.find(r => r.id === invoice.reservationId);
   const guest = data.guests.find(g => g.id === invoice.guestId);
   const p = { ...settings, ...(invoice.hotelSnapshot || {}) };
   const balance = Math.max(0, Number(invoice.total || 0) - Number(invoice.paid || 0));
+  async function record(event) {
+    event.preventDefault();
+    if(pending)return;
+    setPending(true);
+    setError("");
+    try {
+      await onPayment({id:paymentId,invoiceId:invoice.id,amount:Number(amount),reference});
+      setPaymentId(crypto.randomUUID());
+      setAmount("");
+      setReference("");
+    } catch (failure) { setError(failure.message); }
+    finally { setPending(false); }
+  }
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
@@ -596,6 +613,17 @@ function InvoiceView({ invoice, data, settings, onClose }) {
           </div>
         </div>
 
+        {onPayment&&<section className="no-print" aria-label="Recorded guest payments">
+          <p role="status">{invoice.status} · Balance due {money(balance)}</p>
+          {(data.payments||[]).filter(payment=>payment.invoiceId===invoice.id).map(payment=>
+            <p key={payment.id}>{payment.reference} · {money(payment.amount)}</p>)}
+          {invoice.status!=="Cancelled"&&balance>0&&<form onSubmit={record}>
+            <label>Payment amount <input required type="number" min=".01" max={balance.toFixed(2)} step=".01" value={amount} onChange={e=>setAmount(e.target.value)}/></label>
+            <label>Payment reference <input required maxLength={100} value={reference} onChange={e=>setReference(e.target.value)}/></label>
+            <button className="primary" disabled={pending}>{pending?"Recording…":"Record guest payment"}</button>
+            {error&&<p role="alert">{error}</p>}
+          </form>}
+        </section>}
         <div className="invoice-paper">
           <div className="invoice-paper-banner" style={{ background: p.bannerColor || "#eef0f4" }}>
             <div className="invoice-paper-logo">

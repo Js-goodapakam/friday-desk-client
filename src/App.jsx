@@ -1032,7 +1032,7 @@ function NavIcon({ name }) {
   );
 }
 
-function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspace,modules=null,initialPage='dashboard'}){
+function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspace,onInvoicePayment,modules=null,initialPage='dashboard'}){
  const [mobileNav,setMobileNav]=useState(false),[page,setPage]=useState(initialPage),[editingReservation,setEditingReservation]=useState(null),[editor,setEditor]=useState(false),[selected,setSelected]=useState(null),[callGuest,setCallGuest]=useState(null),[incomingCall,setIncomingCall]=useState(currentIncomingTeleCMICall);
  useEffect(()=>{if(!mobileNav||!window.matchMedia("(max-width:900px)").matches)return;const panel=document.getElementById("property-navigation"),trigger=document.querySelector(".mobile-menu-toggle");const items=()=>[...panel.querySelectorAll("button,a[href]")].filter(el=>!el.disabled&&el.getClientRects().length);items()[0]?.focus();const keys=e=>{if(e.key==="Escape"){e.preventDefault();setMobileNav(false);}if(e.key==="Tab"){const list=items(),first=list[0],last=list.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}};panel.addEventListener("keydown",keys);return()=>{panel.removeEventListener("keydown",keys);trigger?.focus();};},[mobileNav]);
  useEffect(()=>{const open=e=>{if(Number(e.detail?.propertyId)===Number(data.property.id)){const record=data.reservations.find(r=>r.id===e.detail.id);if(record)setEditingReservation(record);}};window.addEventListener("friday:open-reservation",open);return()=>window.removeEventListener("friday:open-reservation",open);},[data.property.id,data.reservations]);
@@ -1079,7 +1079,7 @@ function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspa
  {page==="reservations"&&<Reservations data={data} onCheckIn={checkIn} onEdit={setEditingReservation} onCall={startOutgoingCall}/>} 
  {page==="guests"&&<Guests data={data} setSelected={setSelected} setData={setData} onCall={startOutgoingCall}/>} 
  {page==="calendar"&&<CalendarPage data={data} onOpenGuest={setSelected} onNewReservation={()=>setEditor(true)}/>}
- {page==="invoices"&&<InvoicesPage data={data} setData={setData}/>} {page==="help"&&<Help setPage={setPage}/>} {page==="rooms"&&<Rooms data={data} onAddRoom={modules?.includes("operations")?room=>setData(d=>({...d,rooms:[...d.rooms,room]})):undefined}/>} {page==="payments"&&<Finance data={data} setData={setData}/>} {page==="rates-inventory"&&<RatesInventory data={data} setData={setData}/>} {page==="channel-manager"&&<ChannelManager data={data} setData={setData} onReload={onReloadWorkspace}/>}
+ {page==="invoices"&&<InvoicesPage data={data} setData={setData} onInvoicePayment={onInvoicePayment}/>} {page==="help"&&<Help setPage={setPage}/>} {page==="rooms"&&<Rooms data={data} onAddRoom={modules?.includes("operations")?room=>setData(d=>({...d,rooms:[...d.rooms,room]})):undefined}/>} {page==="payments"&&<Finance data={data} setData={setData}/>} {page==="rates-inventory"&&<RatesInventory data={data} setData={setData}/>} {page==="channel-manager"&&<ChannelManager data={data} setData={setData} onReload={onReloadWorkspace}/>}
  {["enquiries","groups","communications","worktasks","activity"].includes(page)&&<BusinessOperations key={page} view={page} data={data} setData={setData}/>}
  
  {page==="rateplans"&&<RatePlans data={data} setData={setData}/>}
@@ -1129,11 +1129,20 @@ function PropertyWorkspace({property,session,onLogout,onBack}) {
   }).finally(()=>{if(mounted.current)setSaving(false);});
   queue.current=operation.then(()=>undefined);return operation;
  },[session.id,property.id,modules]);
+ const invoicePayment=async operation=>{
+  await queue.current;
+  if(failed.current||!modules?.includes("finance"))throw Error("Reload the workspace before recording payment.");
+  const result=await workspaceRequest(property.id,"PUT",{invoicePayment:operation,version:version.current});
+  version.current=result.version;
+  const view=managedWorkspaceView(result.state,property,modules);
+  committed.current=view;current.current=view;updateData(view);
+  return result.state.invoices.find(invoice=>invoice.id===operation.invoiceId);
+ };
  const back=async()=>{await queue.current;if(!failed.current)onBack();};
  const reload=async()=>{await queue.current;await loadRemote();failed.current=false;setStorageError("");};
  if(loading)return <FridayLoader fullscreen/>;
  if(!remote.current)return <div className="storage-unavailable" role="alert"><h1>Property storage unavailable</h1><p>{storageError||'Unable to load saved property records.'}</p><button className="subtle" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Retry connection</button><button className="primary" onClick={onBack}>Back to properties</button></div>;
- return <>{storageError&&<div className="demo-error" role="alert">{storageError}<button type="button" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Reload saved records</button></div>}<Admin modules={modules} initialPage={property.initialPage} data={data} setData={setData} session={{...session,propertyId:property.id}} onLogout={onLogout} onBackToProperties={back} onReloadWorkspace={reload}/></>;
+ return <>{storageError&&<div className="demo-error" role="alert">{storageError}<button type="button" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Reload saved records</button></div>}<Admin onInvoicePayment={modules?.includes('finance')?invoicePayment:undefined} modules={modules} initialPage={property.initialPage} data={data} setData={setData} session={{...session,propertyId:property.id}} onLogout={onLogout} onBackToProperties={back} onReloadWorkspace={reload}/></>;
 }
 
 export default function App(){
