@@ -74,7 +74,7 @@ function buildGuestForm(guest = {}) {
   };
 }
 
-export default function Guests({ data, setSelected, setData, onCall }) {
+export default function Guests({ data, setData, onCall }) {
   const [q, setQ] = useState("");
   const [selectedGuest, setSelectedGuest] = useState(null);
   const [editing, setEditing] = useState(false);
@@ -239,7 +239,8 @@ export default function Guests({ data, setSelected, setData, onCall }) {
       form.name ||
       "Guest";
 
-    const { room: _room, ...guestFields } = form;
+    const guestFields = { ...form };
+    delete guestFields.room;
     const nextGuest = {
       ...guestFields,
       name,
