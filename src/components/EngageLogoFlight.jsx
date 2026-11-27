@@ -15,22 +15,22 @@ export default function EngageLogoFlight({targetSelector}) {
 
   useLayoutEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setFinished(true);
-      return;
+      const frame=window.requestAnimationFrame(()=>setFinished(true));
+      return ()=>window.cancelAnimationFrame(frame);
     }
 
     const destination = document.querySelector(targetSelector);
     const layer = layerRef.current;
     const movingIcon = layer?.querySelector('.engage-logo-flight-icon');
     if (!destination || !layer || !movingIcon) {
-      setFinished(true);
-      return;
+      const frame=window.requestAnimationFrame(()=>setFinished(true));
+      return ()=>window.cancelAnimationFrame(frame);
     }
 
     const rect = destination.getBoundingClientRect();
     if (!rect.width || !rect.height) {
-      setFinished(true);
-      return;
+      const frame=window.requestAnimationFrame(()=>setFinished(true));
+      return ()=>window.cancelAnimationFrame(frame);
     }
 
     const destinationX = rect.left + rect.width / 2;
