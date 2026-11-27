@@ -54,3 +54,19 @@
 }
 @media(prefers-reduced-motion:reduce){#root .pw-app .pw-sidebar,#root .pw-app .pw-body{transition:none}}
 .storage-unavailable{max-width:680px;margin:48px auto;padding:24px;border:1px solid #dfe7f2;border-radius:10px;background:white}.storage-unavailable h1{font-size:24px}.storage-unavailable p{line-height:1.6;color:#63758d}.storage-unavailable button{margin:8px 8px 0 0}
+
+/* P0 responsive containment: keep wide data tables locally scrollable. */
+#root .reservation-filter-grid{grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,180px))!important}
+#root .reservation-filter-grid>*{min-width:0}
+#root .reservation-filter-grid :is(input,select){box-sizing:border-box;min-width:0;max-width:100%}
+#root .reservations-table-scroll{min-width:0;max-width:100%;overflow-x:auto}
+#root :is(.main-shell,.pw-body,.pw-main,.table-card){min-width:0}
+@media(max-width:1100px){
+ #root .reservation-filter-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:600px){
+ #root .reservation-filter-grid{grid-template-columns:minmax(0,1fr)!important}
+ #root :is(.page-heading,.business-heading,.finance-heading,.reports-page-heading,.guests-heading){flex-wrap:wrap}
+ #root :is(.page-heading,.business-heading,.finance-heading,.reports-page-heading,.guests-heading)>*{min-width:0;max-width:100%}
+ #root :is(.pw-dialog,.pg-modal,.modal,.finance-modal,.reports-modal,.ri-modal,.cm-modal){box-sizing:border-box;overflow-y:auto;overscroll-behavior:contain}
+}
