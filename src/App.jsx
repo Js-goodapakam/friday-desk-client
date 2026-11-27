@@ -1,3 +1,4 @@
+import EngageIcon from "./components/EngageIcon.jsx";
 import FridayOnboarding from "./Onboarding.jsx";
 
 console.log("%cEngage Stay build: call-widget-v5-incoming (2026-09-26)", "background:#1557D6;color:#fff;padding:4px 10px;border-radius:6px;font-weight:700");
@@ -1010,27 +1011,7 @@ function CallPopup({guest,onClose,onSave,telecmi}){
    Reports: snapshot + downloadable date-range export
    ========================================================= */
 
-const NAV_ICON_PATHS = {
-  dashboard: (<><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5"/><path d="M9 20v-5.5h6V20"/></>),
-  calendar: (<><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M7 3.5v3M17 3.5v3M3.5 9h17"/><path d="M8 12.5h.01M12 12.5h.01M16 12.5h.01M8 16h.01M12 16h.01"/></>),
-  reservations: (<><path d="M3 19v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8"/><path d="M5 9V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M3 17h18M7 14h.01M10 14h.01M13 14h.01"/></>),
-  guests: (<><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16 6.5a2.7 2.7 0 0 1 0 5.1M16 14.5a4.6 4.6 0 0 1 4.5 5"/></>),
-  invoices: (<><path d="M6 3h10l3 3v15H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M15 3v4h4M8 11h6M8 15h6M8 18h4"/></>),
-  finance: (<><path d="M12 3v18M16 7.5c-.6-1.1-1.8-1.8-3.6-1.8-2.1 0-3.4 1-3.4 2.5 0 4 7 1.8 7 5.7 0 1.6-1.4 2.8-3.7 2.8-1.8 0-3.2-.7-4-2"/></>),
-  reports: (<><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/><path d="m5 8 5-3 6 3 5-5"/></>),
-  help: (<><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.6 2.6 0 1 1 4.7 1.6c-.9 1.1-2.3 1.5-2.3 3M12 17h.01"/></>),
-  settings: (<><path d="M12 3.5v2M12 18.5v2M3.5 12h2M18.5 12h2M5.9 5.9l1.4 1.4M16.7 16.7l1.4 1.4M18.1 5.9l-1.4 1.4M7.3 16.7l-1.4 1.4"/><circle cx="12" cy="12" r="3.5"/><circle cx="12" cy="12" r="8"/></>)
-};
-
-function NavIcon({ name }) {
-  return (
-    <span className="nav-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        {NAV_ICON_PATHS[name]}
-      </svg>
-    </span>
-  );
-}
+function NavIcon({ name }) { return <span className="nav-icon" aria-hidden="true"><EngageIcon name={name} variant="navigation" /></span>; }
 
 function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspace,initialPage='dashboard'}){
  const [mobileNav,setMobileNav]=useState(false),[page,setPage]=useState(initialPage),[editingReservation,setEditingReservation]=useState(null),[editor,setEditor]=useState(false),[selected,setSelected]=useState(null),[callGuest,setCallGuest]=useState(null),[incomingCall,setIncomingCall]=useState(currentIncomingTeleCMICall);
