@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { date, money, balance, initials } from "../core/data.js";
-import { Badge } from "../components/Common.jsx";
+import { Badge, UIState } from "../components/Common.jsx";
 
 function CallIcon() {
   return (
@@ -369,7 +369,7 @@ export default function Reservations({ data, onCheckIn, onEdit, onCall }) {
               ) : (
                 <tr>
                   <td colSpan="11" className="empty-cell">
-                    No reservations found.
+                    <UIState state="empty" title="No reservations found." description="Try adjusting your search or filters." />
                   </td>
                 </tr>
               )}
@@ -389,7 +389,7 @@ const toolbarSelectStyle = {
   borderRadius: 9,
   background: "#fff",
   color: "#24385b",
-  fontFamily: "Poppins, sans-serif",
+  fontFamily: "var(--fr-font)",
   fontSize: 12,
   outline: "none",
 };
