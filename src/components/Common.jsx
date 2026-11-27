@@ -21,3 +21,14 @@ export function Select({className="",children,...props}) {
 export function TextArea({className="",...props}) {
   return <textarea className={`eh-input ${className}`} {...props}/>;
 }
+
+const stateTitles={loading:"Loading…",empty:"No results found",error:"Something went wrong",success:"Completed successfully"};
+export function UIState({state="empty",title,description,onAction,actionLabel="Retry"}) {
+  return <div className={`eh-state eh-state--${state}`}>
+    <div role={state==="error"?"alert":"status"} aria-atomic="true">
+      <strong>{title||stateTitles[state]}</strong>
+      {description&&<p>{description}</p>}
+    </div>
+    {onAction&&<Button variant="secondary" onClick={onAction}>{actionLabel}</Button>}
+  </div>;
+}
