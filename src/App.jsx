@@ -1,5 +1,4 @@
 import EngageIcon from "./components/EngageIcon.jsx";
-import FridayOnboarding from "./Onboarding.jsx";
 
 console.log("%cEngage Stay build: call-widget-v5-incoming (2026-09-26)", "background:#1557D6;color:#fff;padding:4px 10px;border-radius:6px;font-weight:700");
 import Dashboard from "./Dashboard.jsx";
@@ -22,7 +21,7 @@ import OwnerAdmin from "./pages/OwnerAdmin.jsx";
 import "./pages/demo.css";
 import "./pages/demo-extra.css";
 import {emptyPropertyWorkspace} from "./core/propertyWorkspace.js";
-import { KEY,HOTEL,offset,stamp,fmt,date,money,nights,total,balance,initials,uid,load,seed } from "./core/data.js";
+import { HOTEL,offset,stamp,fmt,date,money,nights,total,balance,initials,uid } from "./core/data.js";
 import { Badge,Field } from "./components/Common.jsx";
 import Reservations from "./pages/Reservations.jsx";
 import Guests from "./pages/Guests.jsx";
@@ -66,14 +65,7 @@ function setTeleCMISDKStatus(next) {
   window.dispatchEvent(new CustomEvent("telecmi-status", { detail: next }));
   teleCMISDKListeners.forEach((fn) => fn(next));
 }
-function useTeleCMISDKStatus() {
-  const [status, setStatus] = useState(teleCMISDKStatus);
-  useEffect(() => {
-    teleCMISDKListeners.add(setStatus);
-    return () => teleCMISDKListeners.delete(setStatus);
-  }, []);
-  return status;
-}
+
 
 async function loginToTeleCMI() {
   const userId = import.meta.env.VITE_TELECMI_AGENT_USER_ID;
@@ -187,31 +179,15 @@ piopiy.on("error", (error) => {
 });
 
 
-function TajLogo({compact=false}){return <a className={`taj-logo ${compact?"compact":""}`} href="https://www.tajhotels.com/en-in/hotels/taj-tirupati" target="_blank" rel="noreferrer" aria-label="Taj official website"><span className="taj-mark">TAJ</span><span>TIRUPATI</span></a>}
 
 const engageLogo = "/engage-app-icon.svg";
 function Brand({className="brand"}){return <div className={className}><img className="brand-logo" src={engageLogo} alt="" /><b>Engage Stay</b></div>}
-
-/* TeleCMI provider logo: place the file at src/assets/telecmi logo.png (or .svg/.webp). Falls back to a "T" mark if not found. */
-const telecmiLogoFiles = import.meta.glob("./assets/telecmi logo.{png,svg,webp}", { eager: true, import: "default" });
-const TELECMI_LOGO = Object.values(telecmiLogoFiles)[0] || null;
-
-/* WhatsApp provider logo: place the file at src/assets/whatsapp.png (or .svg/.webp). Falls back to a "W" mark if not found. */
-const whatsappLogoFiles = import.meta.glob("./assets/whatsapp.{png,svg,webp}", { eager: true, import: "default" });
-const WHATSAPP_LOGO = Object.values(whatsappLogoFiles)[0] || null;
-
-/* RCS provider logo: place the file at src/assets/Rcs.png (or .svg/.webp, any case). Falls back to an "R" mark if not found. */
-const rcsLogoFiles = import.meta.glob("./assets/{Rcs,rcs,RCS}.{png,svg,webp,PNG}", { eager: true, import: "default" });
-const RCS_LOGO = Object.values(rcsLogoFiles)[0] || null;
 
 /* ---------- Small "create/edit" modals reused by Settings ---------- */
 
 
 
-function Login({kind,onLogin,onSwitch}){
- const admin=kind==="admin"; const [email,setEmail]=useState(admin?"admin@tajtirupati.local":"jaya@example.com"); const [pw,setPw]=useState(""); const [showPassword,setShowPassword]=useState(false);
- return <div className="login-shell"><Brand className="login-brand"/><div className="login-card"><div className="eyebrow">{admin?"HOTEL ADMIN":"GUEST PORTAL"}</div><h1>{admin?"Welcome back.":"Access your stay."}</h1><p className="muted">{admin?"Manage Taj Tirupati from one simple workspace.":"View your reservation, stay details and requests."}</p><form onSubmit={e=>{e.preventDefault();onLogin(admin?"admin":"guest",email)}}><Field label={admin?"Admin email":"Guest email"}><input type="email" value={email} onChange={e=>setEmail(e.target.value)} required/></Field><Field label="Password"><div className="password-field"><input type={showPassword?"text":"password"} value={pw} onChange={e=>setPw(e.target.value)} required/><button type="button" className="password-eye" aria-label={showPassword?"Hide password":"Show password"} title={showPassword?"Hide password":"Show password"} onClick={()=>setShowPassword(v=>!v)}>{showPassword?"◉":"◌"}</button></div></Field>{!admin&&<Field label="Reservation ID"><input placeholder="e.g. R-1001"/></Field>}<div className="login-row"><label><input type="checkbox" defaultChecked/> Remember me</label><button className="link-button" type="button">Forgot password?</button></div><button className="primary wide">Sign in</button></form></div><button className="switch-login" onClick={()=>onSwitch(admin?"guest":"admin")}>{admin?"Guest Login →":"Admin Login →"}</button></div>
-}
+
 
 const RESERVATION_COUNTRIES = [
   ["India","IN","+91","🇮🇳"],["Afghanistan","AF","+93","🇦🇫"],["Albania","AL","+355","🇦🇱"],["Algeria","DZ","+213","🇩🇿"],["Andorra","AD","+376","🇦🇩"],["Angola","AO","+244","🇦🇴"],["Antigua and Barbuda","AG","+1","🇦🇬"],["Argentina","AR","+54","🇦🇷"],["Armenia","AM","+374","🇦🇲"],["Australia","AU","+61","🇦🇺"],["Austria","AT","+43","🇦🇹"],["Azerbaijan","AZ","+994","🇦🇿"],
@@ -519,7 +495,7 @@ function IncomingCallPopup({call,guest,onClose,onSave}){
   const [mediaReady,setMediaReady]=useState(false);
   const [seconds,setSeconds]=useState(0);
   const [notes,setNotes]=useState("");
-  const [saving,setSaving]=useState(false);
+  const [,setSaving]=useState(false);
   const [muted,setMuted]=useState(false);
   const [held,setHeld]=useState(false);
   const [recording,setRecording]=useState(false);
@@ -682,13 +658,13 @@ function IncomingCallPopup({call,guest,onClose,onSave}){
 
       <div className="call-widget-incoming-connected-actions">
         <Field label="Call notes"><textarea rows="2" placeholder="Add notes from the conversation…" value={notes} onChange={e=>setNotes(e.target.value)}/></Field>
-        <button type="button" className="call-widget-hangup call-widget-incoming-end" onClick={()=>{try{piopiy.terminate()}catch{};setStatus("ended");setEndedAt(new Date())}} title="End call"><span className="call-widget-hangup-icon"><CallIconW d={CALL_ICONS.hangup} fill="#fff" size={21}/></span></button>
+        <button type="button" className="call-widget-hangup call-widget-incoming-end" onClick={()=>{try{piopiy.terminate()}catch{/* SDK may already have ended the call. */};setStatus("ended");setEndedAt(new Date())}} title="End call"><span className="call-widget-hangup-icon"><CallIconW d={CALL_ICONS.hangup} fill="#fff" size={21}/></span></button>
       </div>
     </>}
   </div>;
 }
 
-function CallPopup({guest,onClose,onSave,telecmi}){
+function CallPopup({guest,onClose,onSave}){
   console.log("Engage Stay: CallPopup mounting for", guest?.name, guest?.phone);
 
   const [status,setStatus]=useState("trying");
@@ -1078,10 +1054,7 @@ function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspa
 
 
 
-function GuestPortal({data,onRequest,onLogout}){
- const r=data.reservations.find(x=>x.guestId==="G-1001"&&x.status==="Checked In")||data.reservations.find(x=>x.guestId==="G-1001")||data.reservations[0]; const g=data.guests.find(x=>x.id===r.guestId); const [text,setText]=useState("");
- return <div className="guest-app"><header className="guest-top"><Brand/><div><span className="guest-property">{data.property?.name}</span><button className="ghost" onClick={onLogout}>Sign out</button></div></header><main className="guest-main"><div className="guest-welcome"><div className="eyebrow">{(data.property?.name||"").toUpperCase()} · {(data.property?.address||"").split(",")[0].toUpperCase()}</div><h1>Welcome, {g.name.split(" ")[0]}.</h1><p className="muted">Your stay, payment and requests in one place.</p></div><div className="guest-grid"><section className="card stay-card"><div className="stay-banner"><span>YOUR STAY · {r.status}</span><Badge>{r.status}</Badge></div><h2>Room {r.room}</h2><div className="stay-dates"><div><span>Expected check-in</span><strong>{date(r.arrival)}</strong><small>{r.expectedIn}</small>{r.actualCheckIn&&<small>Actual: {fmt(r.actualCheckIn)}</small>}</div><div><span>Expected check-out</span><strong>{date(r.departure)}</strong><small>{r.expectedOut}</small>{r.actualCheckOut&&<small>Actual: {fmt(r.actualCheckOut)}</small>}</div></div></section><section className="card"><div className="eyebrow">PAYMENT</div><h2>{money(balance(r))}</h2><p className="muted">Outstanding balance</p><div className="payment-line"><span>Total stay</span><b>{money(total(r))}</b></div><div className="payment-line"><span>Paid</span><b>{money(r.paid)}</b></div></section></div><div className="guest-grid"><section className="card"><div className="eyebrow">REQUESTS</div><h2>Need anything?</h2><form className="request-form" onSubmit={e=>{e.preventDefault();if(text.trim()){onRequest(text);setText("")}}}><textarea rows="3" placeholder="Tell the hotel what you need…" value={text} onChange={e=>setText(e.target.value)}/><button className="primary">Send request</button></form>{data.requests.filter(q=>q.guestId===g.id).map(q=><div className="request-item" key={q.id}><b>{q.text}</b><Badge>{q.status}</Badge></div>)}</section><section className="card"><div className="eyebrow">PROPERTY INFORMATION</div><h2>{data.property?.name}</h2><p className="muted">{data.property?.address||HOTEL.location}</p><div className="info-list"><div><span>Wi-Fi</span><b>{HOTEL.wifi}</b></div><div><span>Check-in</span><b>{HOTEL.checkIn}</b></div><div><span>Check-out</span><b>{HOTEL.checkOut}</b></div></div><button className="subtle wide">Contact Host</button></section></div></main></div>
-}
+
 
 function PropertyWorkspace({property,session,onLogout,onBack}) {
  const [data,updateData]=useState(()=>emptyPropertyWorkspace(property,session));
@@ -1099,7 +1072,7 @@ function PropertyWorkspace({property,session,onLogout,onBack}) {
    }catch(error){failed.current=true;current.current=committed.current;if(mounted.current){updateData(committed.current);setStorageError(error.message+' Changes were not saved. Reload before retrying.');}return false;}
   }).finally(()=>{if(mounted.current)setSaving(false);});
   queue.current=operation.then(()=>undefined);return operation;
- },[session.id,property.id]);
+ },[property.id]);
  const back=async()=>{await queue.current;if(!failed.current)onBack();};
  const reload=async()=>{await queue.current;await loadRemote();failed.current=false;setStorageError("");};
  if(loading)return <FridayLoader fullscreen/>;
