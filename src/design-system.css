@@ -1,11 +1,12 @@
 /* Friday's shared visual contract. ID scope intentionally supersedes legacy page overrides. */
 :root{
  --fr-font:"Inter",Arial,sans-serif;
- --fr-ink:#192e49;--fr-muted:#5e728a;--fr-primary:#155cda;--fr-primary-hover:#104fbc;--fr-cyan:#13b6d1;
- --fr-background:#f5f8fc;--fr-surface:#fff;--fr-border:#dfe7f2;--fr-soft:#edf4ff;--fr-sidebar:228px;
+ --engage-navy:#040D2E;--engage-royal:#061A58;--engage-blue:#135FDB;--engage-cyan:#3BBFEE;--engage-button:#165DD8;--engage-button-cyan:#32AEF3;--engage-input:#E8F0FE;--engage-ivory:#F4F1DE;--engage-white:#FFFFFF;
+ --fr-ink:#192e49;--fr-muted:#5e728a;--fr-primary:#135FDB;--fr-primary-hover:#061A58;--fr-cyan:#3BBFEE;
+ --fr-background:#f5f8fc;--fr-surface:#fff;--fr-border:#dfe7f2;--fr-soft:#E8F0FE;--fr-sidebar:228px;
  --fr-control:38px;--fr-radius:6px;
  --ink:var(--fr-ink);--muted:var(--fr-muted);--line:var(--fr-border);--surface:var(--fr-surface);
- --brand:var(--fr-primary);--brand2:#2166c5;--brand-deep:#1238a8;--brand-soft:var(--fr-soft);--soft:var(--fr-soft);--accent:var(--fr-cyan);
+ --brand:var(--fr-primary);--brand2:#165DD8;--brand-deep:#061A58;--brand-soft:var(--fr-soft);--soft:var(--fr-soft);--accent:var(--fr-cyan);
  --fs-2xs:11px;--fs-xs:12px;--fs-sm:13px;--fs-base:14px;--fs-md:16px;--fs-lg:18px;--fs-xl:28px;--fs-2xl:26px;
 }
 html{scrollbar-gutter:stable}body{font-family:var(--fr-font);background:var(--fr-background);color:var(--fr-ink);line-height:1.5}
