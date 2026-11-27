@@ -156,7 +156,6 @@ function ReservationBlock({data,reservation,day,compact=false}){
   const top=(start/60)*HOUR_HEIGHT;
   const height=Math.max(34,((end-start)/60)*HOUR_HEIGHT);
   const tone=statusTone(reservation.status);
-  const guest=guestFor(data,reservation);
   return (
     <button
       type="button"
