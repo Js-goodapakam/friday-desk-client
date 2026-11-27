@@ -155,9 +155,8 @@
 }
 @media (prefers-reduced-motion:reduce) {
   .engage-motion-screen :is(.engage-motion-aura,.engage-motion-mark,.engage-mark-shape,.engage-motion-copy,.engage-motion-progress,.engage-motion-progress span),
-  .engage-motion-inline .engage-mark-shape,
-
-  .engage-motion-progress span { width:100%; }
+  .engage-motion-inline .engage-mark-shape { animation:none!important; transition:none!important; }
+  .engage-motion-progress span { width:100%; transform:none; }
 }
 
 
