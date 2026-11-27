@@ -1,7 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
 :root{
-  font-family:var(--fr-font, "Inter", Arial, sans-serif);
+  font-family:var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);
   color:#17231f;background:#f7f9f8;font-synthesis:none;text-rendering:optimizeLegibility;
   --ink:#17231f;--muted:#6d7a74;--line:#e4e9e6;--surface:#fff;--brand:#143d32;--brand2:#2f735e;--soft:#eef5f1;--gold:#b99252;
 }
@@ -162,7 +160,7 @@ footer{padding:18px 36px;color:#8794a5;border-top:1px solid #e7ebf1}
 }
 
 /* typography */
-html,body,#root{font-family:var(--fr-font, "Inter", Arial, sans-serif)}
+html,body,#root{font-family:var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif)}
 body{background:var(--page);color:var(--ink);-webkit-font-smoothing:antialiased}
 button,input,select,textarea{font-family:inherit}
 h1,h2,h3,b,strong{letter-spacing:-.01em}
@@ -482,13 +480,13 @@ footer{background:var(--page)!important;border-top:1px solid var(--line)!importa
 /* TeleCMI integration + calling UI */
 .modal-head-actions{display:flex;align-items:center;gap:10px}.call-button{border:1px solid #d7b9b5;background:#9b3f3f;color:#fff;border-radius:10px;padding:9px 14px;font-weight:600;cursor:pointer;transition:.18s ease}.call-button:hover{background:#813333;transform:translateY(-1px)}
 .guest-profile-modal{max-height:88vh;overflow:auto}.profile-section-divider{margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}.compact-title{margin-bottom:12px}.compact-title h3{margin:2px 0 0}.call-history-row{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #eee6e4}.call-history-icon{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#f3e9e8;color:var(--brand);font-size:13px}.call-history-row strong,.call-history-row small{display:block}.call-history-row small{margin-top:3px;color:#766b68}.call-id{font:600 11px ui-monospace,SFMono-Regular,Menlo,monospace;color:#8a7c78}.empty-call-history{padding:14px 0;color:#8a7d79;font-size:13px}
-.call-overlay{position:fixed;inset:0;z-index:1000;background:rgba(43,31,30,.42);display:grid;place-items:center;padding:24px;animation:sdFade .18s ease both}.call-popup{width:min(420px,100%);background:#fff;border:1px solid #e3d7d4;border-radius:22px;box-shadow:0 24px 70px rgba(50,28,26,.22);padding:24px;animation:sdScaleIn .25s cubic-bezier(.2,.7,.2,1) both}.call-top{display:flex;justify-content:space-between;align-items:flex-start}.call-kicker{font-size:11px;letter-spacing:.15em;font-weight:600;color:#9b3f3f}.call-top h2{margin:5px 0 0;font-size:22px}.dark-icon{background:#f7f2f1}.call-person{text-align:center;padding:24px 0 14px}.call-avatar{width:76px;height:76px;margin:0 auto 12px;border-radius:24px;background:#f3e9e8;color:#9b3f3f;display:grid;place-items:center;font-size:22px;font-weight:600}.call-person strong,.call-person>span,.call-person small{display:block}.call-person strong{font-size:19px}.call-person>span:not(.call-avatar){margin-top:4px;color:#746966}.call-person small{margin-top:8px;color:#968884}.call-timer{font:700 38px/1 var(--fr-font, "Inter", Arial, sans-serif);text-align:center;color:#302626;padding:12px 0 20px}.call-status-text{text-align:center;color:#766b68;padding:10px 0 26px}.call-controls{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}.call-controls button{border:1px solid #e4dad7;background:#faf7f6;border-radius:10px;padding:10px 7px;font-weight:600;color:#5e5552;cursor:pointer}.call-controls button:hover,.call-controls button.active{background:#f3e9e8;color:#9b3f3f;border-color:#dcc1bd}.end-call{width:100%;border:0;background:#8f3939;color:#fff;border-radius:12px;padding:12px;font-weight:600;cursor:pointer}.end-call:hover{background:#742f2f}.call-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.call-summary-grid>div{padding:12px;border:1px solid var(--line);border-radius:11px;background:#fbf9f8}.call-summary-grid span,.call-summary-grid b{display:block}.call-summary-grid span{font-size:11px;color:#887b77}.call-summary-grid b{margin-top:4px;font-size:13px}.call-finished .modal-actions{margin-top:12px}
+.call-overlay{position:fixed;inset:0;z-index:1000;background:rgba(43,31,30,.42);display:grid;place-items:center;padding:24px;animation:sdFade .18s ease both}.call-popup{width:min(420px,100%);background:#fff;border:1px solid #e3d7d4;border-radius:22px;box-shadow:0 24px 70px rgba(50,28,26,.22);padding:24px;animation:sdScaleIn .25s cubic-bezier(.2,.7,.2,1) both}.call-top{display:flex;justify-content:space-between;align-items:flex-start}.call-kicker{font-size:11px;letter-spacing:.15em;font-weight:600;color:#9b3f3f}.call-top h2{margin:5px 0 0;font-size:22px}.dark-icon{background:#f7f2f1}.call-person{text-align:center;padding:24px 0 14px}.call-avatar{width:76px;height:76px;margin:0 auto 12px;border-radius:24px;background:#f3e9e8;color:#9b3f3f;display:grid;place-items:center;font-size:22px;font-weight:600}.call-person strong,.call-person>span,.call-person small{display:block}.call-person strong{font-size:19px}.call-person>span:not(.call-avatar){margin-top:4px;color:#746966}.call-person small{margin-top:8px;color:#968884}.call-timer{font:700 38px/1 var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);text-align:center;color:#302626;padding:12px 0 20px}.call-status-text{text-align:center;color:#766b68;padding:10px 0 26px}.call-controls{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}.call-controls button{border:1px solid #e4dad7;background:#faf7f6;border-radius:10px;padding:10px 7px;font-weight:600;color:#5e5552;cursor:pointer}.call-controls button:hover,.call-controls button.active{background:#f3e9e8;color:#9b3f3f;border-color:#dcc1bd}.end-call{width:100%;border:0;background:#8f3939;color:#fff;border-radius:12px;padding:12px;font-weight:600;cursor:pointer}.end-call:hover{background:#742f2f}.call-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.call-summary-grid>div{padding:12px;border:1px solid var(--line);border-radius:11px;background:#fbf9f8}.call-summary-grid span,.call-summary-grid b{display:block}.call-summary-grid span{font-size:11px;color:#887b77}.call-summary-grid b{margin-top:4px;font-size:13px}.call-finished .modal-actions{margin-top:12px}
 .integration-banner{display:flex;align-items:center;gap:14px;padding:16px;border:1px solid #e5d8d5;background:#fbf8f7;border-radius:14px;margin-bottom:20px}.integration-icon{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#f3e9e8;color:#9b3f3f;font-weight:600}.integration-banner b{display:block}.integration-banner p{margin:3px 0 0;color:#776b68;font-size:13px}.connection-dot{margin-left:auto;font-size:12px;font-weight:600;color:#8a6763;white-space:nowrap}.security-note{display:flex;gap:12px;align-items:flex-start;margin-top:16px;padding:13px 15px;border:1px solid #eadfdd;border-radius:11px;background:#faf7f6}.security-note b{font-size:12px;color:#6e5c58;white-space:nowrap}.security-note span{font-size:12px;line-height:1.5;color:#827571}.integration-actions{display:flex;gap:10px;margin-top:16px}.sdk-reference{margin-top:22px;border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;gap:24px}.sdk-reference b,.sdk-reference small{display:block}.sdk-reference small{max-width:470px;margin-top:5px;color:#7d716d;line-height:1.5}.sdk-methods{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;align-content:flex-start}.sdk-methods span{font:600 11px ui-monospace,SFMono-Regular,Menlo,monospace;background:#f3e9e8;color:#825451;padding:6px 8px;border-radius:7px}.telephony-mini-status{font-size:11px;color:#7b6d69}.agent-form{padding:18px;margin:18px 0;background:#fcfaf9!important}.telephony-agent-list{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:20px}.agent-list-head,.agent-row{display:grid;grid-template-columns:1.6fr .6fr 1fr 1fr;gap:16px;align-items:center;padding:13px 15px}.agent-list-head{background:#f7f4f3;text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:600;color:#8b7e79}.agent-row{border-top:1px solid var(--line)}.agent-row small{display:block;margin-top:3px;color:#827671}.agent-row code{font-size:11px;color:#6d5b57}.agent-status{font-size:11px;color:#8b6b66;font-weight:600}
 @media(max-width:760px){.sdk-reference{display:block}.sdk-methods{justify-content:flex-start;margin-top:14px}.agent-list-head{display:none}.agent-row{grid-template-columns:1fr 1fr}.agent-row code,.agent-status{font-size:11px}.call-overlay{padding:12px}.call-popup{border-radius:18px;padding:18px}.call-controls{grid-template-columns:1fr 1fr 1fr}.call-history-row{grid-template-columns:30px 1fr}.call-id{display:none}}
 
 
 /* StayDesk production navigation + reservation updates */
-.taj-logo{display:flex;align-items:center;gap:8px;color:#5d514b;text-decoration:none;font-size:11px;letter-spacing:.12em;font-weight:600;margin:0 10px 18px;padding:8px 10px;border:1px solid #e7dfdc;border-radius:9px;background:#fffaf8}.taj-logo:hover{border-color:#d5c1bc;color:#8f3d3a}.taj-logo .taj-mark{font-family:var(--fr-font, "Inter", Arial, sans-serif);font-size:18px;letter-spacing:-.08em;color:#9b3f3f}.taj-logo.compact{width:calc(100% - 20px)}
+.taj-logo{display:flex;align-items:center;gap:8px;color:#5d514b;text-decoration:none;font-size:11px;letter-spacing:.12em;font-weight:600;margin:0 10px 18px;padding:8px 10px;border:1px solid #e7dfdc;border-radius:9px;background:#fffaf8}.taj-logo:hover{border-color:#d5c1bc;color:#8f3d3a}.taj-logo .taj-mark{font-family:var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);font-size:18px;letter-spacing:-.08em;color:#9b3f3f}.taj-logo.compact{width:calc(100% - 20px)}
 .profile-menu{position:relative}.profile-menu:hover .profile-dropdown,.profile-menu:focus-within .profile-dropdown{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}.profile-dropdown{position:absolute;right:0;top:calc(100% + 10px);width:250px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 45px rgba(48,30,29,.14);padding:8px;opacity:0;visibility:hidden;transform:translateY(-5px);pointer-events:none;transition:.16s ease;z-index:30}.profile-dropdown:before{content:"";position:absolute;right:10px;top:-6px;width:10px;height:10px;background:#fff;border-left:1px solid var(--line);border-top:1px solid var(--line);transform:rotate(45deg)}.profile-dropdown-head{display:flex;gap:10px;align-items:center;padding:10px;border-bottom:1px solid var(--line);margin-bottom:5px}.profile-dropdown-head small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.profile-dropdown>button{display:flex;align-items:center;gap:9px;width:100%;border:0;background:transparent;padding:11px 10px;border-radius:8px;color:#514b49;text-align:left}.profile-dropdown>button:hover{background:#f8f2f1;color:var(--brand)}
 .reservation-modal{width:min(850px,100%)}.reservation-step{display:flex;gap:8px;margin:4px 0 20px}.reservation-step .active-choice{background:#f3e9e8!important;border-color:#d9bcb8!important;color:var(--brand)!important}.reservation-section-label{margin:20px 0 4px!important}.mapping-label{margin-top:22px}.mapping-table{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:10px}.mapping-head,.mapping-row{display:grid;grid-template-columns:1.2fr .8fr 1.3fr .65fr;gap:12px;align-items:center;padding:12px 14px}.mapping-head{background:#f7f4f3;text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:600;color:#8b7e79}.mapping-row{border-top:1px solid var(--line)}.mapping-row small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.mapping-row code{font-size:11px;color:#6d5b57}.mapping-status{font-size:11px;font-weight:600;color:#58745f}.mapping-status:before{content:"●";margin-right:5px}.profile-section-divider{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
 @media(max-width:760px){.mapping-head{display:none}.mapping-row{grid-template-columns:1fr 1fr}.mapping-row select{grid-column:1/-1}.mapping-status{grid-column:1/-1}.profile-dropdown{right:-5px}.taj-logo.compact{width:auto}}
@@ -1443,7 +1441,7 @@ body{
   background:#f4f7fc;
   color:var(--fl-ink);
 
-  font-family:var(--fr-font, "Inter", Arial, sans-serif);
+  font-family:var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);
 
   -webkit-font-smoothing:antialiased;
 }
@@ -3800,7 +3798,7 @@ body{
   --muted:#687B99;
   --line:#E1EAF6;
 }
-body{background:#F6F9FE!important;color:#101D3A!important;font-family:var(--fr-font, "Inter", Arial, sans-serif)!important}
+body{background:#F6F9FE!important;color:#101D3A!important;font-family:var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif)!important}
 .app,.main-shell,.main-shell main{background:#F6F9FE!important}
 .sidebar{
   width:236px!important;padding:20px 12px 16px!important;background:#fff!important;
@@ -4200,7 +4198,7 @@ h1,h2,h3{font-weight:600!important;color:#101d3a}
 
   box-shadow:0 20px 48px rgba(15,48,94,.16),0 4px 14px rgba(15,48,94,.06);
 
-  font-family:var(--fr-font, "Inter", Arial, sans-serif);
+  font-family:var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);
 
   animation:callWidgetRise .32s cubic-bezier(.16,.84,.32,1) both;
 }
@@ -4756,7 +4754,7 @@ h1,h2,h3{font-weight:600!important;color:#101d3a}
    FRIDAY AI - DESK — UI refinement: Poppins + professional nav icons
    ========================================================= */
 html, body, #root, .app, .guest-app, button, input, select, textarea {
-  font-family: var(--fr-font, "Inter", Arial, sans-serif) !important;
+  font-family: var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif) !important;
 }
 
 .sidebar-nav .nav-icon {
@@ -4884,38 +4882,38 @@ html, body, #root, .app, .guest-app, button, input, select, textarea {
 .calendar-toolbar h1{margin:3px 0 4px;font-size:24px;line-height:1.15}
 .calendar-toolbar-actions{display:flex;align-items:center;gap:10px;min-width:0}
 .calendar-search{height:38px;width:min(310px,28vw);display:flex;align-items:center;gap:7px;padding:0 11px;border:1px solid var(--line,#dce6f2);border-radius:10px;background:#fff;color:#8391a5}
-.calendar-search input{width:100%;border:0;outline:0;background:transparent;font:500 12px var(--fr-font, "Inter", Arial, sans-serif);color:#203047}
+.calendar-search input{width:100%;border:0;outline:0;background:transparent;font:500 12px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);color:#203047}
 .calendar-search input::placeholder{color:#9aa7b8}
-.primary-btn{height:38px;border:0;border-radius:10px;padding:0 14px;background:linear-gradient(120deg,#1557d6,#168bea,#38bdf8);color:#fff;font:600 12px var(--fr-font, "Inter", Arial, sans-serif);box-shadow:0 8px 20px rgba(21,87,214,.16);cursor:pointer;white-space:nowrap}
+.primary-btn{height:38px;border:0;border-radius:10px;padding:0 14px;background:linear-gradient(120deg,#1557d6,#168bea,#38bdf8);color:#fff;font:600 12px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);box-shadow:0 8px 20px rgba(21,87,214,.16);cursor:pointer;white-space:nowrap}
 .calendar-card{width:100%;min-width:0;overflow:hidden;border-radius:16px}
 .calendar-card-top{min-height:68px;padding:12px 14px;border-bottom:1px solid #e6edf6;display:flex;align-items:center;justify-content:space-between;gap:14px;background:#fff}
 .calendar-navigation{display:flex;align-items:center;gap:7px;min-width:0}
 .calendar-navigation h2{font-size:16px;margin:0 0 0 6px;white-space:nowrap;color:#15253b}
-.today-btn{height:34px;padding:0 12px;border:1px solid #dbe5f1;background:#f7faff;border-radius:9px;color:#27558e;font:600 11px var(--fr-font, "Inter", Arial, sans-serif);cursor:pointer}
+.today-btn{height:34px;padding:0 12px;border:1px solid #dbe5f1;background:#f7faff;border-radius:9px;color:#27558e;font:600 11px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);cursor:pointer}
 .calendar-view-switch{display:flex;align-items:center;background:#f2f6fb;border:1px solid #e0e8f2;border-radius:10px;padding:3px;flex-shrink:0}
-.calendar-view-switch button{height:30px;padding:0 12px;border:0;background:transparent;border-radius:7px;color:#66768b;font:600 11px var(--fr-font, "Inter", Arial, sans-serif);cursor:pointer}
+.calendar-view-switch button{height:30px;padding:0 12px;border:0;background:transparent;border-radius:7px;color:#66768b;font:600 11px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);cursor:pointer}
 .calendar-view-switch button.active{background:#fff;color:#1557d6;box-shadow:0 2px 8px rgba(32,57,88,.10)}
 
 .calendar-timeline-wrap{width:100%;min-width:0;overflow:auto;max-height:calc(100vh - 270px);background:#fff}
 .cal-day-header{display:grid;grid-template-columns:68px repeat(7,minmax(135px,1fr));min-width:1013px;position:sticky;top:0;z-index:8;background:#fff;border-bottom:1px solid #e4ebf4}
 .cal-day-header:has(.cal-date-head:only-child){grid-template-columns:68px minmax(250px,1fr)}
 .cal-axis-spacer{background:#fbfdff;border-right:1px solid #e8eef5}
-.cal-date-head{height:52px;display:flex;align-items:center;justify-content:center;gap:7px;border-right:1px solid #e8eef5;color:#7b899c;font:500 11px var(--fr-font, "Inter", Arial, sans-serif)}
+.cal-date-head{height:52px;display:flex;align-items:center;justify-content:center;gap:7px;border-right:1px solid #e8eef5;color:#7b899c;font:500 11px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif)}
 .cal-date-head b{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;font-size:13px;color:#263b56}
 .cal-date-head.is-today{color:#1557d6;background:#f5f9ff}
 .cal-date-head.is-today b{background:#1557d6;color:#fff}
 .cal-timeline{display:grid;grid-template-columns:68px 1fr;min-width:1013px}
 .cal-time-axis{background:#fbfdff;border-right:1px solid #e8eef5}
-.cal-time-label{height:64px;box-sizing:border-box;padding:6px 8px 0 0;text-align:right;color:#8b98a9;font:500 10px var(--fr-font, "Inter", Arial, sans-serif)}
+.cal-time-label{height:64px;box-sizing:border-box;padding:6px 8px 0 0;text-align:right;color:#8b98a9;font:500 10px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif)}
 .cal-timeline-days{display:grid;grid-template-columns:repeat(7,minmax(135px,1fr));min-width:945px}
 .cal-day-column{height:1536px;position:relative;border-right:1px solid #edf1f6;background:#fff}
 .cal-day-column.is-today{background:#fbfdff}
 .cal-hour-line{height:64px;box-sizing:border-box;border-bottom:1px solid #edf1f6}
 .cal-hour-line:nth-child(odd){background:rgba(248,251,255,.38)}
 .cal-event{position:absolute;left:7px;right:7px;min-height:34px;box-sizing:border-box;padding:7px 8px;border-radius:8px;border-left:3px solid #1557d6;background:#edf5ff;color:#17304f;overflow:hidden;z-index:3;box-shadow:0 3px 10px rgba(24,64,110,.08)}
-.cal-event strong{display:block;font:700 11px/1.25 var(--fr-font, "Inter", Arial, sans-serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cal-event span{display:block;margin-top:2px;font:500 10px/1.25 var(--fr-font, "Inter", Arial, sans-serif);color:#5d7089;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cal-event small{display:block;margin-top:3px;font:600 9px/1.2 var(--fr-font, "Inter", Arial, sans-serif);color:#6f8299}
+.cal-event strong{display:block;font:700 11px/1.25 var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cal-event span{display:block;margin-top:2px;font:500 10px/1.25 var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);color:#5d7089;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cal-event small{display:block;margin-top:3px;font:600 9px/1.2 var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);color:#6f8299}
 .cal-event--checked-in{background:#eaf8f1;border-left-color:#22a06b}
 .cal-event--checked-out{background:#fff4e7;border-left-color:#d9822b}
 .cal-event--confirmed{background:#edf5ff;border-left-color:#1557d6}
@@ -4924,33 +4922,33 @@ html, body, #root, .app, .guest-app, button, input, select, textarea {
 .cal-event--compact strong{font-size:11px}
 
 .calendar-month-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));min-width:0;border-left:1px solid #e7edf5;border-top:1px solid #e7edf5}
-.cal-month-weekday{height:34px;display:flex;align-items:center;padding-left:10px;background:#f8fbff;border-right:1px solid #e7edf5;border-bottom:1px solid #e7edf5;color:#75859a;font:600 10px var(--fr-font, "Inter", Arial, sans-serif);text-transform:uppercase;letter-spacing:.04em}
+.cal-month-weekday{height:34px;display:flex;align-items:center;padding-left:10px;background:#f8fbff;border-right:1px solid #e7edf5;border-bottom:1px solid #e7edf5;color:#75859a;font:600 10px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);text-transform:uppercase;letter-spacing:.04em}
 .cal-month-cell{position:relative;min-width:0;height:126px;padding:8px;text-align:left;vertical-align:top;border:0;border-right:1px solid #e7edf5;border-bottom:1px solid #e7edf5;background:#fff;cursor:pointer;overflow:hidden}
 .cal-month-cell:hover{background:#f9fbff}
 .cal-month-cell.is-empty{background:#fafcff;cursor:default}
 .cal-month-cell.is-today{background:#f5f9ff}
-.cal-month-num{display:flex;width:26px;height:26px;align-items:center;justify-content:center;border-radius:50%;color:#3b4e65;font:600 12px var(--fr-font, "Inter", Arial, sans-serif)}
+.cal-month-num{display:flex;width:26px;height:26px;align-items:center;justify-content:center;border-radius:50%;color:#3b4e65;font:600 12px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif)}
 .cal-month-cell.is-today .cal-month-num{background:#1557d6;color:#fff}
 .cal-month-stats{display:flex;flex-wrap:wrap;gap:3px;margin:4px 0}
-.cal-chip{display:inline-flex;padding:2px 5px;border-radius:5px;font:600 8px var(--fr-font, "Inter", Arial, sans-serif)}
+.cal-chip{display:inline-flex;padding:2px 5px;border-radius:5px;font:600 8px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif)}
 .cal-chip.arrival{background:#e9f8f1;color:#178457}
 .cal-chip.departure{background:#fff2df;color:#b66b16}
 .cal-chip.stay{background:#edf5ff;color:#1557d6}
 .cal-month-reservations{display:flex;flex-direction:column;gap:3px}
-.cal-month-reservations span{display:block;padding:3px 5px;border-radius:5px;background:#f5f7fa;color:#56677c;font:500 9px var(--fr-font, "Inter", Arial, sans-serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cal-month-reservations span{display:block;padding:3px 5px;border-radius:5px;background:#f5f7fa;color:#56677c;font:500 9px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 .cal-year-grid-new{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:14px;background:#f8fbff}
 .cal-year-card{min-width:0;padding:14px;border:1px solid #e1e9f3;border-radius:12px;background:#fff;text-align:left;cursor:pointer;transition:.15s ease}
 .cal-year-card:hover{transform:translateY(-1px);border-color:#b9d2ef;box-shadow:0 8px 20px rgba(35,73,115,.08)}
 .cal-year-card-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.cal-year-card-head strong{font:700 13px var(--fr-font, "Inter", Arial, sans-serif);color:#233750}
-.cal-year-card-head span{font:500 9px var(--fr-font, "Inter", Arial, sans-serif);color:#7a899b}
+.cal-year-card-head strong{font:700 13px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);color:#233750}
+.cal-year-card-head span{font:500 9px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);color:#7a899b}
 .cal-year-mini{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;margin:12px 0 8px}
 .cal-year-mini i{display:block;height:5px;border-radius:2px;background:#edf1f5}
 .cal-year-mini i.active{background:#62a9ee}
-.cal-year-card small{font:500 9px var(--fr-font, "Inter", Arial, sans-serif);color:#8794a5}
+.cal-year-card small{font:500 9px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);color:#8794a5}
 
-.calendar-footer{display:flex;align-items:center;gap:16px;padding:10px 14px;border-top:1px solid #e7edf5;color:#748398;font:500 10px var(--fr-font, "Inter", Arial, sans-serif);background:#fff}
+.calendar-footer{display:flex;align-items:center;gap:16px;padding:10px 14px;border-top:1px solid #e7edf5;color:#748398;font:500 10px var(--fr-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif);background:#fff}
 .calendar-footer span{display:flex;align-items:center;gap:5px}
 .legend-dot{width:7px;height:7px;border-radius:50%;display:inline-block}
 .legend-dot.arrival{background:#22a06b}.legend-dot.departure{background:#d9822b}.legend-dot.stay{background:#1557d6}
