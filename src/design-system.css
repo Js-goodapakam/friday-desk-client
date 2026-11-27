@@ -164,3 +164,14 @@ html{scrollbar-gutter:stable}body{font-family:var(--fr-font);background:var(--fr
 @media(pointer:coarse){#root :is(.primary,.subtle,.ghost,.pw-primary,.pw-secondary,.pg-primary,.pg-secondary,.cm-primary,.cm-secondary,.ri-primary,.ri-secondary,.mobile-menu-toggle,.pw-icon-button){min-height:44px}#root :is(input:not([type=checkbox]):not([type=radio]),select,textarea){font-size:16px!important}#root .pw-table-scroll input{font-size:13px!important}}
 @media(prefers-reduced-motion:reduce){#root .app .sidebar{transition:none}}
 @media print{#root .app .sidebar,#root .app .topbar,#root .mobile-menu-toggle,#root .mobile-nav-backdrop{display:none!important}#root .app .main-shell{margin:0!important;width:100%!important}#root .app .main-shell main{padding:0!important}#root .invoice-paper{box-shadow:none;border:0;border-radius:0}html{scrollbar-gutter:auto}}
+
+/* Engage shared primitives: opt-in, no legacy selector changes. */
+#root .eh-button{font-family:var(--fr-font);display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 16px;border:1px solid transparent;border-radius:var(--fr-radius);font-size:14px;cursor:pointer;white-space:normal}
+#root .eh-button--primary{background:var(--engage-button);color:var(--engage-white)}
+#root .eh-button--primary:hover:not(:disabled){background:var(--engage-royal)}
+#root .eh-button--secondary{background:var(--fr-surface);color:var(--fr-ink);border-color:var(--fr-border)}
+#root .eh-button--secondary:hover:not(:disabled){background:var(--fr-soft)}
+#root .eh-button:disabled{opacity:.6;cursor:not-allowed}
+#root .eh-card{min-width:0;background:var(--fr-surface);border:1px solid var(--fr-border);border-radius:8px;padding:16px;box-shadow:0 1px 3px #16365b04}
+#root .eh-input{box-sizing:border-box;min-width:0;max-width:100%;min-height:44px;padding:8px 12px;border:1px solid #8293a8;border-radius:var(--fr-radius);background:var(--fr-surface);color:var(--fr-ink);font:inherit}
+#root :is(.eh-button,.eh-input):focus-visible{outline:2px solid var(--engage-blue);outline-offset:2px}
