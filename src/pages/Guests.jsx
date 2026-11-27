@@ -134,13 +134,13 @@ export default function Guests({ data, setData, onCall }) {
       : { status: "Available", reservation: null };
   };
 
-  const roomOptions = useMemo(() => {
+  const roomOptions = (() => {
     const reservationId = selectedGuest?.reservation?.id;
     return (data.rooms || []).map((room) => ({
       ...room,
       allocation: getRoomAllocation(room.number, reservationId),
     }));
-  }, [data.rooms, data.reservations, selectedGuest?.reservation?.id]);
+  })();
 
   const openGuest = (guest, reservation) => {
     setSelectedGuest({ guest, reservation });
