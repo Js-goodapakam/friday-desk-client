@@ -1,23 +1,6 @@
+import EngageIcon from "./components/EngageIcon.jsx";
 import { useState } from "react";
 import "./dashboard.css";
-
-/* Small inline icons (same approach as Friday.jsx and Onboarding.jsx) */
-const Ico = ({ children, className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor"
-    strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    {children}
-  </svg>
-);
-
-const ICONS = {
-  bed: (<><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8" /><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4" /><path d="M12 4v6" /><path d="M2 18h20" /></>),
-  login: (<><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><path d="m10 17 5-5-5-5" /><path d="M15 12H3" /></>),
-  logout: (<><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><path d="m16 17 5-5-5-5" /><path d="M21 12H9" /></>),
-  rupee: (<><path d="M6 3h12" /><path d="M6 8h12" /><path d="m6 13 8.5 8" /><path d="M6 13h3" /><path d="M9 13c6.667 0 6.667-10 0-10" /></>),
-  plus: (<><path d="M12 5v14" /><path d="M5 12h14" /></>),
-  arrow: (<><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></>),
-  check: (<path d="m5 12 5 5L20 7" />),
-};
 
 /* ---------- helpers ---------- */
 
@@ -61,7 +44,7 @@ function Kpi({ icon, label, value, note, active, onClick, onHover }) {
       onFocus={onHover}
     >
       <span className="fd-kpi-top">
-        <span className="fd-kpi-icon"><Ico>{ICONS[icon]}</Ico></span>
+        <span className="fd-kpi-icon"><EngageIcon name={icon} variant="dashboard" /></span>
         <span className="fd-kpi-label">{label}</span>
       </span>
       <span className="fd-kpi-value">{value}</span>
@@ -101,7 +84,7 @@ function MoveRow({ r, guest, tab, utils, onCheckIn, onCheckOut, onOpenGuest }) {
 function Empty({ icon, title, text, action }) {
   return (
     <div className="fd-empty">
-      <span className="fd-empty-icon"><Ico>{ICONS[icon]}</Ico></span>
+      <span className="fd-empty-icon"><EngageIcon name={icon} variant="dashboard" /></span>
       <strong>{title}</strong>
       <p>{text}</p>
       {action}
@@ -227,7 +210,7 @@ export default function Dashboard({
         <div className="fd-head-actions">
           
           <button type="button" className="fd-btn fd-btn--primary" onClick={onNew}>
-            <Ico>{ICONS.plus}</Ico>New reservation
+            <EngageIcon name="plus" variant="action" />New reservation
           </button>
         </div>
       </header>
@@ -360,7 +343,7 @@ export default function Dashboard({
                 <p>{plural(totalRooms, "room")} at {hotel.name}</p>
               </div>
               <button type="button" className="fd-link" onClick={() => setPage("rooms")}>
-                All rooms<Ico>{ICONS.arrow}</Ico>
+                All rooms<EngageIcon name="arrow" variant="action" />
               </button>
             </div>
             <div className="fd-rooms">
@@ -396,7 +379,7 @@ export default function Dashboard({
             <div className="fd-block">
               <div className="fd-block-head">
                 <h3>Payments due</h3>
-                <button type="button" className="fd-link" onClick={() => setPage("payments")}>View all<Ico>{ICONS.arrow}</Ico></button>
+                <button type="button" className="fd-link" onClick={() => setPage("payments")}>View all<EngageIcon name="arrow" variant="action" /></button>
               </div>
               {withBalance.length ? withBalance.slice(0, 3).map(({ r, due }) => {
                 const g = guestOf(r.guestId);
@@ -415,7 +398,7 @@ export default function Dashboard({
             <div className="fd-block">
               <div className="fd-block-head">
                 <h3>Guest requests</h3>
-                <button type="button" className="fd-link" onClick={() => setPage("requests")}>View all<Ico>{ICONS.arrow}</Ico></button>
+                <button type="button" className="fd-link" onClick={() => setPage("requests")}>View all<EngageIcon name="arrow" variant="action" /></button>
               </div>
               {openRequests.length ? openRequests.slice(0, 3).map((q) => {
                 const g = guestOf(q.guestId);
