@@ -38,7 +38,9 @@ const COUNTRIES = [
 ];
 
 export default function FridayLogin({ onLogin, onForgotPassword }) {
-  const [mode, setMode] = useState("login");
+  const [redirect] = useState(() => {const query=new URLSearchParams(window.location.search);const hash=new URLSearchParams(window.location.hash.slice(1));return {status:query.get("signup"),token:hash.get("access_token"),type:hash.get("type")};});
+  const validRedirect=redirect.status==="verify"&&redirect.token&&redirect.type==="signup";
+  const [mode, setMode] = useState(()=>redirect.status==="received"?"received":redirect.status==="verify"?(validRedirect?"finalizing":"email-sent"):"login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -49,47 +51,23 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
 
-  const [formError, setFormError] = useState("");
+  const [formError, setFormError] = useState(()=>redirect.status==="verify"&&!validRedirect?"Email verification could not be completed. Reopen the original confirmation link or contact support.":"");
   const [successMessage, setSuccessMessage] = useState("");
   const [sendingReset, setSendingReset] = useState(false);
   const [signingIn, setSigningIn] = useState(false);
   const [countryDial, setCountryDial] = useState("+91");
   const [mobile, setMobile] = useState("");
   const [submittingSignup, setSubmittingSignup] = useState(false);
-  const [verificationToken, setVerificationToken] = useState(null);
+  const [verificationToken, setVerificationToken] = useState(()=>validRedirect?redirect.token:null);
   const [emailVerificationRequired, setEmailVerificationRequired] = useState(true);
   useEffect(() => { void signupMode().then(mode => setEmailVerificationRequired(mode?.emailVerificationRequired !== false)); }, []);
   const beginSocialSignup = (provider) => window.location.assign(`/api/auth/social/${provider}`);
 
   useEffect(() => {
-    const query = new URLSearchParams(window.location.search);
-    const hash = new URLSearchParams(window.location.hash.slice(1));
-    const signupStatus = query.get("signup");
-
-    if (signupStatus === "received") {
-      setMode("received");
-      window.history.replaceState(null, "", window.location.pathname);
-      return;
-    }
-
-    if (signupStatus !== "verify") return;
-
-    // Supabase redirects to the application with a short-lived session in
-    // the hash after email confirmation. Remove it from browser history before
-    // exchanging it with the Engage Stay server.
-    const token = hash.get("access_token");
-    const type = hash.get("type");
-    window.history.replaceState(null, "", window.location.pathname);
-
-    if (!token || type !== "signup") {
-      setMode("email-sent");
-      setFormError("Email verification could not be completed. Reopen the original confirmation link or contact support.");
-      return;
-    }
-
-    setMode("finalizing");
-    setVerificationToken(token);
-    signupRequest("complete", { accessToken: token }).then(() => {
+    if (!redirect.status) return;
+    if (redirect.status==="received"||redirect.status==="verify") window.history.replaceState(null,"",window.location.pathname);
+    if (!validRedirect) return;
+    signupRequest("complete", { accessToken: redirect.token }).then(() => {
       setVerificationToken(null);
       setFormError("");
       setMode("received");
@@ -97,7 +75,7 @@ export default function FridayLogin({ onLogin, onForgotPassword }) {
       setMode("finalizing");
       setFormError(error.message || "We could not submit your signup request. Please retry.");
     });
-  }, []);
+  }, [redirect,validRedirect]);
 
   useEffect(() => {
     const updateRightScale = () => {
