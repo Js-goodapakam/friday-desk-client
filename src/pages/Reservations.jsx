@@ -1,20 +1,9 @@
 import { useMemo, useState } from "react";
 import { date, money, balance, initials } from "../core/data.js";
 import { Badge, UIState } from "../components/Common.jsx";
+import EngageIcon from "../components/EngageIcon.jsx";
 
-function CallIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" fill="none">
-      <path
-        d="M7.2 4.7 9.5 4c.7-.2 1.4.2 1.7.8l1.1 2.7c.2.5.1 1.1-.3 1.4l-1.5 1.2c1 2 2.4 3.4 4.4 4.4l1.2-1.5c.3-.4.9-.5 1.4-.3l2.7 1.1c.6.3.9 1 .8 1.7l-.7 2.3c-.2.7-.8 1.2-1.5 1.2C10.9 18.8 5.2 13.1 5 6.2c0-.7.5-1.3 1.2-1.5Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+function CallIcon() { return <EngageIcon name="phone" variant="compact" />; }
 
 export default function Reservations({ data, onCheckIn, onEdit, onCall }) {
   const [q, setQ] = useState("");
@@ -104,7 +93,7 @@ export default function Reservations({ data, onCheckIn, onEdit, onCall }) {
                 pointerEvents: "none",
               }}
             >
-              ⌕
+              <EngageIcon name="search" variant="compact" />
             </span>
             <input
               aria-label="Search reservations"
@@ -328,27 +317,7 @@ export default function Reservations({ data, onCheckIn, onEdit, onCall }) {
                                 transition: "all .18s ease",
                               }}
                             >
-                              <svg
-                                viewBox="0 0 24 24"
-                                width="14"
-                                height="14"
-                                fill="none"
-                                aria-hidden="true"
-                              >
-                                <path
-                                  d="M4 20h4l10.5-10.5a2.12 2.12 0 0 0-3-3L5 17v3Z"
-                                  stroke="currentColor"
-                                  strokeWidth="1.8"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                                <path
-                                  d="m14.5 7.5 2 2"
-                                  stroke="currentColor"
-                                  strokeWidth="1.8"
-                                  strokeLinecap="round"
-                                />
-                              </svg>
+                              <EngageIcon name="edit" variant="compact" />
                             </button>
                           )}
 
