@@ -2,7 +2,7 @@ import {seed} from './data.js';
 
 const managedSections = {
  operations: ['rooms', 'guests', 'reservations', 'requests', 'tasks', 'housekeeping'],
- finance: ['folios', 'payments', 'invoices', 'invoiceSettings'],
+ finance: ['folios', 'payments', 'invoices', 'invoiceSettings', 'folioLedger'],
  inventory: ['ratePlans', 'inventoryOverrides', 'inventoryAudit', 'revenueManagement'],
  communications: ['communications', 'callActivities'],
 };

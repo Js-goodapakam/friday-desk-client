@@ -16,6 +16,7 @@ import RatePlans from "./pages/RatePlans.jsx";
 import ChannelMappings from "./pages/ChannelMappings.jsx";
 import RoomManagement from "./pages/RoomManagement.jsx";
 import FolioActions from "./pages/FolioActions.jsx";
+import ManagedFolio from "./pages/ManagedFolio.jsx";
 import CreateReservation from "./pages/CreateReservation.jsx";
 import OwnerAdmin from "./pages/OwnerAdmin.jsx";
 import "./pages/demo.css";
@@ -1032,7 +1033,7 @@ function NavIcon({ name }) {
   );
 }
 
-function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspace,onInvoicePayment,modules=null,initialPage='dashboard'}){
+function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspace,onInvoicePayment,onFolioOperation,modules=null,initialPage='dashboard'}){
  const [mobileNav,setMobileNav]=useState(false),[page,setPage]=useState(initialPage),[editingReservation,setEditingReservation]=useState(null),[editor,setEditor]=useState(false),[selected,setSelected]=useState(null),[callGuest,setCallGuest]=useState(null),[incomingCall,setIncomingCall]=useState(currentIncomingTeleCMICall);
  useEffect(()=>{if(!mobileNav||!window.matchMedia("(max-width:900px)").matches)return;const panel=document.getElementById("property-navigation"),trigger=document.querySelector(".mobile-menu-toggle");const items=()=>[...panel.querySelectorAll("button,a[href]")].filter(el=>!el.disabled&&el.getClientRects().length);items()[0]?.focus();const keys=e=>{if(e.key==="Escape"){e.preventDefault();setMobileNav(false);}if(e.key==="Tab"){const list=items(),first=list[0],last=list.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}};panel.addEventListener("keydown",keys);return()=>{panel.removeEventListener("keydown",keys);trigger?.focus();};},[mobileNav]);
  useEffect(()=>{const open=e=>{if(Number(e.detail?.propertyId)===Number(data.property.id)){const record=data.reservations.find(r=>r.id===e.detail.id);if(record)setEditingReservation(record);}};window.addEventListener("friday:open-reservation",open);return()=>window.removeEventListener("friday:open-reservation",open);},[data.property.id,data.reservations]);
@@ -1066,11 +1067,12 @@ function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspa
   [["dashboard","Dashboard","dashboard"],["rooms","Rooms","reservations"],["calendar","Calendar","calendar"],["reservations","Reservations","reservations"],["guests","Guests","guests"]],
   [["invoices","Invoices","invoices"],["payments","Finance","finance"],["rates-inventory","Rates & Inventory","reservations"],["revenue-manager","Revenue manager","reports"],["channel-manager","Channel Manager","reports"],["reports","Reports","reports"]],
   [["frontdesk","Front Desk","reservations"],["housekeeping","Housekeeping","reservations"]],
+  ...(modules?.includes("finance")?[[["folios","Guest folios","invoices"]]]:[]),
   ...(data.demo?[[["folios","Guest folios","invoices"],["rateplans","Rate plans","finance"],["room-types","Room types & inventory","reservations"]]]:[]),
   [["enquiries","Enquiries","reservations"],["groups","Group Bookings","guests"],["communications","Communications","guests"],["worktasks","Tasks & follow-ups","reports"],["activity","Audit history","reports"],["team","Users & Roles","settings"]],
   [["operations-hub","Operations hub","reports"],["help","Help","help"],["settings","Settings","settings"]],
  ];
- const allowedPages=modules&&["dashboard","help","team",...(modules.includes("operations")?["rooms","frontdesk","housekeeping","calendar","reservations","guests","reports"]:[]),...(modules.includes("finance")?["invoices","payments"]:[]),...(modules.includes("inventory")?["rates-inventory","revenue-manager"]:[])];
+ const allowedPages=modules&&["dashboard","help","team",...(modules.includes("operations")?["rooms","frontdesk","housekeeping","calendar","reservations","guests","reports"]:[]),...(modules.includes("finance")?["invoices","payments","folios"]:[]),...(modules.includes("inventory")?["rates-inventory","revenue-manager"]:[])];
  const visibleNav=allowedPages?navGroups.map(group=>group.filter(([id])=>allowedPages.includes(id))).filter(group=>group.length):navGroups;
  useEffect(()=>{if(allowedPages&&!allowedPages.includes(page))setPage("dashboard");},[modules,page]);
  const currentLabel=visibleNav.flat().find(n=>n[0]===page)?.[1]||({rooms:"Rooms",requests:"Guest Requests"}[page]||"Dashboard");
@@ -1092,7 +1094,7 @@ function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspa
  {page==="operations-hub"&&<HospitalityHub data={data} setData={setData} session={session}/>}
  {(page==="frontdesk"||["housekeeping","folios","tasks"].includes(page)&&!modules)&&<DemoOperations key={page} view={page} data={data} setData={setData} onCheckIn={checkIn} onCheckOut={checkOut}/>}
  {page==="housekeeping"&&modules&&<Rooms data={data} housekeeping onCleaningStatus={(number,status)=>setData(d=>({...d,rooms:d.rooms.map(room=>room.number===number?{...room,housekeepingStatus:status}:room)}))}/> }
- {page==="folios"&&<FolioActions data={data} setData={setData}/>}
+ {page==="folios"&&(modules?<ManagedFolio data={data} session={session} record={onFolioOperation}/>:<FolioActions data={data} setData={setData}/>)}
  {page==="settings"&&<><div className="page-heading"><div><div className="eyebrow">ADMINISTRATION</div><h1>Property settings</h1><p className="muted">Property details, operational policies and integrations.</p></div></div><Settings data={data} setData={setData} session={session} onManageProperties={onBackToProperties}/></>}
  </main><footer>Engage Stay · {data.property?.name} · Hospitality CRM</footer></div>{editingReservation&&<ReservationActions reservation={editingReservation} data={data} setData={setData} onClose={()=>setEditingReservation(null)}/>}{editor&&(data.demo?<CreateReservation data={data} setData={setData} onClose={()=>setEditor(false)}/>:<ReservationEditor data={data} onClose={()=>setEditor(false)} onSave={saveReservation}/>)} {selected&&<GuestProfile g={selected} data={data} onClose={()=>setSelected(null)} onCall={startOutgoingCall}/>} {incomingCall&&<CallErrorBoundary onClose={()=>{setIncomingCall(null);currentIncomingTeleCMICall=null;window.teleCMIIncomingCall=null}}><IncomingCallPopup call={incomingCall} guest={incomingGuest} onClose={()=>{setIncomingCall(null);currentIncomingTeleCMICall=null;window.teleCMIIncomingCall=null}} onSave={call=>setData(d=>({...d,callActivities:[...(d.callActivities||[]),call]}))}/></CallErrorBoundary>} {callGuest&&<CallErrorBoundary onClose={()=>setCallGuest(null)}><CallPopup guest={callGuest} telecmi={data.telecmi} onClose={()=>setCallGuest(null)} onSave={call=>setData(d=>({...d,callActivities:[...(d.callActivities||[]),call]}))}/></CallErrorBoundary>}</div>
 }
@@ -1129,20 +1131,20 @@ function PropertyWorkspace({property,session,onLogout,onBack}) {
   }).finally(()=>{if(mounted.current)setSaving(false);});
   queue.current=operation.then(()=>undefined);return operation;
  },[session.id,property.id,modules]);
- const invoicePayment=async operation=>{
+ const financeCommand=async (field,operation)=>{
   await queue.current;
   if(failed.current||!modules?.includes("finance"))throw Error("Reload the workspace before recording payment.");
-  const result=await workspaceRequest(property.id,"PUT",{invoicePayment:operation,version:version.current});
+  const result=await workspaceRequest(property.id,"PUT",{[field]:operation,version:version.current});
   version.current=result.version;
   const view=managedWorkspaceView(result.state,property,modules);
   committed.current=view;current.current=view;updateData(view);
-  return result.state.invoices.find(invoice=>invoice.id===operation.invoiceId);
+  return result.state.invoices?.find(invoice=>invoice.id===operation.invoiceId);
  };
  const back=async()=>{await queue.current;if(!failed.current)onBack();};
  const reload=async()=>{await queue.current;await loadRemote();failed.current=false;setStorageError("");};
  if(loading)return <FridayLoader fullscreen/>;
  if(!remote.current)return <div className="storage-unavailable" role="alert"><h1>Property storage unavailable</h1><p>{storageError||'Unable to load saved property records.'}</p><button className="subtle" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Retry connection</button><button className="primary" onClick={onBack}>Back to properties</button></div>;
- return <>{storageError&&<div className="demo-error" role="alert">{storageError}<button type="button" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Reload saved records</button></div>}<Admin onInvoicePayment={modules?.includes('finance')?invoicePayment:undefined} modules={modules} initialPage={property.initialPage} data={data} setData={setData} session={{...session,propertyId:property.id}} onLogout={onLogout} onBackToProperties={back} onReloadWorkspace={reload}/></>;
+ return <>{storageError&&<div className="demo-error" role="alert">{storageError}<button type="button" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Reload saved records</button></div>}<Admin onInvoicePayment={modules?.includes('finance')?operation=>financeCommand('invoicePayment',operation):undefined} onFolioOperation={operation=>financeCommand('folioOperation',operation)} modules={modules} initialPage={property.initialPage} data={data} setData={setData} session={{...session,propertyId:property.id}} onLogout={onLogout} onBackToProperties={back} onReloadWorkspace={reload}/></>;
 }
 
 export default function App(){
