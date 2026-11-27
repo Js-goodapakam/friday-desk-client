@@ -1,3 +1,4 @@
+import EngageIcon from "../components/EngageIcon.jsx";
 import { useEffect, useState } from "react";
 import { uid } from "../core/data.js";
 import { TELECMI_LOGO, WHATSAPP_LOGO, RCS_LOGO } from "../core/assets.js";
@@ -30,46 +31,15 @@ const CHANNELS = [
   { id: "rcs", label: "RCS", icon: "R", hint: "Rich messaging" },
 ];
 
-function CheckIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="m5 12 4 4L19 6" />
-    </svg>
-  );
-}
+function CheckIcon() { return <EngageIcon name="check" variant="action" />; }
 
-function ChevronIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="m9 6 6 6-6 6" />
-    </svg>
-  );
-}
+function ChevronIcon() { return <EngageIcon name="right" variant="action" />; }
 
-function CloseIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="m7 7 10 10M17 7 7 17" />
-    </svg>
-  );
-}
+function CloseIcon() { return <EngageIcon name="close" variant="action" />; }
 
-function PhoneIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M7 4h3l1.4 4-2.1 1.7a14 14 0 0 0 5 5l1.7-2.1L20 14v3c0 1.1-.9 2-2 2C10.3 19 5 13.7 5 6c0-1.1.9-2 2-2Z" />
-    </svg>
-  );
-}
+function PhoneIcon() { return <EngageIcon name="phone" variant="action" />; }
 
-function MessageIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 5h14v11H9l-4 4V5Z" />
-      <path d="M8 9h8M8 12h5" />
-    </svg>
-  );
-}
+function MessageIcon() { return <EngageIcon name="chat" variant="action" />; }
 
 function SettingsToggle({ title, text, checked = true, data, setData }) {
   const enforced=/Prevent overlapping|Require room assignment|Review balance|Show balance/.test(title);
