@@ -1,0 +1,21 @@
+name: Design system access
+on:
+  push:
+    branches: ['feature/p0-ui-quality']
+  workflow_dispatch:
+permissions:
+  contents: read
+  packages: read
+jobs:
+  access:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: https://npm.pkg.github.com
+          scope: '@js-goodapakam'
+      - run: npm pack @js-goodapakam/engage-design-system@0.1.0 --ignore-scripts
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: tar -tzf js-goodapakam-engage-design-system-0.1.0.tgz | grep -Fx package/packages/tokens/visual.css
