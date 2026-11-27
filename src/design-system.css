@@ -4,7 +4,7 @@
  --engage-navy:#040D2E;--engage-royal:#061A58;--engage-blue:#135FDB;--engage-cyan:#3BBFEE;--engage-button:#165DD8;--engage-button-cyan:#32AEF3;--engage-input:#E8F0FE;--engage-ivory:#F4F1DE;--engage-white:#FFFFFF;
  --fr-ink:#192e49;--fr-muted:#5e728a;--fr-primary:#135FDB;--fr-primary-hover:#061A58;--fr-cyan:#3BBFEE;
  --fr-background:#f5f8fc;--fr-surface:#fff;--fr-border:#dfe7f2;--fr-soft:#E8F0FE;--fr-sidebar:228px;
- --fr-control:38px;--fr-radius:6px;
+ --fr-control:44px;--fr-radius:8px;--eh-card-radius:12px;--eh-modal-radius:16px;--eh-elevation-card:0 1px 3px rgba(4,13,46,.06);--eh-elevation-modal:0 16px 48px rgba(4,13,46,.16);
  --ink:var(--fr-ink);--muted:var(--fr-muted);--line:var(--fr-border);--surface:var(--fr-surface);
  --brand:var(--fr-primary);--brand2:#165DD8;--brand-deep:#061A58;--brand-soft:var(--fr-soft);--soft:var(--fr-soft);--accent:var(--fr-cyan);
  --fs-2xs:11px;--fs-xs:12px;--fs-sm:13px;--fs-base:14px;--fs-md:16px;--fs-lg:18px;--fs-xl:28px;--fs-2xl:26px;
@@ -30,7 +30,7 @@ html{scrollbar-gutter:stable}body{font-family:var(--fr-font);background:var(--fr
 #root :is(td small,.pw-table-property small,.pw-table td small,.business-table td small,.cm-card td small,.guest-cell small){font-size:12px!important;line-height:1.5;color:var(--fr-muted)}
 #root :is(.badge,.pill,.fn-badge,.pw-tag){font-size:11px!important;font-weight:500!important;line-height:1.5}
 #root :is(.pw-code,.pg-code){font-size:11px;letter-spacing:.06em;overflow-wrap:anywhere}
-#root :is(.pw-panel,.card,.cm-card,.ri-table,.finance-panel,.reports-panel){border-color:var(--fr-border);border-radius:8px;box-shadow:0 1px 3px #16365b04}
+#root :is(.pw-panel,.card,.cm-card,.ri-table,.finance-panel,.reports-panel){border-color:var(--fr-border);border-radius:var(--eh-card-radius);box-shadow:var(--eh-elevation-card)}
 #root :is(.primary,.pw-primary,.pg-primary,.cm-primary,.ri-primary,.fd-primary-button,.finance-primary-btn,.reports-primary-btn){background:var(--fr-primary)!important;color:#fff!important;border-color:var(--fr-primary)!important;border-radius:var(--fr-radius);box-shadow:none}
 #root :is(.primary,.pw-primary,.pg-primary,.cm-primary,.ri-primary,.fd-primary-button):hover:not(:disabled){background:var(--fr-primary-hover)!important;transform:none;box-shadow:none}
 #root :is(button,input,select,textarea):focus-visible{outline:2px solid #1879e0!important;outline-offset:2px!important}
@@ -38,7 +38,7 @@ html{scrollbar-gutter:stable}body{font-family:var(--fr-font);background:var(--fr
 #root :is(.primary,.subtle,.ghost,.pw-primary,.pw-secondary,.pg-primary,.pg-secondary,.cm-primary,.cm-secondary,.ri-primary,.ri-secondary,.fd-primary-button,.fd-outline-button){min-height:var(--fr-control);font-size:13px!important;display:inline-flex;align-items:center;justify-content:center;gap:7px;line-height:1.4}
 #root :is(.pw-text-button,.pw-open-property,.fd-text-button,.text-button,.link-button){font-size:12px!important;line-height:1.5}
 #root :is(.field,.pw-admin label,.business-form label,.pg-modal label){font-size:13px;color:#425d7c;line-height:1.5}
-#root :is(.field input,.field select,.pw-admin input:not([type=checkbox]),.pw-admin select,.business-form input:not([type=checkbox]),.business-form select,.pg-modal input,.pw-filter,.pw-search input,.business-toolbar input,.business-toolbar select,.demo-controls input,.demo-controls select){min-height:var(--fr-control);height:auto;font-size:13px!important;line-height:1.5;border-color:var(--fr-border);border-radius:5px;min-width:0;max-width:100%}
+#root :is(.field input,.field select,.pw-admin input:not([type=checkbox]),.pw-admin select,.business-form input:not([type=checkbox]),.business-form select,.pg-modal input,.pw-filter,.pw-search input,.business-toolbar input,.business-toolbar select,.demo-controls input,.demo-controls select){min-height:var(--fr-control);height:auto;font-size:13px!important;line-height:1.5;border-color:var(--fr-border);border-radius:var(--fr-radius);min-width:0;max-width:100%}
 #root :is(textarea){font-size:13px!important;line-height:1.65;max-width:100%}
 #root :is(input[type=checkbox],input[type=radio]){accent-color:var(--fr-primary);flex:none}
 #root :is(input,textarea)::placeholder{color:#65778e;opacity:1}
@@ -182,3 +182,8 @@ html{scrollbar-gutter:stable}body{font-family:var(--fr-font);background:var(--fr
 #root .eh-state--error strong{color:#991b1b}
 #root .eh-state--success strong{color:#166534}
 #root .eh-state--loading strong{color:var(--engage-royal)}
+
+/* Shared visual surface contract; preserve semantic badges, avatars and charts. */
+#root :is(.card,.pw-card,.pw-panel,.cm-card,.finance-panel,.reports-panel,.fd-settings-card,.eh-card,.oi-kpis section,.oi-branches article){border-radius:var(--eh-card-radius)!important;border-color:var(--fr-border)!important;box-shadow:var(--eh-elevation-card)!important}
+#root :is(.pg-modal,.pw-dialog,.ri-modal,.cm-modal,.finance-modal,.reports-modal){border-radius:var(--eh-modal-radius)!important;box-shadow:var(--eh-elevation-modal)!important}
+#root :is(.primary,.subtle,.pw-primary,.pw-secondary,.pg-primary,.pg-secondary,.cm-primary,.cm-secondary,.ri-primary,.ri-secondary,.fd-primary-button,.fd-outline-button,.finance-primary-btn,.reports-primary-btn,.eh-button,.eh-input){border-radius:var(--fr-radius)!important;min-height:var(--fr-control)}
