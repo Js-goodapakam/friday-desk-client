@@ -1054,7 +1054,7 @@ function PropertyWorkspace({property,session,onLogout,onBack}) {
  const [loading,setLoading]=useState(true),[storageError,setStorageError]=useState(""),[storageReady,setStorageReady]=useState(false);
  const current=useRef(data),committed=useRef(data),remote=useRef(false),version=useRef(0),queue=useRef(Promise.resolve()),mounted=useRef(true),failed=useRef(false);
  const loadRemote=useCallback(async()=>{const result=await workspaceRequest(property.id);if(!result.state||Number(result.state.property?.id)!==Number(property.id)||!Number.isInteger(result.version)||result.version<1)throw Error('Database-backed storage is not configured for this property.');remote.current=true;setStorageReady(true);version.current=result.version;committed.current=result.state;current.current=result.state;updateData(result.state);return result;},[property.id]);
- useEffect(()=>{mounted.current=true;loadRemote().catch(error=>{if(mounted.current)setStorageError(error.message);}).finally(()=>{if(mounted.current)setLoading(false);});return()=>{mounted.current=false;};},[loadRemote]);
+ useEffect(()=>{mounted.current=true;Promise.resolve().then(()=>loadRemote()).catch(error=>{if(mounted.current)setStorageError(error.message);}).finally(()=>{if(mounted.current)setLoading(false);});return()=>{mounted.current=false;};},[loadRemote]);
  const setData=useCallback(change=>{
   if(!remote.current||failed.current){setStorageError('Reload the saved database records before making more changes.');return Promise.resolve(false);}
   const next=typeof change==="function"?change(current.current):change;current.current=next;updateData(next);setStorageError('');
