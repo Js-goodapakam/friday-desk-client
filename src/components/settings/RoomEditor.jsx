@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { uid } from "../../core/data.js";
 import { Field } from "../Common.jsx";
 
 export default function RoomEditor({existingNumbers,initial,onClose,onSave}){
@@ -23,4 +22,3 @@ export default function RoomEditor({existingNumbers,initial,onClose,onSave}){
   <div className="modal-actions"><button type="button" className="subtle" onClick={onClose}>Cancel</button><button type="button" className="primary" onClick={submit}>{initial?"Save changes":"Add Room"}</button></div>
  </section></div>;
 }
-const STAFF_ROLES=["Admin","Manager","Front Desk"];
