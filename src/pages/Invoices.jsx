@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { uid, stamp, offset, date, money, nights } from "../core/data.js";
 import "./invoices.css";
 import {useDialogFocus} from "../core/useDialogFocus.js";
@@ -584,6 +584,11 @@ function InvoiceView({ invoice, data, settings, onClose, onPayment }) {
   const guest = data.guests.find(g => g.id === invoice.guestId);
   const p = { ...settings, ...(invoice.hotelSnapshot || {}) };
   const balance = Math.max(0, Number(invoice.total || 0) - Number(invoice.paid || 0));
+  useEffect(()=>{
+    if(balance!==0)return;
+    const dialog=document.querySelector('.invoice-view-modal');
+    if(dialog&&!dialog.contains(document.activeElement))dialog.querySelector('[aria-label="Close invoice preview"]')?.focus();
+  },[balance]);
   async function record(event) {
     event.preventDefault();
     if(pending)return;
