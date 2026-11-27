@@ -175,3 +175,10 @@ html{scrollbar-gutter:stable}body{font-family:var(--fr-font);background:var(--fr
 #root .eh-card{min-width:0;background:var(--fr-surface);border:1px solid var(--fr-border);border-radius:8px;padding:16px;box-shadow:0 1px 3px #16365b04}
 #root .eh-input{box-sizing:border-box;min-width:0;max-width:100%;min-height:44px;padding:8px 12px;border:1px solid #8293a8;border-radius:var(--fr-radius);background:var(--fr-surface);color:var(--fr-ink);font:inherit}
 #root :is(.eh-button,.eh-input):focus-visible{outline:2px solid var(--engage-blue);outline-offset:2px}
+
+#root .eh-state{display:grid;justify-items:center;gap:12px;text-align:center;padding:24px 16px;color:var(--fr-ink);overflow-wrap:anywhere}
+#root .eh-state strong{font-size:14px;font-weight:600}
+#root .eh-state p{margin:4px 0 0;color:var(--fr-muted);font-size:13px}
+#root .eh-state--error strong{color:#991b1b}
+#root .eh-state--success strong{color:#166534}
+#root .eh-state--loading strong{color:var(--engage-royal)}
