@@ -300,8 +300,6 @@ export default function Settings({ data, setData, session, onManageProperties })
     },
   }[channel];
 
-  const activeDescription =
-    MENU.find(([name]) => name === tab)?.[1] || "";
 
   return (
     <div className="fd-settings-page">
