@@ -21,7 +21,7 @@ import OwnerAdmin from "./pages/OwnerAdmin.jsx";
 import "./pages/demo.css";
 import "./pages/demo-extra.css";
 import {emptyPropertyWorkspace} from "./core/propertyWorkspace.js";
-import { HOTEL,offset,stamp,fmt,date,money,nights,total,balance,initials,uid } from "./core/data.js";
+import { HOTEL,offset,stamp,fmt,date,money,nights,balance,initials,uid } from "./core/data.js";
 import { Badge,Field } from "./components/Common.jsx";
 import Reservations from "./pages/Reservations.jsx";
 import Guests from "./pages/Guests.jsx";
@@ -57,10 +57,8 @@ const piopiy = new PIOPIY({
 
 window.piopiy = piopiy;
 
-let teleCMISDKStatus = "disconnected"; // "disconnected" | "connecting" | "connected" | "failed"
 const teleCMISDKListeners = new Set();
 function setTeleCMISDKStatus(next) {
-  teleCMISDKStatus = next;
   window.__teleCMISDKStatus = next;
   window.dispatchEvent(new CustomEvent("telecmi-status", { detail: next }));
   teleCMISDKListeners.forEach((fn) => fn(next));
@@ -244,8 +242,7 @@ function ReservationEditor({data,onClose,onSave}){
    reader.onerror=()=>{setKycUploading(false);alert("Unable to read the selected file. Please try again.")};
    reader.readAsDataURL(file);
  };
- const selected=data.guests.find(g=>g.id===f.guestId);
- useEffect(()=>{if(mode==="existing"&&selected){
+ const selectExistingGuest=(guestId)=>{u("guestId",guestId);const selected=data.guests.find(g=>g.id===guestId);if(selected){
    const guestPhone=String(selected.phone||"");
    const nextCountry=findReservationCountry(guestPhone);
    const allDigits=guestPhone.replace(/\D/g,"");
@@ -254,7 +251,7 @@ function ReservationEditor({data,onClose,onSave}){
    setCountry(nextCountry);
    setPhoneLocal(local.slice(0,nextCountry.code==="+91"?10:15));
    setF(x=>({...x,firstName:selected.name.split(" ")[0]||"",lastName:selected.name.split(" ").slice(1).join(" "),email:selected.email||"",phone:guestPhone,nationality:selected.nationality||"Indian",idType:selected.idType||"Aadhaar",idNumber:selected.idNumber||"",address:selected.address||"",idAttachment:selected.idAttachment||null}));
- }},[mode,f.guestId]);
+ }};
  const submit=()=>{
    if(kycUploading){alert("Please wait for the KYC attachment to finish uploading.");return}
    if(!f.firstName.trim()||!f.lastName.trim()||!f.email.trim()||!phoneLocal||!f.room||!f.arrival||!f.departure){alert("Complete the guest and reservation details.");return}
@@ -305,8 +302,8 @@ function ReservationEditor({data,onClose,onSave}){
    .kyc-remove{border:0;background:transparent;color:#c44848;font:600 10px "Poppins",sans-serif;cursor:pointer}
    .kyc-remove:hover{text-decoration:underline}
  `}</style><section className="modal card reservation-modal"><div className="modal-head"><div><div className="eyebrow">NEW RESERVATION</div><h2>Create reservation</h2><p className="muted small">Capture the complete guest profile before confirming the stay.</p></div><button type="button" className="reservation-modal-close" onClick={onClose} aria-label="Close reservation form" title="Close">×</button></div>
-   <div className="reservation-step"><button className={mode==="existing"?"subtle active-choice":"subtle"} type="button" onClick={()=>setMode("existing")}>Existing guest</button><button className={mode==="new"?"subtle active-choice":"subtle"} type="button" onClick={()=>setMode("new")}>New guest</button></div>
-   {mode==="existing"&&<div className="form-grid"><Field label="Existing guest"><select value={f.guestId} onChange={e=>u("guestId",e.target.value)}><option value="">Select guest</option>{data.guests.map(g=><option key={g.id} value={g.id}>{g.name} · {g.phone}</option>)}</select></Field></div>}
+   <div className="reservation-step"><button className={mode==="existing"?"subtle active-choice":"subtle"} type="button" onClick={()=>{setMode("existing");if(f.guestId)selectExistingGuest(f.guestId);}}>Existing guest</button><button className={mode==="new"?"subtle active-choice":"subtle"} type="button" onClick={()=>setMode("new")}>New guest</button></div>
+   {mode==="existing"&&<div className="form-grid"><Field label="Existing guest"><select value={f.guestId} onChange={e=>selectExistingGuest(e.target.value)}><option value="">Select guest</option>{data.guests.map(g=><option key={g.id} value={g.id}>{g.name} · {g.phone}</option>)}</select></Field></div>}
    <div className="settings-section-label reservation-section-label">Guest details</div><div className="form-grid"><Field label="First name *"><input value={f.firstName} onChange={e=>u("firstName",e.target.value)} placeholder="First name"/></Field><Field label="Last name *"><input value={f.lastName} onChange={e=>u("lastName",e.target.value)} placeholder="Last name"/></Field><Field label="Email *"><input type="email" value={f.email} onChange={e=>u("email",e.target.value)} placeholder="guest@example.com"/></Field><div className="field reservation-phone-field"><label className="field-label">Mobile number <span className="required-mark">*</span></label><div className="reservation-phone-control"><button type="button" className="reservation-country-button" onClick={()=>setCountryOpen(v=>!v)} aria-label="Select country"><span className="reservation-country-flag-wrap"><img className="reservation-country-flag-img" src={`https://flagcdn.com/w40/${country.iso.toLowerCase()}.png`} alt="" onError={e=>{e.currentTarget.style.display="none";e.currentTarget.nextElementSibling.style.display="inline"}}/><span className="reservation-country-flag-fallback" style={{display:"none"}}>{country.flag}</span></span><span className="reservation-country-name">{country.name}</span><span className="reservation-country-code">{country.code}</span><span className="reservation-country-chevron">⌄</span></button><input className="reservation-phone-input" inputMode="numeric" autoComplete="tel-national" value={phoneLocal} onChange={e=>setPhoneValue(e.target.value)} placeholder={country.code==="+91"?"10 digit mobile number":"Mobile number"} maxLength={country.code==="+91"?10:15}/></div>{countryOpen&&<div className="reservation-country-menu"><input autoFocus className="reservation-country-search" value={countrySearch} onChange={e=>setCountrySearch(e.target.value)} placeholder="Search country..."/>{filteredCountries.length?filteredCountries.map(c=><button type="button" key={`${c.iso}-${c.code}`} className={`reservation-country-option${country.iso===c.iso?" active":""}`} onClick={()=>selectCountry(c)}><span className="reservation-country-flag-wrap"><img className="reservation-country-flag-img" src={`https://flagcdn.com/w40/${c.iso.toLowerCase()}.png`} alt="" onError={e=>{e.currentTarget.style.display="none";e.currentTarget.nextElementSibling.style.display="inline"}}/><span className="reservation-country-flag-fallback" style={{display:"none"}}>{c.flag}</span></span><span className="country-name">{c.name}</span><span className="country-code">{c.code}</span></button>):<div className="reservation-country-empty">No country found.</div>}</div>}{phoneLocal&&!phoneValid&&<div className="reservation-phone-help reservation-phone-error">Please enter a valid mobile number.</div>}</div><Field label="Nationality"><input value={f.nationality} onChange={e=>u("nationality",e.target.value)}/></Field><Field label="ID type"><select value={f.idType} onChange={e=>u("idType",e.target.value)}><option>Aadhaar</option><option>Passport</option><option>Driving Licence</option><option>Voter ID</option><option>Other</option></select></Field><Field label="ID number"><input value={f.idNumber} onChange={e=>u("idNumber",e.target.value)} placeholder="Government ID number"/></Field><Field label="Address"><input value={f.address} onChange={e=>u("address",e.target.value)} placeholder="Address"/></Field><div className="kyc-upload-field"><label className="field-label">{f.idType} attachment <span className="required-mark">*</span></label><div className={`kyc-upload-box${f.idAttachment?" has-file":""}`}><input id="kyc-attachment-input" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" onChange={e=>uploadKycAttachment(e.target.files?.[0])}/><label htmlFor="kyc-attachment-input" className="kyc-upload-label"><span className="kyc-upload-icon">↑</span><span><strong>{kycUploading ? "Uploading…" : f.idAttachment ? "Replace attachment" : `Upload ${f.idType} document`}</strong><small>PDF, JPG or PNG · Max 2 MB</small></span></label>{f.idAttachment&&<div className="kyc-file-row"><span className="kyc-file-name" title={f.idAttachment.name}>{f.idAttachment.name}</span><span className="kyc-file-size">{(f.idAttachment.size/1024/1024).toFixed(2)} MB</span><button type="button" className="kyc-remove" onClick={()=>u("idAttachment",null)}>Remove</button></div>}</div></div><Field label="Adults"><input type="number" min="1" value={f.adults} onChange={e=>u("adults",e.target.value)}/></Field><Field label="Children"><input type="number" min="0" value={f.children} onChange={e=>u("children",e.target.value)}/></Field></div>
    <div className="settings-section-label reservation-section-label">Stay details</div><div className="form-grid"><Field label="Room *"><select value={f.room} onChange={e=>u("room",e.target.value)}>{(data.rooms||[]).map(r=><option key={r.number}>{r.number}</option>)}</select></Field><Field label="Booking source"><select value={f.source} onChange={e=>u("source",e.target.value)}><option>Direct</option><option>OTA</option><option>Corporate</option><option>Travel Agent</option></select></Field><Field label="Check-in date *"><input type="date" value={f.arrival} onChange={e=>u("arrival",e.target.value)}/></Field><Field label="Check-in time"><input type="time" value={f.expectedIn} onChange={e=>u("expectedIn",e.target.value)}/></Field><Field label="Check-out date *"><input type="date" value={f.departure} onChange={e=>u("departure",e.target.value)}/></Field><Field label="Check-out time"><input type="time" value={f.expectedOut} onChange={e=>u("expectedOut",e.target.value)}/></Field><Field label="Nightly rate"><input type="number" min="0" value={f.rate} onChange={e=>u("rate",e.target.value)}/></Field><Field label="Advance paid"><input type="number" min="0" value={f.paid} onChange={e=>u("paid",e.target.value)}/></Field></div>
    <div className="modal-actions"><button type="button" className="subtle" onClick={onClose}>Cancel</button><button type="button" className="primary" onClick={submit}>Create Reservation</button></div>
@@ -495,7 +492,7 @@ function IncomingCallPopup({call,guest,onClose,onSave}){
   const [mediaReady,setMediaReady]=useState(false);
   const [seconds,setSeconds]=useState(0);
   const [notes,setNotes]=useState("");
-  const [,setSaving]=useState(false);
+  const [saving,setSaving]=useState(false);
   const [muted,setMuted]=useState(false);
   const [held,setHeld]=useState(false);
   const [recording,setRecording]=useState(false);
@@ -993,11 +990,7 @@ function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspa
  const [mobileNav,setMobileNav]=useState(false),[page,setPage]=useState(initialPage),[editingReservation,setEditingReservation]=useState(null),[editor,setEditor]=useState(false),[selected,setSelected]=useState(null),[callGuest,setCallGuest]=useState(null),[incomingCall,setIncomingCall]=useState(currentIncomingTeleCMICall);
  useEffect(()=>{if(!mobileNav||!window.matchMedia("(max-width:900px)").matches)return;const panel=document.getElementById("property-navigation"),trigger=document.querySelector(".mobile-menu-toggle");const items=()=>[...panel.querySelectorAll("button,a[href]")].filter(el=>!el.disabled&&el.getClientRects().length);items()[0]?.focus();const keys=e=>{if(e.key==="Escape"){e.preventDefault();setMobileNav(false);}if(e.key==="Tab"){const list=items(),first=list[0],last=list.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}};panel.addEventListener("keydown",keys);return()=>{panel.removeEventListener("keydown",keys);trigger?.focus();};},[mobileNav]);
  useEffect(()=>{const open=e=>{if(Number(e.detail?.propertyId)===Number(data.property.id)){const record=data.reservations.find(r=>r.id===e.detail.id);if(record)setEditingReservation(record);}};window.addEventListener("friday:open-reservation",open);return()=>window.removeEventListener("friday:open-reservation",open);},[data.property.id,data.reservations]);
- useEffect(()=>subscribeIncomingTeleCMI(setIncomingCall),[]);
- useEffect(()=>{
-   if(!incomingCall) return;
-   setCallGuest(null);
- },[incomingCall]);
+ useEffect(()=>subscribeIncomingTeleCMI(call=>{setIncomingCall(call);if(call)setCallGuest(null);}),[]);
  const normalizePhone=value=>String(value||"").replace(/\D/g,"").slice(-10);
  const startOutgoingCall=(g)=>{
    if(data.demo){alert("Calling is disabled for fictional Sample data contacts.");return;}
@@ -1058,25 +1051,25 @@ function Admin({data,setData,onLogout,session,onBackToProperties,onReloadWorkspa
 
 function PropertyWorkspace({property,session,onLogout,onBack}) {
  const [data,updateData]=useState(()=>emptyPropertyWorkspace(property,session));
- const [loading,setLoading]=useState(true),[storageError,setStorageError]=useState(""),[saving,setSaving]=useState(false);
+ const [loading,setLoading]=useState(true),[storageError,setStorageError]=useState(""),[storageReady,setStorageReady]=useState(false);
  const current=useRef(data),committed=useRef(data),remote=useRef(false),version=useRef(0),queue=useRef(Promise.resolve()),mounted=useRef(true),failed=useRef(false);
- const loadRemote=async()=>{const result=await workspaceRequest(property.id);if(!result.state||Number(result.state.property?.id)!==Number(property.id)||!Number.isInteger(result.version)||result.version<1)throw Error('Database-backed storage is not configured for this property.');remote.current=true;version.current=result.version;committed.current=result.state;current.current=result.state;updateData(result.state);return result;};
- useEffect(()=>{mounted.current=true;loadRemote().catch(error=>{if(mounted.current)setStorageError(error.message);}).finally(()=>{if(mounted.current)setLoading(false);});return()=>{mounted.current=false;};},[property.id]);
+ const loadRemote=useCallback(async()=>{const result=await workspaceRequest(property.id);if(!result.state||Number(result.state.property?.id)!==Number(property.id)||!Number.isInteger(result.version)||result.version<1)throw Error('Database-backed storage is not configured for this property.');remote.current=true;setStorageReady(true);version.current=result.version;committed.current=result.state;current.current=result.state;updateData(result.state);return result;},[property.id]);
+ useEffect(()=>{mounted.current=true;loadRemote().catch(error=>{if(mounted.current)setStorageError(error.message);}).finally(()=>{if(mounted.current)setLoading(false);});return()=>{mounted.current=false;};},[loadRemote]);
  const setData=useCallback(change=>{
   if(!remote.current||failed.current){setStorageError('Reload the saved database records before making more changes.');return Promise.resolve(false);}
-  const next=typeof change==="function"?change(current.current):change;current.current=next;updateData(next);setStorageError('');setSaving(true);
+  const next=typeof change==="function"?change(current.current):change;current.current=next;updateData(next);setStorageError('');
   const operation=queue.current.then(async()=>{
    if(failed.current)return false;
    try{const result=await workspaceRequest(property.id,"PUT",{state:next,version:version.current});version.current=result.version;committed.current=result.state;
     if(current.current===next){current.current=result.state;if(mounted.current)updateData(result.state);}return true;
    }catch(error){failed.current=true;current.current=committed.current;if(mounted.current){updateData(committed.current);setStorageError(error.message+' Changes were not saved. Reload before retrying.');}return false;}
-  }).finally(()=>{if(mounted.current)setSaving(false);});
+  });
   queue.current=operation.then(()=>undefined);return operation;
  },[property.id]);
  const back=async()=>{await queue.current;if(!failed.current)onBack();};
  const reload=async()=>{await queue.current;await loadRemote();failed.current=false;setStorageError("");};
  if(loading)return <FridayLoader fullscreen/>;
- if(!remote.current)return <div className="storage-unavailable" role="alert"><h1>Property storage unavailable</h1><p>{storageError||'Unable to load saved property records.'}</p><button className="subtle" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Retry connection</button><button className="primary" onClick={onBack}>Back to properties</button></div>;
+ if(!storageReady)return <div className="storage-unavailable" role="alert"><h1>Property storage unavailable</h1><p>{storageError||'Unable to load saved property records.'}</p><button className="subtle" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Retry connection</button><button className="primary" onClick={onBack}>Back to properties</button></div>;
  return <>{storageError&&<div className="demo-error" role="alert">{storageError}<button type="button" onClick={()=>reload().catch(e=>setStorageError(e.message))}>Reload saved records</button></div>}<Admin initialPage={property.initialPage} data={data} setData={setData} session={{...session,propertyId:property.id}} onLogout={onLogout} onBackToProperties={back} onReloadWorkspace={reload}/></>;
 }
 
