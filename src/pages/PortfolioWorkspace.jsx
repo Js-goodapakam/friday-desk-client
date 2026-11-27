@@ -22,6 +22,7 @@ function Icon({type='building'}) {
 }
 const nav=[['overview','Business overview','overview'],['properties','Hotel branches','building'],['calendar','Bookings & calendar','calendar'],['sales','Sales & enquiries','requests'],['finance','Collections & dues','finance'],['reports','Branch comparison','reports']];
 const admin=[['team','Team & access','team'],['subscription','Subscription & billing','finance'],['settings','Settings','settings']];
+const showLegacyPortfolio=false; // Superseded by OwnerInsights; retained for rollback reference.
 const pending=new Set(['team','subscription','settings']);
 const labelFor=key=>[...nav,...admin].find(n=>n[0]===key)?.[1]||'Portfolio overview';
 
@@ -65,7 +66,7 @@ export default function PortfolioWorkspace({session,onSelect,onLogout}) {
  <main className="pw-main"><div className="pw-heading"><div><div className="pw-eyebrow">OWNER WORKSPACE</div><h1>{page==='properties'?'Your properties':labelFor(page)}</h1><p>{page==='overview'?`${loading?'Your':scoped.length} properties. One clear view of your business.`:page==='sales'?'Select a property to manage its enquiry pipeline, quotations and follow-ups.':page==='calendar'?'Select a property to open its reservation calendar.':page==='properties'?'Select a property to enter its operational workspace.':page==='finance'?'Booking value, guest balances and cash collected, kept distinct.':page==='reports'?'Compare operational data across your portfolio.':'Organization-wide configuration.'}</p></div></div>
  {error&&<div className="pw-error" role="alert">{error}<button onClick={refresh}>Retry</button></div>}
  {!pending.has(page)&&<OwnerInsights key={page} page={page} properties={properties} loading={loading} open={open} opening={opening} refresh={refresh}/>}
- {false&&page==='overview'&&<section className="owner-modules" aria-label="Owner business modules">
+ {showLegacyPortfolio&&page==='overview'&&<section className="owner-modules" aria-label="Owner business modules">
  <div className="owner-section-heading"><div><span className="pw-eyebrow">MANAGEMENT OVERVIEW</span><h2>Portfolio control centre</h2><p>Performance, collections and operations across your hotel branches.</p></div><button className="pw-secondary" onClick={refresh} disabled={loading}>{loading?'Refreshing…':'Refresh data'}</button></div>
  <div className="owner-module-grid">
  {[
@@ -79,7 +80,7 @@ export default function PortfolioWorkspace({session,onSelect,onLogout}) {
  </div>
  <details className="owner-data-details"><summary>About these figures</summary><p>Amounts use each branch’s currency (₹ for INR). Booking value and money collected are separate measures. Room figures use the displayed reference date. Profit, GST, payment-method breakdown and demand forecasts are not available in this view.</p></details>
  </section>}
- {false&&!pending.has(page)&&<><div className="pw-summary" aria-label="Portfolio summary">{[
+ {showLegacyPortfolio&&!pending.has(page)&&<><div className="pw-summary" aria-label="Portfolio summary">{[
  ['building','Properties',scoped.length,totals.knownCount?`${totals.rooms} rooms in your portfolio`:'Room inventory not available'],
  ['calendar',reference?'Occupancy · reference date':'Occupancy',totals.knownCount?`${totals.occupancy.toFixed(1)}%`:'—',totals.knownCount?`${totals.occupied} room nights allocated`:'Occupancy data not available'],
  ['building','Available rooms',totals.knownCount?totals.available:'—',totals.knownCount?`${totals.unavailable} blocked / out of order`:'Availability data not available'],
