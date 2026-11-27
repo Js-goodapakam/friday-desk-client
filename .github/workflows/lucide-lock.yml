@@ -1,0 +1,25 @@
+name: Generate Lucide lockfile
+on:
+  push:
+    branches: ['feature/p0-ui-quality']
+    paths: ['.github/workflows/lucide-lock.yml']
+permissions:
+  contents: read
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --save-exact --package-lock-only --ignore-scripts lucide-react@0.468.0
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lucide-lock
+          path: |
+            package.json
+            package-lock.json
+      - run: node -e 'console.log(JSON.stringify(require("./package-lock.json").packages["node_modules/lucide-react"]))'
