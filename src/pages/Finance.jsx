@@ -20,14 +20,20 @@ export default function Finance({ data, setData }) {
 
   const rows = useMemo(() => {
     return data.reservations
-      .map((reservation) => ({
+      .map((reservation) => {
+        const ledger=data.folioLedger?.filter(entry=>entry.reservationId===reservation.id)||[];
+        const folioCharges=ledger.filter(entry=>['room','charge','adjust'].includes(entry.kind))
+          .reduce((sum,entry)=>sum+entry.amount,0)/100;
+        const paid=Number(reservation.paid||0);
+        return {
         reservation,
         guest: data.guests.find((g) => g.id === reservation.guestId),
-        total: Number(total(reservation) || 0),
-        paid: Number(reservation.paid || 0),
-        balance: Number(balance(reservation) || 0),
-      }))
-      .filter(({ reservation, guest }) => {
+        total: ledger.length?folioCharges:Number(total(reservation)||0),
+        paid,
+        balance: ledger.length?Math.max(0,folioCharges-paid):Number(balance(reservation)||0),
+        folio:ledger.length>0,
+      };})
+      .filter(({ reservation, guest, balance: outstandingBalance, paid }) => {
         const haystack = [
           reservation.id,
           reservation.room,
@@ -39,9 +45,9 @@ export default function Finance({ data, setData }) {
         const matchesSearch = haystack.includes(q.toLowerCase());
         const matchesStatus =
           status === "All" ||
-          (status === "Paid" && balance(reservation) <= 0) ||
-          (status === "Partial" && Number(reservation.paid || 0) > 0 && balance(reservation) > 0) ||
-          (status === "Outstanding" && Number(reservation.paid || 0) <= 0 && balance(reservation) > 0);
+          (status === "Paid" && outstandingBalance <= 0) ||
+          (status === "Partial" && paid > 0 && outstandingBalance > 0) ||
+          (status === "Outstanding" && paid <= 0 && outstandingBalance > 0);
 
         return matchesSearch && matchesStatus;
       });
@@ -237,7 +243,7 @@ export default function Finance({ data, setData }) {
                       <span className={`finance-status ${state.toLowerCase()}`}>{state}</span>
                     </td>
                     <td>
-                      {row.balance > 0 ? (
+                      {row.folio ? 'See guest folio' : row.balance > 0 ? (
                         <button className="finance-action" onClick={() => openPayment(row)}>
                           Collect
                         </button>

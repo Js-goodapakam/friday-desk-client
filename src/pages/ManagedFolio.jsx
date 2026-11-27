@@ -1,6 +1,8 @@
 import {useState} from 'react';
-import {money} from '../core/data.js';
 import {SimplePage} from './SimplePage.jsx';
+
+const formatMoney=new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR'});
+const money=value=>formatMoney.format(value);
 
 export default function ManagedFolio({data,session,record}) {
   const [reservationId,select]=useState(''),[kind,setKind]=useState('charge');
