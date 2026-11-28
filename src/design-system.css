@@ -1,12 +1,11 @@
 /* Friday's shared visual contract. ID scope intentionally supersedes legacy page overrides. */
 :root{
- --fr-font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
- --engage-navy:#040D2E;--engage-royal:#061A58;--engage-blue:#135FDB;--engage-cyan:#3BBFEE;--engage-button:#165DD8;--engage-button-cyan:#32AEF3;--engage-input:#E8F0FE;--engage-ivory:#F4F1DE;--engage-white:#FFFFFF;
- --fr-ink:#192e49;--fr-muted:#5e728a;--fr-primary:#135FDB;--fr-primary-hover:#061A58;--fr-cyan:#3BBFEE;
- --fr-background:#f5f8fc;--fr-surface:#fff;--fr-border:#dfe7f2;--fr-soft:#E8F0FE;--fr-sidebar:228px;
- --fr-control:44px;--fr-radius:8px;--eh-card-radius:12px;--eh-modal-radius:16px;--eh-elevation-card:0 1px 3px rgba(4,13,46,.06);--eh-elevation-modal:0 16px 48px rgba(4,13,46,.16);
+ --fr-font:var(--engage-font);
+ --fr-ink:#192e49;--fr-muted:#5e728a;--fr-primary:var(--engage-blue);--fr-primary-hover:var(--engage-royal);--fr-cyan:var(--engage-cyan);
+ --fr-background:#f5f8fc;--fr-surface:var(--engage-white);--fr-border:var(--engage-border);--fr-soft:var(--engage-input);--fr-sidebar:228px;
+ --fr-control:var(--engage-control-height);--fr-radius:var(--engage-control-radius);--eh-card-radius:var(--engage-card-radius);--eh-modal-radius:var(--engage-modal-radius);--eh-elevation-card:var(--engage-card-shadow);--eh-elevation-modal:var(--engage-modal-shadow);
  --ink:var(--fr-ink);--muted:var(--fr-muted);--line:var(--fr-border);--surface:var(--fr-surface);
- --brand:var(--fr-primary);--brand2:#165DD8;--brand-deep:#061A58;--brand-soft:var(--fr-soft);--soft:var(--fr-soft);--accent:var(--fr-cyan);
+ --brand:var(--fr-primary);--brand2:var(--engage-button);--brand-deep:var(--engage-royal);--brand-soft:var(--fr-soft);--soft:var(--fr-soft);--accent:var(--fr-cyan);
  --fs-2xs:11px;--fs-xs:12px;--fs-sm:13px;--fs-base:14px;--fs-md:16px;--fs-lg:18px;--fs-xl:28px;--fs-2xl:26px;
 }
 html{scrollbar-gutter:stable}body{font-family:var(--fr-font);background:var(--fr-background);color:var(--fr-ink);line-height:1.5}
