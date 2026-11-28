@@ -123,7 +123,7 @@
   align-items:stretch;
   padding:26px;
   border:1.5px solid var(--ob-line);
-  border-radius:16px;
+  border-radius:var(--engage-card-radius);
   background:var(--ob-surface);
   color:inherit;
   text-align:left;
@@ -234,7 +234,7 @@
   flex-direction:column;
   padding:26px;
   border:1.5px solid var(--ob-line);
-  border-radius:16px;
+  border-radius:var(--engage-card-radius);
   background:var(--ob-surface);
 }
 .ob-plan.is-recommended{
@@ -306,7 +306,7 @@
   height:var(--ob-control);
   padding:0 22px;
   border:0;
-  border-radius:9px;
+  border-radius:var(--engage-control-radius);
   font-size:15px;
   font-weight:600;
   transition:transform .16s ease,box-shadow .16s ease,filter .16s ease,border-color .16s ease,background .16s ease;

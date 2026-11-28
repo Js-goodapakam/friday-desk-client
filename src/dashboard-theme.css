@@ -9,17 +9,17 @@
 #root :is(.pw-app,.app) :is(.oi-kpis span,.fd-kpi-label,.pw-stat>span,.field-label){font-size:var(--dash-label)!important;color:var(--fr-muted)}
 #root :is(.pw-app,.app) :is(.oi-kpis small,.fd-kpi-note,.pw-stat small,.oi-plot-note,.pw-data-note){font-size:var(--dash-note)!important;line-height:1.55!important;color:var(--fr-muted)}
 #root :is(.pw-app,.app) :is(.pw-heading p,.fd-sub,.page-heading p){font-size:var(--dash-body)!important;color:var(--fr-muted)!important}
-#root :is(.pw-app,.app) :is(.fd-btn,.pw-primary,.pw-secondary){font-size:var(--dash-body)!important;border-radius:6px}
+#root :is(.pw-app,.app) :is(.fd-btn,.pw-primary,.pw-secondary){font-size:var(--dash-body)!important;border-radius:var(--engage-control-radius)}
 #root .app .fd-btn--primary{background:var(--fr-primary)!important;color:white!important;border-color:var(--fr-primary)!important;box-shadow:none!important}
 #root .app .fd-btn--primary:hover{background:var(--fr-primary-hover)!important}
-#root :is(.pw-app,.app) :is(.fd-card,.oi-panel,.oi-kpis section,.pw-panel,.card){background:var(--fr-surface);border-color:var(--fr-border);border-radius:10px}
+#root :is(.pw-app,.app) :is(.fd-card,.oi-panel,.oi-kpis section,.pw-panel,.card){background:var(--fr-surface);border-color:var(--fr-border);border-radius:var(--engage-card-radius)}
 #root .app .fd-kpi:not(.fd-kpi--hero){background:var(--fr-surface);border-color:var(--fr-border);color:var(--fr-ink)}
 #root :is(.pw-app,.app) :is(.fd-link,.pw-text-button){color:var(--fr-primary);font-size:var(--dash-label)!important}
 #root .app .fd-kpi--hero :is(.fd-kpi-label,.fd-kpi-note){color:#ffffffcc!important}
 #root .app .fd-kpi--hero .fd-kpi-value{color:white!important}
 /* Match the actual branch dashboard and undo legacy 18px text-span widths. */
 #root .app .sidebar .sidebar-nav button .nav-label{width:auto!important;flex:1 1 auto!important;min-width:0!important;max-width:none!important;display:block!important;text-align:left!important;white-space:normal!important;font-size:12px!important;line-height:20px!important}
-#root .app .sidebar .sidebar-nav button{display:flex!important;width:100%!important;min-height:40px!important;padding:10px 12px!important;gap:12px!important;margin:0!important;border-radius:7px!important;box-sizing:border-box}
+#root .app .sidebar .sidebar-nav button{display:flex!important;width:100%!important;min-height:40px!important;padding:10px 12px!important;gap:12px!important;margin:0!important;border-radius:var(--engage-control-radius)!important;box-sizing:border-box}
 #root .app .sidebar .sidebar-nav button>svg{width:18px!important;height:18px!important;flex:0 0 18px!important}
 #root .app .sidebar .sidebar-nav .nav-group{display:flex!important;flex-direction:column!important;gap:10px!important;padding:0!important;margin:0 0 18px!important}
 #root .app .sidebar .sidebar-nav{display:block!important;padding-right:4px!important;scrollbar-color:#ffffff55 transparent}
@@ -34,7 +34,7 @@
 #root .app .fd-dash :is(.fd-card-head h2,.fd-block-head h3){font-size:17px!important}
 #root .app .fd-dash :is(.fd-name,.fd-room-name){font-size:13px!important}
 #root .app .fd-dash :is(.fd-meta,.fd-room-meta,.fd-card-head p){font-size:11px!important;color:var(--fr-muted)}
-#root .app .fd-dash .fd-btn{font-size:13px!important;height:38px;border-radius:6px}
+#root .app .fd-dash .fd-btn{font-size:13px!important;height:38px;border-radius:var(--engage-control-radius)}
 #root .app .fd-dash .fd-btn--sm{font-size:12px!important;height:32px}
 #root .app .fd-dash .fd-kpi--active :is(.fd-kpi-label,.fd-kpi-note){color:#fff!important}
 #root .app .fd-dash .fd-title{font-size:26px!important}
