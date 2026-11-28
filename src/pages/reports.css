@@ -46,14 +46,14 @@
 }
 
 .reports-download-trigger {
-  height: 38px;
+  height:var(--engage-control-height);
   display: inline-flex;
   align-items: center;
   gap: 8px;
   flex: 0 0 auto;
   padding: 0 14px;
-  border: 1px solid #cfe0f1;
-  border-radius: 9px;
+  border:1px solid var(--engage-border);
+  border-radius:var(--engage-control-radius);
   background: #fff;
   color: #1765a3;
   box-shadow: 0 3px 12px rgba(31, 76, 122, .06);
@@ -106,10 +106,10 @@
 .reports-kpi-card {
   min-height: 108px;
   padding: 15px 16px;
-  border: 1px solid #e0e9f2;
-  border-radius: 12px;
+  border:1px solid var(--engage-border);
+  border-radius:var(--engage-card-radius);
   background: #fff;
-  box-shadow: 0 4px 15px rgba(29, 65, 104, .045);
+  box-shadow:var(--engage-card-shadow);
 }
 
 .reports-kpi-label {
@@ -144,10 +144,10 @@
 
 .reports-panel {
   min-width: 0;
-  border: 1px solid #e1e9f2;
-  border-radius: 13px;
+  border:1px solid var(--engage-border);
+  border-radius:var(--engage-card-radius);
   background: #fff;
-  box-shadow: 0 4px 15px rgba(29, 65, 104, .04);
+  box-shadow:var(--engage-card-shadow);
 }
 
 .reports-panel-heading {
@@ -262,8 +262,8 @@
   gap: 15px;
   margin-top: 12px;
   padding: 11px 14px;
-  border: 1px solid #dce9f5;
-  border-radius: 12px;
+  border:1px solid var(--engage-border);
+  border-radius:var(--engage-card-radius);
   background: linear-gradient(100deg, #f5faff, #fff);
 }
 
@@ -300,13 +300,13 @@
 }
 
 .reports-secondary-action {
-  height: 31px;
+  height:var(--engage-control-height);
   display: inline-flex;
   align-items: center;
   gap: 7px;
   padding: 0 11px;
-  border: 1px solid #cfe0ef;
-  border-radius: 8px;
+  border:1px solid var(--engage-border);
+  border-radius:var(--engage-control-radius);
   background: #fff;
   color: #1765a3;
   font-family: inherit;
