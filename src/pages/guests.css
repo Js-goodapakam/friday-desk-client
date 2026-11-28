@@ -28,10 +28,10 @@
 .guest-kpi {
   padding: 15px 17px;
   min-height: 78px;
-  border: 1px solid #e6edf6;
-  border-radius: 13px;
+  border: 1px solid var(--engage-border);
+  border-radius: var(--engage-card-radius);
   background: #fff;
-  box-shadow: 0 4px 16px rgba(29, 62, 104, 0.05);
+  box-shadow: var(--engage-card-shadow);
 }
 
 .guest-kpi span {
@@ -58,21 +58,21 @@
   gap: 10px;
   padding: 10px;
   margin-bottom: 14px;
-  border: 1px solid #e6edf6;
-  border-radius: 13px;
+  border: 1px solid var(--engage-border);
+  border-radius: var(--engage-card-radius);
   background: #fff;
 }
 
 .guest-search-wrap {
   flex: 1;
   min-width: 0;
-  height: 40px;
+  height: var(--engage-control-height);
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 0 12px;
-  border: 1px solid #dfe7f1;
-  border-radius: 9px;
+  border: 1px solid var(--engage-border);
+  border-radius: var(--engage-control-radius);
   background: #fbfdff;
 }
 
@@ -94,8 +94,8 @@
 
 .guests-table-card {
   overflow: hidden;
-  border: 1px solid #e5ebf3;
-  border-radius: 14px;
+  border: 1px solid var(--engage-border);
+  border-radius: var(--engage-card-radius);
   background: #fff;
 }
 
@@ -286,12 +286,12 @@
   align-items: center;
   gap: 13px;
   padding: 17px;
-  border: 1px solid #e5ebf3;
-  border-radius: 14px;
+  border: 1px solid var(--engage-border);
+  border-radius: var(--engage-card-radius);
   background:
     radial-gradient(circle at 85% 20%, rgba(80, 166, 236, .09), transparent 32%),
     #fff;
-  box-shadow: 0 5px 18px rgba(29, 62, 104, .05);
+  box-shadow: var(--engage-card-shadow);
 }
 
 .guest-profile-avatar {
@@ -337,8 +337,8 @@
 
 .guest-profile-nav {
   padding: 7px;
-  border: 1px solid #e5ebf3;
-  border-radius: 13px;
+  border: 1px solid var(--engage-border);
+  border-radius: var(--engage-card-radius);
   background: #fff;
   position: sticky;
   top: 12px;
@@ -346,13 +346,13 @@
 
 .guest-profile-nav button {
   width: 100%;
-  min-height: 36px;
+  min-height: var(--engage-control-height);
   display: flex;
   align-items: center;
   padding: 0 10px;
   margin: 2px 0;
   border: 0;
-  border-radius: 8px;
+  border-radius: var(--engage-control-radius);
   background: transparent;
   color: #657791;
   font-size: 11px;
@@ -380,10 +380,10 @@
 
 .guest-profile-section {
   padding: 16px;
-  border: 1px solid #e5ebf3;
-  border-radius: 13px;
+  border: 1px solid var(--engage-border);
+  border-radius: var(--engage-card-radius);
   background: #fff;
-  box-shadow: 0 4px 15px rgba(29, 62, 104, .04);
+  box-shadow: var(--engage-card-shadow);
 }
 
 .guest-section-heading {
@@ -408,8 +408,8 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   overflow: hidden;
-  border: 1px solid #e9eef4;
-  border-radius: 10px;
+  border: 1px solid var(--engage-border);
+  border-radius: var(--engage-card-radius);
   background: #e9eef4;
 }
 
