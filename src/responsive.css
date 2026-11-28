@@ -53,7 +53,7 @@
  .friday-welcome button{max-width:100%;min-height:44px}
 }
 @media(prefers-reduced-motion:reduce){#root .pw-app .pw-sidebar,#root .pw-app .pw-body{transition:none}}
-.storage-unavailable{max-width:680px;margin:48px auto;padding:24px;border:1px solid #dfe7f2;border-radius:10px;background:white}.storage-unavailable h1{font-size:24px}.storage-unavailable p{line-height:1.6;color:#63758d}.storage-unavailable button{margin:8px 8px 0 0}
+.storage-unavailable{max-width:680px;margin:48px auto;padding:24px;border:1px solid #dfe7f2;border-radius:var(--engage-card-radius);background:white}.storage-unavailable h1{font-size:24px}.storage-unavailable p{line-height:1.6;color:#63758d}.storage-unavailable button{margin:8px 8px 0 0}
 
 /* P0 responsive containment: keep wide data tables locally scrollable. */
 #root .reservation-filter-grid{grid-template-columns:minmax(0,1fr) repeat(3,minmax(0,180px))!important}
