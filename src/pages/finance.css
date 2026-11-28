@@ -46,7 +46,7 @@
 
 .finance-primary {
   border:0;
-  border-radius:8px;
+  border-radius:var(--engage-control-radius);
   background:linear-gradient(135deg,#18558f,#3186c7);
   color:#fff;
   padding:9px 13px;
@@ -56,7 +56,7 @@
 
 .finance-secondary {
   border:1px solid #dce5ef;
-  border-radius:8px;
+  border-radius:var(--engage-control-radius);
   background:#fff;
   color:#5e7088;
   padding:9px 13px;
@@ -74,7 +74,7 @@
 .finance-kpi {
   padding:14px 15px;
   border:1px solid #e4ebf3;
-  border-radius:12px;
+  border-radius:var(--engage-card-radius);
   background:#fff;
   box-shadow:0 4px 14px rgba(27,60,100,.04);
 }
@@ -107,7 +107,7 @@
 
 .finance-tabs button {
   border:0;
-  border-radius:7px;
+  border-radius:var(--engage-control-radius);
   background:transparent;
   color:#718198;
   padding:7px 13px;
@@ -132,7 +132,7 @@
 
 .finance-card {
   border:1px solid #e4ebf3;
-  border-radius:13px;
+  border-radius:var(--engage-card-radius);
   background:#fff;
   box-shadow:0 4px 14px rgba(27,60,100,.035);
 }
@@ -257,10 +257,10 @@
   display:flex;
   align-items:center;
   gap:7px;
-  height:35px;
+  height:var(--engage-control-height);
   padding:0 9px;
   border:1px solid #dfe7f0;
-  border-radius:8px;
+  border-radius:var(--engage-control-radius);
   background:#fbfdff;
 }
 
@@ -285,7 +285,7 @@
 .finance-filters select {
   min-width:110px;
   border:1px solid #dfe7f0;
-  border-radius:8px;
+  border-radius:var(--engage-control-radius);
   padding:0 8px;
 }
 
@@ -352,7 +352,7 @@
 .finance-action {
   padding:5px 8px;
   border:1px solid #cfe0ef;
-  border-radius:6px;
+  border-radius:var(--engage-control-radius);
   background:#f2f8fd;
   color:#1763a0;
   font-size:11px;
@@ -384,7 +384,7 @@
   width:min(520px,100%);
   max-height:90vh;
   overflow:auto;
-  border-radius:14px;
+  border-radius:var(--engage-modal-radius);
   background:#fff;
   box-shadow:0 25px 70px rgba(12,37,65,.2);
 }
@@ -413,7 +413,7 @@
   width:27px;
   height:27px;
   border:1px solid #e1e8f0;
-  border-radius:7px;
+  border-radius:var(--engage-control-radius);
   background:#fff;
   color:#718198;
   font-size:17px;
@@ -426,7 +426,7 @@
   margin:14px;
   overflow:hidden;
   border:1px solid #e6edf4;
-  border-radius:9px;
+  border-radius:var(--engage-card-radius);
   background:#e6edf4;
 }
 
@@ -476,7 +476,7 @@
 .finance-form-grid textarea {
   width:100%;
   border:1px solid #dce5ef;
-  border-radius:7px;
+  border-radius:var(--engage-control-radius);
   outline:0;
   padding:8px;
   background:#fbfdff;
