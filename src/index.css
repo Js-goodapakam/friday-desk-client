@@ -1769,7 +1769,7 @@ body{
   background:
     radial-gradient(75% 55% at 100% 0%,rgba(64,208,255,1) 0%,rgba(64,208,255,.55) 35%,rgba(64,208,255,0) 100%),
     radial-gradient(90% 45% at 60% 100%,rgba(26,120,245,.9) 0%,rgba(26,120,245,0) 100%),
-    linear-gradient(170deg,#040c2c 0%,#061a58 40%,#0a3aa8 75%,#0d4fd0 100%);
+    linear-gradient(170deg,#040c2c 0%,var(--engage-royal) 40%,#0a3aa8 75%,#0d4fd0 100%);
 }
 
 /* Build | Automate | Grow */
@@ -3200,7 +3200,7 @@ body{
   background:
     radial-gradient(75% 55% at 100% 0%,rgba(64,208,255,1) 0%,rgba(64,208,255,.55) 35%,rgba(64,208,255,0) 100%),
     radial-gradient(90% 45% at 60% 100%,rgba(26,120,245,.9) 0%,rgba(26,120,245,0) 100%),
-    linear-gradient(170deg,#040c2c 0%,#061a58 40%,#0a3aa8 75%,#0d4fd0 100%)!important;
+    linear-gradient(170deg,#040c2c 0%,var(--engage-royal) 40%,#0a3aa8 75%,#0d4fd0 100%)!important;
 }
 
 .fl-right-canvas{
