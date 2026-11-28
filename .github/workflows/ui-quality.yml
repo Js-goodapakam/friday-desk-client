@@ -6,6 +6,7 @@ on:
     branches: [main]
 permissions:
   contents: read
+  packages: read
 jobs:
   frontend:
     runs-on: ubuntu-latest
@@ -16,6 +17,8 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run build
       - run: node --test src/core/*.test.js
       - run: npm run lint

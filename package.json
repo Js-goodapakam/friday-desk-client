@@ -14,7 +14,8 @@
     "@telecmi/piopiyjs": "^0.26.4",
     "lucide-react": "0.468.0",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "@js-goodapakam/engage-design-system": "0.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
