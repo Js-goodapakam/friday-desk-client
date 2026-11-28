@@ -1,0 +1,20 @@
+name: Design system metadata
+on:
+  push:
+    branches: ['feature/p0-ui-quality']
+    paths: ['.github/workflows/design-system-metadata.yml']
+permissions:
+  contents: read
+  packages: read
+jobs:
+  metadata:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: https://npm.pkg.github.com
+          scope: '@js-goodapakam'
+      - run: npm view @js-goodapakam/engage-design-system@0.1.0 dist --json
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
