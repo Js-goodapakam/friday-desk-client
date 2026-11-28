@@ -19,10 +19,10 @@
   top: 12px;
   align-self: start;
   padding: 12px 8px;
-  border: 1px solid #dfe8f1;
-  border-radius: 13px;
+  border:1px solid var(--engage-border);
+  border-radius:var(--engage-card-radius);
   background: #fff;
-  box-shadow: 0 4px 16px rgba(30, 64, 102, .035);
+  box-shadow:var(--engage-card-shadow);
 }
 
 .fd-settings-sidebar-title {
@@ -74,7 +74,7 @@
   margin: 2px 0;
   padding: 6px 7px;
   border: 0;
-  border-radius: 8px;
+  border-radius:var(--engage-control-radius);
   background: transparent;
   color: #60748d;
   text-align: left;
@@ -216,13 +216,13 @@
 }
 
 .fd-save-button {
-  height: 34px;
+  height:var(--engage-control-height);
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 0 12px;
   border: 0;
-  border-radius: 8px;
+  border-radius:var(--engage-control-radius);
   background: linear-gradient(135deg, #175caf, #1d94dc);
   color: #fff;
   font-size: 11px;
@@ -243,10 +243,10 @@
 .fd-settings-card {
   margin-bottom: 12px;
   padding: 15px;
-  border: 1px solid #e0e8f1;
-  border-radius: 12px;
+  border:1px solid var(--engage-border);
+  border-radius:var(--engage-card-radius);
   background: #fff;
-  box-shadow: 0 4px 15px rgba(30, 64, 102, .035);
+  box-shadow:var(--engage-card-shadow);
 }
 
 .fd-card-title {
@@ -289,9 +289,9 @@
 .fd-provider-modal input,
 .fd-provider-modal select {
   width: 100%;
-  min-height: 36px;
+  min-height:var(--engage-control-height);
   border: 1px solid #dce5ee;
-  border-radius: 7px;
+  border-radius:var(--engage-control-radius);
   outline: none;
   background: #fbfdff;
   color: #38516d;
@@ -314,13 +314,13 @@
 }
 
 .fd-outline-button {
-  height: 30px;
+  height:var(--engage-control-height);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0 10px;
   border: 1px solid #cfe0ef;
-  border-radius: 7px;
+  border-radius:var(--engage-control-radius);
   background: #fff;
   color: #1765a3;
   font-size: 11px;
@@ -450,8 +450,8 @@
   align-items: center;
   gap: 7px;
   padding: 8px;
-  border: 1px solid #e1e9f1;
-  border-radius: 9px;
+  border:1px solid var(--engage-border);
+  border-radius:var(--engage-card-radius);
   background: #fbfdff;
 }
 
@@ -1350,8 +1350,7 @@
 .fd-settings-card textarea,
 .fd-provider-modal input,
 .fd-provider-modal select {
-  font-size: 12.5px !important;
-}
+  font-size: 12.5px !important;min-height:var(--engage-control-height);}
 
 .fd-settings-card .field label,
 .fd-provider-modal .field label {
