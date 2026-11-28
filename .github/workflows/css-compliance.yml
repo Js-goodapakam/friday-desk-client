@@ -1,0 +1,23 @@
+name: CSS compliance inventory
+on:
+  push:
+    branches: ['feature/p0-ui-quality']
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Inventory all stylesheets
+        run: node scripts/css-compliance.mjs src > css-compliance.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: css-compliance
+          path: css-compliance.json
